@@ -1,0 +1,258 @@
+<pre class="metadata">
+Title: Magnetometer Sensor
+Level: 1
+Status: ED
+ED: https://w3c.github.io/magnetometer/
+Shortname: magnetometer
+TR: https://www.w3.org/TR/magnetometer/
+Editor: Anssi Kostiainen 41974, Intel Corporation, https://intel.com/
+Editor: Rijubrata Bhaumik 80407, Intel Corporation, https://intel.com/
+Group: dap
+Abstract:
+  This specification defines a concrete sensor interface to measure magnetic
+  field in the X, Y and Z axis.
+Version History: https://github.com/w3c/magnetometer/commits/gh-pages/index.bs
+!Bug Reports: <a href="https://www.github.com/w3c/magnetometer/issues/new">via the w3c/magnetometer repository on GitHub</a>
+Indent: 2
+Repository: w3c/magnetometer
+Markup Shorthands: markdown on
+Inline Github Issues: true
+!Issue Tracking: <a href="https://github.com/w3c/magnetometer/issues">Issues</a>
+!Test Suite: <a href="https://github.com/w3c/web-platform-tests/tree/master/magnetometer">web-platform-tests on GitHub</a>
+Boilerplate: omit issues-index, omit conformance
+Default Biblio Status: current
+</pre>
+<pre class="anchors">
+urlPrefix: https://w3c.github.io/permissions/; spec: PERMISSIONS
+  type: dfn
+    text: permission; url: idl-def-Permission
+    text: associated PermissionDescriptor;  url: dfn-associated-permissiondescriptor
+urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
+  type: dfn
+    text: high-level
+    text: sensor subclass
+    text: sensorreading subclass
+    text: default sensor
+    text: supported reporting mode; url: supported-reporting-modes
+    text: auto
+    text: construct a sensor object; url: construct-sensor-object
+</pre>
+
+Introduction {#intro}
+============
+
+The Magnetometer Sensor extends the Generic Sensor API [[GENERIC-SENSOR]]
+to provide information about the <a>geomagnetic field</a>
+as detected by the device's primary magnetometer sensor.
+The magnetometer sensor measures the ambient <a>geomagnetic field</a> for all three
+physical axes (x, y, z) in μT (micro Tesla).
+
+<dfn>Geomagnetic field</dfn> is defined as the magnetic force field that surrounds the Earth.
+It is attributed to the combined effects of the planetary rotation and the movement of molten iron in the Earth's' core.
+
+
+A magnetoresistive component (permalloy) is one which changes resistance in proportion to the strength of a magnetic field along its axis.
+The 3 axis magnetometer usually found in mobile phones, have 3 such components oriented such that each one is orthogonal to the other two,
+one each in the X, Y and Z directions in the device's <a>local coordinate system</a>.
+Each individual magnetoresistive element senses only the component of the magnetic field parallel to the element axis and ignores field components orthogonal to the element axis.
+
+
+Examples {#examples}
+========
+
+<div class="example">
+    <pre highlight="js">
+    let sensor = new MagnetometerSensor();
+    sensor.start();
+
+    sensor.onchange = function(event) {
+        console.log("MagneticField along the X-axis " + event.reading.magneticFieldX);
+        console.log("MagneticField along the Y-axis " + event.reading.magneticFieldY);
+        console.log("MagneticField along the Z-axis " + event.reading.magneticFieldZ);
+    };
+
+    sensor.onerror = event => console.log(event.error.name, event.error.message);
+    </pre>
+</div>
+
+Security and Privacy Considerations {#security-and-privacy}
+===================================
+
+There are no specific security and privacy considerations
+beyond those described in the Generic Sensor API [[!GENERIC-SENSOR]].
+
+Model {#model}
+=====
+
+The Magnetometer Sensor's associated <a>Sensor subclass</a>
+is the {{MagnetometerSensor}} class.
+
+The Magnetometer Sensor's associated <a>SensorReading subclass</a>
+is the {{MagnetometerSensorReading}} class.
+
+The Magnetometer Sensor has a <a>default sensor</a>,
+which is the device's main magnetometer sensor.
+
+The Magnetometer Sensor has a single <a>supported reporting mode</a>
+which is "<a>auto</a>".
+
+The Magnetometer Sensor's <a>permission</a> name is `"magnetometer"`.
+It has no <a>associated PermissionDescriptor</a>.
+
+The Magnetometer Sensor has an associated abstract operation
+to <dfn>retrieve the sensor permission</dfn> which
+must simply return a <a>permission</a> whose name is "magnetometer".
+
+The Magnetometer Sensor has an associated abstract operation
+to <dfn lt="Construct SensorReading Object">construct a SensorReading object</dfn>
+which creates a new {{MagnetometerSensorReading}} object and sets each of its
+<a attribute for="MagnetometerSensorReading">magneticFieldX</a>,
+<a attribute for="MagnetometerSensorReading">magneticFieldY</a> and
+<a attribute for="MagnetometerSensorReading">magneticFieldZ</a> attributes to zero.
+
+The {{MagnetometerSensorReading}}'s attribute values must be in μT (micro Tesla),
+expressed in a three-dimentional Cartesian <a>local coordinate system</a>
+defined by the device.
+
+
+Note: The <dfn>local coordinate system</dfn> of a mobile device is usually defined relative to
+the device's screen when the device in its default orientation (see figure below).
+
+
+
+<img src="magnetometer_coordinate_system.png" srcset="magnetometer_coordinate_system.svg" alt="Magnetometer coordinate system.">
+
+
+API {#api}
+===
+
+The MagnetometerSensor Interface {#magnetometer-sensor-interface}
+--------------------------------
+
+<pre class="idl">
+  [Constructor(optional SensorOptions sensorOptions)]
+  interface MagnetometerSensor : Sensor {
+    readonly attribute MagnetometerSensorReading? reading;
+  };
+</pre>
+
+To <dfn>Construct an MagnetometerSensor Object</dfn> the user agent must invoke the
+<a>construct a Sensor object</a> abstract operation.
+
+The MagnetometerSensorReading Interface {#magnetometer-sensor-reading-interface}
+---------------------------------------
+
+<pre class="idl">
+  [Constructor(MagnetometerSensorReadingInit magnetometerSensorReadingInit)]
+  interface MagnetometerSensorReading : SensorReading {
+      readonly attribute double magneticFieldX;
+      readonly attribute double magneticFieldY;
+      readonly attribute double magneticFieldZ;
+  };
+
+  dictionary MagnetometerSensorReadingInit {
+    double magneticFieldX = 0;
+    double magneticFieldY = 0;
+    double magneticFieldZ = 0;
+  };
+</pre>
+
+### The MagnetometerSensorReading constructor ### {#magnetometer-sensor-reading-constructor}
+
+The MagnetometerSensorReading constructor accepts {{MagnetometerSensorReadingInit}} dictionary that is used for initialization of {{MagnetometerSensorReading}} attributes.
+
+
+
+### The MagnetometerSensorReading attributes ### {#magnetometer-sensor-reading-attribute}
+
+The <a attribute for="MagnetometerSensorReading">magneticFieldX</a> attribute of the {{MagnetometerSensorReading}}
+interface represents represents the <a>geomagnetic field</a> around X-axis.
+
+The <a attribute for="MagnetometerSensorReading">magneticFieldY</a> attribute of the {{MagnetometerSensorReading}}
+interface represents represents the <a>geomagnetic field</a> around Y-axis.
+
+The <a attribute for="MagnetometerSensorReading">magneticFieldZ</a> attribute of the {{MagnetometerSensorReading}}
+interface represents represents the <a>geomagnetic field</a> around Z-axis.
+
+
+Limitations of Magnetometer Sensors {#limitations-magnetometer}
+==============
+
+The direction and magnitude of the Earth’s field changes with location, latitude in particular. For example,
+the magnitude is lowest near the equator and highest near the poles.
+There might be some hard-iron interference, meaning presence of permanent magnets (e.g. magnets in the speaker of a phone) in the vicinity of the sensor.
+Presence of electronic items, laptops, batteries, etc also contribute to the soft-iron interference.
+Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.
+
+In addition to the above spatial variations of the <a>geomagnetic field</a>, there may be time based variations,
+like solar winds or magnetic storms which distort the magnetosphere or external magnetic field of the earth.
+
+
+Compass Heading using Magnetometers {#compass}
+======================
+
+Compasses, instruments that align themselves with the magnetic poles of the Earth, have been used in navigation for centuries.
+The earth’s rotational axis defines the geographic north and south poles that we use for
+map references. It turns out that there is a discrepancy of around 11.5 degrees (around 1000 miles) between the geographic poles and the
+magnetic poles. <a>Declination angle</a> is applied to the magnetic direction to correct for this situation.
+
+If the device is always level to the earth’s surface, compass heading can be determined by using just the
+{{magneticFieldX}} and {{magneticFieldY}} component of the earth’s magnetic field, that
+is, the directions planar with the earth’s surface.
+To determine true north heading, add or subtract the appropriate <a>declination angle</a>.
+
+<dfn>Magnetic declination</dfn> or <dfn>declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth's surface, and changes over time.
+By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a>magnetic declination</a> from <a href="http://www.magnetic-declination.com/">this website</a>.
+
+<div class="example">
+  <pre highlight="js">
+
+    var heading = (Math.atan2 (event.reading.magneticFieldY,
+                               event.reading.magneticFieldX) * 180) / Math.PI;
+    // Normalize heading.
+    if (heading < 0)
+        heading += 2 * Math.PI;
+
+    if (heading > 2 * Math.PI)
+        heading -= 2 * Math.PI;
+
+    var heading_degrees = heading * 180 / Math.PI;
+
+    // use + if declination is EAST, use - if declination is WEST.
+    var true_heading_degrees = heading_degrees + declination_angle;
+
+    </pre>
+</div>
+
+
+If the device is not level to the earth’s surface, we need to apply various tilt compensation
+techniques for which we need the a 3-axis accelerometer.
+
+A specification for Orientation sensor, which is a fusion of the accelerometer and magnetometer sensors, will deal with this use case.
+
+
+Acknowledgements {#acknowledgements}
+================
+
+Tobie Langel for the work on Generic Sensor API.
+
+
+<h2 id="conformance" class="no-ref no-num">Conformance</h2>
+
+ <h3 id="conventions" class="no-ref no-num">Document conventions</h3>
+
+     <p>Conformance requirements are expressed with a combination of
+     descriptive assertions and RFC 2119 terminology. The key words "MUST",
+     "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+     "RECOMMENDED", "MAY", and "OPTIONAL" in the normative parts of this
+     document are to be interpreted as described in RFC 2119.
+     However, for readability, these words do not appear in all uppercase
+     letters in this specification.
+
+     <p>All of the text of this specification is normative except sections
+     explicitly marked as non-normative, examples, and notes. [[!RFC2119]]</p>
+
+ <h3 id="conformance-classes" class="no-ref no-num">Conformance Classes</h3>
+
+     <p>A <dfn>conformant user agent</dfn> must implement all the requirements
+     listed in this specification that are applicable to user agents.</p>
