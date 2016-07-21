@@ -206,21 +206,23 @@ By convention, declination is positive when magnetic north is east of true north
 
 <div class="example">
   <pre highlight="js">
-
-    var heading = (Math.atan2 (event.reading.magneticFieldY,
-                               event.reading.magneticFieldX) * 180) / Math.PI;
-    // Normalize heading.
-    if (heading < 0)
+    sensor.onchange = function({ reading }) {
+      const { magneticFieldX: x, magneticFieldY: y } = reading;
+      let heading = (Math.atan2(x, y) * 180) / Math.PI;
+      // Normalize heading.
+      if (heading < 0) {
         heading += 2 * Math.PI;
+      }
 
-    if (heading > 2 * Math.PI)
+      if (heading > (2 * Math.PI)) {
         heading -= 2 * Math.PI;
+      }
 
-    var heading_degrees = heading * 180 / Math.PI;
+      const headingDegrees = heading * 180 / Math.PI;
 
-    // use + if declination is EAST, use - if declination is WEST.
-    var true_heading_degrees = heading_degrees + declination_angle;
-
+      // use + if declination is EAST, use - if declination is WEST.
+      const trueHeadingDegrees = headingDegrees + declinationAngle;
+    }
     </pre>
 </div>
 
