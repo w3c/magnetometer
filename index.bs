@@ -178,14 +178,17 @@ interface represents represents the <a>geomagnetic field</a> around Z-axis.
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
 ==============
 
+<em>This section is non-normative</em>.
+
 The direction and magnitude of the Earth’s field changes with location, latitude in particular. For example,
 the magnitude is lowest near the equator and highest near the poles.
-There might be some hard-iron interference, meaning presence of permanent magnets (e.g. magnets in the speaker of a phone) in the vicinity of the sensor.
+Some hard-iron interference, meaning presence of permanent magnets (e.g. magnets in the speaker of a phone) in the vicinity of the sensor
+also affects the accuracy of the reading.
 Presence of electronic items, laptops, batteries, etc also contribute to the soft-iron interference.
 Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.
 
-In addition to the above spatial variations of the <a>geomagnetic field</a>, there may be time based variations,
-like solar winds or magnetic storms which distort the magnetosphere or external magnetic field of the earth.
+In addition to the above spatial variations of the <a>geomagnetic field</a>, time based variations,
+like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.
 
 
 Compass Heading using Magnetometers {#compass}
