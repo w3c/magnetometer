@@ -1405,7 +1405,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer Sensor</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-07-11">11 July 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-08-04">4 August 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1577,13 +1577,15 @@ the device’s screen when the device in its default orientation (see figure bel
    <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldy" id="ref-for-dom-magnetometersensorreading-magneticfieldy-2">magneticFieldY</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-7">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-4">geomagnetic field</a> around Y-axis.</p>
    <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldz" id="ref-for-dom-magnetometersensorreading-magneticfieldz-2">magneticFieldZ</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-8">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-5">geomagnetic field</a> around Z-axis.</p>
    <h2 class="heading settled" data-level="6" id="limitations-magnetometer"><span class="secno">6. </span><span class="content">Limitations of Magnetometer Sensors</span><a class="self-link" href="#limitations-magnetometer"></a></h2>
+   <p><em>This section is non-normative</em>.</p>
    <p>The direction and magnitude of the Earth’s field changes with location, latitude in particular. For example,
 the magnitude is lowest near the equator and highest near the poles.
-There might be some hard-iron interference, meaning presence of permanent magnets (e.g. magnets in the speaker of a phone) in the vicinity of the sensor.
+Some hard-iron interference, meaning presence of permanent magnets (e.g. magnets in the speaker of a phone) in the vicinity of the sensor
+also affects the accuracy of the reading.
 Presence of electronic items, laptops, batteries, etc also contribute to the soft-iron interference.
 Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.</p>
-   <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-6">geomagnetic field</a>, there may be time based variations,
-like solar winds or magnetic storms which distort the magnetosphere or external magnetic field of the earth.</p>
+   <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-6">geomagnetic field</a>, time based variations,
+like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.</p>
    <h2 class="heading settled" data-level="7" id="compass"><span class="secno">7. </span><span class="content">Compass Heading using Magnetometers</span><a class="self-link" href="#compass"></a></h2>
    <p>Compasses, instruments that align themselves with the magnetic poles of the Earth, have been used in navigation for centuries.
 The earth’s rotational axis defines the geographic north and south poles that we use for
