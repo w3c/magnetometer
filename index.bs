@@ -47,7 +47,7 @@ The magnetometer sensor measures the ambient <a>geomagnetic field</a> for all th
 physical axes (x, y, z) in μT (micro Tesla).
 
 <dfn>Geomagnetic field</dfn> is defined as the magnetic force field that surrounds the Earth.
-It is attributed to the combined effects of the planetary rotation and the movement of molten iron in the Earth's' core.
+It is attributed to the combined effects of the planetary rotation and the movement of molten iron in the Earth's core.
 
 
 A magnetoresistive component (permalloy) is one which changes resistance in proportion to the strength of a magnetic field along its axis.
@@ -65,9 +65,9 @@ Examples {#examples}
     sensor.start();
 
     sensor.onchange = function(event) {
-        console.log("MagneticField along the X-axis " + event.reading.magneticFieldX);
-        console.log("MagneticField along the Y-axis " + event.reading.magneticFieldY);
-        console.log("MagneticField along the Z-axis " + event.reading.magneticFieldZ);
+        console.log("Magnetic field along the X-axis " + event.reading.magneticFieldX);
+        console.log("Magnetic field along the Y-axis " + event.reading.magneticFieldY);
+        console.log("Magnetic field along the Z-axis " + event.reading.magneticFieldZ);
     };
 
     sensor.onerror = event => console.log(event.error.name, event.error.message);
@@ -113,6 +113,8 @@ The {{MagnetometerSensorReading}}'s attribute values must be in μT (micro Tesla
 expressed in a three-dimentional Cartesian <a>local coordinate system</a>
 defined by the device.
 
+The sign of the <a>geomagnetic field</a> values must be according to the
+right-hand convention in a <a>local coordinate system</a> defined by the device.
 
 Note: The <dfn>local coordinate system</dfn> of a mobile device is usually defined relative to
 the device's screen when the device in its default orientation (see figure below).
@@ -209,19 +211,11 @@ By convention, declination is positive when magnetic north is east of true north
 <div class="example">
   <pre highlight="js">
 
-    var heading = (Math.atan2 (event.reading.magneticFieldY,
-                               event.reading.magneticFieldX) * 180) / Math.PI;
-    // Normalize heading.
-    if (heading < 0)
-        heading += 2 * Math.PI;
+    var headingDegrees = Math.atan2(event.reading.magneticFieldY,
+                                    event.reading.magneticFieldX) * (180 / Math.PI);
 
-    if (heading > 2 * Math.PI)
-        heading -= 2 * Math.PI;
-
-    var heading_degrees = heading * 180 / Math.PI;
-
-    // use + if declination is EAST, use - if declination is WEST.
-    var true_heading_degrees = heading_degrees + declination_angle;
+    // Compensate for magnetic declination.
+    var trueHeadingDegrees = headingDegrees + declinationAngleDegrees;
 
     </pre>
 </div>

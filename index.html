@@ -1415,7 +1415,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer Sensor</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-07">7 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-08">8 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1511,21 +1511,21 @@ field in the X, Y and Z axis.</p>
 The magnetometer sensor measures the ambient <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-2">geomagnetic field</a> for all three
 physical axes (x, y, z) in μT (micro Tesla).</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-field">Geomagnetic field</dfn> is defined as the magnetic force field that surrounds the Earth.
-It is attributed to the combined effects of the planetary rotation and the movement of molten iron in the Earth’s' core.</p>
+It is attributed to the combined effects of the planetary rotation and the movement of molten iron in the Earth’s core.</p>
    <p>A magnetoresistive component (permalloy) is one which changes resistance in proportion to the strength of a magnetic field along its axis.
 The 3 axis magnetometer usually found in mobile phones, have 3 such components oriented such that each one is orthogonal to the other two,
 one each in the X, Y and Z directions in the device’s <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-1">local coordinate system</a>.
 Each individual magnetoresistive element senses only the component of the magnetic field parallel to the element axis and ignores field components orthogonal to the element axis.</p>
    <h2 class="heading settled" data-level="2" id="examples"><span class="secno">2. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
-   <div class="example" id="example-bd7ef913">
-    <a class="self-link" href="#example-bd7ef913"></a> 
+   <div class="example" id="example-6f60a4ba">
+    <a class="self-link" href="#example-6f60a4ba"></a> 
 <pre class="highlight"><span></span><span class="kd">let</span> <span class="nx">sensor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MagnetometerSensor</span><span class="p">();</span>
 <span class="nx">sensor</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 
 <span class="nx">sensor</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"MagneticField along the X-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldX</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"MagneticField along the Y-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldY</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"MagneticField along the Z-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldZ</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the X-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldX</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the Y-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldY</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the Z-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldZ</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">sensor</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">event</span> <span class="o">=></span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
@@ -1549,6 +1549,8 @@ must simply return a <a data-link-type="dfn" href="https://w3c.github.io/permiss
 to <dfn data-dfn-type="dfn" data-lt="Construct SensorReading Object" data-noexport="" id="construct-sensorreading-object">construct a SensorReading object<a class="self-link" href="#construct-sensorreading-object"></a></dfn> which creates a new <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-2">MagnetometerSensorReading</a></code> object and sets each of its <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldx" id="ref-for-dom-magnetometersensorreading-magneticfieldx-1">magneticFieldX</a>, <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldy" id="ref-for-dom-magnetometersensorreading-magneticfieldy-1">magneticFieldY</a> and <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldz" id="ref-for-dom-magnetometersensorreading-magneticfieldz-1">magneticFieldZ</a> attributes to zero.</p>
    <p>The <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-3">MagnetometerSensorReading</a></code>'s attribute values must be in μT (micro Tesla),
 expressed in a three-dimentional Cartesian <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-2">local coordinate system</a> defined by the device.</p>
+   <p>The sign of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-3">geomagnetic field</a> values must be according to the
+right-hand convention in a <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-3">local coordinate system</a> defined by the device.</p>
    <p class="note" role="note">Note: The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="local-coordinate-system">local coordinate system</dfn> of a mobile device is usually defined relative to
 the device’s screen when the device in its default orientation (see figure below).</p>
    <p><img alt="Magnetometer coordinate system." src="magnetometer_coordinate_system.png" srcset="magnetometer_coordinate_system.svg"></p>
@@ -1577,9 +1579,9 @@ the device’s screen when the device in its default orientation (see figure bel
    <h4 class="heading settled" data-level="5.2.1" id="magnetometer-sensor-reading-constructor"><span class="secno">5.2.1. </span><span class="content">The MagnetometerSensorReading constructor</span><a class="self-link" href="#magnetometer-sensor-reading-constructor"></a></h4>
    <p>The MagnetometerSensorReading constructor accepts <code class="idl"><a data-link-type="idl" href="#dictdef-magnetometersensorreadinginit" id="ref-for-dictdef-magnetometersensorreadinginit-2">MagnetometerSensorReadingInit</a></code> dictionary that is used for initialization of <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-5">MagnetometerSensorReading</a></code> attributes.</p>
    <h4 class="heading settled" data-level="5.2.2" id="magnetometer-sensor-reading-attribute"><span class="secno">5.2.2. </span><span class="content">The MagnetometerSensorReading attributes</span><a class="self-link" href="#magnetometer-sensor-reading-attribute"></a></h4>
-   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldx" id="ref-for-dom-magnetometersensorreading-magneticfieldx-2">magneticFieldX</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-6">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-3">geomagnetic field</a> around X-axis.</p>
-   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldy" id="ref-for-dom-magnetometersensorreading-magneticfieldy-2">magneticFieldY</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-7">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-4">geomagnetic field</a> around Y-axis.</p>
-   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldz" id="ref-for-dom-magnetometersensorreading-magneticfieldz-2">magneticFieldZ</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-8">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-5">geomagnetic field</a> around Z-axis.</p>
+   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldx" id="ref-for-dom-magnetometersensorreading-magneticfieldx-2">magneticFieldX</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-6">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-4">geomagnetic field</a> around X-axis.</p>
+   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldy" id="ref-for-dom-magnetometersensorreading-magneticfieldy-2">magneticFieldY</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-7">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-5">geomagnetic field</a> around Y-axis.</p>
+   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometersensorreading-magneticfieldz" id="ref-for-dom-magnetometersensorreading-magneticfieldz-2">magneticFieldZ</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometersensorreading" id="ref-for-magnetometersensorreading-8">MagnetometerSensorReading</a></code> interface represents represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-6">geomagnetic field</a> around Z-axis.</p>
    <h2 class="heading settled" data-level="6" id="limitations-magnetometer"><span class="secno">6. </span><span class="content">Limitations of Magnetometer Sensors</span><a class="self-link" href="#limitations-magnetometer"></a></h2>
    <p><em>This section is non-normative</em>.</p>
    <p>The direction and magnitude of the Earth’s field changes with location, latitude in particular. For example,
@@ -1588,7 +1590,7 @@ Some hard-iron interference, meaning presence of permanent magnets (e.g. magnets
 also affects the accuracy of the reading.
 Presence of electronic items, laptops, batteries, etc also contribute to the soft-iron interference.
 Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.</p>
-   <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-6">geomagnetic field</a>, time based variations,
+   <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-7">geomagnetic field</a>, time based variations,
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.</p>
    <h2 class="heading settled" data-level="7" id="compass"><span class="secno">7. </span><span class="content">Compass Heading using Magnetometers</span><a class="self-link" href="#compass"></a></h2>
    <p>Compasses, instruments that align themselves with the magnetic poles of the Earth, have been used in navigation for centuries.
@@ -1600,21 +1602,13 @@ is, the directions planar with the earth’s surface.
 To determine true north heading, add or subtract the appropriate <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle-2">declination angle</a>.</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="magnetic-declination">Magnetic declination</dfn> or <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="declination-angle">declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth’s surface, and changes over time.
 By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-1">magnetic declination</a> from <a href="http://www.magnetic-declination.com/">this website</a>.</p>
-   <div class="example" id="example-0b3d9fc1">
-    <a class="self-link" href="#example-0b3d9fc1"></a> 
-<pre class="highlight"><span></span><span class="kd">var</span> <span class="nx">heading</span> <span class="o">=</span> <span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldY</span><span class="p">,</span>
-                           <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldX</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="p">)</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
-<span class="c1">// Normalize heading.</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">heading</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nx">heading</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+   <div class="example" id="example-9b692b47">
+    <a class="self-link" href="#example-9b692b47"></a> 
+<pre class="highlight"><span></span><span class="kd">var</span> <span class="nx">headingDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldY</span><span class="p">,</span>
+                                <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldX</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
 
-<span class="k">if</span> <span class="p">(</span><span class="nx">heading</span> <span class="o">></span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span>
-    <span class="nx">heading</span> <span class="o">-=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">heading_degrees</span> <span class="o">=</span> <span class="nx">heading</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
-
-<span class="c1">// use + if declination is EAST, use - if declination is WEST.</span>
-<span class="kd">var</span> <span class="nx">true_heading_degrees</span> <span class="o">=</span> <span class="nx">heading_degrees</span> <span class="o">+</span> <span class="nx">declination_angle</span><span class="p">;</span>
+<span class="c1">// Compensate for magnetic declination.</span>
+<span class="kd">var</span> <span class="nx">trueHeadingDegrees</span> <span class="o">=</span> <span class="nx">headingDegrees</span> <span class="o">+</span> <span class="nx">declinationAngleDegrees</span><span class="p">;</span>
 </pre>
    </div>
    <p>If the device is not level to the earth’s surface, we need to apply various tilt compensation
@@ -1737,15 +1731,16 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <b><a href="#geomagnetic-field">#geomagnetic-field</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-geomagnetic-field-1">1. Introduction</a> <a href="#ref-for-geomagnetic-field-2">(2)</a>
-    <li><a href="#ref-for-geomagnetic-field-3">5.2.2. The MagnetometerSensorReading attributes</a> <a href="#ref-for-geomagnetic-field-4">(2)</a> <a href="#ref-for-geomagnetic-field-5">(3)</a>
-    <li><a href="#ref-for-geomagnetic-field-6">6. Limitations of Magnetometer Sensors</a>
+    <li><a href="#ref-for-geomagnetic-field-3">4. Model</a>
+    <li><a href="#ref-for-geomagnetic-field-4">5.2.2. The MagnetometerSensorReading attributes</a> <a href="#ref-for-geomagnetic-field-5">(2)</a> <a href="#ref-for-geomagnetic-field-6">(3)</a>
+    <li><a href="#ref-for-geomagnetic-field-7">6. Limitations of Magnetometer Sensors</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="local-coordinate-system">
    <b><a href="#local-coordinate-system">#local-coordinate-system</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-local-coordinate-system-1">1. Introduction</a>
-    <li><a href="#ref-for-local-coordinate-system-2">4. Model</a>
+    <li><a href="#ref-for-local-coordinate-system-2">4. Model</a> <a href="#ref-for-local-coordinate-system-3">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="magnetometersensor">
