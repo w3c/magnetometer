@@ -1415,7 +1415,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer Sensor</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-08">8 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-09">9 September 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1488,7 +1488,7 @@ field in the X, Y and Z axis.</p>
        </ol>
      </ol>
     <li><a href="#limitations-magnetometer"><span class="secno">6</span> <span class="content">Limitations of Magnetometer Sensors</span></a>
-    <li><a href="#compass"><span class="secno">7</span> <span class="content">Compass Heading using Magnetometers</span></a>
+    <li><a href="#compass"><span class="secno">7</span> <span class="content">Compass Heading Using Magnetometers</span></a>
     <li><a href="#acknowledgements"><span class="secno">8</span> <span class="content">Acknowledgements</span></a>
     <li><a href="#conformance"><span class="secno">9</span> <span class="content">Conformance</span></a>
     <li>
@@ -1592,28 +1592,47 @@ Presence of electronic items, laptops, batteries, etc also contribute to the sof
 Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.</p>
    <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-7">geomagnetic field</a>, time based variations,
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.</p>
-   <h2 class="heading settled" data-level="7" id="compass"><span class="secno">7. </span><span class="content">Compass Heading using Magnetometers</span><a class="self-link" href="#compass"></a></h2>
+   <h2 class="heading settled" data-level="7" id="compass"><span class="secno">7. </span><span class="content">Compass Heading Using Magnetometers</span><a class="self-link" href="#compass"></a></h2>
    <p>Compasses, instruments that align themselves with the magnetic poles of the Earth, have been used in navigation for centuries.
 The earth’s rotational axis defines the geographic north and south poles that we use for
 map references. It turns out that there is a discrepancy of around 11.5 degrees (around 1000 miles) between the geographic poles and the
 magnetic poles. <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle-1">Declination angle</a> is applied to the magnetic direction to correct for this situation.</p>
    <p>If the device is always level to the earth’s surface, compass heading can be determined by using just the <code class="idl"><a data-link-type="idl" href="#dom-magnetometersensorreading-magneticfieldx" id="ref-for-dom-magnetometersensorreading-magneticfieldx-3">magneticFieldX</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-magnetometersensorreading-magneticfieldy" id="ref-for-dom-magnetometersensorreading-magneticfieldy-3">magneticFieldY</a></code> component of the earth’s magnetic field, that
 is, the directions planar with the earth’s surface.
-To determine true north heading, add or subtract the appropriate <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle-2">declination angle</a>.</p>
+To determine geographic north (or true north) heading, add the appropriate <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle-2">declination angle</a>.</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="magnetic-declination">Magnetic declination</dfn> or <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="declination-angle">declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth’s surface, and changes over time.
-By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-1">magnetic declination</a> from <a href="http://www.magnetic-declination.com/">this website</a>.</p>
-   <div class="example" id="example-9b692b47">
-    <a class="self-link" href="#example-9b692b47"></a> 
+By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-1">magnetic declination</a> e.g. using the <a href="http://www.ngdc.noaa.gov/geomag-web/calculators/declinationHelp">Magnetic declination calculator</a> provided by the National Oceanic and Atmospheric Administration (NOAA).</p>
+   <p>Magnetic north calculation is simple:</p>
+   <div class="example" id="example-ba2590b8">
+    <a class="self-link" href="#example-ba2590b8"></a> 
 <pre class="highlight"><span></span><span class="kd">var</span> <span class="nx">headingDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldY</span><span class="p">,</span>
                                 <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">magneticFieldX</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
 
-<span class="c1">// Compensate for magnetic declination.</span>
-<span class="kd">var</span> <span class="nx">trueHeadingDegrees</span> <span class="o">=</span> <span class="nx">headingDegrees</span> <span class="o">+</span> <span class="nx">declinationAngleDegrees</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Heading in degrees: '</span> <span class="o">+</span> <span class="nx">headingDegrees</span><span class="p">);</span>
 </pre>
    </div>
-   <p>If the device is not level to the earth’s surface, we need to apply various tilt compensation
-techniques for which we need the a 3-axis accelerometer.</p>
-   <p>A specification for Orientation sensor, which is a fusion of the accelerometer and magnetometer sensors, will deal with this use case.</p>
+   <p>To get geographic north (or true north) that considers the <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-2">magnetic declination</a> at the given latitude and longitude,
+further work is required:</p>
+   <div class="example" id="example-e305dc8d">
+    <a class="self-link" href="#example-e305dc8d"></a> 
+<pre class="highlight"><span></span><span class="c1">// First, get the latitude and longitude (omitted for brevity).</span>
+<span class="kd">var</span> <span class="nx">latitude</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">longitude</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// Then, get the magnetic declination using your favorite web service.</span>
+<span class="kd">var</span> <span class="nx">base</span> <span class="o">=</span> <span class="s1">'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</span><span class="p">;</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="nx">base</span> <span class="o">+</span> <span class="s1">'?lat1='</span> <span class="o">+</span> <span class="nx">latitude</span> <span class="o">+</span> <span class="s1">'&amp;lon1='</span> <span class="o">+</span> <span class="nx">longitude</span> <span class="o">+</span> <span class="s1">'&amp;resultFormat=csv'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=></span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="nx">text</span> <span class="o">=></span> <span class="p">{</span> 
+    <span class="kd">var</span> <span class="nx">declinationDegrees</span> <span class="o">=</span>
+        <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^#.*$/gm</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)[</span><span class="mi">4</span><span class="p">]);</span>
+    <span class="c1">// Compensate for the magnetic declination to get the true north.</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'True heading in degrees: '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">headingDegrees</span> <span class="o">+</span> <span class="nx">declinationDegrees</span><span class="p">));</span>
+<span class="p">});</span>
+</pre>
+   </div>
+   <p>If the device is not level to the Earth’s surface, we need to apply various
+tilt compensation techniques for which we need a 3-axis accelerometer.
+A specification for orientation sensor, which is a fusion of the accelerometer
+and magnetometer sensors, is required to implement this particular use case.</p>
    <h2 class="heading settled" data-level="8" id="acknowledgements"><span class="secno">8. </span><span class="content">Acknowledgements</span><a class="self-link" href="#acknowledgements"></a></h2>
    <p>Tobie Langel for the work on Generic Sensor API.</p>
    <h2 class="heading settled" data-level="9" id="conformance"><span class="secno">9. </span><span class="content">Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -1763,7 +1782,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <ul>
     <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldx-1">4. Model</a>
     <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldx-2">5.2.2. The MagnetometerSensorReading attributes</a>
-    <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldx-3">7. Compass Heading using Magnetometers</a>
+    <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldx-3">7. Compass Heading Using Magnetometers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-magnetometersensorreading-magneticfieldy">
@@ -1771,7 +1790,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <ul>
     <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldy-1">4. Model</a>
     <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldy-2">5.2.2. The MagnetometerSensorReading attributes</a>
-    <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldy-3">7. Compass Heading using Magnetometers</a>
+    <li><a href="#ref-for-dom-magnetometersensorreading-magneticfieldy-3">7. Compass Heading Using Magnetometers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-magnetometersensorreading-magneticfieldz">
@@ -1791,13 +1810,13 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <aside class="dfn-panel" data-for="magnetic-declination">
    <b><a href="#magnetic-declination">#magnetic-declination</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-magnetic-declination-1">7. Compass Heading using Magnetometers</a>
+    <li><a href="#ref-for-magnetic-declination-1">7. Compass Heading Using Magnetometers</a> <a href="#ref-for-magnetic-declination-2">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="declination-angle">
    <b><a href="#declination-angle">#declination-angle</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-declination-angle-1">7. Compass Heading using Magnetometers</a> <a href="#ref-for-declination-angle-2">(2)</a>
+    <li><a href="#ref-for-declination-angle-1">7. Compass Heading Using Magnetometers</a> <a href="#ref-for-declination-angle-2">(2)</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */

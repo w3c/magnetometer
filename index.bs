@@ -192,7 +192,7 @@ In addition to the above spatial variations of the <a>geomagnetic field</a>, tim
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.
 
 
-Compass Heading using Magnetometers {#compass}
+Compass Heading Using Magnetometers {#compass}
 ======================
 
 Compasses, instruments that align themselves with the magnetic poles of the Earth, have been used in navigation for centuries.
@@ -203,28 +203,49 @@ magnetic poles. <a>Declination angle</a> is applied to the magnetic direction to
 If the device is always level to the earth’s surface, compass heading can be determined by using just the
 {{magneticFieldX}} and {{magneticFieldY}} component of the earth’s magnetic field, that
 is, the directions planar with the earth’s surface.
-To determine true north heading, add or subtract the appropriate <a>declination angle</a>.
+To determine geographic north (or true north) heading, add the appropriate <a>declination angle</a>.
 
 <dfn>Magnetic declination</dfn> or <dfn>declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth's surface, and changes over time.
-By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a>magnetic declination</a> from <a href="http://www.magnetic-declination.com/">this website</a>.
+By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a>magnetic declination</a> e.g. using the <a href="http://www.ngdc.noaa.gov/geomag-web/calculators/declinationHelp">Magnetic declination calculator</a>
+provided by the National Oceanic and Atmospheric Administration (NOAA).
+
+Magnetic north calculation is simple:
 
 <div class="example">
   <pre highlight="js">
-
     var headingDegrees = Math.atan2(event.reading.magneticFieldY,
                                     event.reading.magneticFieldX) * (180 / Math.PI);
 
-    // Compensate for magnetic declination.
-    var trueHeadingDegrees = headingDegrees + declinationAngleDegrees;
+    console.log('Heading in degrees: ' + headingDegrees);
+  </pre>
+</div>
 
+To get geographic north (or true north) that considers the
+<a>magnetic declination</a> at the given latitude and longitude,
+further work is required:
+
+<div class="example">
+  <pre highlight="js">
+    // First, get the latitude and longitude (omitted for brevity).
+    var latitude = 0, longitude = 0;
+
+    // Then, get the magnetic declination using your favorite web service.
+    var base = 'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination';
+    fetch(base + '?lat1=' + latitude + '&lon1=' + longitude + '&resultFormat=csv')
+      .then(response => response.text()).then(text => { 
+        var declinationDegrees =
+            parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
+        // Compensate for the magnetic declination to get the true north.
+        console.log('True heading in degrees: ' + (headingDegrees + declinationDegrees));
+    });
     </pre>
 </div>
 
 
-If the device is not level to the earth’s surface, we need to apply various tilt compensation
-techniques for which we need the a 3-axis accelerometer.
-
-A specification for Orientation sensor, which is a fusion of the accelerometer and magnetometer sensors, will deal with this use case.
+If the device is not level to the Earth’s surface, we need to apply various
+tilt compensation techniques for which we need a 3-axis accelerometer.
+A specification for orientation sensor, which is a fusion of the accelerometer
+and magnetometer sensors, is required to implement this particular use case.
 
 
 Acknowledgements {#acknowledgements}
