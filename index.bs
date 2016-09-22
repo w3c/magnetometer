@@ -93,7 +93,7 @@ The Magnetometer Sensor has a <a>default sensor</a>,
 which is the device's main magnetometer sensor.
 
 The Magnetometer Sensor has a single <a>supported reporting mode</a>
-which is "<a>auto</a>".
+which is "<a>periodic</a>".
 
 The Magnetometer Sensor's <a>permission</a> name is `"magnetometer"`.
 It has no <a>associated PermissionDescriptor</a>.
