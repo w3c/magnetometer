@@ -65,9 +65,9 @@ Examples {#examples}
     sensor.start();
 
     sensor.onchange = function(event) {
-        console.log("Magnetic field along the X-axis " + event.reading.magneticFieldX);
-        console.log("Magnetic field along the Y-axis " + event.reading.magneticFieldY);
-        console.log("Magnetic field along the Z-axis " + event.reading.magneticFieldZ);
+        console.log("Magnetic field along the X-axis " + event.reading.x);
+        console.log("Magnetic field along the Y-axis " + event.reading.y);
+        console.log("Magnetic field along the Z-axis " + event.reading.z);
     };
 
     sensor.onerror = event => console.log(event.error.name, event.error.message);
@@ -105,9 +105,9 @@ must simply return a <a>permission</a> whose name is "magnetometer".
 The Magnetometer Sensor has an associated abstract operation
 to <dfn lt="Construct SensorReading Object">construct a SensorReading object</dfn>
 which creates a new {{MagnetometerSensorReading}} object and sets each of its
-<a attribute for="MagnetometerSensorReading">magneticFieldX</a>,
-<a attribute for="MagnetometerSensorReading">magneticFieldY</a> and
-<a attribute for="MagnetometerSensorReading">magneticFieldZ</a> attributes to zero.
+<a attribute for="MagnetometerSensorReading">x</a>,
+<a attribute for="MagnetometerSensorReading">y</a> and
+<a attribute for="MagnetometerSensorReading">z</a> attributes to zero.
 
 The {{MagnetometerSensorReading}}'s attribute values must be in μT (micro Tesla),
 expressed in a three-dimentional Cartesian <a>local coordinate system</a>
@@ -146,15 +146,15 @@ The MagnetometerSensorReading Interface {#magnetometer-sensor-reading-interface}
 <pre class="idl">
   [Constructor(MagnetometerSensorReadingInit magnetometerSensorReadingInit)]
   interface MagnetometerSensorReading : SensorReading {
-      readonly attribute double magneticFieldX;
-      readonly attribute double magneticFieldY;
-      readonly attribute double magneticFieldZ;
+      readonly attribute double x;
+      readonly attribute double y;
+      readonly attribute double z;
   };
 
   dictionary MagnetometerSensorReadingInit {
-    double magneticFieldX = 0;
-    double magneticFieldY = 0;
-    double magneticFieldZ = 0;
+    double x = 0;
+    double y = 0;
+    double z = 0;
   };
 </pre>
 
@@ -166,13 +166,13 @@ The MagnetometerSensorReading constructor accepts {{MagnetometerSensorReadingIni
 
 ### The MagnetometerSensorReading attributes ### {#magnetometer-sensor-reading-attribute}
 
-The <a attribute for="MagnetometerSensorReading">magneticFieldX</a> attribute of the {{MagnetometerSensorReading}}
+The <a attribute for="MagnetometerSensorReading">x</a> attribute of the {{MagnetometerSensorReading}}
 interface represents represents the <a>geomagnetic field</a> around X-axis.
 
-The <a attribute for="MagnetometerSensorReading">magneticFieldY</a> attribute of the {{MagnetometerSensorReading}}
+The <a attribute for="MagnetometerSensorReading">y</a> attribute of the {{MagnetometerSensorReading}}
 interface represents represents the <a>geomagnetic field</a> around Y-axis.
 
-The <a attribute for="MagnetometerSensorReading">magneticFieldZ</a> attribute of the {{MagnetometerSensorReading}}
+The <a attribute for="MagnetometerSensorReading">z</a> attribute of the {{MagnetometerSensorReading}}
 interface represents represents the <a>geomagnetic field</a> around Z-axis.
 
 
@@ -201,7 +201,7 @@ map references. It turns out that there is a discrepancy of around 11.5 degrees 
 magnetic poles. <a>Declination angle</a> is applied to the magnetic direction to correct for this situation.
 
 If the device is always level to the earth’s surface, compass heading can be determined by using just the
-{{magneticFieldX}} and {{magneticFieldY}} component of the earth’s magnetic field, that
+{{x}} and {{y}} component of the earth’s magnetic field, that
 is, the directions planar with the earth’s surface.
 To determine geographic north (or true north) heading, add the appropriate <a>declination angle</a>.
 
@@ -213,8 +213,8 @@ Magnetic north calculation is simple:
 
 <div class="example">
   <pre highlight="js">
-    var headingDegrees = Math.atan2(event.reading.magneticFieldY,
-                                    event.reading.magneticFieldX) * (180 / Math.PI);
+    var headingDegrees = Math.atan2(event.reading.y,
+                                    event.reading.x) * (180 / Math.PI);
 
     console.log('Heading in degrees: ' + headingDegrees);
   </pre>
