@@ -1,5 +1,5 @@
 <pre class="metadata">
-Title: Magnetometer Sensor
+Title: Magnetometer
 Level: 1
 Status: ED
 ED: https://w3c.github.io/magnetometer/
@@ -40,7 +40,7 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
 Introduction {#intro}
 ============
 
-The Magnetometer Sensor extends the Generic Sensor API [[GENERIC-SENSOR]]
+Magnetometer extends the Generic Sensor API [[GENERIC-SENSOR]]
 to provide information about the <a>geomagnetic field</a>
 as detected by the device's primary magnetometer sensor.
 The magnetometer sensor measures the ambient <a>geomagnetic field</a> for all three
@@ -61,7 +61,7 @@ Examples {#examples}
 
 <div class="example">
     <pre highlight="js">
-    let sensor = new MagnetometerSensor();
+    let sensor = new Magnetometer();
     sensor.start();
 
     sensor.onchange = function(event) {
@@ -83,33 +83,33 @@ beyond those described in the Generic Sensor API [[!GENERIC-SENSOR]].
 Model {#model}
 =====
 
-The Magnetometer Sensor's associated <a>Sensor subclass</a>
-is the {{MagnetometerSensor}} class.
+The Magnetometer's associated <a>Sensor subclass</a>
+is the {{Magnetometer}} class.
 
-The Magnetometer Sensor's associated <a>SensorReading subclass</a>
-is the {{MagnetometerSensorReading}} class.
+The Magnetometer's associated <a>SensorReading subclass</a>
+is the {{MagnetometerReading}} class.
 
-The Magnetometer Sensor has a <a>default sensor</a>,
+The Magnetometer has a <a>default sensor</a>,
 which is the device's main magnetometer sensor.
 
-The Magnetometer Sensor has a single <a>supported reporting mode</a>
+The Magnetometer has a single <a>supported reporting mode</a>
 which is "<a>periodic</a>".
 
-The Magnetometer Sensor's <a>permission</a> name is `"magnetometer"`.
+The Magnetometer's <a>permission</a> name is `"magnetometer"`.
 It has no <a>associated PermissionDescriptor</a>.
 
-The Magnetometer Sensor has an associated abstract operation
+The Magnetometer has an associated abstract operation
 to <dfn>retrieve the sensor permission</dfn> which
 must simply return a <a>permission</a> whose name is "magnetometer".
 
-The Magnetometer Sensor has an associated abstract operation
+The Magnetometer has an associated abstract operation
 to <dfn lt="Construct SensorReading Object">construct a SensorReading object</dfn>
-which creates a new {{MagnetometerSensorReading}} object and sets each of its
-<a attribute for="MagnetometerSensorReading">x</a>,
-<a attribute for="MagnetometerSensorReading">y</a> and
-<a attribute for="MagnetometerSensorReading">z</a> attributes to zero.
+which creates a new {{MagnetometerReading}} object and sets each of its
+<a attribute for="MagnetometerReading">x</a>,
+<a attribute for="MagnetometerReading">y</a> and
+<a attribute for="MagnetometerReading">z</a> attributes to zero.
 
-The {{MagnetometerSensorReading}}'s attribute values must be in μT (micro Tesla),
+The {{MagnetometerReading}}'s attribute values must be in μT (micro Tesla),
 expressed in a three-dimentional Cartesian <a>local coordinate system</a>
 defined by the device.
 
@@ -127,52 +127,52 @@ the device's screen when the device in its default orientation (see figure below
 API {#api}
 ===
 
-The MagnetometerSensor Interface {#magnetometer-sensor-interface}
+The Magnetometer Interface {#magnetometer-interface}
 --------------------------------
 
 <pre class="idl">
   [Constructor(optional SensorOptions sensorOptions)]
-  interface MagnetometerSensor : Sensor {
-    readonly attribute MagnetometerSensorReading? reading;
+  interface Magnetometer : Sensor {
+    readonly attribute MagnetometerReading? reading;
   };
 </pre>
 
-To <dfn>Construct an MagnetometerSensor Object</dfn> the user agent must invoke the
+To <dfn>Construct an Magnetometer Object</dfn> the user agent must invoke the
 <a>construct a Sensor object</a> abstract operation.
 
-The MagnetometerSensorReading Interface {#magnetometer-sensor-reading-interface}
+The MagnetometerReading Interface {#magnetometer-reading-interface}
 ---------------------------------------
 
 <pre class="idl">
-  [Constructor(MagnetometerSensorReadingInit magnetometerSensorReadingInit)]
-  interface MagnetometerSensorReading : SensorReading {
+  [Constructor(MagnetometerReadingInit magnetometerReadingInit)]
+  interface MagnetometerReading : SensorReading {
       readonly attribute double x;
       readonly attribute double y;
       readonly attribute double z;
   };
 
-  dictionary MagnetometerSensorReadingInit {
+  dictionary MagnetometerReadingInit {
     double x = 0;
     double y = 0;
     double z = 0;
   };
 </pre>
 
-### The MagnetometerSensorReading constructor ### {#magnetometer-sensor-reading-constructor}
+### The MagnetometerReading constructor ### {#magnetometer-reading-constructor}
 
-The MagnetometerSensorReading constructor accepts {{MagnetometerSensorReadingInit}} dictionary that is used for initialization of {{MagnetometerSensorReading}} attributes.
+The MagnetometerReading constructor accepts {{MagnetometerReadingInit}} dictionary that is used for initialization of {{MagnetometerReading}} attributes.
 
 
 
-### The MagnetometerSensorReading attributes ### {#magnetometer-sensor-reading-attribute}
+### The MagnetometerReading attributes ### {#magnetometer-reading-attribute}
 
-The <a attribute for="MagnetometerSensorReading">x</a> attribute of the {{MagnetometerSensorReading}}
+The <a attribute for="MagnetometerReading">x</a> attribute of the {{MagnetometerReading}}
 interface represents represents the <a>geomagnetic field</a> around X-axis.
 
-The <a attribute for="MagnetometerSensorReading">y</a> attribute of the {{MagnetometerSensorReading}}
+The <a attribute for="MagnetometerReading">y</a> attribute of the {{MagnetometerReading}}
 interface represents represents the <a>geomagnetic field</a> around Y-axis.
 
-The <a attribute for="MagnetometerSensorReading">z</a> attribute of the {{MagnetometerSensorReading}}
+The <a attribute for="MagnetometerReading">z</a> attribute of the {{MagnetometerReading}}
 interface represents represents the <a>geomagnetic field</a> around Z-axis.
 
 
