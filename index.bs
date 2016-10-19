@@ -167,13 +167,13 @@ The MagnetometerReading constructor accepts {{MagnetometerReadingInit}} dictiona
 ### The MagnetometerReading attributes ### {#magnetometer-reading-attribute}
 
 The <a attribute for="MagnetometerReading">x</a> attribute of the {{MagnetometerReading}}
-interface represents represents the <a>geomagnetic field</a> around X-axis.
+interface represents the <a>geomagnetic field</a> around X-axis.
 
 The <a attribute for="MagnetometerReading">y</a> attribute of the {{MagnetometerReading}}
-interface represents represents the <a>geomagnetic field</a> around Y-axis.
+interface represents the <a>geomagnetic field</a> around Y-axis.
 
 The <a attribute for="MagnetometerReading">z</a> attribute of the {{MagnetometerReading}}
-interface represents represents the <a>geomagnetic field</a> around Z-axis.
+interface represents the <a>geomagnetic field</a> around Z-axis.
 
 
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
