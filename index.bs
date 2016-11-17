@@ -133,12 +133,18 @@ The Magnetometer Interface {#magnetometer-interface}
 <pre class="idl">
   [Constructor(optional SensorOptions sensorOptions)]
   interface Magnetometer : Sensor {
-    readonly attribute MagnetometerReading? reading;
+    readonly attribute boolean isRaw;
+  };
+
+  dictionary MagnetometerSensorOptions : SensorOptions {
+    boolean isRaw = false;
   };
 </pre>
 
 To <dfn>Construct an Magnetometer Object</dfn> the user agent must invoke the
 <a>construct a Sensor object</a> abstract operation.
+Depending upon the value of <a attribute for="Magnetometer">isRaw</a>, the reading should be
+either of type {{MagnetometerReading}} or {{MagnetometerRawReading}}.
 
 The MagnetometerReading Interface {#magnetometer-reading-interface}
 ---------------------------------------
@@ -158,9 +164,37 @@ The MagnetometerReading Interface {#magnetometer-reading-interface}
   };
 </pre>
 
+The MagnetometerRawReading Interface {#magnetometer-raw-reading-interface}
+---------------------------------------
+
+<pre class="idl">
+  [Constructor(MagnetometerRawReadingInit magnetometerRawReadingInit)]
+  interface MagnetometerRawReading : SensorReading {
+      readonly attribute double x;
+      readonly attribute double y;
+      readonly attribute double z;
+      readonly attribute double xBias;
+      readonly attribute double yBias;
+      readonly attribute double zBias;
+  };
+
+  dictionary MagnetometerRawReadingInit {
+    double x = 0;
+    double y = 0;
+    double z = 0;
+    double xBias = 0;
+    double yBias = 0;
+    double zBias = 0;
+  };
+</pre>
+
+
 ### The MagnetometerReading constructor ### {#magnetometer-reading-constructor}
 
-The MagnetometerReading constructor accepts {{MagnetometerReadingInit}} dictionary that is used for initialization of {{MagnetometerReading}} attributes.
+The {{MagnetometerReading}} constructor accepts {{MagnetometerReadingInit}} dictionary that is used for initialization of {{MagnetometerReading}} attributes.
+
+
+The {{MagnetometerRawReading}} constructor accepts {{MagnetometerRawReadingInit}} dictionary that is used for initialization of {{MagnetometerRawReading}} attributes.
 
 
 
@@ -174,6 +208,15 @@ interface represents represents the <a>geomagnetic field</a> around Y-axis.
 
 The <a attribute for="MagnetometerReading">z</a> attribute of the {{MagnetometerReading}}
 interface represents represents the <a>geomagnetic field</a> around Z-axis.
+
+### The MagnetometerRawReading attributes ### {#magnetometer-raw-reading-attribute}
+
+The <a attribute for="MagnetometerRawReading">x</a>, <a attribute for="MagnetometerRawReading">y</a>
+<a attribute for="MagnetometerRawReading">z</a> attributes denote uncalibrated magnetic strength around the 3 different axes.
+
+The {{MagnetometerRawReading}} interface also has
+<a attribute for="MagnetometerRawReading">xBias</a>, <a attribute for="MagnetometerRawReading">yBias</a> and
+<a attribute for="MagnetometerRawReading">zBias</a>, denoting the hard iron bias which is the distortion of magnetic field strength due to presence of magnet or similar material.
 
 
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
@@ -232,7 +275,7 @@ further work is required:
     // Then, get the magnetic declination using your favorite web service.
     var base = 'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination';
     fetch(base + '?lat1=' + latitude + '&lon1=' + longitude + '&resultFormat=csv')
-      .then(response => response.text()).then(text => { 
+      .then(response => response.text()).then(text => {
         var declinationDegrees =
             parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
         // Compensate for the magnetic declination to get the true north.
