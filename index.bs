@@ -22,18 +22,12 @@ Boilerplate: omit issues-index, omit conformance
 Default Biblio Status: current
 </pre>
 <pre class="anchors">
-urlPrefix: https://w3c.github.io/permissions/; spec: PERMISSIONS
-  type: dfn
-    text: permission; url: idl-def-Permission
-    text: associated PermissionDescriptor;  url: dfn-associated-permissiondescriptor
 urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
   type: dfn
     text: high-level
-    text: sensor subclass
-    text: sensorreading subclass
+    text: sensor
+    text: latest reading
     text: default sensor
-    text: supported reporting mode; url: supported-reporting-modes
-    text: auto
     text: construct a sensor object; url: construct-sensor-object
 </pre>
 
@@ -51,8 +45,7 @@ It is attributed to the combined effects of the planetary rotation and the movem
 
 
 A magnetoresistive component (permalloy) is one which changes resistance in proportion to the strength of a magnetic field along its axis.
-The 3 axis magnetometer usually found in mobile phones, have 3 such components oriented such that each one is orthogonal to the other two,
-one each in the X, Y and Z directions in the device's <a>local coordinate system</a>.
+The 3 axis magnetometer usually found in mobile phones, have 3 such components oriented such that each one is orthogonal to the other two, one each in the device's local X, Y and Z axes.
 Each individual magnetoresistive element senses only the component of the magnetic field parallel to the element axis and ignores field components orthogonal to the element axis.
 
 
@@ -64,10 +57,10 @@ Examples {#examples}
     let sensor = new Magnetometer();
     sensor.start();
 
-    sensor.onchange = function(event) {
-        console.log("Magnetic field along the X-axis " + event.reading.x);
-        console.log("Magnetic field along the Y-axis " + event.reading.y);
-        console.log("Magnetic field along the Z-axis " + event.reading.z);
+    sensor.onchange = () => {
+        console.log("Magnetic field along the X-axis " + sensor.x);
+        console.log("Magnetic field along the Y-axis " + sensor.y);
+        console.log("Magnetic field along the Z-axis " + sensor.z);
     };
 
     sensor.onerror = event => console.log(event.error.name, event.error.message);
@@ -83,43 +76,21 @@ beyond those described in the Generic Sensor API [[!GENERIC-SENSOR]].
 Model {#model}
 =====
 
-The Magnetometer's associated <a>Sensor subclass</a>
-is the {{Magnetometer}} class.
+The magnetometer's associated {{Sensor}} subclass is the {{Magnetometer}} class.
 
-The Magnetometer's associated <a>SensorReading subclass</a>
-is the {{MagnetometerReading}} class.
 
-The Magnetometer has a <a>default sensor</a>,
-which is the device's main magnetometer sensor.
+Magnetometer has a <a>default sensor</a>, which is the device's main magnetomer sensor.
 
-The Magnetometer has a single <a>supported reporting mode</a>
-which is "<a>periodic</a>".
+A [=latest reading=] per [=sensor=] of magnetometer type includes three [=map/entries=]
+whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>current geomagnetic field</a>
+about the corresponding axes.
 
-The Magnetometer's <a>permission</a> name is `"magnetometer"`.
-It has no <a>associated PermissionDescriptor</a>.
-
-The Magnetometer has an associated abstract operation
-to <dfn>retrieve the sensor permission</dfn> which
-must simply return a <a>permission</a> whose name is "magnetometer".
-
-The Magnetometer has an associated abstract operation
-to <dfn lt="Construct SensorReading Object">construct a SensorReading object</dfn>
-which creates a new {{MagnetometerReading}} object and sets each of its
-<a attribute for="MagnetometerReading">x</a>,
-<a attribute for="MagnetometerReading">y</a> and
-<a attribute for="MagnetometerReading">z</a> attributes to zero.
-
-The {{MagnetometerReading}}'s attribute values must be in μT (micro Tesla),
-expressed in a three-dimentional Cartesian <a>local coordinate system</a>
-defined by the device.
 
 The sign of the <a>geomagnetic field</a> values must be according to the
 right-hand convention in a <a>local coordinate system</a> defined by the device.
 
 Note: The <dfn>local coordinate system</dfn> of a mobile device is usually defined relative to
 the device's screen when the device in its default orientation (see figure below).
-
-
 
 <img src="magnetometer_coordinate_system.png" srcset="magnetometer_coordinate_system.svg" alt="Magnetometer coordinate system.">
 
@@ -133,47 +104,38 @@ The Magnetometer Interface {#magnetometer-interface}
 <pre class="idl">
   [Constructor(optional SensorOptions sensorOptions)]
   interface Magnetometer : Sensor {
-    readonly attribute MagnetometerReading? reading;
+    readonly attribute unrestricted double? x;
+    readonly attribute unrestricted double? y;
+    readonly attribute unrestricted double? z;
   };
 </pre>
 
-To <dfn>Construct an Magnetometer Object</dfn> the user agent must invoke the
+To <dfn>Construct a Magnetometer Object</dfn> the user agent must invoke the
 <a>construct a Sensor object</a> abstract operation.
 
-The MagnetometerReading Interface {#magnetometer-reading-interface}
----------------------------------------
 
-<pre class="idl">
-  [Constructor(MagnetometerReadingInit magnetometerReadingInit)]
-  interface MagnetometerReading : SensorReading {
-      readonly attribute double x;
-      readonly attribute double y;
-      readonly attribute double z;
-  };
-
-  dictionary MagnetometerReadingInit {
-    double x = 0;
-    double y = 0;
-    double z = 0;
-  };
-</pre>
-
-### The MagnetometerReading constructor ### {#magnetometer-reading-constructor}
-
-The MagnetometerReading constructor accepts {{MagnetometerReadingInit}} dictionary that is used for initialization of {{MagnetometerReading}} attributes.
+### Magnetometer.x ### {#magnetometer-x}
 
 
-
-### The MagnetometerReading attributes ### {#magnetometer-reading-attribute}
-
-The <a attribute for="MagnetometerReading">x</a> attribute of the {{MagnetometerReading}}
+The {{Magnetometer/x!!attribute}} attribute of the {{Magnetometer}}
 interface represents the <a>geomagnetic field</a> around X-axis.
+In other words, this attribute returns [=latest reading=]["x"].
 
-The <a attribute for="MagnetometerReading">y</a> attribute of the {{MagnetometerReading}}
+
+### Magnetometer.y ### {#magnetometer-y}
+
+
+The {{Magnetometer/y!!attribute}} attribute of the {{Magnetometer}}
 interface represents the <a>geomagnetic field</a> around Y-axis.
+In other words, this attribute returns [=latest reading=]["y"].
 
-The <a attribute for="MagnetometerReading">z</a> attribute of the {{MagnetometerReading}}
+
+### Magnetometer.z ### {#magnetometer-z}
+
+
+The {{Magnetometer/z!!attribute}} attribute of the {{Magnetometer}}
 interface represents the <a>geomagnetic field</a> around Z-axis.
+In other words, this attribute returns [=latest reading=]["z"].
 
 
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
@@ -213,8 +175,10 @@ Magnetic north calculation is simple:
 
 <div class="example">
   <pre highlight="js">
-    var headingDegrees = Math.atan2(event.reading.y,
-                                    event.reading.x) * (180 / Math.PI);
+    let sensor = new Magnetometer();
+    sensor.start();
+    var headingDegrees = Math.atan2(sensor.y,
+                                    sensor.x) * (180 / Math.PI);
 
     console.log('Heading in degrees: ' + headingDegrees);
   </pre>
@@ -232,7 +196,7 @@ further work is required:
     // Then, get the magnetic declination using your favorite web service.
     var base = 'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination';
     fetch(base + '?lat1=' + latitude + '&lon1=' + longitude + '&resultFormat=csv')
-      .then(response => response.text()).then(text => { 
+      .then(response => response.text()).then(text => {
         var declinationDegrees =
             parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
         // Compensate for the magnetic declination to get the true north.
