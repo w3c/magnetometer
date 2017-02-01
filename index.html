@@ -1405,7 +1405,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2016-09-27">27 September 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-02-01">1 February 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1428,7 +1428,7 @@ pre.idl.highlight { color: #708090; }
     </dl>
    </div>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2016 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2017 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
@@ -1469,12 +1469,12 @@ field in the X, Y and Z axis.</p>
     <li>
      <a href="#api"><span class="secno">5</span> <span class="content">API</span></a>
      <ol class="toc">
-      <li><a href="#magnetometer-interface"><span class="secno">5.1</span> <span class="content">The Magnetometer Interface</span></a>
       <li>
-       <a href="#magnetometer-reading-interface"><span class="secno">5.2</span> <span class="content">The MagnetometerReading Interface</span></a>
+       <a href="#magnetometer-interface"><span class="secno">5.1</span> <span class="content">The Magnetometer Interface</span></a>
        <ol class="toc">
-        <li><a href="#magnetometer-reading-constructor"><span class="secno">5.2.1</span> <span class="content">The MagnetometerReading constructor</span></a>
-        <li><a href="#magnetometer-reading-attribute"><span class="secno">5.2.2</span> <span class="content">The MagnetometerReading attributes</span></a>
+        <li><a href="#magnetometer-x"><span class="secno">5.1.1</span> <span class="content">Magnetometer.x</span></a>
+        <li><a href="#magnetometer-y"><span class="secno">5.1.2</span> <span class="content">Magnetometer.y</span></a>
+        <li><a href="#magnetometer-z"><span class="secno">5.1.3</span> <span class="content">Magnetometer.z</span></a>
        </ol>
      </ol>
     <li><a href="#limitations-magnetometer"><span class="secno">6</span> <span class="content">Limitations of Magnetometer Sensors</span></a>
@@ -1503,19 +1503,18 @@ physical axes (x, y, z) in μT (micro Tesla).</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="geomagnetic-field">Geomagnetic field</dfn> is defined as the magnetic force field that surrounds the Earth.
 It is attributed to the combined effects of the planetary rotation and the movement of molten iron in the Earth’s core.</p>
    <p>A magnetoresistive component (permalloy) is one which changes resistance in proportion to the strength of a magnetic field along its axis.
-The 3 axis magnetometer usually found in mobile phones, have 3 such components oriented such that each one is orthogonal to the other two,
-one each in the X, Y and Z directions in the device’s <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-1">local coordinate system</a>.
+The 3 axis magnetometer usually found in mobile phones, have 3 such components oriented such that each one is orthogonal to the other two, one each in the device’s local X, Y and Z axes.
 Each individual magnetoresistive element senses only the component of the magnetic field parallel to the element axis and ignores field components orthogonal to the element axis.</p>
    <h2 class="heading settled" data-level="2" id="examples"><span class="secno">2. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
-   <div class="example" id="example-13bcd2e6">
-    <a class="self-link" href="#example-13bcd2e6"></a> 
+   <div class="example" id="example-7bdf3704">
+    <a class="self-link" href="#example-7bdf3704"></a> 
 <pre class="highlight"><span class="kd">let</span> <span class="nx">sensor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Magnetometer</span><span class="p">();</span>
 <span class="nx">sensor</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
 
-<span class="nx">sensor</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the X-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the Y-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the Z-axis "</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">z</span><span class="p">);</span>
+<span class="nx">sensor</span><span class="p">.</span><span class="nx">onchange</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=></span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the X-axis "</span> <span class="o">+</span> <span class="nx">sensor</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the Y-axis "</span> <span class="o">+</span> <span class="nx">sensor</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Magnetic field along the Z-axis "</span> <span class="o">+</span> <span class="nx">sensor</span><span class="p">.</span><span class="nx">z</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="nx">sensor</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="nx">event</span> <span class="o">=></span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
@@ -1525,22 +1524,11 @@ Each individual magnetoresistive element senses only the component of the magnet
    <p>There are no specific security and privacy considerations
 beyond those described in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="4" id="model"><span class="secno">4. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
-   <p>The Magnetometer’s associated <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensor-subclass">Sensor subclass</a> is the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-1">Magnetometer</a></code> class.</p>
-   <p>The Magnetometer’s associated <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensorreading-subclass">SensorReading subclass</a> is the <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-1">MagnetometerReading</a></code> class.</p>
-   <p>The Magnetometer has a <a data-link-type="dfn" href="https://w3c.github.io/sensors#default-sensor">default sensor</a>,
-which is the device’s main magnetometer sensor.</p>
-   <p>The Magnetometer has a single <a data-link-type="dfn" href="https://w3c.github.io/sensors#supported-reporting-modes">supported reporting mode</a> which is "<a data-link-type="dfn">periodic</a>".</p>
-   <p>The Magnetometer’s <a data-link-type="dfn" href="https://w3c.github.io/permissions/#idl-def-Permission">permission</a> name is <code>"magnetometer"</code>.
-It has no <a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-associated-permissiondescriptor">associated PermissionDescriptor</a>.</p>
-   <p>The Magnetometer has an associated abstract operation
-to <dfn data-dfn-type="dfn" data-noexport="" id="retrieve-the-sensor-permission">retrieve the sensor permission<a class="self-link" href="#retrieve-the-sensor-permission"></a></dfn> which
-must simply return a <a data-link-type="dfn" href="https://w3c.github.io/permissions/#idl-def-Permission">permission</a> whose name is "magnetometer".</p>
-   <p>The Magnetometer has an associated abstract operation
-to <dfn data-dfn-type="dfn" data-lt="Construct SensorReading Object" data-noexport="" id="construct-sensorreading-object">construct a SensorReading object<a class="self-link" href="#construct-sensorreading-object"></a></dfn> which creates a new <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-2">MagnetometerReading</a></code> object and sets each of its <a class="idl-code" data-link-type="attribute" href="#dom-magnetometerreading-x" id="ref-for-dom-magnetometerreading-x-1">x</a>, <a class="idl-code" data-link-type="attribute" href="#dom-magnetometerreading-y" id="ref-for-dom-magnetometerreading-y-1">y</a> and <a class="idl-code" data-link-type="attribute" href="#dom-magnetometerreading-z" id="ref-for-dom-magnetometerreading-z-1">z</a> attributes to zero.</p>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-3">MagnetometerReading</a></code>'s attribute values must be in μT (micro Tesla),
-expressed in a three-dimentional Cartesian <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-2">local coordinate system</a> defined by the device.</p>
+   <p>The magnetometer’s associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor">Sensor</a></code> subclass is the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-1">Magnetometer</a></code> class.</p>
+   <p>Magnetometer has a <a data-link-type="dfn" href="https://w3c.github.io/sensors#default-sensor">default sensor</a>, which is the device’s main magnetomer sensor.</p>
+   <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a> per <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensor">sensor</a> of magnetometer type includes three <a data-link-type="dfn">entries</a> whose <a data-link-type="dfn">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn">values</a> contain <a data-link-type="dfn">current geomagnetic field</a> about the corresponding axes.</p>
    <p>The sign of the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-3">geomagnetic field</a> values must be according to the
-right-hand convention in a <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-3">local coordinate system</a> defined by the device.</p>
+right-hand convention in a <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-1">local coordinate system</a> defined by the device.</p>
    <p class="note" role="note">Note: The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="local-coordinate-system">local coordinate system</dfn> of a mobile device is usually defined relative to
 the device’s screen when the device in its default orientation (see figure below).</p>
    <p><img alt="Magnetometer coordinate system." src="magnetometer_coordinate_system.png" srcset="magnetometer_coordinate_system.svg"></p>
@@ -1548,30 +1536,21 @@ the device’s screen when the device in its default orientation (see figure bel
    <h3 class="heading settled" data-level="5.1" id="magnetometer-interface"><span class="secno">5.1. </span><span class="content">The Magnetometer Interface</span><a class="self-link" href="#magnetometer-interface"></a></h3>
 <pre class="idl highlight def">[<dfn class="nv idl-code" data-dfn-for="Magnetometer" data-dfn-type="constructor" data-export="" data-lt="Magnetometer(sensorOptions)|Magnetometer()" id="dom-magnetometer-magnetometer">Constructor<a class="self-link" href="#dom-magnetometer-magnetometer"></a></dfn>(<span class="kt">optional</span> <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a> <dfn class="nv idl-code" data-dfn-for="Magnetometer/Magnetometer(sensorOptions)" data-dfn-type="argument" data-export="" id="dom-magnetometer-magnetometer-sensoroptions-sensoroptions">sensorOptions<a class="self-link" href="#dom-magnetometer-magnetometer-sensoroptions-sensoroptions"></a></dfn>)]
 <span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="magnetometer">Magnetometer</dfn> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor">Sensor</a> {
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#magnetometerreading" id="ref-for-magnetometerreading-4">MagnetometerReading</a>? <dfn class="nv idl-code" data-dfn-for="Magnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="MagnetometerReading?" id="dom-magnetometer-reading">reading<a class="self-link" href="#dom-magnetometer-reading"></a></dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">unrestricted</span> <span class="kt">double</span>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="Magnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-magnetometer-x">x</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">unrestricted</span> <span class="kt">double</span>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="Magnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-magnetometer-y">y</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">unrestricted</span> <span class="kt">double</span>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="Magnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-magnetometer-z">z</dfn>;
 };
 </pre>
-   <p>To <dfn data-dfn-type="dfn" data-noexport="" id="construct-an-magnetometer-object">Construct an Magnetometer Object<a class="self-link" href="#construct-an-magnetometer-object"></a></dfn> the user agent must invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors#construct-sensor-object">construct a Sensor object</a> abstract operation.</p>
-   <h3 class="heading settled" data-level="5.2" id="magnetometer-reading-interface"><span class="secno">5.2. </span><span class="content">The MagnetometerReading Interface</span><a class="self-link" href="#magnetometer-reading-interface"></a></h3>
-<pre class="idl highlight def">[<dfn class="nv idl-code" data-dfn-for="MagnetometerReading" data-dfn-type="constructor" data-export="" data-lt="MagnetometerReading(magnetometerReadingInit)" id="dom-magnetometerreading-magnetometerreading">Constructor<a class="self-link" href="#dom-magnetometerreading-magnetometerreading"></a></dfn>(<a class="n" data-link-type="idl-name" href="#dictdef-magnetometerreadinginit" id="ref-for-dictdef-magnetometerreadinginit-1">MagnetometerReadingInit</a> <dfn class="nv idl-code" data-dfn-for="MagnetometerReading/MagnetometerReading(magnetometerReadingInit)" data-dfn-type="argument" data-export="" id="dom-magnetometerreading-magnetometerreading-magnetometerreadinginit-magnetometerreadinginit">magnetometerReadingInit<a class="self-link" href="#dom-magnetometerreading-magnetometerreading-magnetometerreadinginit-magnetometerreadinginit"></a></dfn>)]
-<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="magnetometerreading">MagnetometerReading</dfn> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensorreading">SensorReading</a> {
-    <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">double</span> <dfn class="nv dfn-paneled idl-code" data-dfn-for="MagnetometerReading" data-dfn-type="attribute" data-export="" data-readonly="" data-type="double" id="dom-magnetometerreading-x">x</dfn>;
-    <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">double</span> <dfn class="nv dfn-paneled idl-code" data-dfn-for="MagnetometerReading" data-dfn-type="attribute" data-export="" data-readonly="" data-type="double" id="dom-magnetometerreading-y">y</dfn>;
-    <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">double</span> <dfn class="nv dfn-paneled idl-code" data-dfn-for="MagnetometerReading" data-dfn-type="attribute" data-export="" data-readonly="" data-type="double" id="dom-magnetometerreading-z">z</dfn>;
-};
-
-<span class="kt">dictionary</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="dictionary" data-export="" id="dictdef-magnetometerreadinginit">MagnetometerReadingInit</dfn> {
-  <span class="kt">double</span> <dfn class="nv idl-code" data-default="0" data-dfn-for="MagnetometerReadingInit" data-dfn-type="dict-member" data-export="" data-type="double " id="dom-magnetometerreadinginit-x">x<a class="self-link" href="#dom-magnetometerreadinginit-x"></a></dfn> = 0;
-  <span class="kt">double</span> <dfn class="nv idl-code" data-default="0" data-dfn-for="MagnetometerReadingInit" data-dfn-type="dict-member" data-export="" data-type="double " id="dom-magnetometerreadinginit-y">y<a class="self-link" href="#dom-magnetometerreadinginit-y"></a></dfn> = 0;
-  <span class="kt">double</span> <dfn class="nv idl-code" data-default="0" data-dfn-for="MagnetometerReadingInit" data-dfn-type="dict-member" data-export="" data-type="double " id="dom-magnetometerreadinginit-z">z<a class="self-link" href="#dom-magnetometerreadinginit-z"></a></dfn> = 0;
-};
-</pre>
-   <h4 class="heading settled" data-level="5.2.1" id="magnetometer-reading-constructor"><span class="secno">5.2.1. </span><span class="content">The MagnetometerReading constructor</span><a class="self-link" href="#magnetometer-reading-constructor"></a></h4>
-   <p>The MagnetometerReading constructor accepts <code class="idl"><a data-link-type="idl" href="#dictdef-magnetometerreadinginit" id="ref-for-dictdef-magnetometerreadinginit-2">MagnetometerReadingInit</a></code> dictionary that is used for initialization of <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-5">MagnetometerReading</a></code> attributes.</p>
-   <h4 class="heading settled" data-level="5.2.2" id="magnetometer-reading-attribute"><span class="secno">5.2.2. </span><span class="content">The MagnetometerReading attributes</span><a class="self-link" href="#magnetometer-reading-attribute"></a></h4>
-   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometerreading-x" id="ref-for-dom-magnetometerreading-x-2">x</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-6">MagnetometerReading</a></code> interface represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-4">geomagnetic field</a> around X-axis.</p>
-   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometerreading-y" id="ref-for-dom-magnetometerreading-y-2">y</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-7">MagnetometerReading</a></code> interface represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-5">geomagnetic field</a> around Y-axis.</p>
-   <p>The <a class="idl-code" data-link-type="attribute" href="#dom-magnetometerreading-z" id="ref-for-dom-magnetometerreading-z-2">z</a> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometerreading" id="ref-for-magnetometerreading-8">MagnetometerReading</a></code> interface represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-6">geomagnetic field</a> around Z-axis.</p>
+   <p>To <dfn data-dfn-type="dfn" data-noexport="" id="construct-a-magnetometer-object">Construct a Magnetometer Object<a class="self-link" href="#construct-a-magnetometer-object"></a></dfn> the user agent must invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors#construct-sensor-object">construct a Sensor object</a> abstract operation.</p>
+   <h4 class="heading settled" data-level="5.1.1" id="magnetometer-x"><span class="secno">5.1.1. </span><span class="content">Magnetometer.x</span><a class="self-link" href="#magnetometer-x"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-x" id="ref-for-dom-magnetometer-x-1">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-2">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-4">geomagnetic field</a> around X-axis.
+In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["x"].</p>
+   <h4 class="heading settled" data-level="5.1.2" id="magnetometer-y"><span class="secno">5.1.2. </span><span class="content">Magnetometer.y</span><a class="self-link" href="#magnetometer-y"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-y" id="ref-for-dom-magnetometer-y-1">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-3">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-5">geomagnetic field</a> around Y-axis.
+In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["y"].</p>
+   <h4 class="heading settled" data-level="5.1.3" id="magnetometer-z"><span class="secno">5.1.3. </span><span class="content">Magnetometer.z</span><a class="self-link" href="#magnetometer-z"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-z" id="ref-for-dom-magnetometer-z-1">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-4">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#geomagnetic-field" id="ref-for-geomagnetic-field-6">geomagnetic field</a> around Z-axis.
+In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["z"].</p>
    <h2 class="heading settled" data-level="6" id="limitations-magnetometer"><span class="secno">6. </span><span class="content">Limitations of Magnetometer Sensors</span><a class="self-link" href="#limitations-magnetometer"></a></h2>
    <p><em>This section is non-normative</em>.</p>
    <p>The direction and magnitude of the Earth’s field changes with location, latitude in particular. For example,
@@ -1587,31 +1566,33 @@ like solar winds or magnetic storms, also distort the magnetosphere or external 
 The earth’s rotational axis defines the geographic north and south poles that we use for
 map references. It turns out that there is a discrepancy of around 11.5 degrees (around 1000 miles) between the geographic poles and the
 magnetic poles. <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle-1">Declination angle</a> is applied to the magnetic direction to correct for this situation.</p>
-   <p>If the device is always level to the earth’s surface, compass heading can be determined by using just the <code class="idl"><a data-link-type="idl" href="#dom-magnetometerreading-x" id="ref-for-dom-magnetometerreading-x-3">x</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-magnetometerreading-y" id="ref-for-dom-magnetometerreading-y-3">y</a></code> component of the earth’s magnetic field, that
+   <p>If the device is always level to the earth’s surface, compass heading can be determined by using just the <code class="idl"><a data-link-type="idl" href="#dom-magnetometer-x" id="ref-for-dom-magnetometer-x-2">x</a></code> and <code class="idl"><a data-link-type="idl" href="#dom-magnetometer-y" id="ref-for-dom-magnetometer-y-2">y</a></code> component of the earth’s magnetic field, that
 is, the directions planar with the earth’s surface.
 To determine geographic north (or true north) heading, add the appropriate <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle-2">declination angle</a>.</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="magnetic-declination">Magnetic declination</dfn> or <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="declination-angle">declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth’s surface, and changes over time.
 By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-1">magnetic declination</a> e.g. using the <a href="http://www.ngdc.noaa.gov/geomag-web/calculators/declinationHelp">Magnetic declination calculator</a> provided by the National Oceanic and Atmospheric Administration (NOAA).</p>
    <p>Magnetic north calculation is simple:</p>
-   <div class="example" id="example-92d94f44">
-    <a class="self-link" href="#example-92d94f44"></a> 
-<pre class="highlight"><span class="kd">var</span> <span class="nx">headingDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span>
-                                <span class="nx">event</span><span class="p">.</span><span class="nx">reading</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
+   <div class="example" id="example-45e74fc9">
+    <a class="self-link" href="#example-45e74fc9"></a> 
+<pre class="highlight"><span class="kd">let</span> <span class="nx">sensor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Magnetometer</span><span class="p">();</span>
+<span class="nx">sensor</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">headingDegrees</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">atan2</span><span class="p">(</span><span class="nx">sensor</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span>
+                                <span class="nx">sensor</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">180</span> <span class="o">/</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span>
 
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Heading in degrees: '</span> <span class="o">+</span> <span class="nx">headingDegrees</span><span class="p">);</span>
 </pre>
    </div>
    <p>To get geographic north (or true north) that considers the <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-2">magnetic declination</a> at the given latitude and longitude,
 further work is required:</p>
-   <div class="example" id="example-e305dc8d">
-    <a class="self-link" href="#example-e305dc8d"></a> 
+   <div class="example" id="example-543de46d">
+    <a class="self-link" href="#example-543de46d"></a> 
 <pre class="highlight"><span class="c1">// First, get the latitude and longitude (omitted for brevity).</span>
 <span class="kd">var</span> <span class="nx">latitude</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">longitude</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="c1">// Then, get the magnetic declination using your favorite web service.</span>
 <span class="kd">var</span> <span class="nx">base</span> <span class="o">=</span> <span class="s1">'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</span><span class="p">;</span>
 <span class="nx">fetch</span><span class="p">(</span><span class="nx">base</span> <span class="o">+</span> <span class="s1">'?lat1='</span> <span class="o">+</span> <span class="nx">latitude</span> <span class="o">+</span> <span class="s1">'&amp;lon1='</span> <span class="o">+</span> <span class="nx">longitude</span> <span class="o">+</span> <span class="s1">'&amp;resultFormat=csv'</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=></span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="nx">text</span> <span class="o">=></span> <span class="p">{</span> 
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=></span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="nx">text</span> <span class="o">=></span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">declinationDegrees</span> <span class="o">=</span>
         <span class="nb">parseFloat</span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^#.*$/gm</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">trim</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)[</span><span class="mi">4</span><span class="p">]);</span>
     <span class="c1">// Compensate for the magnetic declination to get the true north.</span>
@@ -1645,38 +1626,17 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
    <li><a href="#conformant-user-agent">conformant user agent</a><span>, in §9</span>
-   <li><a href="#construct-an-magnetometer-object">Construct an Magnetometer Object</a><span>, in §5.1</span>
-   <li><a href="#construct-sensorreading-object">Construct SensorReading Object</a><span>, in §4</span>
+   <li><a href="#construct-a-magnetometer-object">Construct a Magnetometer Object</a><span>, in §5.1</span>
    <li><a href="#declination-angle">declination angle</a><span>, in §7</span>
    <li><a href="#geomagnetic-field">Geomagnetic field</a><span>, in §1</span>
    <li><a href="#local-coordinate-system">local coordinate system</a><span>, in §4</span>
    <li><a href="#magnetic-declination">Magnetic declination</a><span>, in §7</span>
    <li><a href="#magnetometer">Magnetometer</a><span>, in §5.1</span>
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer()</a><span>, in §5.1</span>
-   <li><a href="#magnetometerreading">MagnetometerReading</a><span>, in §5.2</span>
-   <li><a href="#dictdef-magnetometerreadinginit">MagnetometerReadingInit</a><span>, in §5.2</span>
-   <li><a href="#dom-magnetometerreading-magnetometerreading">MagnetometerReading(magnetometerReadingInit)</a><span>, in §5.2</span>
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer(sensorOptions)</a><span>, in §5.1</span>
-   <li><a href="#dom-magnetometer-reading">reading</a><span>, in §5.1</span>
-   <li><a href="#retrieve-the-sensor-permission">retrieve the sensor permission</a><span>, in §4</span>
-   <li>
-    x
-    <ul>
-     <li><a href="#dom-magnetometerreading-x">attribute for MagnetometerReading</a><span>, in §5.2</span>
-     <li><a href="#dom-magnetometerreadinginit-x">dict-member for MagnetometerReadingInit</a><span>, in §5.2</span>
-    </ul>
-   <li>
-    y
-    <ul>
-     <li><a href="#dom-magnetometerreading-y">attribute for MagnetometerReading</a><span>, in §5.2</span>
-     <li><a href="#dom-magnetometerreadinginit-y">dict-member for MagnetometerReadingInit</a><span>, in §5.2</span>
-    </ul>
-   <li>
-    z
-    <ul>
-     <li><a href="#dom-magnetometerreading-z">attribute for MagnetometerReading</a><span>, in §5.2</span>
-     <li><a href="#dom-magnetometerreadinginit-z">dict-member for MagnetometerReadingInit</a><span>, in §5.2</span>
-    </ul>
+   <li><a href="#dom-magnetometer-x">x</a><span>, in §5.1</span>
+   <li><a href="#dom-magnetometer-y">y</a><span>, in §5.1</span>
+   <li><a href="#dom-magnetometer-z">z</a><span>, in §5.1</span>
   </ul>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
@@ -1685,22 +1645,14 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <ul>
      <li><a href="https://w3c.github.io/sensors#construct-sensor-object">construct a sensor object</a>
      <li><a href="https://w3c.github.io/sensors#default-sensor">default sensor</a>
-     <li><a href="https://w3c.github.io/sensors#sensor-subclass">sensor subclass</a>
-     <li><a href="https://w3c.github.io/sensors#sensorreading-subclass">sensorreading subclass</a>
-     <li><a href="https://w3c.github.io/sensors#supported-reporting-modes">supported reporting mode</a>
-    </ul>
-   <li>
-    <a data-link-type="biblio">[permissions]</a> defines the following terms:
-    <ul>
-     <li><a href="https://w3c.github.io/permissions/#dfn-associated-permissiondescriptor">associated permissiondescriptor</a>
-     <li><a href="https://w3c.github.io/permissions/#idl-def-Permission">permission</a>
+     <li><a href="https://w3c.github.io/sensors#latest-reading">latest reading</a>
+     <li><a href="https://w3c.github.io/sensors#sensor">sensor</a>
     </ul>
    <li>
     <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
     <ul>
      <li><a href="https://w3c.github.io/sensors/#sensor">Sensor</a>
      <li><a href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a>
-     <li><a href="https://w3c.github.io/sensors/#sensorreading">SensorReading</a>
     </ul>
   </ul>
   <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
@@ -1708,8 +1660,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <dl>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Tobie Langel; Rick Waldron. <a href="https://w3c.github.io/sensors/">Generic Sensor API</a>. 24 March 2016. WD. URL: <a href="https://w3c.github.io/sensors/">https://w3c.github.io/sensors/</a>
-   <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Mounir Lamouri; Marcos Caceres. <a href="https://w3c.github.io/permissions/">The Permissions API</a>. 7 April 2015. WD. URL: <a href="https://w3c.github.io/permissions/">https://w3c.github.io/permissions/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
    <dt id="biblio-webidl">[WEBIDL]
@@ -1718,20 +1668,9 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <h2 class="no-num no-ref heading settled" id="idl-index"><span class="content">IDL Index</span><a class="self-link" href="#idl-index"></a></h2>
 <pre class="idl def">[<a class="nv" href="#dom-magnetometer-magnetometer">Constructor</a>(<span class="kt">optional</span> <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a> <a class="nv" href="#dom-magnetometer-magnetometer-sensoroptions-sensoroptions">sensorOptions</a>)]
 <span class="kt">interface</span> <a class="nv" href="#magnetometer">Magnetometer</a> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor">Sensor</a> {
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n" data-link-type="idl-name" href="#magnetometerreading">MagnetometerReading</a>? <a class="nv" data-readonly="" data-type="MagnetometerReading?" href="#dom-magnetometer-reading">reading</a>;
-};
-
-[<a class="nv" href="#dom-magnetometerreading-magnetometerreading">Constructor</a>(<a class="n" data-link-type="idl-name" href="#dictdef-magnetometerreadinginit">MagnetometerReadingInit</a> <a class="nv" href="#dom-magnetometerreading-magnetometerreading-magnetometerreadinginit-magnetometerreadinginit">magnetometerReadingInit</a>)]
-<span class="kt">interface</span> <a class="nv" href="#magnetometerreading">MagnetometerReading</a> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensorreading">SensorReading</a> {
-    <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">double</span> <a class="nv" data-readonly="" data-type="double" href="#dom-magnetometerreading-x">x</a>;
-    <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">double</span> <a class="nv" data-readonly="" data-type="double" href="#dom-magnetometerreading-y">y</a>;
-    <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">double</span> <a class="nv" data-readonly="" data-type="double" href="#dom-magnetometerreading-z">z</a>;
-};
-
-<span class="kt">dictionary</span> <a class="nv" href="#dictdef-magnetometerreadinginit">MagnetometerReadingInit</a> {
-  <span class="kt">double</span> <a class="nv" data-default="0" data-type="double " href="#dom-magnetometerreadinginit-x">x</a> = 0;
-  <span class="kt">double</span> <a class="nv" data-default="0" data-type="double " href="#dom-magnetometerreadinginit-y">y</a> = 0;
-  <span class="kt">double</span> <a class="nv" data-default="0" data-type="double " href="#dom-magnetometerreadinginit-z">z</a> = 0;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">unrestricted</span> <span class="kt">double</span>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-magnetometer-x">x</a>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">unrestricted</span> <span class="kt">double</span>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-magnetometer-y">y</a>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <span class="kt">unrestricted</span> <span class="kt">double</span>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-magnetometer-z">z</a>;
 };
 
 </pre>
@@ -1740,60 +1679,45 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <ul>
     <li><a href="#ref-for-geomagnetic-field-1">1. Introduction</a> <a href="#ref-for-geomagnetic-field-2">(2)</a>
     <li><a href="#ref-for-geomagnetic-field-3">4. Model</a>
-    <li><a href="#ref-for-geomagnetic-field-4">5.2.2. The MagnetometerReading attributes</a> <a href="#ref-for-geomagnetic-field-5">(2)</a> <a href="#ref-for-geomagnetic-field-6">(3)</a>
+    <li><a href="#ref-for-geomagnetic-field-4">5.1.1. Magnetometer.x</a>
+    <li><a href="#ref-for-geomagnetic-field-5">5.1.2. Magnetometer.y</a>
+    <li><a href="#ref-for-geomagnetic-field-6">5.1.3. Magnetometer.z</a>
     <li><a href="#ref-for-geomagnetic-field-7">6. Limitations of Magnetometer Sensors</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="local-coordinate-system">
    <b><a href="#local-coordinate-system">#local-coordinate-system</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-local-coordinate-system-1">1. Introduction</a>
-    <li><a href="#ref-for-local-coordinate-system-2">4. Model</a> <a href="#ref-for-local-coordinate-system-3">(2)</a>
+    <li><a href="#ref-for-local-coordinate-system-1">4. Model</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="magnetometer">
    <b><a href="#magnetometer">#magnetometer</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-magnetometer-1">4. Model</a>
+    <li><a href="#ref-for-magnetometer-2">5.1.1. Magnetometer.x</a>
+    <li><a href="#ref-for-magnetometer-3">5.1.2. Magnetometer.y</a>
+    <li><a href="#ref-for-magnetometer-4">5.1.3. Magnetometer.z</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="magnetometerreading">
-   <b><a href="#magnetometerreading">#magnetometerreading</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-magnetometer-x">
+   <b><a href="#dom-magnetometer-x">#dom-magnetometer-x</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-magnetometerreading-1">4. Model</a> <a href="#ref-for-magnetometerreading-2">(2)</a> <a href="#ref-for-magnetometerreading-3">(3)</a>
-    <li><a href="#ref-for-magnetometerreading-4">5.1. The Magnetometer Interface</a>
-    <li><a href="#ref-for-magnetometerreading-5">5.2.1. The MagnetometerReading constructor</a>
-    <li><a href="#ref-for-magnetometerreading-6">5.2.2. The MagnetometerReading attributes</a> <a href="#ref-for-magnetometerreading-7">(2)</a> <a href="#ref-for-magnetometerreading-8">(3)</a>
+    <li><a href="#ref-for-dom-magnetometer-x-1">5.1.1. Magnetometer.x</a>
+    <li><a href="#ref-for-dom-magnetometer-x-2">7. Compass Heading Using Magnetometers</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-magnetometerreading-x">
-   <b><a href="#dom-magnetometerreading-x">#dom-magnetometerreading-x</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-magnetometer-y">
+   <b><a href="#dom-magnetometer-y">#dom-magnetometer-y</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-magnetometerreading-x-1">4. Model</a>
-    <li><a href="#ref-for-dom-magnetometerreading-x-2">5.2.2. The MagnetometerReading attributes</a>
-    <li><a href="#ref-for-dom-magnetometerreading-x-3">7. Compass Heading Using Magnetometers</a>
+    <li><a href="#ref-for-dom-magnetometer-y-1">5.1.2. Magnetometer.y</a>
+    <li><a href="#ref-for-dom-magnetometer-y-2">7. Compass Heading Using Magnetometers</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-magnetometerreading-y">
-   <b><a href="#dom-magnetometerreading-y">#dom-magnetometerreading-y</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-magnetometer-z">
+   <b><a href="#dom-magnetometer-z">#dom-magnetometer-z</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-magnetometerreading-y-1">4. Model</a>
-    <li><a href="#ref-for-dom-magnetometerreading-y-2">5.2.2. The MagnetometerReading attributes</a>
-    <li><a href="#ref-for-dom-magnetometerreading-y-3">7. Compass Heading Using Magnetometers</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="dom-magnetometerreading-z">
-   <b><a href="#dom-magnetometerreading-z">#dom-magnetometerreading-z</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dom-magnetometerreading-z-1">4. Model</a>
-    <li><a href="#ref-for-dom-magnetometerreading-z-2">5.2.2. The MagnetometerReading attributes</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="dictdef-magnetometerreadinginit">
-   <b><a href="#dictdef-magnetometerreadinginit">#dictdef-magnetometerreadinginit</a></b><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-dictdef-magnetometerreadinginit-1">5.2. The MagnetometerReading Interface</a>
-    <li><a href="#ref-for-dictdef-magnetometerreadinginit-2">5.2.1. The MagnetometerReading constructor</a>
+    <li><a href="#ref-for-dom-magnetometer-z-1">5.1.3. Magnetometer.z</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="magnetic-declination">
