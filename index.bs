@@ -16,7 +16,7 @@ Version History: https://github.com/w3c/magnetometer/commits/gh-pages/index.bs
 Indent: 2
 Repository: w3c/magnetometer
 Markup Shorthands: markdown on
-Inline Github Issues: true
+Inline Github Issues: title
 !Test Suite: <a href="https://github.com/w3c/web-platform-tests/tree/master/magnetometer">web-platform-tests on GitHub</a>
 Boilerplate: omit issues-index, omit conformance
 Default Biblio Status: current
@@ -82,7 +82,7 @@ The magnetometer's associated {{Sensor}} subclass is the {{Magnetometer}} class.
 Magnetometer has a <a>default sensor</a>, which is the device's main magnetomer sensor.
 
 A [=latest reading=] per [=sensor=] of magnetometer type includes three [=map/entries=]
-whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>current geomagnetic field</a>
+whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain current <a>geomagnetic field</a>
 about the corresponding axes.
 
 
@@ -206,10 +206,11 @@ further work is required:
 </div>
 
 
-If the device is not level to the Earth’s surface, we need to apply various
-tilt compensation techniques for which we need a 3-axis accelerometer.
-A specification for orientation sensor, which is a fusion of the accelerometer
-and magnetometer sensors, is required to implement this particular use case.
+Note: If the device is not level to the Earth’s surface, a developer needs
+to apply various tilt compensation techniques for which she needs a 3-axis
+accelerometer. Data from the orientation sensor, which is a fusion of the
+accelerometer and magnetometer sensors, is required to implement this
+particular use case.
 
 
 Acknowledgements {#acknowledgements}
