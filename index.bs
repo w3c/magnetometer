@@ -194,7 +194,7 @@ further work is required:
     var latitude = 0, longitude = 0;
 
     // Then, get the magnetic declination using your favorite web service.
-    var base = 'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination';
+    var base = 'https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination';
     fetch(base + '?lat1=' + latitude + '&lon1=' + longitude + '&resultFormat=csv')
       .then(response => response.text()).then(text => {
         var declinationDegrees =

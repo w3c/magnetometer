@@ -1430,7 +1430,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="http://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-02-01">1 February 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-02-06">6 February 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1609,13 +1609,13 @@ console<span class="p">.</span>log<span class="p">(</span><span class="s1">'Head
    </div>
    <p>To get geographic north (or true north) that considers the <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination-2">magnetic declination</a> at the given latitude and longitude,
 further work is required:</p>
-   <div class="example" id="example-543de46d">
-    <a class="self-link" href="#example-543de46d"></a> 
+   <div class="example" id="example-721a04cc">
+    <a class="self-link" href="#example-721a04cc"></a> 
 <pre class="highlight"><span class="c1">// First, get the latitude and longitude (omitted for brevity).
 </span><span class="kd">var</span> latitude <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> longitude <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="c1">// Then, get the magnetic declination using your favorite web service.
-</span><span class="kd">var</span> base <span class="o">=</span> <span class="s1">'http://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</span><span class="p">;</span>
+</span><span class="kd">var</span> base <span class="o">=</span> <span class="s1">'https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</span><span class="p">;</span>
 fetch<span class="p">(</span>base <span class="o">+</span> <span class="s1">'?lat1='</span> <span class="o">+</span> latitude <span class="o">+</span> <span class="s1">'&amp;lon1='</span> <span class="o">+</span> longitude <span class="o">+</span> <span class="s1">'&amp;resultFormat=csv'</span><span class="p">)</span>
   <span class="p">.</span>then<span class="p">(</span>response <span class="o">=></span> response<span class="p">.</span>text<span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span>then<span class="p">(</span>text <span class="o">=></span> <span class="p">{</span>
     <span class="kd">var</span> declinationDegrees <span class="o">=</span>
