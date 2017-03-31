@@ -79,8 +79,9 @@ Model {#model}
 
 The magnetometer's associated {{Sensor}} subclass is the {{Magnetometer}} class.
 
+The Magnetometer has a <a>default sensor</a>, which is the device's main magnetomer sensor.
 
-Magnetometer has a <a>default sensor</a>, which is the device's main magnetomer sensor.
+The Magnetometer has an associated {{PermissionName}} which is <a for="PermissionName" enum-value>"magnetometer"</a>.
 
 A [=latest reading=] per [=sensor=] of magnetometer type includes three [=map/entries=]
 whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain current <a>magnetic field</a>
