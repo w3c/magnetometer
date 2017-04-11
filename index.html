@@ -1183,8 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version b734e371910e25ac23b774dca3dea5cfc7b7fc0b" name="generator">
-  <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
+  <meta content="Bikeshed version 7e43b56c4e1ede2eed18417e4d8def49e6eb4bd8" name="generator">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1431,13 +1430,15 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-03-31">31 March 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-04-11">11 April 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/magnetometer/">https://w3c.github.io/magnetometer/</a>
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
+     <dt>Previous Versions:
+     <dd><a href="https://www.w3.org/TR/2016/WD-magnetometer-20160913/" rel="previous">https://www.w3.org/TR/2016/WD-magnetometer-20160913/</a>
      <dt>Version History:
      <dd><a href="https://github.com/w3c/magnetometer/commits/gh-pages/index.bs">https://github.com/w3c/magnetometer/commits/gh-pages/index.bs</a>
      <dt>Feedback:
@@ -1539,13 +1540,13 @@ Each individual magnetoresistive element senses only the component of the magnet
 <pre class="highlight"><span class="kd">let</span> sensor <span class="o">=</span> <span class="k">new</span> Magnetometer<span class="p">(</span><span class="p">)</span><span class="p">;</span>
 sensor<span class="p">.</span>start<span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-sensor<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="p">=></span> <span class="p">{</span>
+sensor<span class="p">.</span>onchange <span class="o">=</span> <span class="p">(</span><span class="p">)</span> <span class="o">=></span> <span class="p">{</span>
     console<span class="p">.</span>log<span class="p">(</span><span class="s2">"Magnetic field along the X-axis "</span> <span class="o">+</span> sensor<span class="p">.</span>x<span class="p">)</span><span class="p">;</span>
     console<span class="p">.</span>log<span class="p">(</span><span class="s2">"Magnetic field along the Y-axis "</span> <span class="o">+</span> sensor<span class="p">.</span>y<span class="p">)</span><span class="p">;</span>
     console<span class="p">.</span>log<span class="p">(</span><span class="s2">"Magnetic field along the Z-axis "</span> <span class="o">+</span> sensor<span class="p">.</span>z<span class="p">)</span><span class="p">;</span>
 <span class="p">}</span><span class="p">;</span>
 
-sensor<span class="p">.</span>onerror <span class="o">=</span> event <span class="p">=></span> console<span class="p">.</span>log<span class="p">(</span>event<span class="p">.</span>error<span class="p">.</span>name<span class="p">,</span> event<span class="p">.</span>error<span class="p">.</span>message<span class="p">)</span><span class="p">;</span>
+sensor<span class="p">.</span>onerror <span class="o">=</span> event <span class="o">=></span> console<span class="p">.</span>log<span class="p">(</span>event<span class="p">.</span>error<span class="p">.</span>name<span class="p">,</span> event<span class="p">.</span>error<span class="p">.</span>message<span class="p">)</span><span class="p">;</span>
 </pre>
    </div>
    <h2 class="heading settled" data-level="3" id="security-and-privacy"><span class="secno">3. </span><span class="content">Security and Privacy Considerations</span><a class="self-link" href="#security-and-privacy"></a></h2>
@@ -1621,7 +1622,7 @@ further work is required:</p>
 <span class="c1">// Then, get the magnetic declination using your favorite web service.
 </span><span class="kd">var</span> base <span class="o">=</span> <span class="s1">'https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</span><span class="p">;</span>
 fetch<span class="p">(</span>base <span class="o">+</span> <span class="s1">'?lat1='</span> <span class="o">+</span> latitude <span class="o">+</span> <span class="s1">'&amp;lon1='</span> <span class="o">+</span> longitude <span class="o">+</span> <span class="s1">'&amp;resultFormat=csv'</span><span class="p">)</span>
-  <span class="p">.</span>then<span class="p">(</span>response <span class="p">=></span> response<span class="p">.</span>text<span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span>then<span class="p">(</span>text <span class="p">=></span> <span class="p">{</span>
+  <span class="p">.</span>then<span class="p">(</span>response <span class="o">=></span> response<span class="p">.</span>text<span class="p">(</span><span class="p">)</span><span class="p">)</span><span class="p">.</span>then<span class="p">(</span>text <span class="o">=></span> <span class="p">{</span>
     <span class="kd">var</span> declinationDegrees <span class="o">=</span>
         parseFloat<span class="p">(</span>text<span class="p">.</span>replace<span class="p">(</span><span class="sr">/^#.*$/gm</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span><span class="p">.</span>trim<span class="p">(</span><span class="p">)</span><span class="p">.</span>split<span class="p">(</span><span class="s1">','</span><span class="p">)</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
     <span class="c1">// Compensate for the magnetic declination to get the true north.

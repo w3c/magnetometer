@@ -1,10 +1,10 @@
 <pre class="metadata">
 Title: Magnetometer
-Level: 1
 Status: ED
 ED: https://w3c.github.io/magnetometer/
 Shortname: magnetometer
 TR: https://www.w3.org/TR/magnetometer/
+Previous Version: https://www.w3.org/TR/2016/WD-magnetometer-20160913/
 Editor: Anssi Kostiainen 41974, Intel Corporation, https://intel.com/
 Editor: Rijubrata Bhaumik 80407, Intel Corporation, https://intel.com/
 Group: dap
