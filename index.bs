@@ -19,7 +19,6 @@ Markup Shorthands: markdown on
 Inline Github Issues: true
 !Test Suite: <a href="https://github.com/w3c/web-platform-tests/tree/master/magnetometer">web-platform-tests on GitHub</a>
 Boilerplate: omit issues-index, omit conformance
-Default Biblio Status: current
 </pre>
 <pre class="anchors">
 urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
@@ -29,6 +28,47 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: latest reading
     text: default sensor
     text: construct a sensor object; url: construct-sensor-object
+</pre>
+
+
+<pre class=biblio>
+{
+   "COMPASSHEADING": {
+    "title": "Compass Heading using Magnetometer",
+    "status": "Informational",
+    "href": "http://www51.honeywell.com/aero/common/documents/myaerospacecatalog-documents/Defense_Brochures-documents/Magnetic__Literature_Application_notes-documents/AN203_Compass_Heading_Using_Magnetometers.pdf"
+   },
+   "MAGITACT": {
+        "authors": [
+            "Hamed Ketabdar, Kamer Ali Yüksel, Mehran Roshandel"
+        ],
+        "id": "MAGITACT",
+        "href": "http://dl.acm.org/citation.cfm?id=1720048",
+        "title": "Magitact",
+        "status": "Informational",
+        "publisher": "ACM"
+    },
+    "VRBUTTON": {
+        "authors": [
+            "Boris Smus"
+        ],
+        "id": "VRBUTTON",
+        "href": "https://bugs.chromium.org/p/chromium/issues/detail?id=445926",
+        "title": "Magnetic input for Google cardboard",
+        "status": "Informational",
+        "publisher": "Unknown"
+    },
+    "MAGINDOORPOS": {
+        "authors": [
+            "IndoorAtlas"
+        ],
+        "id": "MAGINDOORPOS",
+        "href": "http://www.indooratlas.com/wp-content/uploads/2016/03/magnetic_positioning_opus_jun2014.pdf",
+        "title": "Indoor positioning using magnetometer",
+        "status": "Informational",
+        "publisher": "Unknown"
+    }
+}
 </pre>
 
 Introduction {#intro}
@@ -156,6 +196,27 @@ In addition to the above spatial variations of the <a>magnetic field</a>, time b
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.
 
 
+
+Use Cases and Requirements {#usecases-and-requirements}
+===================
+
+Magnetometers can be used for a variety of use-cases, such as:
+
+- Metal detector web application.
+- Providing input using magnetic button for VR enclosures [[VRBUTTON]].
+- Gesture recognition based on magnetic field. Various interactions like writing, signing and playing an instrument can also be enabled using a magnet like a rod, pen or a ring [[MAGITACT]].
+  The user makes coarse gestures in the 3D space around the device using the magnet. Movement of the magnet affects the magnetic field sensed by the compass sensor integrated in the device.
+  The temporal pattern of the gesture is then used as a basis for sending different interaction commands to the mobile device. Zooming, turning pages, accepting/rejecting calls, clicking items
+  are some of the use cases.
+- In cases, where it is not possible to use [=orientation-sensor=], user may need to fuse magnetometer data with with other low-level sensor data, to calculate orientation.
+- Indoor navigation system may use magnetometer on mobile phones [[MAGINDOORPOS]]. Specific use cases for indoor navigation may include proximity advertising, way finding in malls or airports, geofencing, etc.
+- Calculating compass heading, more on that in [[#compass]].
+
+Metal detection and input using magnetic button may require only coarse data and low sampling rates suffice.
+Gesture recognition or indoor navigation are more real time use cases where there might be a need for more accurate sensor readings and higher sampling rates.
+Head mount tracking in Virtual Reality may require sensor fusion from accelerometer, gyroscope and magnetometer. Magnetometer data may be used to help in calibration of gyroscope readings
+and align yaw readings with the magnetic north. The required sampling rate might depend on the sensor fusion algorithm and characteristics of other motion sensors involved.
+
 Compass Heading Using Magnetometers {#compass}
 ======================
 
@@ -164,7 +225,7 @@ The earth’s rotational axis defines the geographic north and south poles that 
 map references. It turns out that there is a discrepancy of around 11.5 degrees (around 1000 miles) between the geographic poles and the
 magnetic poles. <a>Declination angle</a> is applied to the magnetic direction to correct for this situation.
 
-If the device is always level to the earth’s surface, compass heading can be determined by using just the
+If the device is always level to the earth’s surface, compass heading [[COMPASSHEADING]] can be determined by using just the
 {{x}} and {{y}} component of the earth’s magnetic field, that
 is, the directions planar with the earth’s surface.
 To determine geographic north (or true north) heading, add the appropriate <a>declination angle</a>.
