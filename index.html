@@ -1183,7 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version f585bc61ca4b271944cd978b64d50b0939de2188" name="generator">
+  <meta content="Bikeshed version 3e4ecbe0ef0589381cdca6fa15e8ab0ea3856450" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1431,7 +1431,7 @@ pre.idl.highlight { color: #708090; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-04-26">26 April 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-05-10">10 May 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1497,17 +1497,17 @@ field in the X, Y and Z axis.</p>
      <ol class="toc">
       <li><a href="#magnetometer-interface"><span class="secno">5.1</span> <span class="content">The Magnetometer Interface</span></a>
       <li>
-       <a href="#raw-magnetometer-interface"><span class="secno">5.2</span> <span class="content">The RawMagnetometer Interface</span></a>
+       <a href="#uncalibrated-magnetometer-interface"><span class="secno">5.2</span> <span class="content">The UncalibratedMagnetometer Interface</span></a>
        <ol class="toc">
         <li><a href="#magnetometer-x"><span class="secno">5.2.1</span> <span class="content">Magnetometer.x</span></a>
         <li><a href="#magnetometer-y"><span class="secno">5.2.2</span> <span class="content">Magnetometer.y</span></a>
         <li><a href="#magnetometer-z"><span class="secno">5.2.3</span> <span class="content">Magnetometer.z</span></a>
-        <li><a href="#raw-magnetometer-x"><span class="secno">5.2.4</span> <span class="content">RawMagnetometer.x</span></a>
-        <li><a href="#raw-magnetometer-y"><span class="secno">5.2.5</span> <span class="content">RawMagnetometer.y</span></a>
-        <li><a href="#raw-magnetometer-z"><span class="secno">5.2.6</span> <span class="content">RawMagnetometer.z</span></a>
-        <li><a href="#raw-magnetometer-xBias"><span class="secno">5.2.7</span> <span class="content">RawMagnetometer.xBias</span></a>
-        <li><a href="#raw-magnetometer-yBias"><span class="secno">5.2.8</span> <span class="content">RawMagnetometer.yBias</span></a>
-        <li><a href="#raw-magnetometer-zBias"><span class="secno">5.2.9</span> <span class="content">RawMagnetometer.zBias</span></a>
+        <li><a href="#uncalibrated-magnetometer-x"><span class="secno">5.2.4</span> <span class="content">UncalibratedMagnetometer.x</span></a>
+        <li><a href="#uncalibrated-magnetometer-y"><span class="secno">5.2.5</span> <span class="content">UncalibratedMagnetometer.y</span></a>
+        <li><a href="#uncalibrated-magnetometer-z"><span class="secno">5.2.6</span> <span class="content">UncalibratedMagnetometer.z</span></a>
+        <li><a href="#uncalibrated-magnetometer-xBias"><span class="secno">5.2.7</span> <span class="content">UncalibratedMagnetometer.xBias</span></a>
+        <li><a href="#uncalibrated-magnetometer-yBias"><span class="secno">5.2.8</span> <span class="content">UncalibratedMagnetometer.yBias</span></a>
+        <li><a href="#uncalibrated-magnetometer-zBias"><span class="secno">5.2.9</span> <span class="content">UncalibratedMagnetometer.zBias</span></a>
        </ol>
      </ol>
     <li><a href="#limitations-magnetometer"><span class="secno">6</span> <span class="content">Limitations of Magnetometer Sensors</span></a>
@@ -1540,7 +1540,7 @@ physical axes (x, y, z) in μT (micro Tesla).</p>
     <li data-md="">
      <p><code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-1">Magnetometer</a></code> that reports <a data-link-type="dfn" href="#calibrated-magnetic-field" id="ref-for-calibrated-magnetic-field-1">calibrated magnetic field</a> values, and</p>
     <li data-md="">
-     <p><code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-1">RawMagnetometer</a></code> that reports <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-1">uncalibrated magnetic field</a> values.</p>
+     <p><code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-1">UncalibratedMagnetometer</a></code> that reports <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-1">uncalibrated magnetic field</a> values.</p>
    </ul>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="magnetic-field">magnetic field</dfn> is a field that exerts magnetic force on magnetometer sensor
 due to the magnetic effect generated by electric currents, magnetic materials or Earth’s magnetic
@@ -1572,10 +1572,10 @@ sensor<span class="p">.</span>onerror <span class="o">=</span> event <span class
    <p>There are no specific security and privacy considerations
 beyond those described in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="4" id="model"><span class="secno">4. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
-   <p>The magnetometer has two associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor">Sensor</a></code> subclasses, <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-2">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-2">RawMagnetometer</a></code>.</p>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-3">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-3">RawMagnetometer</a></code> have an associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/permissions/#enumdef-permissionname">PermissionName</a></code> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer">"magnetometer"</a>.</p>
+   <p>The magnetometer has two associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor">Sensor</a></code> subclasses, <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-2">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-2">UncalibratedMagnetometer</a></code>.</p>
+   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-3">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-3">UncalibratedMagnetometer</a></code> have an associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/permissions/#enumdef-permissionname">PermissionName</a></code> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer">"magnetometer"</a>.</p>
    <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a> per <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensor">sensor</a> of magnetometer includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field-8">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-2">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-3">hard iron distortion</a> depending on which object was instantiated.</p>
-   <p>For raw magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-3">uncalibrated magnetic field</a> around the 3 different axes,
+   <p>For uncalibrated magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-3">uncalibrated magnetic field</a> around the 3 different axes,
 and three additional <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key">keys</a> are "xBias", "yBias", "zBias" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value">values</a> contain the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-4">hard iron distortion</a> correction around the 3 different axes.</p>
    <p>The sign of the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field-9">magnetic field</a> values must be according to the
 right-hand convention in a <a data-link-type="dfn" href="#local-coordinate-system" id="ref-for-local-coordinate-system-1">local coordinate system</a> defined by the device.</p>
@@ -1591,18 +1591,18 @@ the device’s screen when the device in its default orientation (see figure bel
   <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="Magnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-magnetometer-z">z</dfn>;
 };
 </pre>
-   <h3 class="heading settled" data-level="5.2" id="raw-magnetometer-interface"><span class="secno">5.2. </span><span class="content">The RawMagnetometer Interface</span><a class="self-link" href="#raw-magnetometer-interface"></a></h3>
-<pre class="idl highlight def">[<dfn class="nv idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="constructor" data-export="" data-lt="RawMagnetometer(sensorOptions)|RawMagnetometer()" id="dom-rawmagnetometer-rawmagnetometer">Constructor<a class="self-link" href="#dom-rawmagnetometer-rawmagnetometer"></a></dfn>(<span class="kt">optional</span> <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a> <dfn class="nv idl-code" data-dfn-for="RawMagnetometer/RawMagnetometer(sensorOptions)" data-dfn-type="argument" data-export="" id="dom-rawmagnetometer-rawmagnetometer-sensoroptions-sensoroptions">sensorOptions<a class="self-link" href="#dom-rawmagnetometer-rawmagnetometer-sensoroptions-sensoroptions"></a></dfn>)]
-<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="rawmagnetometer">RawMagnetometer</dfn> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor">Sensor</a> {
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-rawmagnetometer-x">x</dfn>;
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-rawmagnetometer-y">y</dfn>;
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-rawmagnetometer-z">z</dfn>;
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-rawmagnetometer-xbias">xBias</dfn>;
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-rawmagnetometer-ybias">yBias</dfn>;
-  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="RawMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-rawmagnetometer-zbias">zBias</dfn>;
+   <h3 class="heading settled" data-level="5.2" id="uncalibrated-magnetometer-interface"><span class="secno">5.2. </span><span class="content">The UncalibratedMagnetometer Interface</span><a class="self-link" href="#uncalibrated-magnetometer-interface"></a></h3>
+<pre class="idl highlight def">[<dfn class="nv idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="constructor" data-export="" data-lt="UncalibratedMagnetometer(sensorOptions)|UncalibratedMagnetometer()" id="dom-uncalibratedmagnetometer-uncalibratedmagnetometer">Constructor<a class="self-link" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer"></a></dfn>(<span class="kt">optional</span> <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a> <dfn class="nv idl-code" data-dfn-for="UncalibratedMagnetometer/UncalibratedMagnetometer(sensorOptions)" data-dfn-type="argument" data-export="" id="dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions">sensorOptions<a class="self-link" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"></a></dfn>)]
+<span class="kt">interface</span> <dfn class="nv dfn-paneled idl-code" data-dfn-type="interface" data-export="" id="uncalibratedmagnetometer">UncalibratedMagnetometer</dfn> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor">Sensor</a> {
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-uncalibratedmagnetometer-x">x</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-uncalibratedmagnetometer-y">y</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-uncalibratedmagnetometer-z">z</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-uncalibratedmagnetometer-xbias">xBias</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-uncalibratedmagnetometer-ybias">yBias</dfn>;
+  <span class="kt">readonly</span> <span class="kt">attribute</span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt">unrestricted</span> <span class="kt">double</span></a>? <dfn class="nv dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export="" data-readonly="" data-type="unrestricted double?" id="dom-uncalibratedmagnetometer-zbias">zBias</dfn>;
 };
 </pre>
-   <p>To <dfn data-dfn-type="dfn" data-noexport="" id="construct-a-magnetometer-object">Construct a Magnetometer Object<a class="self-link" href="#construct-a-magnetometer-object"></a></dfn>, or to <dfn data-dfn-type="dfn" data-noexport="" id="construct-a-rawmagnetometer-object">Construct a RawMagnetometer Object<a class="self-link" href="#construct-a-rawmagnetometer-object"></a></dfn> the user agent must invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors#construct-sensor-object">construct a Sensor object</a> abstract operation.</p>
+   <p>To <dfn data-dfn-type="dfn" data-noexport="" id="construct-a-magnetometer-object">Construct a Magnetometer Object<a class="self-link" href="#construct-a-magnetometer-object"></a></dfn>, or to <dfn data-dfn-type="dfn" data-noexport="" id="construct-an-uncalibratedmagnetometer-object">Construct an UncalibratedMagnetometer Object<a class="self-link" href="#construct-an-uncalibratedmagnetometer-object"></a></dfn> the user agent must invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors#construct-sensor-object">construct a Sensor object</a> abstract operation.</p>
    <h4 class="heading settled" data-level="5.2.1" id="magnetometer-x"><span class="secno">5.2.1. </span><span class="content">Magnetometer.x</span><a class="self-link" href="#magnetometer-x"></a></h4>
    <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-x" id="ref-for-dom-magnetometer-x-1">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-4">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field-10">magnetic field</a> around X-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["x"].</p>
@@ -1612,23 +1612,23 @@ In other words, this attribute returns <a data-link-type="dfn" href="https://w3c
    <h4 class="heading settled" data-level="5.2.3" id="magnetometer-z"><span class="secno">5.2.3. </span><span class="content">Magnetometer.z</span><a class="self-link" href="#magnetometer-z"></a></h4>
    <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-z" id="ref-for-dom-magnetometer-z-1">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer-6">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field-12">magnetic field</a> around Z-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["z"].</p>
-   <h4 class="heading settled" data-level="5.2.4" id="raw-magnetometer-x"><span class="secno">5.2.4. </span><span class="content">RawMagnetometer.x</span><a class="self-link" href="#raw-magnetometer-x"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-rawmagnetometer-x" id="ref-for-dom-rawmagnetometer-x-1">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-4">RawMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-4">uncalibrated magnetic field</a> around X-axis.
+   <h4 class="heading settled" data-level="5.2.4" id="uncalibrated-magnetometer-x"><span class="secno">5.2.4. </span><span class="content">UncalibratedMagnetometer.x</span><a class="self-link" href="#uncalibrated-magnetometer-x"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-x" id="ref-for-dom-uncalibratedmagnetometer-x-1">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-4">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-4">uncalibrated magnetic field</a> around X-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["x"].</p>
-   <h4 class="heading settled" data-level="5.2.5" id="raw-magnetometer-y"><span class="secno">5.2.5. </span><span class="content">RawMagnetometer.y</span><a class="self-link" href="#raw-magnetometer-y"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-rawmagnetometer-y" id="ref-for-dom-rawmagnetometer-y-1">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-5">RawMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-5">uncalibrated magnetic field</a> around Y-axis.
+   <h4 class="heading settled" data-level="5.2.5" id="uncalibrated-magnetometer-y"><span class="secno">5.2.5. </span><span class="content">UncalibratedMagnetometer.y</span><a class="self-link" href="#uncalibrated-magnetometer-y"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-y" id="ref-for-dom-uncalibratedmagnetometer-y-1">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-5">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-5">uncalibrated magnetic field</a> around Y-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["y"].</p>
-   <h4 class="heading settled" data-level="5.2.6" id="raw-magnetometer-z"><span class="secno">5.2.6. </span><span class="content">RawMagnetometer.z</span><a class="self-link" href="#raw-magnetometer-z"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-rawmagnetometer-z" id="ref-for-dom-rawmagnetometer-z-1">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-6">RawMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-6">uncalibrated magnetic field</a> around Z-axis.
+   <h4 class="heading settled" data-level="5.2.6" id="uncalibrated-magnetometer-z"><span class="secno">5.2.6. </span><span class="content">UncalibratedMagnetometer.z</span><a class="self-link" href="#uncalibrated-magnetometer-z"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-z" id="ref-for-dom-uncalibratedmagnetometer-z-1">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-6">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field-6">uncalibrated magnetic field</a> around Z-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["z"].</p>
-   <h4 class="heading settled" data-level="5.2.7" id="raw-magnetometer-xBias"><span class="secno">5.2.7. </span><span class="content">RawMagnetometer.xBias</span><a class="self-link" href="#raw-magnetometer-xBias"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-rawmagnetometer-xbias" id="ref-for-dom-rawmagnetometer-xbias-1">xBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-7">RawMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-5">hard iron distortion</a> correction around X-axis.
+   <h4 class="heading settled" data-level="5.2.7" id="uncalibrated-magnetometer-xBias"><span class="secno">5.2.7. </span><span class="content">UncalibratedMagnetometer.xBias</span><a class="self-link" href="#uncalibrated-magnetometer-xBias"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-xbias" id="ref-for-dom-uncalibratedmagnetometer-xbias-1">xBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-7">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-5">hard iron distortion</a> correction around X-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["xBias"].</p>
-   <h4 class="heading settled" data-level="5.2.8" id="raw-magnetometer-yBias"><span class="secno">5.2.8. </span><span class="content">RawMagnetometer.yBias</span><a class="self-link" href="#raw-magnetometer-yBias"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-rawmagnetometer-ybias" id="ref-for-dom-rawmagnetometer-ybias-1">yBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-8">RawMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-6">hard iron distortion</a> correction around Y-axis.
+   <h4 class="heading settled" data-level="5.2.8" id="uncalibrated-magnetometer-yBias"><span class="secno">5.2.8. </span><span class="content">UncalibratedMagnetometer.yBias</span><a class="self-link" href="#uncalibrated-magnetometer-yBias"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-ybias" id="ref-for-dom-uncalibratedmagnetometer-ybias-1">yBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-8">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-6">hard iron distortion</a> correction around Y-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["yBias"].</p>
-   <h4 class="heading settled" data-level="5.2.9" id="raw-magnetometer-zBias"><span class="secno">5.2.9. </span><span class="content">RawMagnetometer.zBias</span><a class="self-link" href="#raw-magnetometer-zBias"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-rawmagnetometer-zbias" id="ref-for-dom-rawmagnetometer-zbias-1">zBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#rawmagnetometer" id="ref-for-rawmagnetometer-9">RawMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-7">hard iron distortion</a> correction around Z-axis.
+   <h4 class="heading settled" data-level="5.2.9" id="uncalibrated-magnetometer-zBias"><span class="secno">5.2.9. </span><span class="content">UncalibratedMagnetometer.zBias</span><a class="self-link" href="#uncalibrated-magnetometer-zBias"></a></h4>
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-zbias" id="ref-for-dom-uncalibratedmagnetometer-zbias-1">zBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer-9">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-7">hard iron distortion</a> correction around Z-axis.
 In other words, this attribute returns <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading">latest reading</a>["zBias"].</p>
    <h2 class="heading settled" data-level="6" id="limitations-magnetometer"><span class="secno">6. </span><span class="content">Limitations of Magnetometer Sensors</span><a class="self-link" href="#limitations-magnetometer"></a></h2>
    <p><em>This section is non-normative</em>.</p>
@@ -1731,7 +1731,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li><a href="#calibrated-magnetic-field">calibrated magnetic field</a><span>, in §1</span>
    <li><a href="#conformant-user-agent">conformant user agent</a><span>, in §10</span>
    <li><a href="#construct-a-magnetometer-object">Construct a Magnetometer Object</a><span>, in §5.2</span>
-   <li><a href="#construct-a-rawmagnetometer-object">Construct a RawMagnetometer Object</a><span>, in §5.2</span>
+   <li><a href="#construct-an-uncalibratedmagnetometer-object">Construct an UncalibratedMagnetometer Object</a><span>, in §5.2</span>
    <li><a href="#declination-angle">declination angle</a><span>, in §8</span>
    <li><a href="#hard-iron-distortion">Hard iron distortion</a><span>, in §1</span>
    <li><a href="#local-coordinate-system">local coordinate system</a><span>, in §4</span>
@@ -1740,47 +1740,43 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer()</a><span>, in §5.1</span>
    <li><a href="#magnetometer">Magnetometer</a><span>, in §5.1</span>
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer(sensorOptions)</a><span>, in §5.1</span>
-   <li><a href="#rawmagnetometer">RawMagnetometer</a><span>, in §5.2</span>
-   <li><a href="#dom-rawmagnetometer-rawmagnetometer">RawMagnetometer()</a><span>, in §5.2</span>
-   <li><a href="#dom-rawmagnetometer-rawmagnetometer">RawMagnetometer(sensorOptions)</a><span>, in §5.2</span>
    <li><a href="#soft-iron-distortion">Soft iron distortion</a><span>, in §1</span>
    <li><a href="#uncalibrated-magnetic-field">uncalibrated magnetic field</a><span>, in §1</span>
+   <li><a href="#uncalibratedmagnetometer">UncalibratedMagnetometer</a><span>, in §5.2</span>
+   <li><a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer">UncalibratedMagnetometer()</a><span>, in §5.2</span>
+   <li><a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer">UncalibratedMagnetometer(sensorOptions)</a><span>, in §5.2</span>
    <li>
     x
     <ul>
      <li><a href="#dom-magnetometer-x">attribute for Magnetometer</a><span>, in §5.1</span>
-     <li><a href="#dom-rawmagnetometer-x">attribute for RawMagnetometer</a><span>, in §5.2</span>
+     <li><a href="#dom-uncalibratedmagnetometer-x">attribute for UncalibratedMagnetometer</a><span>, in §5.2</span>
     </ul>
-   <li><a href="#dom-rawmagnetometer-xbias">xBias</a><span>, in §5.2</span>
+   <li><a href="#dom-uncalibratedmagnetometer-xbias">xBias</a><span>, in §5.2</span>
    <li>
     y
     <ul>
      <li><a href="#dom-magnetometer-y">attribute for Magnetometer</a><span>, in §5.1</span>
-     <li><a href="#dom-rawmagnetometer-y">attribute for RawMagnetometer</a><span>, in §5.2</span>
+     <li><a href="#dom-uncalibratedmagnetometer-y">attribute for UncalibratedMagnetometer</a><span>, in §5.2</span>
     </ul>
-   <li><a href="#dom-rawmagnetometer-ybias">yBias</a><span>, in §5.2</span>
+   <li><a href="#dom-uncalibratedmagnetometer-ybias">yBias</a><span>, in §5.2</span>
    <li>
     z
     <ul>
      <li><a href="#dom-magnetometer-z">attribute for Magnetometer</a><span>, in §5.1</span>
-     <li><a href="#dom-rawmagnetometer-z">attribute for RawMagnetometer</a><span>, in §5.2</span>
+     <li><a href="#dom-uncalibratedmagnetometer-z">attribute for UncalibratedMagnetometer</a><span>, in §5.2</span>
     </ul>
-   <li><a href="#dom-rawmagnetometer-zbias">zBias</a><span>, in §5.2</span>
+   <li><a href="#dom-uncalibratedmagnetometer-zbias">zBias</a><span>, in §5.2</span>
   </ul>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
     <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
     <ul>
+     <li><a href="https://w3c.github.io/sensors/#sensor">Sensor</a>
+     <li><a href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a>
      <li><a href="https://w3c.github.io/sensors#construct-sensor-object">construct a sensor object</a>
      <li><a href="https://w3c.github.io/sensors#latest-reading">latest reading</a>
      <li><a href="https://w3c.github.io/sensors#sensor">sensor</a>
-    </ul>
-   <li>
-    <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
-    <ul>
-     <li><a href="https://w3c.github.io/sensors/#sensor">Sensor</a>
-     <li><a href="https://w3c.github.io/sensors/#dictdef-sensoroptions">SensorOptions</a>
     </ul>
    <li>
     <a data-link-type="biblio">[INFRA]</a> defines the following terms:
@@ -1813,7 +1809,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
    <dt id="biblio-webidl">[WEBIDL]
-   <dd>Cameron McCormack; Boris Zbarsky; Tobie Langel. <a href="https://www.w3.org/TR/WebIDL-1/">Web IDL</a>. URL: <a href="https://www.w3.org/TR/WebIDL-1/">https://www.w3.org/TR/WebIDL-1/</a>
+   <dd>Cameron McCormack; Boris Zbarsky; Tobie Langel. <a href="https://heycam.github.io/webidl/">Web IDL</a>. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
@@ -1834,14 +1830,14 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-magnetometer-z"><span class="nv">z</span></a>;
 };
 
-[<a class="nv" href="#dom-rawmagnetometer-rawmagnetometer"><span class="nv">Constructor</span></a>(<span class="kt"><span class="kt">optional</span></span> <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#dictdef-sensoroptions"><span class="n">SensorOptions</span></a> <a class="nv" href="#dom-rawmagnetometer-rawmagnetometer-sensoroptions-sensoroptions"><span class="nv">sensorOptions</span></a>)]
-<span class="kt"><span class="kt">interface</span></span> <a class="nv" href="#rawmagnetometer"><span class="nv">RawMagnetometer</span></a> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor"><span class="n">Sensor</span></a> {
-  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-rawmagnetometer-x"><span class="nv">x</span></a>;
-  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-rawmagnetometer-y"><span class="nv">y</span></a>;
-  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-rawmagnetometer-z"><span class="nv">z</span></a>;
-  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-rawmagnetometer-xbias"><span class="nv">xBias</span></a>;
-  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-rawmagnetometer-ybias"><span class="nv">yBias</span></a>;
-  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-rawmagnetometer-zbias"><span class="nv">zBias</span></a>;
+[<a class="nv" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer"><span class="nv">Constructor</span></a>(<span class="kt"><span class="kt">optional</span></span> <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#dictdef-sensoroptions"><span class="n">SensorOptions</span></a> <a class="nv" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"><span class="nv">sensorOptions</span></a>)]
+<span class="kt"><span class="kt">interface</span></span> <a class="nv" href="#uncalibratedmagnetometer"><span class="nv">UncalibratedMagnetometer</span></a> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor"><span class="n">Sensor</span></a> {
+  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-uncalibratedmagnetometer-x"><span class="nv">x</span></a>;
+  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-uncalibratedmagnetometer-y"><span class="nv">y</span></a>;
+  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-uncalibratedmagnetometer-z"><span class="nv">z</span></a>;
+  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-uncalibratedmagnetometer-xbias"><span class="nv">xBias</span></a>;
+  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-uncalibratedmagnetometer-ybias"><span class="nv">yBias</span></a>;
+  <span class="kt"><span class="kt">readonly</span></span> <span class="kt"><span class="kt">attribute</span></span> <a class="n idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-unrestricted-double"><span class="kt"><span class="kt">unrestricted</span></span> <span class="kt"><span class="kt">double</span></span></a>? <a class="nv" data-readonly="" data-type="unrestricted double?" href="#dom-uncalibratedmagnetometer-zbias"><span class="nv">zBias</span></a>;
 };
 
 </pre>
@@ -1861,9 +1857,9 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <ul>
     <li><a href="#ref-for-hard-iron-distortion-1">1. Introduction</a> <a href="#ref-for-hard-iron-distortion-2">(2)</a>
     <li><a href="#ref-for-hard-iron-distortion-3">4. Model</a> <a href="#ref-for-hard-iron-distortion-4">(2)</a>
-    <li><a href="#ref-for-hard-iron-distortion-5">5.2.7. RawMagnetometer.xBias</a>
-    <li><a href="#ref-for-hard-iron-distortion-6">5.2.8. RawMagnetometer.yBias</a>
-    <li><a href="#ref-for-hard-iron-distortion-7">5.2.9. RawMagnetometer.zBias</a>
+    <li><a href="#ref-for-hard-iron-distortion-5">5.2.7. UncalibratedMagnetometer.xBias</a>
+    <li><a href="#ref-for-hard-iron-distortion-6">5.2.8. UncalibratedMagnetometer.yBias</a>
+    <li><a href="#ref-for-hard-iron-distortion-7">5.2.9. UncalibratedMagnetometer.zBias</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="soft-iron-distortion">
@@ -1883,9 +1879,9 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <ul>
     <li><a href="#ref-for-uncalibrated-magnetic-field-1">1. Introduction</a>
     <li><a href="#ref-for-uncalibrated-magnetic-field-2">4. Model</a> <a href="#ref-for-uncalibrated-magnetic-field-3">(2)</a>
-    <li><a href="#ref-for-uncalibrated-magnetic-field-4">5.2.4. RawMagnetometer.x</a>
-    <li><a href="#ref-for-uncalibrated-magnetic-field-5">5.2.5. RawMagnetometer.y</a>
-    <li><a href="#ref-for-uncalibrated-magnetic-field-6">5.2.6. RawMagnetometer.z</a>
+    <li><a href="#ref-for-uncalibrated-magnetic-field-4">5.2.4. UncalibratedMagnetometer.x</a>
+    <li><a href="#ref-for-uncalibrated-magnetic-field-5">5.2.5. UncalibratedMagnetometer.y</a>
+    <li><a href="#ref-for-uncalibrated-magnetic-field-6">5.2.6. UncalibratedMagnetometer.z</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="local-coordinate-system">
@@ -1924,53 +1920,53 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-dom-magnetometer-z-1">5.2.3. Magnetometer.z</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="rawmagnetometer">
-   <b><a href="#rawmagnetometer">#rawmagnetometer</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="uncalibratedmagnetometer">
+   <b><a href="#uncalibratedmagnetometer">#uncalibratedmagnetometer</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-rawmagnetometer-1">1. Introduction</a>
-    <li><a href="#ref-for-rawmagnetometer-2">4. Model</a> <a href="#ref-for-rawmagnetometer-3">(2)</a>
-    <li><a href="#ref-for-rawmagnetometer-4">5.2.4. RawMagnetometer.x</a>
-    <li><a href="#ref-for-rawmagnetometer-5">5.2.5. RawMagnetometer.y</a>
-    <li><a href="#ref-for-rawmagnetometer-6">5.2.6. RawMagnetometer.z</a>
-    <li><a href="#ref-for-rawmagnetometer-7">5.2.7. RawMagnetometer.xBias</a>
-    <li><a href="#ref-for-rawmagnetometer-8">5.2.8. RawMagnetometer.yBias</a>
-    <li><a href="#ref-for-rawmagnetometer-9">5.2.9. RawMagnetometer.zBias</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-1">1. Introduction</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-2">4. Model</a> <a href="#ref-for-uncalibratedmagnetometer-3">(2)</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-4">5.2.4. UncalibratedMagnetometer.x</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-5">5.2.5. UncalibratedMagnetometer.y</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-6">5.2.6. UncalibratedMagnetometer.z</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-7">5.2.7. UncalibratedMagnetometer.xBias</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-8">5.2.8. UncalibratedMagnetometer.yBias</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer-9">5.2.9. UncalibratedMagnetometer.zBias</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-rawmagnetometer-x">
-   <b><a href="#dom-rawmagnetometer-x">#dom-rawmagnetometer-x</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-x">
+   <b><a href="#dom-uncalibratedmagnetometer-x">#dom-uncalibratedmagnetometer-x</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-rawmagnetometer-x-1">5.2.4. RawMagnetometer.x</a>
+    <li><a href="#ref-for-dom-uncalibratedmagnetometer-x-1">5.2.4. UncalibratedMagnetometer.x</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-rawmagnetometer-y">
-   <b><a href="#dom-rawmagnetometer-y">#dom-rawmagnetometer-y</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-y">
+   <b><a href="#dom-uncalibratedmagnetometer-y">#dom-uncalibratedmagnetometer-y</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-rawmagnetometer-y-1">5.2.5. RawMagnetometer.y</a>
+    <li><a href="#ref-for-dom-uncalibratedmagnetometer-y-1">5.2.5. UncalibratedMagnetometer.y</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-rawmagnetometer-z">
-   <b><a href="#dom-rawmagnetometer-z">#dom-rawmagnetometer-z</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-z">
+   <b><a href="#dom-uncalibratedmagnetometer-z">#dom-uncalibratedmagnetometer-z</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-rawmagnetometer-z-1">5.2.6. RawMagnetometer.z</a>
+    <li><a href="#ref-for-dom-uncalibratedmagnetometer-z-1">5.2.6. UncalibratedMagnetometer.z</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-rawmagnetometer-xbias">
-   <b><a href="#dom-rawmagnetometer-xbias">#dom-rawmagnetometer-xbias</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-xbias">
+   <b><a href="#dom-uncalibratedmagnetometer-xbias">#dom-uncalibratedmagnetometer-xbias</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-rawmagnetometer-xbias-1">5.2.7. RawMagnetometer.xBias</a>
+    <li><a href="#ref-for-dom-uncalibratedmagnetometer-xbias-1">5.2.7. UncalibratedMagnetometer.xBias</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-rawmagnetometer-ybias">
-   <b><a href="#dom-rawmagnetometer-ybias">#dom-rawmagnetometer-ybias</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-ybias">
+   <b><a href="#dom-uncalibratedmagnetometer-ybias">#dom-uncalibratedmagnetometer-ybias</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-rawmagnetometer-ybias-1">5.2.8. RawMagnetometer.yBias</a>
+    <li><a href="#ref-for-dom-uncalibratedmagnetometer-ybias-1">5.2.8. UncalibratedMagnetometer.yBias</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="dom-rawmagnetometer-zbias">
-   <b><a href="#dom-rawmagnetometer-zbias">#dom-rawmagnetometer-zbias</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-zbias">
+   <b><a href="#dom-uncalibratedmagnetometer-zbias">#dom-uncalibratedmagnetometer-zbias</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-rawmagnetometer-zbias-1">5.2.9. RawMagnetometer.zBias</a>
+    <li><a href="#ref-for-dom-uncalibratedmagnetometer-zbias-1">5.2.9. UncalibratedMagnetometer.zBias</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="magnetic-declination">
