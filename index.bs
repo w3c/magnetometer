@@ -191,7 +191,7 @@ To <dfn>Construct a Magnetometer Object</dfn>, or to <dfn>Construct an Uncalibra
 ### Magnetometer.x ### {#magnetometer-x}
 
 
-The {{Magnetometer/x!!attribute}} attribute of the {{Magnetometer}}
+The {{Magnetometer/x}} attribute of the {{Magnetometer}}
 interface represents the <a>magnetic field</a> around X-axis.
 In other words, this attribute returns [=latest reading=]["x"].
 
@@ -199,7 +199,7 @@ In other words, this attribute returns [=latest reading=]["x"].
 ### Magnetometer.y ### {#magnetometer-y}
 
 
-The {{Magnetometer/y!!attribute}} attribute of the {{Magnetometer}}
+The {{Magnetometer/y}} attribute of the {{Magnetometer}}
 interface represents the <a>magnetic field</a> around Y-axis.
 In other words, this attribute returns [=latest reading=]["y"].
 
@@ -207,7 +207,7 @@ In other words, this attribute returns [=latest reading=]["y"].
 ### Magnetometer.z ### {#magnetometer-z}
 
 
-The {{Magnetometer/z!!attribute}} attribute of the {{Magnetometer}}
+The {{Magnetometer/z}} attribute of the {{Magnetometer}}
 interface represents the <a>magnetic field</a> around Z-axis.
 In other words, this attribute returns [=latest reading=]["z"].
 
@@ -215,7 +215,7 @@ In other words, this attribute returns [=latest reading=]["z"].
 ### UncalibratedMagnetometer.x ### {#uncalibrated-magnetometer-x}
 
 
-The {{UncalibratedMagnetometer/x!!attribute}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/x}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>uncalibrated magnetic field</a> around X-axis.
 In other words, this attribute returns [=latest reading=]["x"].
 
@@ -223,7 +223,7 @@ In other words, this attribute returns [=latest reading=]["x"].
 ### UncalibratedMagnetometer.y ### {#uncalibrated-magnetometer-y}
 
 
-The {{UncalibratedMagnetometer/y!!attribute}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/y}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>uncalibrated magnetic field</a> around Y-axis.
 In other words, this attribute returns [=latest reading=]["y"].
 
@@ -231,7 +231,7 @@ In other words, this attribute returns [=latest reading=]["y"].
 ### UncalibratedMagnetometer.z ### {#uncalibrated-magnetometer-z}
 
 
-The {{UncalibratedMagnetometer/z!!attribute}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/z}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>uncalibrated magnetic field</a> around Z-axis.
 In other words, this attribute returns [=latest reading=]["z"].
 
@@ -239,21 +239,21 @@ In other words, this attribute returns [=latest reading=]["z"].
 ### UncalibratedMagnetometer.xBias ### {#uncalibrated-magnetometer-xBias}
 
 
-The {{UncalibratedMagnetometer/xBias!!attribute}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/xBias}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>hard iron distortion</a> correction around X-axis.
 In other words, this attribute returns [=latest reading=]["xBias"].
 
 ### UncalibratedMagnetometer.yBias ### {#uncalibrated-magnetometer-yBias}
 
 
-The {{UncalibratedMagnetometer/yBias!!attribute}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/yBias}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>hard iron distortion</a> correction around Y-axis.
 In other words, this attribute returns [=latest reading=]["yBias"].
 
 ### UncalibratedMagnetometer.zBias ### {#uncalibrated-magnetometer-zBias}
 
 
-The {{UncalibratedMagnetometer/zBias!!attribute}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/zBias}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>hard iron distortion</a> correction around Z-axis.
 In other words, this attribute returns [=latest reading=]["zBias"].
 
@@ -268,7 +268,7 @@ The direction and magnitude of the Earth’s field changes with location, latitu
 the magnitude is lowest near the equator and highest near the poles.
 Some hard-iron interference, meaning presence of permanent magnets (e.g. magnets in the speaker of a phone) in the vicinity of the sensor
 also affects the accuracy of the reading.
-Presence of electronic items, laptops, batteries, etc also contribute to the <a>soft iron interference</a>.
+Presence of electronic items, laptops, batteries, etc also contribute to the soft iron interference.
 Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.
 
 In addition to the above spatial variations of the <a>magnetic field</a>, time based variations,
@@ -287,7 +287,7 @@ Magnetometers can be used for a variety of use-cases, such as:
   The user makes coarse gestures in the 3D space around the device using the magnet. Movement of the magnet affects the magnetic field sensed by the compass sensor integrated in the device.
   The temporal pattern of the gesture is then used as a basis for sending different interaction commands to the mobile device. Zooming, turning pages, accepting/rejecting calls, clicking items
   are some of the use cases.
-- In cases, where it is not possible to use [=orientation-sensor=], user may need to fuse magnetometer data with with other low-level sensor data, to calculate orientation.
+- In cases, where it is not possible to use orientation sensor, user may need to fuse magnetometer data with with other low-level sensor data, to calculate orientation.
 - Indoor navigation system may use magnetometer on mobile phones [[MAGINDOORPOS]]. Specific use cases for indoor navigation may include proximity advertising, way finding in malls or airports, geofencing, etc.
 - Calculating compass heading, more on that in [[#compass]].
 
@@ -313,36 +313,32 @@ To determine geographic north (or true north) heading, add the appropriate <a>de
 By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a>magnetic declination</a> e.g. using the <a href="http://www.ngdc.noaa.gov/geomag-web/calculators/declinationHelp">Magnetic declination calculator</a>
 provided by the National Oceanic and Atmospheric Administration (NOAA).
 
-Magnetic north calculation is simple:
+The magnetic north is calculated as follows:
 
 <div class="example">
   <pre highlight="js">
     let sensor = new Magnetometer();
     sensor.start();
-    var headingDegrees = Math.atan2(sensor.y,
-                                    sensor.x) * (180 / Math.PI);
-
-    console.log('Heading in degrees: ' + headingDegrees);
+    let heading = Math.atan2(sensor.y, sensor.x) * (180 / Math.PI);
+    console.log('Heading in degrees: ' + heading);
   </pre>
 </div>
 
-To get geographic north (or true north) that considers the
-<a>magnetic declination</a> at the given latitude and longitude,
-further work is required:
+The geographic north at a given latitude and longitude is calculated as follows:
 
 <div class="example">
   <pre highlight="js">
-    // First, get the latitude and longitude (omitted for brevity).
-    var latitude = 0, longitude = 0;
+    // Get the latitude and longitude, omitted for brevity here.
+    let latitude = 0, longitude = 0;
 
-    // Then, get the magnetic declination using your favorite web service.
-    var base = 'https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination';
-    fetch(base + '?lat1=' + latitude + '&lon1=' + longitude + '&resultFormat=csv')
+    // Get the magnetic declination at the given latitude and longitude.
+    fetch('https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination' +
+          '?lat1=' + latitude + '&lon1=' + longitude + '&resultFormat=csv')
       .then(response => response.text()).then(text => {
-        var declinationDegrees =
-            parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
-        // Compensate for the magnetic declination to get the true north.
-        console.log('True heading in degrees: ' + (headingDegrees + declinationDegrees));
+        let declination = parseFloat(text.replace(/^#.*$/gm, '').trim().split(',')[4]);
+
+        // Compensate for the magnetic declination to get the geographic north.
+        console.log('True heading in degrees: ' + (heading + declination));
     });
     </pre>
 </div>
