@@ -1183,7 +1183,7 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version bab6032cf8759f7d2fb1341d02aa48484a5a3187" name="generator">
+  <meta content="Bikeshed version 78add57678334db281af36bf567919103e7c1e66" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
 <style>/* style-md-lists */
 
@@ -1431,7 +1431,7 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-06-26">26 June 2017</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2017-06-28">28 June 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1554,18 +1554,18 @@ nickel and iron.</p>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="uncalibrated-magnetic-field">uncalibrated magnetic field</dfn> is the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field-6">magnetic field</a> without <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion-2">hard iron distortion</a> correction and with <a data-link-type="dfn" href="#soft-iron-distortion" id="ref-for-soft-iron-distortion-2">soft iron distortion</a> correction applied,
 and as such reports changes in the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field-7">magnetic field</a> caused by magnetized objects moving near the magnetometer.</p>
    <h2 class="heading settled" data-level="2" id="examples"><span class="secno">2. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
-   <div class="example" id="example-7bdf3704">
-    <a class="self-link" href="#example-7bdf3704"></a> 
+   <div class="example" id="example-e58f0183">
+    <a class="self-link" href="#example-e58f0183"></a> 
 <pre class="highlight"><span class="kd">let</span> sensor <span class="o">=</span> <span class="k">new</span> Magnetometer<span class="p">();</span>
 sensor<span class="p">.</span>start<span class="p">();</span>
 
-sensor<span class="p">.</span>onchange <span class="o">=</span> <span class="p">()</span> <span class="o">=></span> <span class="p">{</span>
+sensor<span class="p">.</span>onreading <span class="o">=</span> <span class="p">()</span> <span class="p">=></span> <span class="p">{</span>
     console<span class="p">.</span>log<span class="p">(</span><span class="s2">"Magnetic field along the X-axis "</span> <span class="o">+</span> sensor<span class="p">.</span>x<span class="p">);</span>
     console<span class="p">.</span>log<span class="p">(</span><span class="s2">"Magnetic field along the Y-axis "</span> <span class="o">+</span> sensor<span class="p">.</span>y<span class="p">);</span>
     console<span class="p">.</span>log<span class="p">(</span><span class="s2">"Magnetic field along the Z-axis "</span> <span class="o">+</span> sensor<span class="p">.</span>z<span class="p">);</span>
 <span class="p">};</span>
 
-sensor<span class="p">.</span>onerror <span class="o">=</span> event <span class="o">=></span> console<span class="p">.</span>log<span class="p">(</span>event<span class="p">.</span>error<span class="p">.</span>name<span class="p">,</span> event<span class="p">.</span>error<span class="p">.</span>message<span class="p">);</span>
+sensor<span class="p">.</span>onerror <span class="o">=</span> event <span class="p">=></span> console<span class="p">.</span>log<span class="p">(</span>event<span class="p">.</span>error<span class="p">.</span>name<span class="p">,</span> event<span class="p">.</span>error<span class="p">.</span>message<span class="p">);</span>
 </pre>
    </div>
    <h2 class="heading settled" data-level="3" id="security-and-privacy"><span class="secno">3. </span><span class="content">Security and Privacy Considerations</span><a class="self-link" href="#security-and-privacy"></a></h2>
@@ -1691,7 +1691,7 @@ console<span class="p">.</span>log<span class="p">(</span><span class="s1">'Head
 <span class="c1">// Get the magnetic declination at the given latitude and longitude.
 </span>fetch<span class="p">(</span><span class="s1">'https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</span> <span class="o">+</span>
       <span class="s1">'?lat1='</span> <span class="o">+</span> latitude <span class="o">+</span> <span class="s1">'&amp;lon1='</span> <span class="o">+</span> longitude <span class="o">+</span> <span class="s1">'&amp;resultFormat=csv'</span><span class="p">)</span>
-  <span class="p">.</span>then<span class="p">(</span>response <span class="o">=></span> response<span class="p">.</span>text<span class="p">()).</span>then<span class="p">(</span>text <span class="o">=></span> <span class="p">{</span>
+  <span class="p">.</span>then<span class="p">(</span>response <span class="p">=></span> response<span class="p">.</span>text<span class="p">()).</span>then<span class="p">(</span>text <span class="p">=></span> <span class="p">{</span>
     <span class="kd">let</span> declination <span class="o">=</span> parseFloat<span class="p">(</span>text<span class="p">.</span>replace<span class="p">(</span><span class="sr">/^#.*$/gm</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span>trim<span class="p">().</span>split<span class="p">(</span><span class="s1">','</span><span class="p">)[</span><span class="mi">4</span><span class="p">]);</span>
 
     <span class="c1">// Compensate for the magnetic declination to get the geographic north.
