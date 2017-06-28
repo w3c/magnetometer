@@ -113,7 +113,7 @@ Examples {#examples}
     let sensor = new Magnetometer();
     sensor.start();
 
-    sensor.onchange = () => {
+    sensor.onreading = () => {
         console.log("Magnetic field along the X-axis " + sensor.x);
         console.log("Magnetic field along the Y-axis " + sensor.y);
         console.log("Magnetic field along the Z-axis " + sensor.z);
