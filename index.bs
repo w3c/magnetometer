@@ -1,6 +1,6 @@
 <pre class="metadata">
 Title: Magnetometer
-Level: 1
+Level: none
 Status: ED
 ED: https://w3c.github.io/magnetometer/
 Shortname: magnetometer
