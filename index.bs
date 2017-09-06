@@ -161,7 +161,7 @@ The Magnetometer Interface {#magnetometer-interface}
 --------------------------------
 
 <pre class="idl">
-  [Constructor(optional SensorOptions sensorOptions)]
+  [Constructor(optional SensorOptions sensorOptions), Exposed=Window]
   interface Magnetometer : Sensor {
     readonly attribute unrestricted double? x;
     readonly attribute unrestricted double? y;
@@ -174,7 +174,7 @@ The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
 --------------------------------
 
 <pre class="idl">
-  [Constructor(optional SensorOptions sensorOptions)]
+  [Constructor(optional SensorOptions sensorOptions), Exposed=Window]
   interface UncalibratedMagnetometer : Sensor {
     readonly attribute unrestricted double? x;
     readonly attribute unrestricted double? y;
