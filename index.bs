@@ -164,9 +164,9 @@ The Magnetometer Interface {#magnetometer-interface}
 <pre class="idl">
   [Constructor(optional SensorOptions sensorOptions), Exposed=Window]
   interface Magnetometer : Sensor {
-    readonly attribute unrestricted double? x;
-    readonly attribute unrestricted double? y;
-    readonly attribute unrestricted double? z;
+    readonly attribute double? x;
+    readonly attribute double? y;
+    readonly attribute double? z;
   };
 </pre>
 
@@ -177,12 +177,12 @@ The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
 <pre class="idl">
   [Constructor(optional SensorOptions sensorOptions), Exposed=Window]
   interface UncalibratedMagnetometer : Sensor {
-    readonly attribute unrestricted double? x;
-    readonly attribute unrestricted double? y;
-    readonly attribute unrestricted double? z;
-    readonly attribute unrestricted double? xBias;
-    readonly attribute unrestricted double? yBias;
-    readonly attribute unrestricted double? zBias;
+    readonly attribute double? x;
+    readonly attribute double? y;
+    readonly attribute double? z;
+    readonly attribute double? xBias;
+    readonly attribute double? yBias;
+    readonly attribute double? zBias;
   };
 </pre>
 
@@ -193,72 +193,80 @@ To <dfn>Construct a Magnetometer Object</dfn>, or to <dfn>Construct an Uncalibra
 ### Magnetometer.x ### {#magnetometer-x}
 
 
-The {{Magnetometer/x}} attribute of the {{Magnetometer}}
+The {{Magnetometer/x!!attribute}} attribute of the {{Magnetometer}}
 interface represents the <a>magnetic field</a> around X-axis.
-In other words, this attribute returns [=latest reading=]["x"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "x" as arguments.
 
 
 ### Magnetometer.y ### {#magnetometer-y}
 
 
-The {{Magnetometer/y}} attribute of the {{Magnetometer}}
+The {{Magnetometer/y!!attribute}} attribute of the {{Magnetometer}}
 interface represents the <a>magnetic field</a> around Y-axis.
-In other words, this attribute returns [=latest reading=]["y"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "y" as arguments.
 
 
 ### Magnetometer.z ### {#magnetometer-z}
 
 
-The {{Magnetometer/z}} attribute of the {{Magnetometer}}
+The {{Magnetometer/z!!attribute}} attribute of the {{Magnetometer}}
 interface represents the <a>magnetic field</a> around Z-axis.
-In other words, this attribute returns [=latest reading=]["z"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "z" as arguments.
 
 
 ### UncalibratedMagnetometer.x ### {#uncalibrated-magnetometer-x}
 
 
-The {{UncalibratedMagnetometer/x}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/x!!attribute}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>uncalibrated magnetic field</a> around X-axis.
-In other words, this attribute returns [=latest reading=]["x"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "x" as arguments.
 
 
 ### UncalibratedMagnetometer.y ### {#uncalibrated-magnetometer-y}
 
 
-The {{UncalibratedMagnetometer/y}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/y!!attribute}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>uncalibrated magnetic field</a> around Y-axis.
-In other words, this attribute returns [=latest reading=]["y"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "y" as arguments.
 
 
 ### UncalibratedMagnetometer.z ### {#uncalibrated-magnetometer-z}
 
 
-The {{UncalibratedMagnetometer/z}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/z!!attribute}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>uncalibrated magnetic field</a> around Z-axis.
-In other words, this attribute returns [=latest reading=]["z"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "z" as arguments.
 
 
 ### UncalibratedMagnetometer.xBias ### {#uncalibrated-magnetometer-xBias}
 
 
-The {{UncalibratedMagnetometer/xBias}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/xBias!!attribute}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>hard iron distortion</a> correction around X-axis.
-In other words, this attribute returns [=latest reading=]["xBias"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "xBias" as arguments.
 
 ### UncalibratedMagnetometer.yBias ### {#uncalibrated-magnetometer-yBias}
 
 
-The {{UncalibratedMagnetometer/yBias}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/yBias!!attribute}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>hard iron distortion</a> correction around Y-axis.
-In other words, this attribute returns [=latest reading=]["yBias"].
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "yBias" as arguments.
 
 ### UncalibratedMagnetometer.zBias ### {#uncalibrated-magnetometer-zBias}
 
 
-The {{UncalibratedMagnetometer/zBias}} attribute of the {{UncalibratedMagnetometer}}
+The {{UncalibratedMagnetometer/zBias!!attribute}} attribute of the {{UncalibratedMagnetometer}}
 interface represents the <a>hard iron distortion</a> correction around Z-axis.
-In other words, this attribute returns [=latest reading=]["zBias"].
-
+In other words, this attribute returns the result of invoking
+[=get value from latest reading=] with `this` and "zBias" as arguments.
 
 
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
@@ -307,7 +315,7 @@ map references. It turns out that there is a discrepancy of around 11.5 degrees 
 magnetic poles. <a>Declination angle</a> is applied to the magnetic direction to correct for this situation.
 
 If the device is always level to the earth’s surface, compass heading [[COMPASSHEADING]] can be determined by using just the
-{{x}} and {{y}} component of the earth’s magnetic field, that
+{{Magnetometer/x!!attribute}} and {{Magnetometer/y!!attribute}} component of the earth’s magnetic field, that
 is, the directions planar with the earth’s surface.
 To determine geographic north (or true north) heading, add the appropriate <a>declination angle</a>.
 
