@@ -128,8 +128,21 @@ Examples {#examples}
 Security and Privacy Considerations {#security-and-privacy}
 ===================================
 
-There are no specific security and privacy considerations
-beyond those described in the Generic Sensor API [[!GENERIC-SENSOR]].
+Magnetometer provides information about magnetic field, and in theory, can expose location of a
+user. For example, attack vector could be pre-magnetized surface in a particular location, or
+mapping between location and constant magnetic field disturbances caused by the building. Due
+to non-uniform strength of the Earth’s magnetic field, another attack vector could be exposure or
+validation of the user's location. For example, if the end user is connected through VPN, magnetic
+field associated with geo IP information can be compared with magnetometer readings at real
+location, therefore, tell whether user is using VPN or not.
+
+To mitigate these Magnetometer specific threats, user agents should
+use one or both of the following mitigation strategies:
+  - <a>limit maximum sampling frequency</a>
+  - <a>reduce accuracy</a> of sensor readings
+
+The generic <a>mitigation strategies</a> are described in the Generic Sensor
+API [[!GENERIC-SENSOR]].
 
 Model {#model}
 =====
