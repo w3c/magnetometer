@@ -31,6 +31,12 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: construct a sensor object; url: construct-sensor-object
     text: sensor type
     text: mitigation strategies; url: mitigation-strategies
+    text: local coordinate system
+    text: sensor readings; url: sensor-readings
+urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
+  type: dfn
+    text: device coordinate system
+    text: screen coordinate system
 </pre>
 
 
@@ -161,13 +167,17 @@ For uncalibrated magnetometer, the [=latest reading=] includes three [=map/entri
 and three additional [=map/entries=] whose [=map/keys=] are "xBias", "yBias", "zBias" and whose [=map/values=] contain the <a>hard iron distortion</a> correction around the 3 different axes.
 
 The sign of the <a>magnetic field</a> values must be according to the
-right-hand convention in a <a>local coordinate system</a> defined by the device.
+right-hand convention in a [=local coordinate system=] (see figure below).
 
-Note: The <dfn>local coordinate system</dfn> of a mobile device is usually defined relative to
-the device's screen when the device in its default orientation (see figure below).
 
-<img src="images/magnetometer_coordinate_system.png" srcset="images/magnetometer_coordinate_system.svg" alt="Magnetometer coordinate system.">
+<img src="images/magnetometer_coordinate_system.svg" onerror="this.src='images/magnetometer_coordinate_system.png'" style="display: block;margin: auto;" alt="Magnetometer coordinate system.">
 
+Reference Frame {#reference-frame}
+----------------
+
+The [=local coordinate system=] represents the reference frame for the
+{{Magnetometer}} and the {{UncalibratedMagnetometer}} [=sensor readings|readings=].
+It can be either the [=device coordinate system=] or the [=screen coordinate system=].
 
 API {#api}
 ===
@@ -176,33 +186,24 @@ The Magnetometer Interface {#magnetometer-interface}
 --------------------------------
 
 <pre class="idl">
-  [Constructor(optional SensorOptions sensorOptions), SecureContext, Exposed=Window]
+  [Constructor(optional MagnetometerSensorOptions sensorOptions), SecureContext,
+    Exposed=Window]
   interface Magnetometer : Sensor {
     readonly attribute double? x;
     readonly attribute double? y;
     readonly attribute double? z;
   };
-</pre>
 
+  enum LocalCoordinateSystem { "device", "screen" };
 
-The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
---------------------------------
-
-<pre class="idl">
-  [Constructor(optional SensorOptions sensorOptions), SecureContext, Exposed=Window]
-  interface UncalibratedMagnetometer : Sensor {
-    readonly attribute double? x;
-    readonly attribute double? y;
-    readonly attribute double? z;
-    readonly attribute double? xBias;
-    readonly attribute double? yBias;
-    readonly attribute double? zBias;
+  dictionary MagnetometerSensorOptions :  SensorOptions  {
+    LocalCoordinateSystem referenceFrame = "device";
   };
 </pre>
 
-
-To <dfn>Construct a Magnetometer Object</dfn>, or to <dfn>Construct an UncalibratedMagnetometer Object</dfn> the user agent must invoke the <a>construct a Sensor object</a> abstract operation.
-
+To construct a {{Magnetometer}} object the user agent must invoke the
+[=construct a magnetometer object=] abstract operation for the {{Magnetometer}}
+interface.
 
 ### Magnetometer.x ### {#magnetometer-x}
 
@@ -230,6 +231,27 @@ interface represents the <a>magnetic field</a> around Z-axis.
 In other words, this attribute returns the result of invoking
 [=get value from latest reading=] with `this` and "z" as arguments.
 
+
+The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
+--------------------------------
+
+<pre class="idl">
+  [Constructor(optional MagnetometerSensorOptions sensorOptions), SecureContext,
+    Exposed=Window]
+  interface UncalibratedMagnetometer : Sensor {
+    readonly attribute double? x;
+    readonly attribute double? y;
+    readonly attribute double? z;
+    readonly attribute double? xBias;
+    readonly attribute double? yBias;
+    readonly attribute double? zBias;
+  };
+</pre>
+
+
+To construct an {{UncalibratedMagnetometer}} object the user agent must invoke the
+[=construct a magnetometer object=] abstract operation for the {{UncalibratedMagnetometer}}
+interface.
 
 ### UncalibratedMagnetometer.x ### {#uncalibrated-magnetometer-x}
 
@@ -283,6 +305,26 @@ In other words, this attribute returns the result of invoking
 [=get value from latest reading=] with `this` and "zBias" as arguments.
 
 
+Abstract Operations {#abstract-opertaions}
+==============
+
+<h3 dfn>Construct a magnetometer object</h3>
+
+<div algorithm="construct a magnetometer object">
+
+    : input
+    :: |options|, a {{MagnetometerSensorOptions}} object.
+    : output
+    :: A {{Sensor}} object.
+
+    1. Let |sensor_instance| be the result of invoking [=construct a Sensor object=] with |options|.
+    1. If |options|.{{referenceFrame!!dict-member}} is "screen", then:
+       1.  Define [=local coordinate system=] for |sensor_instance|
+           as the [=screen coordinate system=].
+    1. Otherwise, define [=local coordinate system=] for |sensor_instance|
+       as the [=device coordinate system=].
+</div>
+
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
 ==============
 
@@ -297,8 +339,6 @@ Flight Mode option in mobile phones might help in decreasing the electro magneti
 
 In addition to the above spatial variations of the <a>magnetic field</a>, time based variations,
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the earth.
-
-
 
 Use Cases and Requirements {#usecases-and-requirements}
 ===================
