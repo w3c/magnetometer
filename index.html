@@ -1185,7 +1185,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 6aa3aaa1336714f1530c976b6df9a86c683d5968" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="cbb1c3222b9ed834227caa6e5f14112c07c42b35" name="document-revision">
+  <meta content="807d989c6d7de0e12b67dd712db1b9858df4048f" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1682,11 +1682,11 @@ In other words, this attribute returns the result of invoking <a data-link-type=
       <p><var>options</var>, a <code class="idl"><a data-link-type="idl" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions②">MagnetometerSensorOptions</a></code> object.</p>
      <dt data-md="">output
      <dd data-md="">
-      <p>A <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor④">Sensor</a></code> object.</p>
+      <p>A <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①⓪">Magnetometer</a></code> or <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①③">UncalibratedMagnetometer</a></code> object.</p>
     </dl>
     <ol>
      <li data-md="">
-      <p>Let <var>allowed</var> be the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors#check-sensor-policy-controlled-features" id="ref-for-check-sensor-policy-controlled-features">check sensor policy-controlled features</a> with <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①⓪">Magnetometer</a></code>.</p>
+      <p>Let <var>allowed</var> be the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors#check-sensor-policy-controlled-features" id="ref-for-check-sensor-policy-controlled-features">check sensor policy-controlled features</a> with <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①①">Magnetometer</a></code>.</p>
      <li data-md="">
       <p>If <var>allowed</var> is false, then:</p>
       <ol>
@@ -2016,7 +2016,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-magnetometer⑥">5.1.1. Magnetometer.x</a>
     <li><a href="#ref-for-magnetometer⑦">5.1.2. Magnetometer.y</a>
     <li><a href="#ref-for-magnetometer⑧">5.1.3. Magnetometer.z</a>
-    <li><a href="#ref-for-magnetometer⑨">6.1. Construct a magnetometer object</a> <a href="#ref-for-magnetometer①⓪">(2)</a>
+    <li><a href="#ref-for-magnetometer⑨">6.1. Construct a magnetometer object</a> <a href="#ref-for-magnetometer①⓪">(2)</a> <a href="#ref-for-magnetometer①①">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-magnetometer-x">
@@ -2072,7 +2072,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-uncalibratedmagnetometer⑨">5.2.4. UncalibratedMagnetometer.xBias</a>
     <li><a href="#ref-for-uncalibratedmagnetometer①⓪">5.2.5. UncalibratedMagnetometer.yBias</a>
     <li><a href="#ref-for-uncalibratedmagnetometer①①">5.2.6. UncalibratedMagnetometer.zBias</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①②">6.1. Construct a magnetometer object</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①②">6.1. Construct a magnetometer object</a> <a href="#ref-for-uncalibratedmagnetometer①③">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-x">

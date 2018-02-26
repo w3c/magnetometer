@@ -331,7 +331,7 @@ Abstract Operations {#abstract-opertaions}
        an {{UncalibratedMagnetometer}} [=interface=] [=identifier=].
     :: |options|, a {{MagnetometerSensorOptions}} object.
     : output
-    :: A {{Sensor}} object.
+    :: A {{Magnetometer}} or {{UncalibratedMagnetometer}} object.
 
     1.  Let |allowed| be the result of invoking [=check sensor policy-controlled features=]
         with {{Magnetometer}}.
