@@ -29,10 +29,13 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: latest reading
     text: default sensor
     text: construct a sensor object; url: construct-sensor-object
+    text: initialize a sensor object; url: initialize-a-sensor-object
     text: sensor type
     text: mitigation strategies; url: mitigation-strategies
     text: local coordinate system
     text: sensor readings; url: sensor-readings
+    text: check sensor policy-controlled features; url: check-sensor-policy-controlled-features
+
 urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
   type: dfn
     text: device coordinate system
@@ -78,6 +81,17 @@ urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
         "publisher": "Unknown"
     }
 }
+</pre>
+<pre class="link-defaults">
+spec:infra;
+  type:dfn;
+    text:list
+spec:generic-sensor-1;
+  type:enum-value;
+    text:"activated"
+spec: webidl;
+  type:dfn;
+    text:identifier
 </pre>
 
 Introduction {#intro}
@@ -313,16 +327,24 @@ Abstract Operations {#abstract-opertaions}
 <div algorithm="construct a magnetometer object">
 
     : input
+    :: |magnetometer_interface|, a {{Magnetometer}} [=interface=] [=identifier=] or
+       an {{UncalibratedMagnetometer}} [=interface=] [=identifier=].
     :: |options|, a {{MagnetometerSensorOptions}} object.
     : output
     :: A {{Sensor}} object.
 
-    1. Let |sensor_instance| be the result of invoking [=construct a Sensor object=] with |options|.
-    1. If |options|.{{referenceFrame!!dict-member}} is "screen", then:
-       1.  Define [=local coordinate system=] for |sensor_instance|
-           as the [=screen coordinate system=].
-    1. Otherwise, define [=local coordinate system=] for |sensor_instance|
-       as the [=device coordinate system=].
+    1.  Let |allowed| be the result of invoking [=check sensor policy-controlled features=]
+        with {{Magnetometer}}.
+    1.  If |allowed| is false, then:
+        1.  [=Throw=] a {{SecurityError}} {{DOMException}}.
+    1.  Let |magnetometer| be a new instance of the [=interface=] identified by |magnetometer_interface|.
+    1.  Invoke [=initialize a sensor object=] with |magnetometer| and |options|.
+    1.  If |options|.{{referenceFrame!!dict-member}} is "screen", then:
+        1.  Define [=local coordinate system=] for |magnetometer|
+            as the [=screen coordinate system=].
+    1.  Otherwise, define [=local coordinate system=] for |magnetometer|
+        as the [=device coordinate system=].
+    1.  Return |magnetometer|.
 </div>
 
 Limitations of Magnetometer Sensors {#limitations-magnetometer}
