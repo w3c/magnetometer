@@ -36,7 +36,7 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: sensor readings; url: sensor-readings
     text: check sensor policy-controlled features; url: check-sensor-policy-controlled-features
     text: keystroke monitoring; url: keystroke-monitoring
-
+    text: sensor permission name; url: sensor-permission-names
 urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
   type: dfn
     text: device coordinate system
@@ -174,7 +174,7 @@ Model {#model}
 
 The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has two associated {{Sensor}} subclasses, {{Magnetometer}} and {{UncalibratedMagnetometer}}.
 
-The {{Magnetometer}} and {{UncalibratedMagnetometer}} have an associated {{PermissionName}} which is <a for="PermissionName" enum-value>"magnetometer"</a>.
+The {{Magnetometer}} and {{UncalibratedMagnetometer}} have an associated [=sensor permission name=] which is <a for="PermissionName" enum-value>"magnetometer"</a>.
 
 The [=latest reading=] for a {{Sensor}} of <a>Magnetometer</a> <a>sensor type</a> includes three [=map/entries=]
 whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a>
