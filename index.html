@@ -1185,6 +1185,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 66a76cd06d4fa9e491630583356008a71a166760" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
+  <meta content="5f3ac072de629ede691588c8c5925034b2e387ef" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1431,7 +1432,7 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-02-28">28 February 2018</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-03-01">1 March 2018</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1604,7 +1605,7 @@ use one or both of the following mitigation strategies:</p>
 the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="4" id="model"><span class="secno">4. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport="" id="magnetometer-sensor-type">Magnetometer</dfn> <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensor-type" id="ref-for-sensor-type">sensor type</a> has two associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor">Sensor</a></code> subclasses, <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①">UncalibratedMagnetometer</a></code>.</p>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer②">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer②">UncalibratedMagnetometer</a></code> have an associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/permissions/#enumdef-permissionname" id="ref-for-enumdef-permissionname">PermissionName</a></code> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer" id="ref-for-dom-permissionname-magnetometer">"magnetometer"</a>.</p>
+   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer②">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer②">UncalibratedMagnetometer</a></code> have an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensor-permission-names" id="ref-for-sensor-permission-names">sensor permission name</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer" id="ref-for-dom-permissionname-magnetometer">"magnetometer"</a>.</p>
    <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor①">Sensor</a></code> of <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> <a data-link-type="dfn" href="https://w3c.github.io/sensors#sensor-type" id="ref-for-sensor-type①">sensor type</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑦">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field①">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion②">hard iron distortion</a> depending on which object was instantiated.</p>
    <p>For uncalibrated magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors#latest-reading" id="ref-for-latest-reading①">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry①">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key①">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value①">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field②">uncalibrated magnetic field</a> around the 3 different axes,
 and three additional <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry②">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key②">keys</a> are "xBias", "yBias", "zBias" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value②">values</a> contain the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion③">hard iron distortion</a> correction around the 3 different axes.</p>
@@ -1876,6 +1877,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><a href="https://w3c.github.io/sensors#local-coordinate-system">local coordinate system</a>
      <li><a href="https://w3c.github.io/sensors#mitigation-strategies">mitigation strategies</a>
      <li><a href="https://w3c.github.io/sensors/#reduce-accuracy">reduce accuracy</a>
+     <li><a href="https://w3c.github.io/sensors#sensor-permission-names">sensor permission name</a>
      <li><a href="https://w3c.github.io/sensors#sensor-readings">sensor readings</a>
      <li><a href="https://w3c.github.io/sensors#sensor-type">sensor type</a>
     </ul>
@@ -1890,7 +1892,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <a data-link-type="biblio">[permissions]</a> defines the following terms:
     <ul>
      <li><a href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer">"magnetometer"</a>
-     <li><a href="https://w3c.github.io/permissions/#enumdef-permissionname">PermissionName</a>
     </ul>
    <li>
     <a data-link-type="biblio">[WEBIDL]</a> defines the following terms:
