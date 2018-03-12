@@ -212,10 +212,10 @@ The Magnetometer Interface {#magnetometer-interface}
     readonly attribute double? z;
   };
 
-  enum LocalCoordinateSystem { "device", "screen" };
+  enum MagnetometerLocalCoordinateSystem { "device", "screen" };
 
   dictionary MagnetometerSensorOptions : SensorOptions {
-    LocalCoordinateSystem referenceFrame = "device";
+    MagnetometerLocalCoordinateSystem referenceFrame = "device";
   };
 </pre>
 
