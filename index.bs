@@ -37,6 +37,7 @@ urlPrefix: https://w3c.github.io/sensors; spec: GENERIC-SENSOR
     text: check sensor policy-controlled features; url: check-sensor-policy-controlled-features
     text: keystroke monitoring; url: keystroke-monitoring
     text: sensor permission name; url: sensor-permission-names
+    text: supported sensor options
 urlPrefix: https://w3c.github.io/accelerometer; spec: ACCELEROMETER
   type: dfn
     text: device coordinate system
@@ -223,6 +224,8 @@ To construct a {{Magnetometer}} object the user agent must invoke the
 [=construct a magnetometer object=] abstract operation for the {{Magnetometer}}
 interface.
 
+[=Supported sensor options=] for {{Magnetometer}} are "frequency" and "referenceFrame".
+
 ### Magnetometer.x ### {#magnetometer-x}
 
 
@@ -270,6 +273,8 @@ The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
 To construct an {{UncalibratedMagnetometer}} object the user agent must invoke the
 [=construct a magnetometer object=] abstract operation for the {{UncalibratedMagnetometer}}
 interface.
+
+[=Supported sensor options=] for {{UncalibratedMagnetometer}} are "frequency" and "referenceFrame".
 
 ### UncalibratedMagnetometer.x ### {#uncalibrated-magnetometer-x}
 
