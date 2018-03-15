@@ -1185,7 +1185,7 @@ Possible extra rowspan handling
   </style>
   <meta content="Bikeshed version 66a76cd06d4fa9e491630583356008a71a166760" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="f487f212b895ae62cd2412cf654910bc941abbe3" name="document-revision">
+  <meta content="94c48ff4c5258ec46bd345fd150255ad9fca02c5" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1432,7 +1432,7 @@ pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-03-14">14 March 2018</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2018-03-15">15 March 2018</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1725,27 +1725,23 @@ Flight Mode option in mobile phones might help in decreasing the electro magneti
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the Earth.</p>
    <h2 class="heading settled" data-level="8" id="usecases-and-requirements"><span class="secno">8. </span><span class="content">Use Cases and Requirements</span><a class="self-link" href="#usecases-and-requirements"></a></h2>
    <p><em>This section is non-normative</em>.</p>
-   <p>Magnetometers can be used for a variety of use-cases, such as:</p>
+   <p>Magnetometers can be used for a variety of use-cases, for example:</p>
    <ul>
     <li data-md="">
-     <p>Metal detector web application.</p>
+     <p>Sensor fusion. A common use-case for magnetometers is sensor fusion in order to generate an <a data-link-type="dfn" href="https://w3c.github.io/motion-sensors/#absolute-orientation" id="ref-for-absolute-orientation">Absolute Orientation Sensor</a> <a data-link-type="biblio" href="#biblio-motion-sensors">[MOTION-SENSORS]</a> which is stationary to the Earth plane, or a compass, which is basically the former with corrections to the declination depending on geolocation position, such that it points to the true north. Calculating compass heading as detailed in <a href="#compass">§9 Compass Heading Using Magnetometers</a>.</p>
     <li data-md="">
-     <p>Providing input using magnetic button for VR enclosures <a data-link-type="biblio" href="#biblio-vrbutton">[VRBUTTON]</a>.</p>
+     <p>Virtual Reality and Augmented Reality. Magnetometer can be used to implement input using magnetic button for VR enclosures <a data-link-type="biblio" href="#biblio-vrbutton">[VRBUTTON]</a>. Head-mount tracking systems for VR and AR can use magnetometer data to help in calibration of gyroscope readings and align yaw readings with the magnetic north.</p>
     <li data-md="">
-     <p>Gesture recognition based on magnetic field. Various interactions like writing, signing and playing an instrument can also be enabled using a magnet like a rod, pen or a ring <a data-link-type="biblio" href="#biblio-magitact">[MAGITACT]</a>.
+     <p>Gesture recognition. Various interactions like writing, signing and playing an instrument can also be enabled using a magnet like a rod, pen or a ring <a data-link-type="biblio" href="#biblio-magitact">[MAGITACT]</a>.
 The user makes coarse gestures in the 3D space around the device using the magnet. Movement of the magnet affects the magnetic field sensed by the compass sensor integrated in the device.
-The temporal pattern of the gesture is then used as a basis for sending different interaction commands to the mobile device. Zooming, turning pages, accepting/rejecting calls, clicking items
+The temporal pattern of the gesture can be used as a basis for sending different interaction commands to the mobile device. Zooming, turning pages, accepting/rejecting calls, clicking items
 are some of the use cases.</p>
     <li data-md="">
-     <p>A common use-case for magnetometers is sensor fusion in order to generate an Orientation Sensor which is stationary to the Earth plane, or a compass, which is basically the former with corrections to the declination depending on geolocation position, such that it points to the true north.</p>
+     <p>Indoor navigation. Navigation systems can use magnetometer data on mobile devices <a data-link-type="biblio" href="#biblio-magindoorpos">[MAGINDOORPOS]</a> to detect the magnetic field inside a building. With sufficient local variability, the anomalies can be utilized in self-localization. Use cases for indoor navigation include, for example, proximity advertising, way finding in malls or airports, and geofencing.</p>
     <li data-md="">
-     <p>Indoor navigation system can use magnetometer on mobile phones <a data-link-type="biblio" href="#biblio-magindoorpos">[MAGINDOORPOS]</a>. Use cases for indoor navigation can include, for example, proximity advertising, way finding in malls or airports, and geofencing.</p>
-    <li data-md="">
-     <p>Calculating compass heading as detailed in <a href="#compass">§9 Compass Heading Using Magnetometers</a>.</p>
-    <li data-md="">
-     <p>Head mount tracking in Virtual Reality can use magnetometer data to help in calibration of gyroscope readings and align yaw readings with the magnetic north.</p>
+     <p>Metal detection. Magnetometers can be used by utility applications to detect the presence of metal nearby, e.g. finding inclusions hidden within objects.</p>
    </ul>
-   <div class="note" role="note"> Requirements with respect to data coasrceness and sampling frequency can vary depending on the use case at hand. For example, metal detection or input using magnetic button can likely be implemented with coarser data and using lower sampling frequency compared to gesture recognition, indoor navigation, or VR use cases. In sensor fusion use cases, the sampling frequency that yeilds optimal results is dependent on e.g. sensor fusion algorithm and characteristics of other motion sensors involved. </div>
+   <div class="note" role="note"> Requirements with respect to data coarseness and sampling frequency can vary depending on the use case at hand. For example, metal detection or input using magnetic button can likely be implemented with coarser data and using lower sampling frequency compared to gesture recognition, indoor navigation, or VR and AR use cases. In sensor fusion use cases, the sampling frequency that yeilds optimal results is dependent on e.g. sensor fusion algorithm and characteristics of other motion sensors involved. </div>
    <h2 class="heading settled" data-level="9" id="compass"><span class="secno">9. </span><span class="content">Compass Heading Using Magnetometers</span><a class="self-link" href="#compass"></a></h2>
    <p><em>This section is non-normative</em>.</p>
    <p>Compasses, instruments that align themselves with the magnetic poles of the Earth, have been used in navigation for centuries.
@@ -1893,6 +1889,11 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><a href="https://infra.spec.whatwg.org/#map-value">value</a>
     </ul>
    <li>
+    <a data-link-type="biblio">[motionsensors]</a> defines the following terms:
+    <ul>
+     <li><a href="https://w3c.github.io/motion-sensors/#absolute-orientation">absolute orientation sensor</a>
+    </ul>
+   <li>
     <a data-link-type="biblio">[permissions]</a> defines the following terms:
     <ul>
      <li><a href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer">"magnetometer"</a>
@@ -1932,6 +1933,8 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dd>Janne Haverinen, Anssi Kemppainen. <a href="https://doi.org/10.1016%2Fj.robot.2009.07.018">Global indoor self-localization based on the ambient magnetic field</a>. Informational. URL: <a href="https://doi.org/10.1016%2Fj.robot.2009.07.018">https://doi.org/10.1016%2Fj.robot.2009.07.018</a>
    <dt id="biblio-magitact">[MAGITACT]
    <dd>Hamed Ketabdar, Kamer Ali Yüksel, Mehran Roshandel. <a href="http://dl.acm.org/citation.cfm?id=1720048">Magitact</a>. Informational. URL: <a href="http://dl.acm.org/citation.cfm?id=1720048">http://dl.acm.org/citation.cfm?id=1720048</a>
+   <dt id="biblio-motion-sensors">[MOTION-SENSORS]
+   <dd>Kenneth Christiansen; Alexander Shalamov. <a href="https://www.w3.org/TR/motion-sensors/">Motion Sensors Explainer</a>. 30 August 2017. NOTE. URL: <a href="https://www.w3.org/TR/motion-sensors/">https://www.w3.org/TR/motion-sensors/</a>
    <dt id="biblio-vrbutton">[VRBUTTON]
    <dd>Boris Smus. <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=445926">Magnetic input for Google cardboard</a>. Informational. URL: <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=445926">https://bugs.chromium.org/p/chromium/issues/detail?id=445926</a>
   </dl>
