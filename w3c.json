@@ -1,5 +1,9 @@
- {
-    "group":      ["43696"]
-,   "contacts":   ["dontcallmedom"]
-,   "shortName":  "magnetometer"
+{
+  "group": 43696,
+  "contacts": [
+    "xfq"
+  ],
+  "shortName": "magnetometer",
+  "repo-type": "rec-track",
+  "policy": "open"
 }
