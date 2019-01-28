@@ -367,7 +367,7 @@ for the purposes of testing a user agent's implementation of {{Magnetometer}} an
 
 The {{Magnetometer}} class has an associated [=mock sensor type=] which is
 <a for="MockSensorType" enum-value>"magnetometer"</a>, its [=mock sensor reading values=]
-dictionary is defined as follow:
+dictionary is defined as follows:
 
 <pre class="idl">
   dictionary MagnetometerReadingValues {
@@ -379,7 +379,7 @@ dictionary is defined as follow:
 
 The {{UncalibratedMagnetometer}} class has an associated [=mock sensor type=] which is
 <a for="MockSensorType" enum-value>"uncalibrated-magnetometer"</a>, its [=mock sensor reading values=]
-dictionary is defined as follow:
+dictionary is defined as follows:
 
 <pre class="idl">
   dictionary UncalibratedMagnetometerReadingValues {
