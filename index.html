@@ -1219,9 +1219,9 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version 9c6ae748322940994300e90a77c34437364b40a6" name="generator">
+  <meta content="Bikeshed version eee3e9e7543e2188fb60d183a6cf3fe3a7d971c1" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="2121fd7039c50b1bab20ba753b5af75f78d4b928" name="document-revision">
+  <meta content="7cedc8f63717a02fdea4a91093b6a4e455cffb61" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1479,7 +1479,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-01-28">28 January 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-01-29">29 January 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1769,14 +1769,14 @@ In other words, this attribute returns the result of invoking <a data-link-type=
     This section extends the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#automation" id="ref-for-automation">automation</a> section defined in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> to provide mocking information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①②">magnetic field</a> in the X, Y and Z axis
 for the purposes of testing a user agent’s implementation of <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①③">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⑤">UncalibratedMagnetometer</a></code> APIs. 
    <h3 class="heading settled" data-level="7.1" id="mock-magnetometer-type"><span class="secno">7.1. </span><span class="content">Mock Sensor Type</span><a class="self-link" href="#mock-magnetometer-type"></a></h3>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①④">Magnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value">"magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values">mock sensor reading values</a> dictionary is defined as follows:</p>
+   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①④">Magnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-magnetometer" id="ref-for-dom-mocksensortype-magnetometer">"magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values">mock sensor reading values</a> dictionary is defined as follows:</p>
 <pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="idl-code" data-dfn-type="dictionary" data-export id="dictdef-magnetometerreadingvalues"><code><c- g>MagnetometerReadingValues</c-></code><a class="self-link" href="#dictdef-magnetometerreadingvalues"></a></dfn> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double⑨"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-x"><code><c- g>x</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-x"></a></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double①⓪"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-y"><code><c- g>y</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-y"></a></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double①①"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-z"><code><c- g>z</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-z"></a></dfn>;
 };
 </pre>
-   <p>The <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⑥">UncalibratedMagnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type①">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value">"uncalibrated-magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values①">mock sensor reading values</a> dictionary is defined as follows:</p>
+   <p>The <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⑥">UncalibratedMagnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type①">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-uncalibrated-magnetometer" id="ref-for-dom-mocksensortype-uncalibrated-magnetometer">"uncalibrated-magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values①">mock sensor reading values</a> dictionary is defined as follows:</p>
 <pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="idl-code" data-dfn-type="dictionary" data-export id="dictdef-uncalibratedmagnetometerreadingvalues"><code><c- g>UncalibratedMagnetometerReadingValues</c-></code><a class="self-link" href="#dictdef-uncalibratedmagnetometerreadingvalues"></a></dfn> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double①②"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-x"><code><c- g>x</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-x"></a></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double①③"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-y"><code><c- g>y</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-y"></a></dfn>;
@@ -1960,6 +1960,18 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <ul>
     <li><a href="#ref-for-screen-coordinate-system">4.1. Reference Frame</a>
     <li><a href="#ref-for-screen-coordinate-system①">6.1. Construct a magnetometer object</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-dom-mocksensortype-magnetometer">
+   <a href="https://w3c.github.io/sensors/#dom-mocksensortype-magnetometer">https://w3c.github.io/sensors/#dom-mocksensortype-magnetometer</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-mocksensortype-magnetometer">7.1. Mock Sensor Type</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-dom-mocksensortype-uncalibrated-magnetometer">
+   <a href="https://w3c.github.io/sensors/#dom-mocksensortype-uncalibrated-magnetometer">https://w3c.github.io/sensors/#dom-mocksensortype-uncalibrated-magnetometer</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dom-mocksensortype-uncalibrated-magnetometer">7.1. Mock Sensor Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-sensor">
@@ -2176,6 +2188,8 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li>
     <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
     <ul>
+     <li><span class="dfn-paneled" id="term-for-dom-mocksensortype-magnetometer" style="color:initial">"magnetometer"</span>
+     <li><span class="dfn-paneled" id="term-for-dom-mocksensortype-uncalibrated-magnetometer" style="color:initial">"uncalibrated-magnetometer"</span>
      <li><span class="dfn-paneled" id="term-for-sensor" style="color:initial">Sensor</span>
      <li><span class="dfn-paneled" id="term-for-dictdef-sensoroptions" style="color:initial">SensorOptions</span>
      <li><span class="dfn-paneled" id="term-for-automation" style="color:initial">automation</span>
