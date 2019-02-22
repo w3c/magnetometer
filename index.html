@@ -1219,9 +1219,9 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version eee3e9e7543e2188fb60d183a6cf3fe3a7d971c1" name="generator">
+  <meta content="Bikeshed version 0da7328bb90ef81993146377e4e0fed236969c4c" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="7cedc8f63717a02fdea4a91093b6a4e455cffb61" name="document-revision">
+  <meta content="7a781f8a4739e9b8649700b6b0b417e85149b815" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1479,7 +1479,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-01-29">29 January 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-02-21">21 February 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1487,7 +1487,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
      <dt>Previous Versions:
-     <dd><a href="https://www.w3.org/TR/2017/WD-magnetometer-20170814/" rel="prev">https://www.w3.org/TR/2017/WD-magnetometer-20170814/</a>
+     <dd><a href="https://www.w3.org/TR/2018/CR-magnetometer-20180320/" rel="prev">https://www.w3.org/TR/2018/CR-magnetometer-20180320/</a>
      <dt>Version History:
      <dd><a href="https://github.com/w3c/magnetometer/commits/gh-pages/index.bs">https://github.com/w3c/magnetometer/commits/gh-pages/index.bs</a>
      <dt>Feedback:
@@ -1626,13 +1626,13 @@ and as such reports changes in the <a data-link-type="dfn" href="#magnetic-field
 <pre class="highlight"><c- a>let</c-> sensor <c- o>=</c-> <c- k>new</c-> Magnetometer<c- p>();</c->
 sensor<c- p>.</c->start<c- p>();</c->
 
-sensor<c- p>.</c->onreading <c- o>=</c-> <c- p>()</c-> <c- o>=></c-> <c- p>{</c->
+sensor<c- p>.</c->onreading <c- o>=</c-> <c- p>()</c-> <c- p>=></c-> <c- p>{</c->
     console<c- p>.</c->log<c- p>(</c-><c- u>"Magnetic field along the X-axis "</c-> <c- o>+</c-> sensor<c- p>.</c->x<c- p>);</c->
     console<c- p>.</c->log<c- p>(</c-><c- u>"Magnetic field along the Y-axis "</c-> <c- o>+</c-> sensor<c- p>.</c->y<c- p>);</c->
     console<c- p>.</c->log<c- p>(</c-><c- u>"Magnetic field along the Z-axis "</c-> <c- o>+</c-> sensor<c- p>.</c->z<c- p>);</c->
 <c- p>};</c->
 
-sensor<c- p>.</c->onerror <c- o>=</c-> event <c- o>=></c-> console<c- p>.</c->log<c- p>(</c->event<c- p>.</c->error<c- p>.</c->name<c- p>,</c-> event<c- p>.</c->error<c- p>.</c->message<c- p>);</c->
+sensor<c- p>.</c->onerror <c- o>=</c-> event <c- p>=></c-> console<c- p>.</c->log<c- p>(</c->event<c- p>.</c->error<c- p>.</c->name<c- p>,</c-> event<c- p>.</c->error<c- p>.</c->message<c- p>);</c->
 </pre>
    </div>
    <h2 class="heading settled" data-level="3" id="security-and-privacy"><span class="secno">3. </span><span class="content">Security and Privacy Considerations</span><a class="self-link" href="#security-and-privacy"></a></h2>
@@ -1844,7 +1844,7 @@ console<c- p>.</c->log<c- p>(</c-><c- t>'Heading in degrees: '</c-> <c- o>+</c->
 <c- c1>// Get the magnetic declination at the given latitude and longitude.</c->
 fetch<c- p>(</c-><c- t>'https://www.ngdc.noaa.gov/geomag-web/calculators/calculateDeclination'</c-> <c- o>+</c->
       <c- t>'?lat1='</c-> <c- o>+</c-> latitude <c- o>+</c-> <c- t>'&amp;lon1='</c-> <c- o>+</c-> longitude <c- o>+</c-> <c- t>'&amp;resultFormat=csv'</c-><c- p>)</c->
-  <c- p>.</c->then<c- p>(</c->response <c- o>=></c-> response<c- p>.</c->text<c- p>()).</c->then<c- p>(</c->text <c- o>=></c-> <c- p>{</c->
+  <c- p>.</c->then<c- p>(</c->response <c- p>=></c-> response<c- p>.</c->text<c- p>()).</c->then<c- p>(</c->text <c- p>=></c-> <c- p>{</c->
     <c- a>let</c-> declination <c- o>=</c-> parseFloat<c- p>(</c->text<c- p>.</c->replace<c- p>(</c-><c- sr>/^#.*$/gm</c-><c- p>,</c-> <c- t>''</c-><c- p>).</c->trim<c- p>().</c->split<c- p>(</c-><c- t>','</c-><c- p>)[</c-><c- mi>4</c-><c- p>]);</c->
 
     <c- c1>// Compensate for the magnetic declination to get the geographic north.</c->
