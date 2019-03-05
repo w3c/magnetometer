@@ -443,7 +443,7 @@ is, the directions planar with the Earth’s surface.
 To determine geographic north (or true north) heading, add the appropriate <a>declination angle</a>.
 
 <dfn>Magnetic declination</dfn> or <dfn>declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth's surface, and changes over time.
-By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a>magnetic declination</a> e.g. using the <a href="https://www.ngdc.noaa.gov/geomag-web/calculators/declinationHelp">Magnetic declination calculator</a>
+By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a>magnetic declination</a> e.g. using the <a href="https://www.ngdc.noaa.gov/geomag/calculators/magcalc.shtml">Magnetic declination calculator</a>
 provided by the National Oceanic and Atmospheric Administration (NOAA).
 
 The magnetic north is calculated as follows:
