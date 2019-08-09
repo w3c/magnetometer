@@ -1030,7 +1030,7 @@ Possible extra rowspan handling
 		}
 	/* } */
 
-	@supports (display:grid) {
+	@supports (display:grid) and (display:contents) {
 		/* Use #toc over .toc to override non-@supports rules. */
 		#toc {
 			display: grid;
@@ -1219,9 +1219,9 @@ Possible extra rowspan handling
       background-attachment: fixed;
     }
   </style>
-  <meta content="Bikeshed version 0da7328bb90ef81993146377e4e0fed236969c4c" name="generator">
+  <meta content="Bikeshed version 220086d88511a9c99d7a1f9b5447db7e7b99e053" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="7a781f8a4739e9b8649700b6b0b417e85149b815" name="document-revision">
+  <meta content="77c18bf718515fd8575817addf37326ea24a009a" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1479,7 +1479,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-02-21">21 February 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-08-09">9 August 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1504,7 +1504,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
     </dl>
    </div>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -1531,7 +1531,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	W3C maintains a <a href="https://www.w3.org/2004/01/pp-impl/43696/status" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
 	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2018/Process-20180201/" id="w3c_process_revision">1 February 2018 W3C Process Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2019/Process-20190301/" id="w3c_process_revision">1 March 2019 W3C Process Document</a>. </p>
    <p></p>
   </div>
   <div data-fill-with="at-risk"></div>
@@ -1669,7 +1669,7 @@ right-hand convention in a <a data-link-type="dfn" href="https://w3c.github.io/s
 It can be either the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer/#device-coordinate-system" id="ref-for-device-coordinate-system">device coordinate system</a> or the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer/#screen-coordinate-system" id="ref-for-screen-coordinate-system">screen coordinate system</a>.</p>
    <h2 class="heading settled" data-level="5" id="api"><span class="secno">5. </span><span class="content">API</span><a class="self-link" href="#api"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="magnetometer-interface"><span class="secno">5.1. </span><span class="content">The Magnetometer Interface</span><a class="self-link" href="#magnetometer-interface"></a></h3>
-<pre class="idl highlight def">[<dfn class="idl-code" data-dfn-for="Magnetometer" data-dfn-type="constructor" data-export data-lt="Magnetometer(sensorOptions)|Magnetometer()" id="dom-magnetometer-magnetometer"><code><c- g>Constructor</c-></code><a class="self-link" href="#dom-magnetometer-magnetometer"></a></dfn>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions"><c- n>MagnetometerSensorOptions</c-></a> <dfn class="idl-code" data-dfn-for="Magnetometer/Magnetometer(sensorOptions)" data-dfn-type="argument" data-export id="dom-magnetometer-magnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code><a class="self-link" href="#dom-magnetometer-magnetometer-sensoroptions-sensoroptions"></a></dfn>), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext"><c- g>SecureContext</c-></a>,
+<pre class="idl highlight def">[<dfn class="idl-code" data-dfn-for="Magnetometer" data-dfn-type="constructor" data-export data-lt="Magnetometer(sensorOptions)|Magnetometer()" id="dom-magnetometer-magnetometer"><code><c- g>Constructor</c-></code><a class="self-link" href="#dom-magnetometer-magnetometer"></a></dfn>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions"><c- n>MagnetometerSensorOptions</c-></a> <dfn class="idl-code" data-dfn-for="Magnetometer/Magnetometer(sensorOptions)" data-dfn-type="argument" data-export id="dom-magnetometer-magnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code><a class="self-link" href="#dom-magnetometer-magnetometer-sensoroptions-sensoroptions"></a></dfn> = {}), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext"><c- g>SecureContext</c-></a>,
   <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed" id="ref-for-Exposed"><c- g>Exposed</c-></a>=<c- n>Window</c->]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="magnetometer"><code><c- g>Magnetometer</c-></code></dfn> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor②"><c- n>Sensor</c-></a> {
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double"><c- b>double</c-></a>? <dfn class="dfn-paneled idl-code" data-dfn-for="Magnetometer" data-dfn-type="attribute" data-export data-readonly data-type="double?" id="dom-magnetometer-x"><code><c- g>x</c-></code></dfn>;
@@ -1695,7 +1695,7 @@ In other words, this attribute returns the result of invoking <a data-link-type=
    <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-z" id="ref-for-dom-magnetometer-z">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑨">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①①">magnetic field</a> around Z-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading②">get value from latest reading</a> with <code>this</code> and "z" as arguments.</p>
    <h3 class="heading settled" data-level="5.2" id="uncalibrated-magnetometer-interface"><span class="secno">5.2. </span><span class="content">The UncalibratedMagnetometer Interface</span><a class="self-link" href="#uncalibrated-magnetometer-interface"></a></h3>
-<pre class="idl highlight def">[<dfn class="idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="constructor" data-export data-lt="UncalibratedMagnetometer(sensorOptions)|UncalibratedMagnetometer()" id="dom-uncalibratedmagnetometer-uncalibratedmagnetometer"><code><c- g>Constructor</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer"></a></dfn>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions①"><c- n>MagnetometerSensorOptions</c-></a> <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometer/UncalibratedMagnetometer(sensorOptions)" data-dfn-type="argument" data-export id="dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"></a></dfn>), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext①"><c- g>SecureContext</c-></a>,
+<pre class="idl highlight def">[<dfn class="idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="constructor" data-export data-lt="UncalibratedMagnetometer(sensorOptions)|UncalibratedMagnetometer()" id="dom-uncalibratedmagnetometer-uncalibratedmagnetometer"><code><c- g>Constructor</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer"></a></dfn>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions①"><c- n>MagnetometerSensorOptions</c-></a> <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometer/UncalibratedMagnetometer(sensorOptions)" data-dfn-type="argument" data-export id="dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"></a></dfn> = {}), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext①"><c- g>SecureContext</c-></a>,
   <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed" id="ref-for-Exposed①"><c- g>Exposed</c-></a>=<c- n>Window</c->]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="uncalibratedmagnetometer"><code><c- g>UncalibratedMagnetometer</c-></code></dfn> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor③"><c- n>Sensor</c-></a> {
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double③"><c- b>double</c-></a>? <dfn class="dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export data-readonly data-type="double?" id="dom-uncalibratedmagnetometer-x"><code><c- g>x</c-></code></dfn>;
@@ -1801,7 +1801,7 @@ like solar winds or magnetic storms, also distort the magnetosphere or external 
    <p>Magnetometers can be used for a variety of use-cases, for example:</p>
    <ul>
     <li data-md>
-     <p>Sensor fusion. A common use-case for magnetometers is sensor fusion in order to generate an <a data-link-type="dfn" href="https://w3c.github.io/motion-sensors/#absolute-orientation" id="ref-for-absolute-orientation">Absolute Orientation Sensor</a> <a data-link-type="biblio" href="#biblio-motion-sensors">[MOTION-SENSORS]</a> which is stationary to the Earth plane, or a compass, which is basically the former with corrections to the declination depending on geolocation position, such that it points to the true north. Calculating compass heading as detailed in <a href="#compass">§10 Compass Heading Using Magnetometers</a>.</p>
+     <p>Sensor fusion. A common use-case for magnetometers is sensor fusion in order to generate an <a data-link-type="dfn" href="https://w3c.github.io/motion-sensors/#absolute-orientation" id="ref-for-absolute-orientation">Absolute Orientation Sensor</a> <a data-link-type="biblio" href="#biblio-motion-sensors">[MOTION-SENSORS]</a> which is stationary to the Earth plane, or a compass, which is basically the former with corrections to the declination depending on geolocation position, such that it points to the true north. Calculating compass heading as detailed in <a href="#compass">§ 10 Compass Heading Using Magnetometers</a>.</p>
     <li data-md>
      <p>Virtual Reality and Augmented Reality. Magnetometer can be used to implement input using magnetic button for VR enclosures <a data-link-type="biblio" href="#biblio-vrbutton">[VRBUTTON]</a>. Head-mount tracking systems for VR and AR can use magnetometer data to help in calibration of gyroscope readings and align yaw readings with the magnetic north.</p>
     <li data-md>
@@ -1825,7 +1825,7 @@ magnetic poles. <a data-link-type="dfn" href="#declination-angle" id="ref-for-de
 is, the directions planar with the Earth’s surface.
 To determine geographic north (or true north) heading, add the appropriate <a data-link-type="dfn" href="#declination-angle" id="ref-for-declination-angle①">declination angle</a>.</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="magnetic-declination">Magnetic declination</dfn> or <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="declination-angle">declination angle</dfn> is the angle on the horizontal plane between magnetic north and the true north and depends on the position on the Earth’s surface, and changes over time.
-By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination">magnetic declination</a> e.g. using the <a href="https://www.ngdc.noaa.gov/geomag-web/calculators/declinationHelp">Magnetic declination calculator</a> provided by the National Oceanic and Atmospheric Administration (NOAA).</p>
+By convention, declination is positive when magnetic north is east of true north, and negative when it is to the west. You can get real time value for <a data-link-type="dfn" href="#magnetic-declination" id="ref-for-magnetic-declination">magnetic declination</a> e.g. using the <a href="https://www.ngdc.noaa.gov/geomag/calculators/magcalc.shtml">Magnetic declination calculator</a> provided by the National Oceanic and Atmospheric Administration (NOAA).</p>
    <p>The magnetic north is calculated as follows:</p>
    <div class="example" id="example-f96b6e7a">
     <a class="self-link" href="#example-f96b6e7a"></a> 
@@ -2243,9 +2243,9 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-accelerometer">[ACCELEROMETER]
-   <dd>Anssi Kostiainen; Alexander Shalamov. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer</a>. 20 March 2018. CR. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
+   <dd>Anssi Kostiainen. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer</a>. 7 March 2019. WD. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
-   <dd>Rick Waldron; Mikhail Pozdnyakov; Alexander Shalamov. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 20 March 2018. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
+   <dd>Mikhail Pozdnyakov; Alexander Shalamov; Tobie Langel. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 7 March 2019. WD. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
    <dt id="biblio-infra">[INFRA]
    <dd>Anne van Kesteren; Domenic Denicola. <a href="https://infra.spec.whatwg.org/">Infra Standard</a>. Living Standard. URL: <a href="https://infra.spec.whatwg.org/">https://infra.spec.whatwg.org/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
@@ -2253,7 +2253,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
    <dt id="biblio-webidl">[WEBIDL]
-   <dd>Cameron McCormack; Boris Zbarsky; Tobie Langel. <a href="https://heycam.github.io/webidl/">Web IDL</a>. 15 December 2016. ED. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
+   <dd>Boris Zbarsky. <a href="https://heycam.github.io/webidl/">Web IDL</a>. 15 December 2016. ED. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
@@ -2267,7 +2267,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dd>Boris Smus. <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=445926">Magnetic input for Google cardboard</a>. Informational. URL: <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=445926">https://bugs.chromium.org/p/chromium/issues/detail?id=445926</a>
   </dl>
   <h2 class="no-num no-ref heading settled" id="idl-index"><span class="content">IDL Index</span><a class="self-link" href="#idl-index"></a></h2>
-<pre class="idl highlight def">[<a href="#dom-magnetometer-magnetometer"><code><c- g>Constructor</c-></code></a>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions③"><c- n>MagnetometerSensorOptions</c-></a> <a href="#dom-magnetometer-magnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code></a>), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext②"><c- g>SecureContext</c-></a>,
+<pre class="idl highlight def">[<a href="#dom-magnetometer-magnetometer"><code><c- g>Constructor</c-></code></a>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions③"><c- n>MagnetometerSensorOptions</c-></a> <a href="#dom-magnetometer-magnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code></a> = {}), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext②"><c- g>SecureContext</c-></a>,
   <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed" id="ref-for-Exposed②"><c- g>Exposed</c-></a>=<c- n>Window</c->]
 <c- b>interface</c-> <a href="#magnetometer"><code><c- g>Magnetometer</c-></code></a> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor②①"><c- n>Sensor</c-></a> {
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double①⑨"><c- b>double</c-></a>? <a data-readonly data-type="double?" href="#dom-magnetometer-x"><code><c- g>x</c-></code></a>;
@@ -2281,7 +2281,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <a class="n" data-link-type="idl-name" href="#enumdef-magnetometerlocalcoordinatesystem" id="ref-for-enumdef-magnetometerlocalcoordinatesystem①"><c- n>MagnetometerLocalCoordinateSystem</c-></a> <a data-default="&quot;device&quot;" data-type="MagnetometerLocalCoordinateSystem " href="#dom-magnetometersensoroptions-referenceframe"><code><c- g>referenceFrame</c-></code></a> = "device";
 };
 
-[<a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer"><code><c- g>Constructor</c-></code></a>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions①①"><c- n>MagnetometerSensorOptions</c-></a> <a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code></a>), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext①①"><c- g>SecureContext</c-></a>,
+[<a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer"><code><c- g>Constructor</c-></code></a>(<c- b>optional</c-> <a class="n" data-link-type="idl-name" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions①①"><c- n>MagnetometerSensorOptions</c-></a> <a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer-sensoroptions-sensoroptions"><code><c- g>sensorOptions</c-></code></a> = {}), <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext①①"><c- g>SecureContext</c-></a>,
   <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed" id="ref-for-Exposed①①"><c- g>Exposed</c-></a>=<c- n>Window</c->]
 <c- b>interface</c-> <a href="#uncalibratedmagnetometer"><code><c- g>UncalibratedMagnetometer</c-></code></a> : <a class="n" data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor③①"><c- n>Sensor</c-></a> {
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://heycam.github.io/webidl/#idl-double" id="ref-for-idl-double③①"><c- b>double</c-></a>? <a data-readonly data-type="double?" href="#dom-uncalibratedmagnetometer-x"><code><c- g>x</c-></code></a>;
