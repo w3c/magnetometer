@@ -5,9 +5,9 @@
   <title>Magnetometer</title>
   <meta content="ED" name="w3c-status">
   <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet" type="text/css">
-  <meta content="Bikeshed version 7573c85df, updated Fri Feb 19 16:30:08 2021 -0800" name="generator">
+  <meta content="Bikeshed version 59d067506, updated Fri Jul 23 15:43:29 2021 -0700" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="97e404df707dbdd5d6f652e8800d717df1b10be0" name="document-revision">
+  <meta content="3e14ed5f45bc077d6928134735d44d7fd356d0fa" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -114,9 +114,9 @@ pre .property::before, pre .property::after {
     --ins-bg: transparent;
 
     --a-normal-text: #034575;
-    --a-normal-underline: #707070;
+    --a-normal-underline: #bbb;
     --a-visited-text: var(--a-normal-text);
-    --a-visited-underline: #bbb;
+    --a-visited-underline: #707070;
     --a-hover-bg: rgba(75%, 75%, 75%, .25);
     --a-active-text: #c00;
     --a-active-underline: #c00;
@@ -259,6 +259,62 @@ figcaption:not(.no-marker)::before {
 [data-md] > :last-child {
     margin-bottom: 0;
 }</style>
+<style>/* style-mdn-anno */
+
+            @media (max-width: 767px) { .mdn-anno { opacity: .1 } }
+            .mdn-anno { font: 1em sans-serif; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; border-collapse: initial; border-spacing: initial; min-width: 9em; max-width: min-content; white-space: nowrap; word-wrap: normal; hyphens: none}
+            .mdn-anno:not(.wrapped) { opacity: 1}
+            .mdn-anno:hover { z-index: 9 }
+            .mdn-anno.wrapped { min-width: 0 }
+            .mdn-anno.wrapped > :not(button) { display: none; }
+            .mdn-anno > .mdn-anno-btn { cursor: pointer; border: none; color: #000; background: transparent; margin: -8px; float: right; padding: 10px 8px 8px 8px; outline: none; }
+            .mdn-anno > .mdn-anno-btn > .less-than-two-engines-flag { color: red; padding-right: 2px; }
+            .mdn-anno > .mdn-anno-btn > .all-engines-flag { color: green; padding-right: 2px; }
+            .mdn-anno > .mdn-anno-btn > span { color: #fff; background-color: #000; font-weight: normal; font-family: zillaslab, Palatino, "Palatino Linotype", serif; padding: 2px 3px 0px 3px; line-height: 1.3em; vertical-align: top; }
+            .mdn-anno > .feature { margin-top: 20px; }
+            .mdn-anno > .feature:not(:first-of-type) { border-top: 1px solid #999; margin-top: 6px; padding-top: 2px; }
+            .mdn-anno > .feature > .less-than-two-engines-text { color: red }
+            .mdn-anno > .feature > .all-engines-text { color: green }
+            .mdn-anno > .feature > p { font-size: .75em; margin-top: 6px; margin-bottom: 0; }
+            .mdn-anno > .feature > p + p { margin-top: 3px; }
+            .mdn-anno > .feature > .support { display: block; font-size: 0.6em; margin: 0; padding: 0; margin-top: 2px }
+            .mdn-anno > .feature > .support + div { padding-top: 0.5em; }
+            .mdn-anno > .feature > .support > hr { display: block; border: none; border-top: 1px dotted #999; padding: 3px 0px 0px 0px; margin: 2px 3px 0px 3px; }
+            .mdn-anno > .feature > .support > hr::before { content: ""; }
+            .mdn-anno > .feature > .support > span { padding: 0.2em 0; display: block; display: table; }
+            .mdn-anno > .feature > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
+            .mdn-anno > .feature > .support > span.no::before { opacity: 0.5; }
+            .mdn-anno > .feature > .support > span:first-of-type { padding-top: 0.5em; }
+            .mdn-anno > .feature > .support > span > span { padding: 0 0.5em; display: table-cell; }
+            .mdn-anno > .feature > .support > span > span:first-child { width: 100%; }
+            .mdn-anno > .feature > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
+            .mdn-anno > .feature > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
+            .mdn-anno > .feature > .support > .chrome_android::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+            .mdn-anno > .feature > .support > .firefox_android::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+            .mdn-anno > .feature > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
+            .mdn-anno > .feature > .support > .edge_blink::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
+            .mdn-anno > .feature > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge_legacy.svg); }
+            .mdn-anno > .feature > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
+            .mdn-anno > .feature > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
+            .mdn-anno > .feature > .support > .safari_ios::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
+            .mdn-anno > .feature > .support > .nodejs::before { background-image: url(https://nodejs.org/static/images/favicons/favicon.ico); }
+            .mdn-anno > .feature > .support > .opera_android::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.svg); }
+            .mdn-anno > .feature > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.svg); }
+            .mdn-anno > .feature > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
+            .mdn-anno > .feature > .support > .samsunginternet_android::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.svg); }
+            .mdn-anno > .feature > .support > .webview_android::before { background-image: url(https://resources.whatwg.org/browser-logos/android-webview.png); }
+            .name-slug-mismatch { color: red }
+            .caniuse-status:hover { z-index: 9; }
+
+            /* dt, li, .issue, .note, and .example are "position: relative", so to put annotation at right margin, must move to right of containing block */
+            .h-entry:not(.status-LS) dt > .mdn-anno, .h-entry:not(.status-LS) li > .mdn-anno, .h-entry:not(.status-LS) .issue > .mdn-anno, .h-entry:not(.status-LS) .note > .mdn-anno, .h-entry:not(.status-LS) .example > .mdn-anno { right: -6.7em; }
+            .h-entry p + .mdn-anno { margin-top: 0; }
+            h2 + .mdn-anno.after { margin: -48px 0 0 0; }
+            h3 + .mdn-anno.after { margin: -46px 0 0 0; }
+            h4 + .mdn-anno.after { margin: -42px 0 0 0; }
+            h5 + .mdn-anno.after { margin: -40px 0 0 0; }
+            h6 + .mdn-anno.after { margin: -40px 0 0 0; }
+            </style>
 <style>/* style-selflinks */
 
 :root {
@@ -579,32 +635,28 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-02-23">23 February 2021</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-07-24">24 July 2021</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
      <dd><a class="u-url" href="https://w3c.github.io/magnetometer/">https://w3c.github.io/magnetometer/</a>
      <dt>Latest published version:
      <dd><a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
-     <dt>Previous Versions:
-     <dd><a href="https://www.w3.org/TR/2018/CR-magnetometer-20180320/" rel="prev">https://www.w3.org/TR/2018/CR-magnetometer-20180320/</a>
      <dt>Version History:
      <dd><a href="https://github.com/w3c/magnetometer/commits/main/index.bs">https://github.com/w3c/magnetometer/commits/main/index.bs</a>
      <dt>Feedback:
      <dd><span><a href="mailto:public-device-apis@w3.org?subject=%5Bmagnetometer%5D%20YOUR%20TOPIC%20HERE">public-device-apis@w3.org</a> with subject line “<kbd>[magnetometer] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-device-apis/" rel="discussion">archives</a>)</span>
      <dt>Issue Tracking:
-     <dd><a href="https://github.com/w3c/magnetometer/issues/">GitHub</a>
+     <dd><a href="https://github.com/w3c/magnetometer/issues">Magnetometer Issues Repository</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard" data-editor-id="41974"><a class="p-name fn u-url url" href="https://intel.com/">Anssi Kostiainen</a> (<span class="p-org org">Intel Corporation</span>)
      <dd class="editor p-author h-card vcard" data-editor-id="80407"><a class="p-name fn u-url url" href="https://intel.com/">Rijubrata Bhaumik</a> (<span class="p-org org">Intel Corporation</span>)
-     <dt>Bug Reports:
-     <dd><a href="https://www.github.com/w3c/magnetometer/issues/new">via the w3c/magnetometer repository on GitHub</a>
      <dt>Test Suite:
      <dd><a href="https://github.com/web-platform-tests/wpt/tree/main/magnetometer">web-platform-tests on GitHub</a>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2021 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2021 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -628,7 +680,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
    <p> This document was produced by the <a href="https://www.w3.org/das/">Devices and Sensors Working Group</a>. </p>
    <p> This document was produced by a group operating under
 	the <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/">W3C Patent Policy</a>.
-	W3C maintains a <a href="https://www.w3.org/2004/01/pp-impl/43696/status" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
+	W3C maintains a <a href="https://www.w3.org/groups/wg/das/ipr" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
 	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
    <p> This document is governed by the <a href="https://www.w3.org/2020/Process-20200915/" id="w3c_process_revision">15 September 2020 W3C Process Document</a>. </p>
@@ -760,9 +812,9 @@ the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">
    <h2 class="heading settled" data-level="4" id="model"><span class="secno">4. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="magnetometer-sensor-type">Magnetometer</dfn> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type">sensor type</a> has two associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor">Sensor</a></code> subclasses, <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①">UncalibratedMagnetometer</a></code>.</p>
    <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer②">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer②">UncalibratedMagnetometer</a></code> have an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-permission-names" id="ref-for-sensor-permission-names">sensor permission name</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer" id="ref-for-dom-permissionname-magnetometer">"magnetometer"</a>.</p>
-   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor①">Sensor</a></code> of <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type①">sensor type</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑦">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field①">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion②">hard iron distortion</a> depending on which object was instantiated.</p>
-   <p>For uncalibrated magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading①">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry①">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key①">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value①">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field②">uncalibrated magnetic field</a> around the 3 different axes,
-and three additional <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry②">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key②">keys</a> are "xBias", "yBias", "zBias" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value②">values</a> contain the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion③">hard iron distortion</a> correction around the 3 different axes.</p>
+   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor①">Sensor</a></code> of <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type①">sensor type</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑦">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field①">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion②">hard iron distortion</a> depending on which object was instantiated.</p>
+   <p>For uncalibrated magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading①">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry①">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys①">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values①">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field②">uncalibrated magnetic field</a> around the 3 different axes,
+and three additional <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry②">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys②">keys</a> are "xBias", "yBias", "zBias" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values②">values</a> contain the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion③">hard iron distortion</a> correction around the 3 different axes.</p>
    <p>The sign of the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑧">magnetic field</a> values must be according to the
 right-hand convention in a <a data-link-type="dfn" href="https://w3c.github.io/sensors/#local-coordinate-system" id="ref-for-local-coordinate-system">local coordinate system</a> (see figure below).</p>
    <p><img alt="Magnetometer coordinate system." onerror="if (/\.svg$/.test(this.src)) this.src=&apos;images/magnetometer_coordinate_system.png&apos;" src="images/magnetometer_coordinate_system.svg" style="display: block;margin: auto;"></p>
@@ -771,6 +823,38 @@ right-hand convention in a <a data-link-type="dfn" href="https://w3c.github.io/s
 It can be either the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer/#device-coordinate-system" id="ref-for-device-coordinate-system">device coordinate system</a> or the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer/#screen-coordinate-system" id="ref-for-screen-coordinate-system">screen coordinate system</a>.</p>
    <h2 class="heading settled" data-level="5" id="api"><span class="secno">5. </span><span class="content">API</span><a class="self-link" href="#api"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="magnetometer-interface"><span class="secno">5.1. </span><span class="content">The Magnetometer Interface</span><a class="self-link" href="#magnetometer-interface"></a></h3>
+   <div class="mdn-anno wrapped after">
+    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer" title="The Magnetometer interface of the Sensor APIs provides information about the magnetic field as detected by the device&apos;s primary magnetometer sensor.">Magnetometer</a></p>
+     <p class="less-than-two-engines-text">In only one current engine.</p>
+     <div class="support">
+      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span title="Requires setting a user preference or runtime flag.">🔰 56+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span title="Requires setting a user preference or runtime flag.">🔰 43+</span></span><span class="edge_blink yes"><span>Edge</span><span title="Requires setting a user preference or runtime flag.">🔰 79+</span></span>
+      <hr>
+      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span title="Requires setting a user preference or runtime flag.">🔰 56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span title="Requires setting a user preference or runtime flag.">🔰 43+</span></span>
+     </div>
+    </div>
+   </div>
+   <div class="mdn-anno wrapped">
+    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/Magnetometer" title="The Magnetometer() constructor creates a new Magnetometer object which returns information about the magnetic field as detected by a device&apos;s primary magnetometer sensor.">Magnetometer/Magnetometer</a></p>
+     <p class="less-than-two-engines-text">In only one current engine.</p>
+     <div class="support">
+      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+      <hr>
+      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+     </div>
+    </div>
+   </div>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#SecureContext" id="ref-for-SecureContext"><c- g>SecureContext</c-></a>,
   <a class="idl-code" data-link-type="extended-attribute" href="https://heycam.github.io/webidl/#Exposed" id="ref-for-Exposed"><c- g>Exposed</c-></a>=<c- n>Window</c->]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="magnetometer"><code><c- g>Magnetometer</c-></code></dfn> : <a data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor②"><c- n>Sensor</c-></a> {
@@ -789,12 +873,60 @@ It can be either the <a data-link-type="dfn" href="https://w3c.github.io/acceler
    <p>To construct a <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer④">Magnetometer</a></code> object the user agent must invoke the <a data-link-type="dfn" href="#construct-a-magnetometer-object" id="ref-for-construct-a-magnetometer-object">construct a magnetometer object</a> abstract operation for the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑤">Magnetometer</a></code> interface.</p>
    <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#supported-sensor-options" id="ref-for-supported-sensor-options">Supported sensor options</a> for <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑥">Magnetometer</a></code> are "frequency" and "referenceFrame".</p>
    <h4 class="heading settled" data-level="5.1.1" id="magnetometer-x"><span class="secno">5.1.1. </span><span class="content">Magnetometer.x</span><a class="self-link" href="#magnetometer-x"></a></h4>
+   <div class="mdn-anno wrapped after">
+    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/x" title="The x read-only property of the Magnetometer interface returns a double precision integer containing the magnetic field around the device&apos;s x axis.">Magnetometer/x</a></p>
+     <p class="less-than-two-engines-text">In only one current engine.</p>
+     <div class="support">
+      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+      <hr>
+      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+     </div>
+    </div>
+   </div>
    <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-x" id="ref-for-dom-magnetometer-x">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑦">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑨">magnetic field</a> around X-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading">get value from latest reading</a> with <code>this</code> and "x" as arguments.</p>
    <h4 class="heading settled" data-level="5.1.2" id="magnetometer-y"><span class="secno">5.1.2. </span><span class="content">Magnetometer.y</span><a class="self-link" href="#magnetometer-y"></a></h4>
+   <div class="mdn-anno wrapped after">
+    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/y" title="The y read-only property of the Magnetometer interface returns a double precision integer containing the magnetic field around the device&apos;s y axis.">Magnetometer/y</a></p>
+     <p class="less-than-two-engines-text">In only one current engine.</p>
+     <div class="support">
+      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+      <hr>
+      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+     </div>
+    </div>
+   </div>
    <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-y" id="ref-for-dom-magnetometer-y">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑧">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①⓪">magnetic field</a> around Y-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading①">get value from latest reading</a> with <code>this</code> and "y" as arguments.</p>
    <h4 class="heading settled" data-level="5.1.3" id="magnetometer-z"><span class="secno">5.1.3. </span><span class="content">Magnetometer.z</span><a class="self-link" href="#magnetometer-z"></a></h4>
+   <div class="mdn-anno wrapped after">
+    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
+    <div class="feature">
+     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/z" title="The z read-only property of the Magnetometer interface returns a double-precision integer containing the magnetic field around the device&apos;s z axis.">Magnetometer/z</a></p>
+     <p class="less-than-two-engines-text">In only one current engine.</p>
+     <div class="support">
+      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
+      <hr>
+      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
+      <hr>
+      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
+      <hr>
+      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
+     </div>
+    </div>
+   </div>
    <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-z" id="ref-for-dom-magnetometer-z">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑨">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①①">magnetic field</a> around Z-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading②">get value from latest reading</a> with <code>this</code> and "z" as arguments.</p>
    <h3 class="heading settled" data-level="5.2" id="uncalibrated-magnetometer-interface"><span class="secno">5.2. </span><span class="content">The UncalibratedMagnetometer Interface</span><a class="self-link" href="#uncalibrated-magnetometer-interface"></a></h3>
@@ -1217,16 +1349,16 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-map-entry">4. Model</a> <a href="#ref-for-map-entry①">(2)</a> <a href="#ref-for-map-entry②">(3)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-map-key">
-   <a href="https://infra.spec.whatwg.org/#map-key">https://infra.spec.whatwg.org/#map-key</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-map-getting-the-keys">
+   <a href="https://infra.spec.whatwg.org/#map-getting-the-keys">https://infra.spec.whatwg.org/#map-getting-the-keys</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-map-key">4. Model</a> <a href="#ref-for-map-key①">(2)</a> <a href="#ref-for-map-key②">(3)</a>
+    <li><a href="#ref-for-map-getting-the-keys">4. Model</a> <a href="#ref-for-map-getting-the-keys①">(2)</a> <a href="#ref-for-map-getting-the-keys②">(3)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-map-value">
-   <a href="https://infra.spec.whatwg.org/#map-value">https://infra.spec.whatwg.org/#map-value</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-map-getting-the-values">
+   <a href="https://infra.spec.whatwg.org/#map-getting-the-values">https://infra.spec.whatwg.org/#map-getting-the-values</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-map-value">4. Model</a> <a href="#ref-for-map-value①">(2)</a> <a href="#ref-for-map-value②">(3)</a>
+    <li><a href="#ref-for-map-getting-the-values">4. Model</a> <a href="#ref-for-map-getting-the-values①">(2)</a> <a href="#ref-for-map-getting-the-values②">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-absolute-orientation">
@@ -1329,8 +1461,8 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <a data-link-type="biblio">[INFRA]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-map-entry">entry</span>
-     <li><span class="dfn-paneled" id="term-for-map-key">key</span>
-     <li><span class="dfn-paneled" id="term-for-map-value">value</span>
+     <li><span class="dfn-paneled" id="term-for-map-getting-the-keys">keys</span>
+     <li><span class="dfn-paneled" id="term-for-map-getting-the-values">values</span>
     </ul>
    <li>
     <a data-link-type="biblio">[motionsensors]</a> defines the following terms:
@@ -1361,13 +1493,13 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dt id="biblio-accelerometer">[ACCELEROMETER]
    <dd>Anssi Kostiainen. <a href="https://www.w3.org/TR/accelerometer/">Accelerometer</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
-   <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 12 December 2019. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
+   <dd>Rick Waldron; et al. <a href="https://www.w3.org/TR/generic-sensor/">Generic Sensor API</a>. 24 July 2021. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
    <dt id="biblio-infra">[INFRA]
    <dd>Anne van Kesteren; Domenic Denicola. <a href="https://infra.spec.whatwg.org/">Infra Standard</a>. Living Standard. URL: <a href="https://infra.spec.whatwg.org/">https://infra.spec.whatwg.org/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Mounir Lamouri; Marcos Caceres; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/">Permissions</a>. 20 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dd>Mounir Lamouri; Marcos Caceres; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/">Permissions</a>. 20 July 2021. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
    <dt id="biblio-rfc2119">[RFC2119]
-   <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
+   <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
    <dt id="biblio-webidl">[WEBIDL]
    <dd>Boris Zbarsky. <a href="https://heycam.github.io/webidl/">Web IDL</a>. 15 December 2016. ED. URL: <a href="https://heycam.github.io/webidl/">https://heycam.github.io/webidl/</a>
   </dl>
@@ -1376,7 +1508,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dt id="biblio-magindoorpos">[MAGINDOORPOS]
    <dd>Janne Haverinen, Anssi Kemppainen. <a href="https://doi.org/10.1016%2Fj.robot.2009.07.018">Global indoor self-localization based on the ambient magnetic field</a>. Informational. URL: <a href="https://doi.org/10.1016%2Fj.robot.2009.07.018">https://doi.org/10.1016%2Fj.robot.2009.07.018</a>
    <dt id="biblio-magitact">[MAGITACT]
-   <dd>Hamed Ketabdar, Kamer Ali Yüksel, Mehran Roshandel. <a href="http://dl.acm.org/citation.cfm?id=1720048">Magitact</a>. Informational. URL: <a href="http://dl.acm.org/citation.cfm?id=1720048">http://dl.acm.org/citation.cfm?id=1720048</a>
+   <dd>Hamed Ketabdar, Kamer Ali Yüksel, Mehran Roshandel. <a href="https://dl.acm.org/doi/10.1145/1719970.1720048">Magitact</a>. Informational. URL: <a href="https://dl.acm.org/doi/10.1145/1719970.1720048">https://dl.acm.org/doi/10.1145/1719970.1720048</a>
    <dt id="biblio-magspy">[MAGSPY]
    <dd>Nikolay Matyunin, Yujue Wang, Tolga Arul, Kristian Kullmann, Jakub Szefer, Stefan Katzenbeisser. <a href="https://dl.acm.org/doi/abs/10.1145/3338498.3358650">MagneticSpy: Exploiting Magnetometer in Mobile Devices for Website and Application Fingerprinting</a>. Informational. URL: <a href="https://dl.acm.org/doi/abs/10.1145/3338498.3358650">https://dl.acm.org/doi/abs/10.1145/3338498.3358650</a>
    <dt id="biblio-motion-sensors">[MOTION-SENSORS]
@@ -1663,6 +1795,14 @@ document.body.addEventListener("click", function(e) {
 
 });
 </script>
+<script>/* script-mdn-anno */
+
+            document.body.addEventListener("click", (e) => {
+                if(e.target.closest(".mdn-anno-btn")) {
+                    e.target.closest(".mdn-anno").classList.toggle("wrapped");
+                }
+            });
+            </script>
 <script>/* script-var-click-highlighting */
 
     document.addEventListener("click", e=>{
