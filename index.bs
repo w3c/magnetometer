@@ -190,6 +190,8 @@ The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has
 
 The {{Magnetometer}} and {{UncalibratedMagnetometer}} have an associated [=sensor permission name=] which is <a for="PermissionName" enum-value>"magnetometer"</a>.
 
+The <a>Magnetometer</a> is a [=policy-controlled feature=] identified by the string "magnetometer". Its [=default allowlist=] is `'self'`.
+
 The [=latest reading=] for a {{Sensor}} of <a>Magnetometer</a> <a>sensor type</a> includes three [=map/entries=]
 whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a>
 about the corresponding axes. Values can contain also device's [=uncalibrated magnetic field=] and [=hard iron distortion=]
