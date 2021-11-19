@@ -49,6 +49,9 @@ urlPrefix: https://w3c.github.io/accelerometer/; spec: ACCELEROMETER
 urlPrefix: https://w3c.github.io/motion-sensors/; spec: MOTIONSENSORS
   type: dfn
     text: Absolute Orientation Sensor; url: absolute-orientation
+urlPrefix: https://www.w3.org/TR/permissions/; spec: PERMISSIONS
+  type: dfn
+    text: name; url: dfn-name
 </pre>
 
 
@@ -189,7 +192,11 @@ Model {#model}
 
 The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has two associated {{Sensor}} subclasses, {{Magnetometer}} and {{UncalibratedMagnetometer}}.
 
-The {{Magnetometer}} and {{UncalibratedMagnetometer}} have an associated [=sensor permission name=] which is <a for="PermissionName" enum-value>"magnetometer"</a>.
+The <a>Magnetometer</a> is a [=powerful feature=] that is identified by the
+[=name=] "magnetometer", which is also its associated
+[=sensor permission name=]. Its [=powerful feature/permission revocation algorithm=] is the
+result of calling the [=generic sensor permission revocation algorithm=] with
+"magnetometer".
 
 The <a>Magnetometer</a> is a [=policy-controlled feature=] identified by the string "magnetometer". Its [=default allowlist=] is `'self'`.
 
