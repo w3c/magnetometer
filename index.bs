@@ -19,7 +19,6 @@ Markup Shorthands: markdown on
 Inline Github Issues: true
 !Test Suite: <a href="https://github.com/web-platform-tests/wpt/tree/main/magnetometer">web-platform-tests on GitHub</a>
 Boilerplate: omit issues-index, omit conformance, repository-issue-tracking no
-Include MDN Panels: if possible
 Status Text:
   This specification is looking for developer feedback and high value use cases. Please provide your feedback via <a href="https://github.com/w3c/magnetometer/issues/59">GitHub</a>.
 
