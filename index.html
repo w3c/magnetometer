@@ -4,10 +4,10 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Magnetometer</title>
   <meta content="ED" name="w3c-status">
-  <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet" type="text/css">
-  <meta content="Bikeshed version 83b904c2e, updated Wed Nov 3 17:20:53 2021 -0700" name="generator">
+  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet" type="text/css">
+  <meta content="Bikeshed version 31a2f03f4, updated Wed Dec 1 15:27:21 2021 -0800" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="56b23e82b07235c26659c2b310fdd5d68e3f9f24" name="document-revision">
+  <meta content="7f0cb0c42b680818be52a930d35f8fb5f40d01fb" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -269,62 +269,6 @@ a[href].issue-return {
 [data-md] > :last-child {
     margin-bottom: 0;
 }</style>
-<style>/* style-mdn-anno */
-
-            @media (max-width: 767px) { .mdn-anno { opacity: .1 } }
-            .mdn-anno { font: 1em sans-serif; padding: 0.3em; position: absolute; z-index: 8; right: 0.3em; background: #EEE; color: black; box-shadow: 0 0 3px #999; overflow: hidden; border-collapse: initial; border-spacing: initial; min-width: 9em; max-width: min-content; white-space: nowrap; word-wrap: normal; hyphens: none}
-            .mdn-anno:not(.wrapped) { opacity: 1}
-            .mdn-anno:hover { z-index: 9 }
-            .mdn-anno.wrapped { min-width: 0 }
-            .mdn-anno.wrapped > :not(button) { display: none; }
-            .mdn-anno > .mdn-anno-btn { cursor: pointer; border: none; color: #000; background: transparent; margin: -8px; float: right; padding: 10px 8px 8px 8px; outline: none; }
-            .mdn-anno > .mdn-anno-btn > .less-than-two-engines-flag { color: red; padding-right: 2px; }
-            .mdn-anno > .mdn-anno-btn > .all-engines-flag { color: green; padding-right: 2px; }
-            .mdn-anno > .mdn-anno-btn > span { color: #fff; background-color: #000; font-weight: normal; font-family: zillaslab, Palatino, "Palatino Linotype", serif; padding: 2px 3px 0px 3px; line-height: 1.3em; vertical-align: top; }
-            .mdn-anno > .feature { margin-top: 20px; }
-            .mdn-anno > .feature:not(:first-of-type) { border-top: 1px solid #999; margin-top: 6px; padding-top: 2px; }
-            .mdn-anno > .feature > .less-than-two-engines-text { color: red }
-            .mdn-anno > .feature > .all-engines-text { color: green }
-            .mdn-anno > .feature > p { font-size: .75em; margin-top: 6px; margin-bottom: 0; }
-            .mdn-anno > .feature > p + p { margin-top: 3px; }
-            .mdn-anno > .feature > .support { display: block; font-size: 0.6em; margin: 0; padding: 0; margin-top: 2px }
-            .mdn-anno > .feature > .support + div { padding-top: 0.5em; }
-            .mdn-anno > .feature > .support > hr { display: block; border: none; border-top: 1px dotted #999; padding: 3px 0px 0px 0px; margin: 2px 3px 0px 3px; }
-            .mdn-anno > .feature > .support > hr::before { content: ""; }
-            .mdn-anno > .feature > .support > span { padding: 0.2em 0; display: block; display: table; }
-            .mdn-anno > .feature > .support > span.no { color: #CCCCCC; filter: grayscale(100%); }
-            .mdn-anno > .feature > .support > span.no::before { opacity: 0.5; }
-            .mdn-anno > .feature > .support > span:first-of-type { padding-top: 0.5em; }
-            .mdn-anno > .feature > .support > span > span { padding: 0 0.5em; display: table-cell; }
-            .mdn-anno > .feature > .support > span > span:first-child { width: 100%; }
-            .mdn-anno > .feature > .support > span > span:last-child { width: 100%; white-space: pre; padding: 0; }
-            .mdn-anno > .feature > .support > span::before { content: ' '; display: table-cell; min-width: 1.5em; height: 1.5em; background: no-repeat center center; background-size: contain; text-align: right; font-size: 0.75em; font-weight: bold; }
-            .mdn-anno > .feature > .support > .chrome_android::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
-            .mdn-anno > .feature > .support > .firefox_android::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
-            .mdn-anno > .feature > .support > .chrome::before { background-image: url(https://resources.whatwg.org/browser-logos/chrome.svg); }
-            .mdn-anno > .feature > .support > .edge_blink::before { background-image: url(https://resources.whatwg.org/browser-logos/edge.svg); }
-            .mdn-anno > .feature > .support > .edge::before { background-image: url(https://resources.whatwg.org/browser-logos/edge_legacy.svg); }
-            .mdn-anno > .feature > .support > .firefox::before { background-image: url(https://resources.whatwg.org/browser-logos/firefox.png); }
-            .mdn-anno > .feature > .support > .ie::before { background-image: url(https://resources.whatwg.org/browser-logos/ie.png); }
-            .mdn-anno > .feature > .support > .safari_ios::before { background-image: url(https://resources.whatwg.org/browser-logos/safari-ios.svg); }
-            .mdn-anno > .feature > .support > .nodejs::before { background-image: url(https://nodejs.org/static/images/favicons/favicon.ico); }
-            .mdn-anno > .feature > .support > .opera_android::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.svg); }
-            .mdn-anno > .feature > .support > .opera::before { background-image: url(https://resources.whatwg.org/browser-logos/opera.svg); }
-            .mdn-anno > .feature > .support > .safari::before { background-image: url(https://resources.whatwg.org/browser-logos/safari.png); }
-            .mdn-anno > .feature > .support > .samsunginternet_android::before { background-image: url(https://resources.whatwg.org/browser-logos/samsung.svg); }
-            .mdn-anno > .feature > .support > .webview_android::before { background-image: url(https://resources.whatwg.org/browser-logos/android-webview.png); }
-            .name-slug-mismatch { color: red }
-            .caniuse-status:hover { z-index: 9; }
-
-            /* dt, li, .issue, .note, and .example are "position: relative", so to put annotation at right margin, must move to right of containing block */
-            .h-entry:not(.status-LS) dt > .mdn-anno, .h-entry:not(.status-LS) li > .mdn-anno, .h-entry:not(.status-LS) .issue > .mdn-anno, .h-entry:not(.status-LS) .note > .mdn-anno, .h-entry:not(.status-LS) .example > .mdn-anno { right: -6.7em; }
-            .h-entry p + .mdn-anno { margin-top: 0; }
-            h2 + .mdn-anno.after { margin: -48px 0 0 0; }
-            h3 + .mdn-anno.after { margin: -46px 0 0 0; }
-            h4 + .mdn-anno.after { margin: -42px 0 0 0; }
-            h5 + .mdn-anno.after { margin: -40px 0 0 0; }
-            h6 + .mdn-anno.after { margin: -40px 0 0 0; }
-            </style>
 <style>/* style-selflinks */
 
 :root {
@@ -643,9 +587,9 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 </style>
  <body class="h-entry">
   <div class="head">
-   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C" width="72"> </a> </p>
+   <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2021-11-08">8 November 2021</time></span></h2>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2021-12-04">4 December 2021</time></p>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -656,7 +600,6 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
      <dd><a href="https://github.com/w3c/magnetometer/commits/main/index.bs">https://github.com/w3c/magnetometer/commits/main/index.bs</a>
      <dt>Feedback:
      <dd><span><a href="mailto:public-device-apis@w3.org?subject=%5Bmagnetometer%5D%20YOUR%20TOPIC%20HERE">public-device-apis@w3.org</a> with subject line “<kbd>[magnetometer] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-device-apis/" rel="discussion">archives</a>)</span>
-     <dt>Issue Tracking:
      <dd><a href="https://github.com/w3c/magnetometer/issues">Magnetometer Issues Repository</a>
      <dt class="editor">Editors:
      <dd class="editor p-author h-card vcard" data-editor-id="41974"><a class="p-name fn u-url url" href="https://intel.com/">Anssi Kostiainen</a> (<span class="p-org org">Intel Corporation</span>)
@@ -687,15 +630,16 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	preferably like this:
 	“[magnetometer] <em>…summary of comment…</em>”.
 	All comments are welcome. </p>
-   <p> This document was produced by the <a href="https://www.w3.org/das/">Devices and Sensors Working Group</a>. </p>
+   <p> This document was produced by the <a href="https://www.w3.org/groups/wg/das">Devices and Sensors Working Group</a>. </p>
    <p> This document was produced by a group operating under
 	the <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/">W3C Patent Policy</a>.
 	W3C maintains a <a href="https://www.w3.org/groups/wg/das/ipr" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
 	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2020/Process-20200915/" id="w3c_process_revision">15 September 2020 W3C Process Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2021/Process-20211102/" id="w3c_process_revision">2 November 2021 W3C Process Document</a>. </p>
    <p></p>
    <p>This specification is looking for developer feedback and high value use cases. Please provide your feedback via <a href="https://github.com/w3c/magnetometer/issues/59">GitHub</a>.</p>
+   <p>This document is maintained and updated at any time. Some parts of this document are work in progress.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -822,51 +766,21 @@ use one or both of the following mitigation strategies:</p>
 the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="4" id="model"><span class="secno">4. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="magnetometer-sensor-type">Magnetometer</dfn> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type">sensor type</a> has two associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor">Sensor</a></code> subclasses, <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①">UncalibratedMagnetometer</a></code>.</p>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer②">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer②">UncalibratedMagnetometer</a></code> have an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-permission-names" id="ref-for-sensor-permission-names">sensor permission name</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer" id="ref-for-dom-permissionname-magnetometer">"magnetometer"</a>.</p>
-   <p>The <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a> identified by the string "magnetometer". Its <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#default-allowlist" id="ref-for-default-allowlist">default allowlist</a> is <code>'self'</code>.</p>
-   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor①">Sensor</a></code> of <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type①">Magnetometer</a> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type①">sensor type</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑦">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field①">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion②">hard iron distortion</a> depending on which object was instantiated.</p>
+   <p>The <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> is a <a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-powerful-feature" id="ref-for-dfn-powerful-feature">powerful feature</a> that is identified by the <a data-link-type="dfn" href="https://www.w3.org/TR/permissions/#dfn-name" id="ref-for-dfn-name">name</a> "magnetometer", which is also its associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-permission-names" id="ref-for-sensor-permission-names">sensor permission name</a>. Its <a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm" id="ref-for-dfn-permission-revocation-algorithm">permission revocation algorithm</a> is the
+result of calling the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm" id="ref-for-generic-sensor-permission-revocation-algorithm">generic sensor permission revocation algorithm</a> with
+"magnetometer".</p>
+   <p>The <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type①">Magnetometer</a> is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a> identified by the string "magnetometer". Its <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#default-allowlist" id="ref-for-default-allowlist">default allowlist</a> is <code>'self'</code>.</p>
+   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor①">Sensor</a></code> of <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type②">Magnetometer</a> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type①">sensor type</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑦">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field①">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion②">hard iron distortion</a> depending on which object was instantiated.</p>
    <p>For uncalibrated magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading①">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry①">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys①">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values①">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field②">uncalibrated magnetic field</a> around the 3 different axes,
 and three additional <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry②">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys②">keys</a> are "xBias", "yBias", "zBias" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values②">values</a> contain the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion③">hard iron distortion</a> correction around the 3 different axes.</p>
    <p>The sign of the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑧">magnetic field</a> values must be according to the
 right-hand convention in a <a data-link-type="dfn" href="https://w3c.github.io/sensors/#local-coordinate-system" id="ref-for-local-coordinate-system">local coordinate system</a> (see figure below).</p>
    <p><img alt="Magnetometer coordinate system." onerror="if (/\.svg$/.test(this.src)) this.src=&apos;images/magnetometer_coordinate_system.png&apos;" src="images/magnetometer_coordinate_system.svg" style="display: block;margin: auto;"></p>
    <h3 class="heading settled" data-level="4.1" id="reference-frame"><span class="secno">4.1. </span><span class="content">Reference Frame</span><a class="self-link" href="#reference-frame"></a></h3>
-   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#local-coordinate-system" id="ref-for-local-coordinate-system①">local coordinate system</a> represents the reference frame for the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer③">Magnetometer</a></code> and the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer③">UncalibratedMagnetometer</a></code> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-reading" id="ref-for-sensor-reading">readings</a>.
+   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#local-coordinate-system" id="ref-for-local-coordinate-system①">local coordinate system</a> represents the reference frame for the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer②">Magnetometer</a></code> and the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer②">UncalibratedMagnetometer</a></code> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-reading" id="ref-for-sensor-reading">readings</a>.
 It can be either the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer/#device-coordinate-system" id="ref-for-device-coordinate-system">device coordinate system</a> or the <a data-link-type="dfn" href="https://w3c.github.io/accelerometer/#screen-coordinate-system" id="ref-for-screen-coordinate-system">screen coordinate system</a>.</p>
    <h2 class="heading settled" data-level="5" id="api"><span class="secno">5. </span><span class="content">API</span><a class="self-link" href="#api"></a></h2>
    <h3 class="heading settled" data-level="5.1" id="magnetometer-interface"><span class="secno">5.1. </span><span class="content">The Magnetometer Interface</span><a class="self-link" href="#magnetometer-interface"></a></h3>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer" title="The Magnetometer interface of the Sensor APIs provides information about the magnetic field as detected by the device&apos;s primary magnetometer sensor.">Magnetometer</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span title="Requires setting a user preference or runtime flag.">🔰 56+</span></span>
-      <hr>
-      <span class="opera yes"><span>Opera</span><span title="Requires setting a user preference or runtime flag.">🔰 43+</span></span><span class="edge_blink yes"><span>Edge</span><span title="Requires setting a user preference or runtime flag.">🔰 79+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span title="Requires setting a user preference or runtime flag.">🔰 56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span title="Requires setting a user preference or runtime flag.">🔰 43+</span></span>
-     </div>
-    </div>
-   </div>
-   <div class="mdn-anno wrapped">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/Magnetometer" title="The Magnetometer() constructor creates a new Magnetometer object which returns information about the magnetic field as detected by a device&apos;s primary magnetometer sensor.">Magnetometer/Magnetometer</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
-      <hr>
-      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
-     </div>
-    </div>
-   </div>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SecureContext" id="ref-for-SecureContext"><c- g>SecureContext</c-></a>,
   <a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#Exposed" id="ref-for-Exposed"><c- g>Exposed</c-></a>=<c- n>Window</c->]
 <c- b>interface</c-> <dfn class="dfn-paneled idl-code" data-dfn-type="interface" data-export id="magnetometer"><code><c- g>Magnetometer</c-></code></dfn> : <a data-link-type="idl-name" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor②"><c- n>Sensor</c-></a> {
@@ -882,64 +796,16 @@ It can be either the <a data-link-type="dfn" href="https://w3c.github.io/acceler
   <a data-link-type="idl-name" href="#enumdef-magnetometerlocalcoordinatesystem" id="ref-for-enumdef-magnetometerlocalcoordinatesystem"><c- n>MagnetometerLocalCoordinateSystem</c-></a> <dfn class="dfn-paneled idl-code" data-default="&quot;device&quot;" data-dfn-for="MagnetometerSensorOptions" data-dfn-type="dict-member" data-export data-type="MagnetometerLocalCoordinateSystem " id="dom-magnetometersensoroptions-referenceframe"><code><c- g>referenceFrame</c-></code></dfn> = "device";
 };
 </pre>
-   <p>To construct a <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer④">Magnetometer</a></code> object the user agent must invoke the <a data-link-type="dfn" href="#construct-a-magnetometer-object" id="ref-for-construct-a-magnetometer-object">construct a magnetometer object</a> abstract operation for the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑤">Magnetometer</a></code> interface.</p>
-   <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#supported-sensor-options" id="ref-for-supported-sensor-options">Supported sensor options</a> for <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑥">Magnetometer</a></code> are "frequency" and "referenceFrame".</p>
+   <p>To construct a <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer③">Magnetometer</a></code> object the user agent must invoke the <a data-link-type="dfn" href="#construct-a-magnetometer-object" id="ref-for-construct-a-magnetometer-object">construct a magnetometer object</a> abstract operation for the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer④">Magnetometer</a></code> interface.</p>
+   <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#supported-sensor-options" id="ref-for-supported-sensor-options">Supported sensor options</a> for <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑤">Magnetometer</a></code> are "frequency" and "referenceFrame".</p>
    <h4 class="heading settled" data-level="5.1.1" id="magnetometer-x"><span class="secno">5.1.1. </span><span class="content">Magnetometer.x</span><a class="self-link" href="#magnetometer-x"></a></h4>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/x" title="The x read-only property of the Magnetometer interface returns a double precision integer containing the magnetic field around the device&apos;s x axis.">Magnetometer/x</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
-      <hr>
-      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
-     </div>
-    </div>
-   </div>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-x" id="ref-for-dom-magnetometer-x">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑦">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑨">magnetic field</a> around X-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-x" id="ref-for-dom-magnetometer-x">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑥">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑨">magnetic field</a> around X-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading">get value from latest reading</a> with <code>this</code> and "x" as arguments.</p>
    <h4 class="heading settled" data-level="5.1.2" id="magnetometer-y"><span class="secno">5.1.2. </span><span class="content">Magnetometer.y</span><a class="self-link" href="#magnetometer-y"></a></h4>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/y" title="The y read-only property of the Magnetometer interface returns a double precision integer containing the magnetic field around the device&apos;s y axis.">Magnetometer/y</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
-      <hr>
-      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
-     </div>
-    </div>
-   </div>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-y" id="ref-for-dom-magnetometer-y">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑧">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①⓪">magnetic field</a> around Y-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-y" id="ref-for-dom-magnetometer-y">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑦">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①⓪">magnetic field</a> around Y-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading①">get value from latest reading</a> with <code>this</code> and "y" as arguments.</p>
    <h4 class="heading settled" data-level="5.1.3" id="magnetometer-z"><span class="secno">5.1.3. </span><span class="content">Magnetometer.z</span><a class="self-link" href="#magnetometer-z"></a></h4>
-   <div class="mdn-anno wrapped after">
-    <button class="mdn-anno-btn"><b class="less-than-two-engines-flag" title="This feature is in less than two current engines.">⚠</b><span>MDN</span></button>
-    <div class="feature">
-     <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Magnetometer/z" title="The z read-only property of the Magnetometer interface returns a double-precision integer containing the magnetic field around the device&apos;s z axis.">Magnetometer/z</a></p>
-     <p class="less-than-two-engines-text">In only one current engine.</p>
-     <div class="support">
-      <span class="firefox no"><span>Firefox</span><span>None</span></span><span class="safari no"><span>Safari</span><span>None</span></span><span class="chrome yes"><span>Chrome</span><span>56+</span></span>
-      <hr>
-      <span class="opera yes"><span>Opera</span><span>43+</span></span><span class="edge_blink yes"><span>Edge</span><span>79+</span></span>
-      <hr>
-      <span class="edge no"><span>Edge (Legacy)</span><span>None</span></span><span class="ie no"><span>IE</span><span>None</span></span>
-      <hr>
-      <span class="firefox_android no"><span>Firefox for Android</span><span>None</span></span><span class="safari_ios no"><span>iOS Safari</span><span>None</span></span><span class="chrome_android yes"><span>Chrome for Android</span><span>56+</span></span><span class="webview_android no"><span>Android WebView</span><span>None</span></span><span class="samsunginternet_android no"><span>Samsung Internet</span><span>None</span></span><span class="opera_android yes"><span>Opera Mobile</span><span>43+</span></span>
-     </div>
-    </div>
-   </div>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-z" id="ref-for-dom-magnetometer-z">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑨">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①①">magnetic field</a> around Z-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-magnetometer-z" id="ref-for-dom-magnetometer-z">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑧">Magnetometer</a></code> interface represents the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①①">magnetic field</a> around Z-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading②">get value from latest reading</a> with <code>this</code> and "z" as arguments.</p>
    <h3 class="heading settled" data-level="5.2" id="uncalibrated-magnetometer-interface"><span class="secno">5.2. </span><span class="content">The UncalibratedMagnetometer Interface</span><a class="self-link" href="#uncalibrated-magnetometer-interface"></a></h3>
 <pre class="idl highlight def">[<a class="idl-code" data-link-type="extended-attribute" href="https://webidl.spec.whatwg.org/#SecureContext" id="ref-for-SecureContext①"><c- g>SecureContext</c-></a>,
@@ -954,25 +820,25 @@ In other words, this attribute returns the result of invoking <a data-link-type=
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double⑧"><c- b>double</c-></a>? <dfn class="dfn-paneled idl-code" data-dfn-for="UncalibratedMagnetometer" data-dfn-type="attribute" data-export data-readonly data-type="double?" id="dom-uncalibratedmagnetometer-zbias"><code><c- g>zBias</c-></code></dfn>;
 };
 </pre>
-   <p>To construct an <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer④">UncalibratedMagnetometer</a></code> object the user agent must invoke the <a data-link-type="dfn" href="#construct-a-magnetometer-object" id="ref-for-construct-a-magnetometer-object①">construct a magnetometer object</a> abstract operation for the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑤">UncalibratedMagnetometer</a></code> interface.</p>
-   <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#supported-sensor-options" id="ref-for-supported-sensor-options①">Supported sensor options</a> for <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑥">UncalibratedMagnetometer</a></code> are "frequency" and "referenceFrame".</p>
+   <p>To construct an <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer③">UncalibratedMagnetometer</a></code> object the user agent must invoke the <a data-link-type="dfn" href="#construct-a-magnetometer-object" id="ref-for-construct-a-magnetometer-object①">construct a magnetometer object</a> abstract operation for the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer④">UncalibratedMagnetometer</a></code> interface.</p>
+   <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#supported-sensor-options" id="ref-for-supported-sensor-options①">Supported sensor options</a> for <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑤">UncalibratedMagnetometer</a></code> are "frequency" and "referenceFrame".</p>
    <h4 class="heading settled" data-level="5.2.1" id="uncalibrated-magnetometer-x"><span class="secno">5.2.1. </span><span class="content">UncalibratedMagnetometer.x</span><a class="self-link" href="#uncalibrated-magnetometer-x"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-x" id="ref-for-dom-uncalibratedmagnetometer-x">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑦">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field③">uncalibrated magnetic field</a> around X-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-x" id="ref-for-dom-uncalibratedmagnetometer-x">x</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑥">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field③">uncalibrated magnetic field</a> around X-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading③">get value from latest reading</a> with <code>this</code> and "x" as arguments.</p>
    <h4 class="heading settled" data-level="5.2.2" id="uncalibrated-magnetometer-y"><span class="secno">5.2.2. </span><span class="content">UncalibratedMagnetometer.y</span><a class="self-link" href="#uncalibrated-magnetometer-y"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-y" id="ref-for-dom-uncalibratedmagnetometer-y">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑧">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field④">uncalibrated magnetic field</a> around Y-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-y" id="ref-for-dom-uncalibratedmagnetometer-y">y</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑦">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field④">uncalibrated magnetic field</a> around Y-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading④">get value from latest reading</a> with <code>this</code> and "y" as arguments.</p>
    <h4 class="heading settled" data-level="5.2.3" id="uncalibrated-magnetometer-z"><span class="secno">5.2.3. </span><span class="content">UncalibratedMagnetometer.z</span><a class="self-link" href="#uncalibrated-magnetometer-z"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-z" id="ref-for-dom-uncalibratedmagnetometer-z">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑨">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field⑤">uncalibrated magnetic field</a> around Z-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-z" id="ref-for-dom-uncalibratedmagnetometer-z">z</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑧">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field⑤">uncalibrated magnetic field</a> around Z-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading⑤">get value from latest reading</a> with <code>this</code> and "z" as arguments.</p>
    <h4 class="heading settled" data-level="5.2.4" id="uncalibrated-magnetometer-xBias"><span class="secno">5.2.4. </span><span class="content">UncalibratedMagnetometer.xBias</span><a class="self-link" href="#uncalibrated-magnetometer-xBias"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-xbias" id="ref-for-dom-uncalibratedmagnetometer-xbias">xBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⓪">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion④">hard iron distortion</a> correction around X-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-xbias" id="ref-for-dom-uncalibratedmagnetometer-xbias">xBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer⑨">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion④">hard iron distortion</a> correction around X-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading⑥">get value from latest reading</a> with <code>this</code> and "xBias" as arguments.</p>
    <h4 class="heading settled" data-level="5.2.5" id="uncalibrated-magnetometer-yBias"><span class="secno">5.2.5. </span><span class="content">UncalibratedMagnetometer.yBias</span><a class="self-link" href="#uncalibrated-magnetometer-yBias"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-ybias" id="ref-for-dom-uncalibratedmagnetometer-ybias">yBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①①">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion⑤">hard iron distortion</a> correction around Y-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-ybias" id="ref-for-dom-uncalibratedmagnetometer-ybias">yBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⓪">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion⑤">hard iron distortion</a> correction around Y-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading⑦">get value from latest reading</a> with <code>this</code> and "yBias" as arguments.</p>
    <h4 class="heading settled" data-level="5.2.6" id="uncalibrated-magnetometer-zBias"><span class="secno">5.2.6. </span><span class="content">UncalibratedMagnetometer.zBias</span><a class="self-link" href="#uncalibrated-magnetometer-zBias"></a></h4>
-   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-zbias" id="ref-for-dom-uncalibratedmagnetometer-zbias">zBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①②">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion⑥">hard iron distortion</a> correction around Z-axis.
+   <p>The <code class="idl"><a class="idl-code" data-link-type="attribute" href="#dom-uncalibratedmagnetometer-zbias" id="ref-for-dom-uncalibratedmagnetometer-zbias">zBias</a></code> attribute of the <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①①">UncalibratedMagnetometer</a></code> interface represents the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion⑥">hard iron distortion</a> correction around Z-axis.
 In other words, this attribute returns the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#get-value-from-latest-reading" id="ref-for-get-value-from-latest-reading⑧">get value from latest reading</a> with <code>this</code> and "zBias" as arguments.</p>
    <h2 class="heading settled" data-level="6" id="abstract-opertaions"><span class="secno">6. </span><span class="content">Abstract Operations</span><a class="self-link" href="#abstract-opertaions"></a></h2>
    <h3 class="heading settled dfn-paneled" data-dfn-type="dfn" data-level="6.1" data-lt="Construct a magnetometer object" data-noexport id="construct-a-magnetometer-object"><span class="secno">6.1. </span><span class="content">Construct a magnetometer object</span><a class="self-link" href="#construct-a-magnetometer-object" id="ref-for-construct-a-magnetometer-object②"></a></h3>
@@ -980,17 +846,17 @@ In other words, this attribute returns the result of invoking <a data-link-type=
     <dl>
      <dt data-md>input
      <dd data-md>
-      <p><var>magnetometer_interface</var>, a <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①⓪">Magnetometer</a></code> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-interface" id="ref-for-dfn-interface">interface</a> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-identifier" id="ref-for-dfn-identifier">identifier</a> or
- an <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①③">UncalibratedMagnetometer</a></code> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-interface" id="ref-for-dfn-interface①">interface</a> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-identifier" id="ref-for-dfn-identifier①">identifier</a>.</p>
+      <p><var>magnetometer_interface</var>, a <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑨">Magnetometer</a></code> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-interface" id="ref-for-dfn-interface">interface</a> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-identifier" id="ref-for-dfn-identifier">identifier</a> or
+ an <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①②">UncalibratedMagnetometer</a></code> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-interface" id="ref-for-dfn-interface①">interface</a> <a data-link-type="dfn" href="https://webidl.spec.whatwg.org/#dfn-identifier" id="ref-for-dfn-identifier①">identifier</a>.</p>
      <dd data-md>
       <p><var>options</var>, a <code class="idl"><a data-link-type="idl" href="#dictdef-magnetometersensoroptions" id="ref-for-dictdef-magnetometersensoroptions②">MagnetometerSensorOptions</a></code> object.</p>
      <dt data-md>output
      <dd data-md>
-      <p>A <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①①">Magnetometer</a></code> or <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①④">UncalibratedMagnetometer</a></code> object.</p>
+      <p>A <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①⓪">Magnetometer</a></code> or <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①③">UncalibratedMagnetometer</a></code> object.</p>
     </dl>
     <ol>
      <li data-md>
-      <p>Let <var>allowed</var> be the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#check-sensor-policy-controlled-features" id="ref-for-check-sensor-policy-controlled-features">check sensor policy-controlled features</a> with <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①②">Magnetometer</a></code>.</p>
+      <p>Let <var>allowed</var> be the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#check-sensor-policy-controlled-features" id="ref-for-check-sensor-policy-controlled-features">check sensor policy-controlled features</a> with <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①①">Magnetometer</a></code>.</p>
      <li data-md>
       <p>If <var>allowed</var> is false, then:</p>
       <ol>
@@ -1015,16 +881,16 @@ In other words, this attribute returns the result of invoking <a data-link-type=
    </div>
    <h2 class="heading settled" data-level="7" id="automation"><span class="secno">7. </span><span class="content">Automation</span><a class="self-link" href="#automation"></a></h2>
     This section extends the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#automation" id="ref-for-automation">automation</a> section defined in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> to provide mocking information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①②">magnetic field</a> in the X, Y and Z axis
-for the purposes of testing a user agent’s implementation of <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①③">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⑤">UncalibratedMagnetometer</a></code> APIs. 
+for the purposes of testing a user agent’s implementation of <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①②">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①④">UncalibratedMagnetometer</a></code> APIs. 
    <h3 class="heading settled" data-level="7.1" id="mock-magnetometer-type"><span class="secno">7.1. </span><span class="content">Mock Sensor Type</span><a class="self-link" href="#mock-magnetometer-type"></a></h3>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①④">Magnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-magnetometer" id="ref-for-dom-mocksensortype-magnetometer">"magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values">mock sensor reading values</a> dictionary is defined as follows:</p>
+   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①③">Magnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-magnetometer" id="ref-for-dom-mocksensortype-magnetometer">"magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values">mock sensor reading values</a> dictionary is defined as follows:</p>
 <pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="idl-code" data-dfn-type="dictionary" data-export id="dictdef-magnetometerreadingvalues"><code><c- g>MagnetometerReadingValues</c-></code><a class="self-link" href="#dictdef-magnetometerreadingvalues"></a></dfn> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double⑨"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-x"><code><c- g>x</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-x"></a></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①⓪"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-y"><code><c- g>y</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-y"></a></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①①"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-z"><code><c- g>z</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-z"></a></dfn>;
 };
 </pre>
-   <p>The <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⑥">UncalibratedMagnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type①">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-uncalibrated-magnetometer" id="ref-for-dom-mocksensortype-uncalibrated-magnetometer">"uncalibrated-magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values①">mock sensor reading values</a> dictionary is defined as follows:</p>
+   <p>The <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①⑤">UncalibratedMagnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type①">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-uncalibrated-magnetometer" id="ref-for-dom-mocksensortype-uncalibrated-magnetometer">"uncalibrated-magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values①">mock sensor reading values</a> dictionary is defined as follows:</p>
 <pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="idl-code" data-dfn-type="dictionary" data-export id="dictdef-uncalibratedmagnetometerreadingvalues"><code><c- g>UncalibratedMagnetometerReadingValues</c-></code><a class="self-link" href="#dictdef-uncalibratedmagnetometerreadingvalues"></a></dfn> {
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①②"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-x"><code><c- g>x</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-x"></a></dfn>;
   <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①③"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-y"><code><c- g>y</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-y"></a></dfn>;
@@ -1122,7 +988,7 @@ listed in this specification that are applicable to user agents.</p>
    <p>The IDL fragments in this specification must be interpreted as required for
 conforming IDL fragments, as described in the Web IDL specification. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a></p>
   </main>
-<script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script>
+<script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
@@ -1260,6 +1126,12 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-check-sensor-policy-controlled-features">6.1. Construct a magnetometer object</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-generic-sensor-permission-revocation-algorithm">
+   <a href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm">https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-generic-sensor-permission-revocation-algorithm">4. Model</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-get-value-from-latest-reading">
    <a href="https://w3c.github.io/sensors/#get-value-from-latest-reading">https://w3c.github.io/sensors/#get-value-from-latest-reading</a><b>Referenced in:</b>
    <ul>
@@ -1379,10 +1251,22 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-absolute-orientation">9. Use Cases and Requirements</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-dom-permissionname-magnetometer">
-   <a href="https://w3c.github.io/permissions/#dom-permissionname-magnetometer">https://w3c.github.io/permissions/#dom-permissionname-magnetometer</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-dfn-name">
+   <a href="https://www.w3.org/TR/permissions/#dfn-name">https://www.w3.org/TR/permissions/#dfn-name</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-dom-permissionname-magnetometer">4. Model</a>
+    <li><a href="#ref-for-dfn-name">4. Model</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-dfn-permission-revocation-algorithm">
+   <a href="https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm">https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dfn-permission-revocation-algorithm">4. Model</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-dfn-powerful-feature">
+   <a href="https://w3c.github.io/permissions/#dfn-powerful-feature">https://w3c.github.io/permissions/#dfn-powerful-feature</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-dfn-powerful-feature">4. Model</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-default-allowlist">
@@ -1466,6 +1350,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><span class="dfn-paneled" id="term-for-dictdef-sensoroptions">SensorOptions</span>
      <li><span class="dfn-paneled" id="term-for-automation">automation</span>
      <li><span class="dfn-paneled" id="term-for-check-sensor-policy-controlled-features">check sensor policy-controlled features</span>
+     <li><span class="dfn-paneled" id="term-for-generic-sensor-permission-revocation-algorithm">generic sensor permission revocation algorithm</span>
      <li><span class="dfn-paneled" id="term-for-get-value-from-latest-reading">get value from latest reading</span>
      <li><span class="dfn-paneled" id="term-for-initialize-a-sensor-object">initialize a sensor object</span>
      <li><span class="dfn-paneled" id="term-for-keystroke-monitoring">keystroke monitoring</span>
@@ -1496,7 +1381,9 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li>
     <a data-link-type="biblio">[permissions]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-dom-permissionname-magnetometer">magnetometer</span>
+     <li><span class="dfn-paneled" id="term-for-dfn-name">name</span>
+     <li><span class="dfn-paneled" id="term-for-dfn-permission-revocation-algorithm">permission revocation algorithm</span>
+     <li><span class="dfn-paneled" id="term-for-dfn-powerful-feature">powerful feature</span>
     </ul>
    <li>
     <a data-link-type="biblio">[permissions-policy-1]</a> defines the following terms:
@@ -1527,7 +1414,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dt id="biblio-infra">[INFRA]
    <dd>Anne van Kesteren; Domenic Denicola. <a href="https://infra.spec.whatwg.org/"><cite>Infra Standard</cite></a>. Living Standard. URL: <a href="https://infra.spec.whatwg.org/">https://infra.spec.whatwg.org/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Marcos Caceres; Mike Taylor; Jeffrey Yasskin. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 28 October 2021. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dd>Marcos Caceres; Mike Taylor. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 24 November 2021. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
    <dt id="biblio-permissions-policy-1">[PERMISSIONS-POLICY-1]
    <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/"><cite>Permissions Policy</cite></a>. 16 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
    <dt id="biblio-rfc2119">[RFC2119]
@@ -1639,22 +1526,22 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <aside class="dfn-panel" data-for="magnetometer-sensor-type">
    <b><a href="#magnetometer-sensor-type">#magnetometer-sensor-type</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-magnetometer-sensor-type">4. Model</a> <a href="#ref-for-magnetometer-sensor-type①">(2)</a>
+    <li><a href="#ref-for-magnetometer-sensor-type">4. Model</a> <a href="#ref-for-magnetometer-sensor-type①">(2)</a> <a href="#ref-for-magnetometer-sensor-type②">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="magnetometer">
    <b><a href="#magnetometer">#magnetometer</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-magnetometer">1. Introduction</a>
-    <li><a href="#ref-for-magnetometer①">4. Model</a> <a href="#ref-for-magnetometer②">(2)</a>
-    <li><a href="#ref-for-magnetometer③">4.1. Reference Frame</a>
-    <li><a href="#ref-for-magnetometer④">5.1. The Magnetometer Interface</a> <a href="#ref-for-magnetometer⑤">(2)</a> <a href="#ref-for-magnetometer⑥">(3)</a>
-    <li><a href="#ref-for-magnetometer⑦">5.1.1. Magnetometer.x</a>
-    <li><a href="#ref-for-magnetometer⑧">5.1.2. Magnetometer.y</a>
-    <li><a href="#ref-for-magnetometer⑨">5.1.3. Magnetometer.z</a>
-    <li><a href="#ref-for-magnetometer①⓪">6.1. Construct a magnetometer object</a> <a href="#ref-for-magnetometer①①">(2)</a> <a href="#ref-for-magnetometer①②">(3)</a>
-    <li><a href="#ref-for-magnetometer①③">7. Automation</a>
-    <li><a href="#ref-for-magnetometer①④">7.1. Mock Sensor Type</a>
+    <li><a href="#ref-for-magnetometer①">4. Model</a>
+    <li><a href="#ref-for-magnetometer②">4.1. Reference Frame</a>
+    <li><a href="#ref-for-magnetometer③">5.1. The Magnetometer Interface</a> <a href="#ref-for-magnetometer④">(2)</a> <a href="#ref-for-magnetometer⑤">(3)</a>
+    <li><a href="#ref-for-magnetometer⑥">5.1.1. Magnetometer.x</a>
+    <li><a href="#ref-for-magnetometer⑦">5.1.2. Magnetometer.y</a>
+    <li><a href="#ref-for-magnetometer⑧">5.1.3. Magnetometer.z</a>
+    <li><a href="#ref-for-magnetometer⑨">6.1. Construct a magnetometer object</a> <a href="#ref-for-magnetometer①⓪">(2)</a> <a href="#ref-for-magnetometer①①">(3)</a>
+    <li><a href="#ref-for-magnetometer①②">7. Automation</a>
+    <li><a href="#ref-for-magnetometer①③">7.1. Mock Sensor Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-magnetometer-x">
@@ -1701,18 +1588,18 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <b><a href="#uncalibratedmagnetometer">#uncalibratedmagnetometer</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-uncalibratedmagnetometer">1. Introduction</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①">4. Model</a> <a href="#ref-for-uncalibratedmagnetometer②">(2)</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer③">4.1. Reference Frame</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer④">5.2. The UncalibratedMagnetometer Interface</a> <a href="#ref-for-uncalibratedmagnetometer⑤">(2)</a> <a href="#ref-for-uncalibratedmagnetometer⑥">(3)</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer⑦">5.2.1. UncalibratedMagnetometer.x</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer⑧">5.2.2. UncalibratedMagnetometer.y</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer⑨">5.2.3. UncalibratedMagnetometer.z</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①⓪">5.2.4. UncalibratedMagnetometer.xBias</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①①">5.2.5. UncalibratedMagnetometer.yBias</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①②">5.2.6. UncalibratedMagnetometer.zBias</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①③">6.1. Construct a magnetometer object</a> <a href="#ref-for-uncalibratedmagnetometer①④">(2)</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①⑤">7. Automation</a>
-    <li><a href="#ref-for-uncalibratedmagnetometer①⑥">7.1. Mock Sensor Type</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①">4. Model</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer②">4.1. Reference Frame</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer③">5.2. The UncalibratedMagnetometer Interface</a> <a href="#ref-for-uncalibratedmagnetometer④">(2)</a> <a href="#ref-for-uncalibratedmagnetometer⑤">(3)</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer⑥">5.2.1. UncalibratedMagnetometer.x</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer⑦">5.2.2. UncalibratedMagnetometer.y</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer⑧">5.2.3. UncalibratedMagnetometer.z</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer⑨">5.2.4. UncalibratedMagnetometer.xBias</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①⓪">5.2.5. UncalibratedMagnetometer.yBias</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①①">5.2.6. UncalibratedMagnetometer.zBias</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①②">6.1. Construct a magnetometer object</a> <a href="#ref-for-uncalibratedmagnetometer①③">(2)</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①④">7. Automation</a>
+    <li><a href="#ref-for-uncalibratedmagnetometer①⑤">7.1. Mock Sensor Type</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="dom-uncalibratedmagnetometer-x">
@@ -1827,14 +1714,6 @@ document.body.addEventListener("click", function(e) {
 
 });
 </script>
-<script>/* script-mdn-anno */
-
-            document.body.addEventListener("click", (e) => {
-                if(e.target.closest(".mdn-anno-btn")) {
-                    e.target.closest(".mdn-anno").classList.toggle("wrapped");
-                }
-            });
-            </script>
 <script>/* script-var-click-highlighting */
 
     document.addEventListener("click", e=>{
