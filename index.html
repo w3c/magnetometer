@@ -4,10 +4,11 @@
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <title>Magnetometer</title>
   <meta content="ED" name="w3c-status">
-  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet" type="text/css">
-  <meta content="Bikeshed version 31a2f03f4, updated Wed Dec 1 15:27:21 2021 -0800" name="generator">
+  <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
+  <link href="https://www.w3.org/2008/site/images/favicon.ico" rel="icon">
+  <meta content="Bikeshed version 859efb4bd, updated Fri Jan 27 16:04:01 2023 -0800" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="cf7e4719b2d061346ccbf166a654ddcd0372b9ad" name="document-revision">
+  <meta content="cf05a1b4b63205202c42719531844defaee50835" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -295,6 +296,14 @@ a.self-link:hover {
 }
 .heading > a.self-link {
     font-size: 83%;
+}
+.example > a.self-link,
+.note > a.self-link,
+.issue > a.self-link {
+    /* These blocks are overflow:auto, so positioning outside
+       doesn't work. */
+    left: auto;
+    right: 0;
 }
 li > a.self-link {
     left: calc(-1 * (3.5rem - 26px) - 2em);
@@ -589,27 +598,30 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2021-12-07">7 December 2021</time></p>
-   <div data-fill-with="spec-metadata">
-    <dl>
-     <dt>This version:
-     <dd><a class="u-url" href="https://w3c.github.io/magnetometer/">https://w3c.github.io/magnetometer/</a>
-     <dt>Latest published version:
-     <dd><a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
-     <dt>Version History:
-     <dd><a href="https://github.com/w3c/magnetometer/commits/main/index.bs">https://github.com/w3c/magnetometer/commits/main/index.bs</a>
-     <dt>Feedback:
-     <dd><span><a href="mailto:public-device-apis@w3.org?subject=%5Bmagnetometer%5D%20YOUR%20TOPIC%20HERE">public-device-apis@w3.org</a> with subject line “<kbd>[magnetometer] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-device-apis/" rel="discussion">archives</a>)</span>
-     <dd><a href="https://github.com/w3c/magnetometer/issues">Magnetometer Issues Repository</a>
-     <dt class="editor">Editors:
-     <dd class="editor p-author h-card vcard" data-editor-id="41974"><a class="p-name fn u-url url" href="https://intel.com/">Anssi Kostiainen</a> (<span class="p-org org">Intel Corporation</span>)
-     <dd class="editor p-author h-card vcard" data-editor-id="80407"><a class="p-name fn u-url url" href="https://intel.com/">Rijubrata Bhaumik</a> (<span class="p-org org">Intel Corporation</span>)
-     <dt>Test Suite:
-     <dd><a href="https://github.com/web-platform-tests/wpt/tree/main/magnetometer">web-platform-tests on GitHub</a>
-    </dl>
-   </div>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-01-30">30 January 2023</time></p>
+   <details open>
+    <summary>More details about this document</summary>
+    <div data-fill-with="spec-metadata">
+     <dl>
+      <dt>This version:
+      <dd><a class="u-url" href="https://w3c.github.io/magnetometer/">https://w3c.github.io/magnetometer/</a>
+      <dt>Latest published version:
+      <dd><a href="https://www.w3.org/TR/magnetometer/">https://www.w3.org/TR/magnetometer/</a>
+      <dt>Version History:
+      <dd><a href="https://github.com/w3c/magnetometer/commits/main/index.bs">https://github.com/w3c/magnetometer/commits/main/index.bs</a>
+      <dt>Feedback:
+      <dd><span><a href="mailto:public-device-apis@w3.org?subject=%5Bmagnetometer%5D%20YOUR%20TOPIC%20HERE">public-device-apis@w3.org</a> with subject line “<kbd>[magnetometer] <i data-lt>… message topic …</i></kbd>” (<a href="https://lists.w3.org/Archives/Public/public-device-apis/" rel="discussion">archives</a>)</span>
+      <dd><a href="https://github.com/w3c/magnetometer/issues">Magnetometer Issues Repository</a>
+      <dt class="editor">Editors:
+      <dd class="editor p-author h-card vcard" data-editor-id="41974"><a class="p-name fn u-url url" href="https://intel.com/">Anssi Kostiainen</a> (<span class="p-org org">Intel Corporation</span>)
+      <dd class="editor p-author h-card vcard" data-editor-id="80407"><a class="p-name fn u-url url" href="https://intel.com/">Rijubrata Bhaumik</a> (<span class="p-org org">Intel Corporation</span>)
+      <dt>Test Suite:
+      <dd><a href="https://github.com/web-platform-tests/wpt/tree/main/magnetometer">web-platform-tests on GitHub</a>
+     </dl>
+    </div>
+   </details>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2021 <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>, <a href="https://ev.buaa.edu.cn/">Beihang</a>). W3C <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" rel="license">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -632,7 +644,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
 	All comments are welcome. </p>
    <p> This document was produced by the <a href="https://www.w3.org/groups/wg/das">Devices and Sensors Working Group</a>. </p>
    <p> This document was produced by a group operating under
-	the <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/">W3C Patent Policy</a>.
+	the <a href="https://www.w3.org/Consortium/Patent-Policy/">W3C Patent Policy</a>.
 	W3C maintains a <a href="https://www.w3.org/groups/wg/das/ipr" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
 	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
@@ -706,7 +718,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   </nav>
   <main>
    <h2 class="heading settled" data-level="1" id="intro"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#intro"></a></h2>
-   <p>Magnetometer extends the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> to provide information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field">magnetic field</a> as detected by the device’s primary magnetometer sensor.
+   <p>Magnetometer extends the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a> to provide information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field">magnetic field</a> as detected by the device’s primary magnetometer sensor.
 The magnetometer sensor measures the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①">magnetic field</a> for all three
 physical axes (x, y, z) in μT (micro Tesla).</p>
    <p>This specification defines two new interfaces:</p>
@@ -730,7 +742,7 @@ and as such reports changes in the <a data-link-type="dfn" href="#magnetic-field
    <h2 class="heading settled" data-level="2" id="examples"><span class="secno">2. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
    <div class="example" id="example-b237c17d">
     <a class="self-link" href="#example-b237c17d"></a> 
-<pre class="highlight"><c- a>let</c-> sensor <c- o>=</c-> <c- k>new</c-> Magnetometer<c- p>();</c->
+<pre class="highlight"><c- a>let</c-> sensor <c- o>=</c-> <c- ow>new</c-> Magnetometer<c- p>();</c->
 sensor<c- p>.</c->start<c- p>();</c->
 
 sensor<c- p>.</c->onreading <c- o>=</c-> <c- p>()</c-> <c- p>=></c-> <c- p>{</c->
@@ -751,25 +763,25 @@ validation of the user’s location. For example, if the end user is connected t
 field associated with geo IP information can be compared with magnetometer readings at real
 location, therefore, tell whether user is using VPN or not. Implementors should be aware of potential risk of 
 side-channel leaks via the correlations of magnetic field strength and other aspects such as CPU execution, 
-which under certain circumstances may potentially leak the information about used applications or websites visited in other tabs. <a data-link-type="biblio" href="#biblio-magspy">[MAGSPY]</a></p>
+which under certain circumstances may potentially leak the information about used applications or websites visited in other tabs. <a data-link-type="biblio" href="#biblio-magspy" title="MagneticSpy: Exploiting Magnetometer in Mobile Devices for Website and Application Fingerprinting">[MAGSPY]</a></p>
    <p>Uncalibrated magnetometer readings could be affected by magnetized objects nearby, such as jewelry,
 thereby exposing information that might be used for <a data-link-type="dfn" href="https://w3c.github.io/sensors/#keystroke-monitoring" id="ref-for-keystroke-monitoring">keystroke monitoring</a>.</p>
    <p>To mitigate these specific threats, user agents should
 use one or both of the following mitigation strategies:</p>
    <ul>
     <li data-md>
-     <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#limit-max-frequency" id="ref-for-limit-max-frequency">limit maximum sampling frequency</a></p>
+     <p><a data-link-type="dfn">limit maximum sampling frequency</a></p>
     <li data-md>
-     <p><a data-link-type="dfn" href="https://w3c.github.io/sensors/#reduce-accuracy" id="ref-for-reduce-accuracy">reduce accuracy</a> of sensor readings</p>
+     <p><a data-link-type="dfn">reduce accuracy</a> of sensor readings</p>
    </ul>
    <p>These mitigation strategies complement the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mitigation-strategies" id="ref-for-mitigation-strategies">generic mitigations</a> defined in
-the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a>.</p>
+the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="4" id="model"><span class="secno">4. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="magnetometer-sensor-type">Magnetometer</dfn> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type">sensor type</a> has two associated <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor">Sensor</a></code> subclasses, <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①">UncalibratedMagnetometer</a></code>.</p>
    <p>The <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> is a <a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-powerful-feature" id="ref-for-dfn-powerful-feature">powerful feature</a> that is identified by the <a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-name" id="ref-for-dfn-name">name</a> "magnetometer", which is also its associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-permission-names" id="ref-for-sensor-permission-names">sensor permission name</a>. Its <a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm" id="ref-for-dfn-permission-revocation-algorithm">permission revocation algorithm</a> is the
 result of calling the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm" id="ref-for-generic-sensor-permission-revocation-algorithm">generic sensor permission revocation algorithm</a> with
 "magnetometer".</p>
-   <p>The <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type①">Magnetometer</a> is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a> identified by the string "magnetometer". Its <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#default-allowlist" id="ref-for-default-allowlist">default allowlist</a> is <code>'self'</code>.</p>
+   <p>The <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type①">Magnetometer</a> is a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a> identified by the string "magnetometer". Its <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature-default-allowlist" id="ref-for-policy-controlled-feature-default-allowlist">default allowlist</a> is <code>'self'</code>.</p>
    <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor①">Sensor</a></code> of <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type②">Magnetometer</a> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type①">sensor type</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values">values</a> contain <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field⑦">magnetic field</a> about the corresponding axes. Values can contain also device’s <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field①">uncalibrated magnetic field</a> and <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion②">hard iron distortion</a> depending on which object was instantiated.</p>
    <p>For uncalibrated magnetometer, the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading①">latest reading</a> includes three <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry①">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys①">keys</a> are "x", "y", "z" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values①">values</a> contain <a data-link-type="dfn" href="#uncalibrated-magnetic-field" id="ref-for-uncalibrated-magnetic-field②">uncalibrated magnetic field</a> around the 3 different axes,
 and three additional <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry②">entries</a> whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-keys" id="ref-for-map-getting-the-keys②">keys</a> are "xBias", "yBias", "zBias" and whose <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-getting-the-values" id="ref-for-map-getting-the-values②">values</a> contain the <a data-link-type="dfn" href="#hard-iron-distortion" id="ref-for-hard-iron-distortion③">hard iron distortion</a> correction around the 3 different axes.</p>
@@ -880,7 +892,7 @@ In other words, this attribute returns the result of invoking <a data-link-type=
     </ol>
    </div>
    <h2 class="heading settled" data-level="7" id="automation"><span class="secno">7. </span><span class="content">Automation</span><a class="self-link" href="#automation"></a></h2>
-    This section extends the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#automation" id="ref-for-automation">automation</a> section defined in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor">[GENERIC-SENSOR]</a> to provide mocking information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①②">magnetic field</a> in the X, Y and Z axis
+    This section extends the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#automation" id="ref-for-automation">automation</a> section defined in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a> to provide mocking information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①②">magnetic field</a> in the X, Y and Z axis
 for the purposes of testing a user agent’s implementation of <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①②">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①④">UncalibratedMagnetometer</a></code> APIs. 
    <h3 class="heading settled" data-level="7.1" id="mock-magnetometer-type"><span class="secno">7.1. </span><span class="content">Mock Sensor Type</span><a class="self-link" href="#mock-magnetometer-type"></a></h3>
    <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①③">Magnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value" href="https://w3c.github.io/sensors/#dom-mocksensortype-magnetometer" id="ref-for-dom-mocksensortype-magnetometer">"magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values">mock sensor reading values</a> dictionary is defined as follows:</p>
@@ -915,16 +927,16 @@ like solar winds or magnetic storms, also distort the magnetosphere or external 
    <p>Magnetometers can be used for a variety of use-cases, for example:</p>
    <ul>
     <li data-md>
-     <p>Sensor fusion. A common use-case for magnetometers is sensor fusion in order to generate an <a data-link-type="dfn" href="https://w3c.github.io/motion-sensors/#absolute-orientation" id="ref-for-absolute-orientation">Absolute Orientation Sensor</a> <a data-link-type="biblio" href="#biblio-motion-sensors">[MOTION-SENSORS]</a> which is stationary to the Earth plane, or a compass, which is basically the former with corrections to the declination depending on geolocation position, such that it points to the true north. Calculating compass heading as detailed in <a href="#compass">§ 10 Compass Heading Using Magnetometers</a>.</p>
+     <p>Sensor fusion. A common use-case for magnetometers is sensor fusion in order to generate an <a data-link-type="dfn" href="https://w3c.github.io/motion-sensors/#absolute-orientation" id="ref-for-absolute-orientation">Absolute Orientation Sensor</a> <a data-link-type="biblio" href="#biblio-motion-sensors" title="Motion Sensors Explainer">[MOTION-SENSORS]</a> which is stationary to the Earth plane, or a compass, which is basically the former with corrections to the declination depending on geolocation position, such that it points to the true north. Calculating compass heading as detailed in <a href="#compass">§ 10 Compass Heading Using Magnetometers</a>.</p>
     <li data-md>
-     <p>Virtual Reality and Augmented Reality. Magnetometer can be used to implement input using magnetic button for VR enclosures <a data-link-type="biblio" href="#biblio-vrbutton">[VRBUTTON]</a>. Head-mount tracking systems for VR and AR can use magnetometer data to help in calibration of gyroscope readings and align yaw readings with the magnetic north.</p>
+     <p>Virtual Reality and Augmented Reality. Magnetometer can be used to implement input using magnetic button for VR enclosures <a data-link-type="biblio" href="#biblio-vrbutton" title="Magnetic input for Google cardboard">[VRBUTTON]</a>. Head-mount tracking systems for VR and AR can use magnetometer data to help in calibration of gyroscope readings and align yaw readings with the magnetic north.</p>
     <li data-md>
-     <p>Gesture recognition. Various interactions like writing, signing and playing an instrument can also be enabled using a magnet like a rod, pen or a ring <a data-link-type="biblio" href="#biblio-magitact">[MAGITACT]</a>.
+     <p>Gesture recognition. Various interactions like writing, signing and playing an instrument can also be enabled using a magnet like a rod, pen or a ring <a data-link-type="biblio" href="#biblio-magitact" title="Magitact">[MAGITACT]</a>.
 The user makes coarse gestures in the 3D space around the device using the magnet. Movement of the magnet affects the magnetic field sensed by the compass sensor integrated in the device.
 The temporal pattern of the gesture can be used as a basis for sending different interaction commands to the mobile device. Zooming, turning pages, accepting/rejecting calls, clicking items
 are some of the use cases.</p>
     <li data-md>
-     <p>Indoor navigation. Navigation systems can use magnetometer data on mobile devices <a data-link-type="biblio" href="#biblio-magindoorpos">[MAGINDOORPOS]</a> to detect the magnetic field inside a building. With sufficient local variability, the anomalies can be utilized in self-localization. Use cases for indoor navigation include, for example, proximity advertising, way finding in malls or airports, and geofencing.</p>
+     <p>Indoor navigation. Navigation systems can use magnetometer data on mobile devices <a data-link-type="biblio" href="#biblio-magindoorpos" title="Global indoor self-localization based on the ambient magnetic field">[MAGINDOORPOS]</a> to detect the magnetic field inside a building. With sufficient local variability, the anomalies can be utilized in self-localization. Use cases for indoor navigation include, for example, proximity advertising, way finding in malls or airports, and geofencing.</p>
     <li data-md>
      <p>Metal detection. Magnetometers can be used by utility applications to detect the presence of metal nearby, e.g. finding inclusions hidden within objects.</p>
    </ul>
@@ -943,7 +955,7 @@ By convention, declination is positive when magnetic north is east of true north
    <p>The magnetic north is calculated as follows:</p>
    <div class="example" id="example-f96b6e7a">
     <a class="self-link" href="#example-f96b6e7a"></a> 
-<pre class="highlight"><c- a>let</c-> sensor <c- o>=</c-> <c- k>new</c-> Magnetometer<c- p>();</c->
+<pre class="highlight"><c- a>let</c-> sensor <c- o>=</c-> <c- ow>new</c-> Magnetometer<c- p>();</c->
 sensor<c- p>.</c->start<c- p>();</c->
 <c- a>let</c-> heading <c- o>=</c-> Math<c- p>.</c->atan2<c- p>(</c->sensor<c- p>.</c->y<c- p>,</c-> sensor<c- p>.</c->x<c- p>)</c-> <c- o>*</c-> <c- p>(</c-><c- mf>180</c-> <c- o>/</c-> Math<c- p>.</c->PI<c- p>);</c->
 console<c- p>.</c->log<c- p>(</c-><c- t>'Heading in degrees: '</c-> <c- o>+</c-> heading<c- p>);</c->
@@ -966,7 +978,7 @@ fetch<c- p>(</c-><c- t>'https://www.ngdc.noaa.gov/geomag-web/calculators/calcula
 <c- p>});</c->
 </pre>
    </div>
-   <p class="note" role="note"><span>Note:</span> If the device is not level to the Earth’s surface, a developer needs
+   <p class="note" role="note"><span class="marker">Note:</span> If the device is not level to the Earth’s surface, a developer needs
 to apply various tilt compensation techniques for which she needs a 3-axis
 accelerometer. Data from the orientation sensor, which is a fusion of the
 accelerometer and magnetometer sensors, is required to implement this
@@ -982,11 +994,11 @@ document are to be interpreted as described in RFC 2119.
 However, for readability, these words do not appear in all uppercase
 letters in this specification.</p>
    <p>All of the text of this specification is normative except sections
-explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119">[RFC2119]</a></p>
+explicitly marked as non-normative, examples, and notes. <a data-link-type="biblio" href="#biblio-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">[RFC2119]</a></p>
    <p>A <dfn data-dfn-type="dfn" data-noexport id="conformant-user-agent">conformant user agent<a class="self-link" href="#conformant-user-agent"></a></dfn> must implement all the requirements
 listed in this specification that are applicable to user agents.</p>
    <p>The IDL fragments in this specification must be interpreted as required for
-conforming IDL fragments, as described in the Web IDL specification. <a data-link-type="biblio" href="#biblio-webidl">[WEBIDL]</a></p>
+conforming IDL fragments, as described in the Web IDL specification. <a data-link-type="biblio" href="#biblio-webidl" title="Web IDL Standard">[WEBIDL]</a></p>
   </main>
 <script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script>
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
@@ -1164,12 +1176,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-latest-reading">4. Model</a> <a href="#ref-for-latest-reading①">(2)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-limit-max-frequency">
-   <a href="https://w3c.github.io/sensors/#limit-max-frequency">https://w3c.github.io/sensors/#limit-max-frequency</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-limit-max-frequency">3. Security and Privacy Considerations</a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="term-for-local-coordinate-system">
    <a href="https://w3c.github.io/sensors/#local-coordinate-system">https://w3c.github.io/sensors/#local-coordinate-system</a><b>Referenced in:</b>
    <ul>
@@ -1194,12 +1200,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <a href="https://w3c.github.io/sensors/#mock-sensor-type">https://w3c.github.io/sensors/#mock-sensor-type</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-mock-sensor-type">7.1. Mock Sensor Type</a> <a href="#ref-for-mock-sensor-type①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-reduce-accuracy">
-   <a href="https://w3c.github.io/sensors/#reduce-accuracy">https://w3c.github.io/sensors/#reduce-accuracy</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-reduce-accuracy">3. Security and Privacy Considerations</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-sensor-permission-names">
@@ -1269,10 +1269,10 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <li><a href="#ref-for-dfn-powerful-feature">4. Model</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-default-allowlist">
-   <a href="https://w3c.github.io/webappsec-permissions-policy/#default-allowlist">https://w3c.github.io/webappsec-permissions-policy/#default-allowlist</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-policy-controlled-feature-default-allowlist">
+   <a href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature-default-allowlist">https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature-default-allowlist</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-default-allowlist">4. Model</a>
+    <li><a href="#ref-for-policy-controlled-feature-default-allowlist">4. Model</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-policy-controlled-feature">
@@ -1336,7 +1336,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
-    <a data-link-type="biblio">[accelerometer]</a> defines the following terms:
+    <a data-link-type="biblio">[ACCELEROMETER]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-device-coordinate-system">device coordinate system</span>
      <li><span class="dfn-paneled" id="term-for-screen-coordinate-system">screen coordinate system</span>
@@ -1355,14 +1355,12 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><span class="dfn-paneled" id="term-for-initialize-a-sensor-object">initialize a sensor object</span>
      <li><span class="dfn-paneled" id="term-for-keystroke-monitoring">keystroke monitoring</span>
      <li><span class="dfn-paneled" id="term-for-latest-reading">latest reading</span>
-     <li><span class="dfn-paneled" id="term-for-limit-max-frequency">limit maximum sampling frequency</span>
      <li><span class="dfn-paneled" id="term-for-local-coordinate-system">local coordinate system</span>
      <li><span class="dfn-paneled" id="term-for-mitigation-strategies">mitigation strategies</span>
      <li><span class="dfn-paneled" id="term-for-mock-sensor-reading-values">mock sensor reading values</span>
      <li><span class="dfn-paneled" id="term-for-mock-sensor-type">mock sensor type</span>
-     <li><span class="dfn-paneled" id="term-for-reduce-accuracy">reduce accuracy</span>
      <li><span class="dfn-paneled" id="term-for-sensor-permission-names">sensor permission name</span>
-     <li><span class="dfn-paneled" id="term-for-sensor-reading">sensor readings</span>
+     <li><span class="dfn-paneled" id="term-for-sensor-reading">sensor reading</span>
      <li><span class="dfn-paneled" id="term-for-sensor-type">sensor type</span>
      <li><span class="dfn-paneled" id="term-for-supported-sensor-options">supported sensor options</span>
     </ul>
@@ -1374,21 +1372,21 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><span class="dfn-paneled" id="term-for-map-getting-the-values">values</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[motionsensors]</a> defines the following terms:
+    <a data-link-type="biblio">[MOTIONSENSORS]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-absolute-orientation">absolute orientation sensor</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[permissions]</a> defines the following terms:
+    <a data-link-type="biblio">[PERMISSIONS]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-dfn-name">name</span>
      <li><span class="dfn-paneled" id="term-for-dfn-permission-revocation-algorithm">permission revocation algorithm</span>
      <li><span class="dfn-paneled" id="term-for-dfn-powerful-feature">powerful feature</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[permissions-policy-1]</a> defines the following terms:
+    <a data-link-type="biblio">[PERMISSIONS-POLICY-1]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-default-allowlist">default allowlist</span>
+     <li><span class="dfn-paneled" id="term-for-policy-controlled-feature-default-allowlist">default allowlist</span>
      <li><span class="dfn-paneled" id="term-for-policy-controlled-feature">policy-controlled feature</span>
     </ul>
    <li>
@@ -1408,15 +1406,15 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
    <dt id="biblio-accelerometer">[ACCELEROMETER]
-   <dd>Anssi Kostiainen. <a href="https://www.w3.org/TR/accelerometer/"><cite>Accelerometer</cite></a>. 4 December 2021. CR. URL: <a href="https://www.w3.org/TR/accelerometer/">https://www.w3.org/TR/accelerometer/</a>
+   <dd>Anssi Kostiainen. <a href="https://w3c.github.io/accelerometer/"><cite>Accelerometer</cite></a>. URL: <a href="https://w3c.github.io/accelerometer/">https://w3c.github.io/accelerometer/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
-   <dd>Rick Waldron. <a href="https://www.w3.org/TR/generic-sensor/"><cite>Generic Sensor API</cite></a>. 4 December 2021. CR. URL: <a href="https://www.w3.org/TR/generic-sensor/">https://www.w3.org/TR/generic-sensor/</a>
+   <dd>Rick Waldron. <a href="https://w3c.github.io/sensors/"><cite>Generic Sensor API</cite></a>. URL: <a href="https://w3c.github.io/sensors/">https://w3c.github.io/sensors/</a>
    <dt id="biblio-infra">[INFRA]
    <dd>Anne van Kesteren; Domenic Denicola. <a href="https://infra.spec.whatwg.org/"><cite>Infra Standard</cite></a>. Living Standard. URL: <a href="https://infra.spec.whatwg.org/">https://infra.spec.whatwg.org/</a>
    <dt id="biblio-permissions">[PERMISSIONS]
-   <dd>Marcos Caceres; Mike Taylor. <a href="https://www.w3.org/TR/permissions/"><cite>Permissions</cite></a>. 7 December 2021. WD. URL: <a href="https://www.w3.org/TR/permissions/">https://www.w3.org/TR/permissions/</a>
+   <dd>Marcos Caceres; Mike Taylor. <a href="https://w3c.github.io/permissions/"><cite>Permissions</cite></a>. URL: <a href="https://w3c.github.io/permissions/">https://w3c.github.io/permissions/</a>
    <dt id="biblio-permissions-policy-1">[PERMISSIONS-POLICY-1]
-   <dd>Ian Clelland. <a href="https://www.w3.org/TR/permissions-policy-1/"><cite>Permissions Policy</cite></a>. 16 July 2020. WD. URL: <a href="https://www.w3.org/TR/permissions-policy-1/">https://www.w3.org/TR/permissions-policy-1/</a>
+   <dd>Ian Clelland. <a href="https://w3c.github.io/webappsec-permissions-policy/"><cite>Permissions Policy</cite></a>. URL: <a href="https://w3c.github.io/webappsec-permissions-policy/">https://w3c.github.io/webappsec-permissions-policy/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://datatracker.ietf.org/doc/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. March 1997. Best Current Practice. URL: <a href="https://datatracker.ietf.org/doc/html/rfc2119">https://datatracker.ietf.org/doc/html/rfc2119</a>
    <dt id="biblio-webidl">[WEBIDL]
@@ -1431,7 +1429,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <dt id="biblio-magspy">[MAGSPY]
    <dd>Nikolay Matyunin, Yujue Wang, Tolga Arul, Kristian Kullmann, Jakub Szefer, Stefan Katzenbeisser. <a href="https://dl.acm.org/doi/abs/10.1145/3338498.3358650"><cite>MagneticSpy: Exploiting Magnetometer in Mobile Devices for Website and Application Fingerprinting</cite></a>. Informational. URL: <a href="https://dl.acm.org/doi/abs/10.1145/3338498.3358650">https://dl.acm.org/doi/abs/10.1145/3338498.3358650</a>
    <dt id="biblio-motion-sensors">[MOTION-SENSORS]
-   <dd>Kenneth Christiansen; Alexander Shalamov. <a href="https://www.w3.org/TR/motion-sensors/"><cite>Motion Sensors Explainer</cite></a>. 30 August 2017. NOTE. URL: <a href="https://www.w3.org/TR/motion-sensors/">https://www.w3.org/TR/motion-sensors/</a>
+   <dd>Kenneth Christiansen; Alexander Shalamov. <a href="https://w3c.github.io/motion-sensors/"><cite>Motion Sensors Explainer</cite></a>. URL: <a href="https://w3c.github.io/motion-sensors/">https://w3c.github.io/motion-sensors/</a>
    <dt id="biblio-vrbutton">[VRBUTTON]
    <dd>Boris Smus. <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=445926"><cite>Magnetic input for Google cardboard</cite></a>. Informational. URL: <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=445926">https://bugs.chromium.org/p/chromium/issues/detail?id=445926</a>
   </dl>
@@ -1716,12 +1714,13 @@ document.body.addEventListener("click", function(e) {
 </script>
 <script>/* script-var-click-highlighting */
 
-    document.addEventListener("click", e=>{
-        if(e.target.nodeName == "VAR") {
-            highlightSameAlgoVars(e.target);
-        }
-    });
+    "use strict";
     {
+        document.addEventListener("click", e=>{
+            if(e.target.nodeName == "VAR") {
+                highlightSameAlgoVars(e.target);
+            }
+        });
         const indexCounts = new Map();
         const indexNames = new Map();
         function highlightSameAlgoVars(v) {
