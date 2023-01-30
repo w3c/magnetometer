@@ -36,7 +36,6 @@ urlPrefix: https://w3c.github.io/sensors/; spec: GENERIC-SENSOR
     text: sensor type
     text: mitigation strategies; url: mitigation-strategies
     text: local coordinate system
-    text: sensor readings; url: sensor-reading
     text: check sensor policy-controlled features; url: check-sensor-policy-controlled-features
     text: keystroke monitoring; url: keystroke-monitoring
     text: sensor permission name; url: sensor-permission-names
