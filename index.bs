@@ -185,30 +185,45 @@ use one or both of the following mitigation strategies:
 These mitigation strategies complement the [=mitigation strategies|generic mitigations=] defined in
 the Generic Sensor API [[!GENERIC-SENSOR]].
 
+Permissions Policy integration {#permissions-policy-integration}
+==============================
+
+This specification defines a [=policy-controlled feature=] identified by the string "<code><dfn data-lt="magnetometer-feature" export>magnetometer</dfn></code>". Its [=default allowlist=] is "`self`".
+
 Model {#model}
 =====
 
-The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has two associated {{Sensor}} subclasses, {{Magnetometer}} and {{UncalibratedMagnetometer}}.
+The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has the following associated data:
 
-The <a>Magnetometer</a> is a [=powerful feature=] that is identified by the
-[=powerful feature/name=] "magnetometer", which is also its associated
-[=sensor permission name=]. Its [=powerful feature/permission revocation algorithm=] is the
-result of calling the [=generic sensor permission revocation algorithm=] with
-"magnetometer".
+ : [=Extension sensor interface=]
+ :: {{Magnetometer}}
+ : [=Sensor permission names=]
+ :: "`magnetometer`"
+ : [=Sensor feature names=]
+ :: "[=magnetometer-feature|magnetometer=]"
+ : [=powerful feature/Permission revocation algorithm=]
+ :: Invoke the [=generic sensor permission revocation algorithm=] with "`magnetometer`".
 
-The <a>Magnetometer</a> is a [=policy-controlled feature=] identified by the string "magnetometer". Its [=default allowlist=] is `'self'`.
+The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Magnetometer=] must include:
+ - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a> about the corresponding axes.
 
-The [=latest reading=] for a {{Sensor}} of <a>Magnetometer</a> <a>sensor type</a> includes three [=map/entries=]
-whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a>
-about the corresponding axes. Values can contain also device's [=uncalibrated magnetic field=] and [=hard iron distortion=]
-depending on which object was instantiated.
+The <dfn id="uncalibrated-magnetometer-sensor-type">Uncalibrated Magnetometer</dfn> <a>sensor type</a> has the following associated data:
 
-For uncalibrated magnetometer, the [=latest reading=] includes three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>uncalibrated magnetic field</a> around the 3 different axes,
-and three additional [=map/entries=] whose [=map/keys=] are "xBias", "yBias", "zBias" and whose [=map/values=] contain the <a>hard iron distortion</a> correction around the 3 different axes.
+ : [=Extension sensor interface=]
+ :: {{UncalibratedMagnetometer}}
+ : [=Sensor permission names=]
+ :: "`magnetometer`"
+ : [=Sensor feature names=]
+ :: "[=magnetometer-feature|magnetometer=]"
+ : [=powerful feature/Permission revocation algorithm=]
+ :: Invoke the [=generic sensor permission revocation algorithm=] with "`magnetometer`".
+
+The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Uncalibrated Magnetometer=] must include:
+ - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>uncalibrated magnetic field</a> around the 3 different axes.
+ - Three additional [=map/entries=] whose [=map/keys=] are "xBias", "yBias", "zBias" and whose [=map/values=] contain the <a>hard iron distortion</a> correction around the 3 different axes.
 
 The sign of the <a>magnetic field</a> values must be according to the
 right-hand convention in a [=local coordinate system=] (see figure below).
-
 
 <img src="images/magnetometer_coordinate_system.svg" onerror="if (/\.svg$/.test(this.src)) this.src='images/magnetometer_coordinate_system.png'" style="display: block;margin: auto;" alt="Magnetometer coordinate system.">
 
