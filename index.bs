@@ -198,11 +198,11 @@ The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has
  : [=Extension sensor interface=]
  :: {{Magnetometer}}
  : [=Sensor permission names=]
- :: "`magnetometer`"
+ :: "<code><dfn permission export>magnetometer</dfn></code>"
  : [=Sensor feature names=]
  :: "[=magnetometer-feature|magnetometer=]"
  : [=powerful feature/Permission revocation algorithm=]
- :: Invoke the [=generic sensor permission revocation algorithm=] with "`magnetometer`".
+ :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
 
 The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Magnetometer=] must include:
  - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a> about the corresponding axes.
