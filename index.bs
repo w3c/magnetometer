@@ -36,7 +36,6 @@ urlPrefix: https://w3c.github.io/sensors/; spec: GENERIC-SENSOR
     text: sensor type
     text: mitigation strategies; url: mitigation-strategies
     text: local coordinate system
-    text: check sensor policy-controlled features; url: check-sensor-policy-controlled-features
     text: keystroke monitoring; url: keystroke-monitoring
     text: sensor permission name; url: sensor-permission-names
     text: supported sensor options
@@ -104,9 +103,6 @@ spec:infra;
 spec:generic-sensor-1;
   type:enum-value;
     text:"activated"
-spec: webidl;
-  type:dfn;
-    text:identifier
 </pre>
 
 Introduction {#intro}
@@ -257,9 +253,9 @@ The Magnetometer Interface {#magnetometer-interface}
   };
 </pre>
 
-To construct a {{Magnetometer}} object the user agent must invoke the
-[=construct a magnetometer object=] abstract operation for the {{Magnetometer}}
-interface.
+<div algorithm>
+The <dfn constructor for="Magnetometer" lt="Magnetometer(sensorOptions)"><code>new Magnetometer(|sensorOptions|)</code></dfn> constructor steps are to invoke the [=construct a magnetometer object=] abstract operation with [=this=] and |sensorOptions|.
+</div>
 
 [=Supported sensor options=] for {{Magnetometer}} are "frequency" and "referenceFrame".
 
@@ -307,10 +303,9 @@ The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
   };
 </pre>
 
-
-To construct an {{UncalibratedMagnetometer}} object the user agent must invoke the
-[=construct a magnetometer object=] abstract operation for the {{UncalibratedMagnetometer}}
-interface.
+<div algorithm>
+The <dfn constructor for="UncalibratedMagnetometer" lt="UncalibratedMagnetometer(sensorOptions)"><code>new UncalibratedMagnetometer(|sensorOptions|)</code></dfn> constructor steps are to invoke the [=construct a magnetometer object=] abstract operation with [=this=] and |sensorOptions|.
+</div>
 
 [=Supported sensor options=] for {{UncalibratedMagnetometer}} are "frequency" and "referenceFrame".
 
@@ -374,24 +369,17 @@ Abstract Operations {#abstract-opertaions}
 <div algorithm="construct a magnetometer object">
 
     : input
-    :: |magnetometer_interface|, a {{Magnetometer}} [=interface=] [=identifier=] or
-       an {{UncalibratedMagnetometer}} [=interface=] [=identifier=].
+    :: |object|, a {{Magnetometer}} or {{UncalibratedMagnetometer}} object
     :: |options|, a {{MagnetometerSensorOptions}} object.
-    : output
-    :: A {{Magnetometer}} or {{UncalibratedMagnetometer}} object.
 
     1.  Let |allowed| be the result of invoking [=check sensor policy-controlled features=]
-        with {{Magnetometer}}.
+        with |object|'s [=sensor type=].
     1.  If |allowed| is false, then:
         1.  [=Throw=] a {{SecurityError}} {{DOMException}}.
-    1.  Let |magnetometer| be a new instance of the [=interface=] identified by |magnetometer_interface|.
-    1.  Invoke [=initialize a sensor object=] with |magnetometer| and |options|.
+    1.  Invoke [=initialize a sensor object=] with |object| and |options|.
     1.  If |options|.{{referenceFrame!!dict-member}} is "screen", then:
-        1.  Define [=local coordinate system=] for |magnetometer|
-            as the [=screen coordinate system=].
-    1.  Otherwise, define [=local coordinate system=] for |magnetometer|
-        as the [=device coordinate system=].
-    1.  Return |magnetometer|.
+        1.  Set |object|'s [=local coordinate system=] to the [=screen coordinate system=].
+    1.  Otherwise, define |object|'s [=local coordinate system=] to the [=device coordinate system=].
 </div>
 
 Automation {#automation}
