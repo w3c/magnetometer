@@ -36,7 +36,6 @@ urlPrefix: https://w3c.github.io/sensors/; spec: GENERIC-SENSOR
     text: sensor type
     text: mitigation strategies; url: mitigation-strategies
     text: local coordinate system
-    text: check sensor policy-controlled features; url: check-sensor-policy-controlled-features
     text: keystroke monitoring; url: keystroke-monitoring
     text: sensor permission name; url: sensor-permission-names
     text: supported sensor options
@@ -101,9 +100,6 @@ spec:infra;
 spec:generic-sensor-1;
   type:enum-value;
     text:"activated"
-spec: webidl;
-  type:dfn;
-    text:identifier
 </pre>
 
 Introduction {#intro}
@@ -182,30 +178,45 @@ use one or both of the following mitigation strategies:
 These mitigation strategies complement the [=mitigation strategies|generic mitigations=] defined in
 the Generic Sensor API [[!GENERIC-SENSOR]].
 
+Permissions Policy integration {#permissions-policy-integration}
+==============================
+
+This specification defines a [=policy-controlled feature=] identified by the string "<code><dfn data-lt="magnetometer-feature" export>magnetometer</dfn></code>". Its [=default allowlist=] is "`self`".
+
 Model {#model}
 =====
 
-The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has two associated {{Sensor}} subclasses, {{Magnetometer}} and {{UncalibratedMagnetometer}}.
+The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has the following associated data:
 
-The <a>Magnetometer</a> is a [=powerful feature=] that is identified by the
-[=powerful feature/name=] "magnetometer", which is also its associated
-[=sensor permission name=]. Its [=powerful feature/permission revocation algorithm=] is the
-result of calling the [=generic sensor permission revocation algorithm=] with
-"magnetometer".
+ : [=Extension sensor interface=]
+ :: {{Magnetometer}}
+ : [=Sensor permission names=]
+ :: "<code><dfn permission export>magnetometer</dfn></code>"
+ : [=Sensor feature names=]
+ :: "[=magnetometer-feature|magnetometer=]"
+ : [=powerful feature/Permission revocation algorithm=]
+ :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
 
-The <a>Magnetometer</a> is a [=policy-controlled feature=] identified by the string "magnetometer". Its [=default allowlist=] is `'self'`.
+The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Magnetometer=] must include:
+ - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a> about the corresponding axes.
 
-The [=latest reading=] for a {{Sensor}} of <a>Magnetometer</a> <a>sensor type</a> includes three [=map/entries=]
-whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a>
-about the corresponding axes. Values can contain also device's [=uncalibrated magnetic field=] and [=hard iron distortion=]
-depending on which object was instantiated.
+The <dfn id="uncalibrated-magnetometer-sensor-type">Uncalibrated Magnetometer</dfn> <a>sensor type</a> has the following associated data:
 
-For uncalibrated magnetometer, the [=latest reading=] includes three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>uncalibrated magnetic field</a> around the 3 different axes,
-and three additional [=map/entries=] whose [=map/keys=] are "xBias", "yBias", "zBias" and whose [=map/values=] contain the <a>hard iron distortion</a> correction around the 3 different axes.
+ : [=Extension sensor interface=]
+ :: {{UncalibratedMagnetometer}}
+ : [=Sensor permission names=]
+ :: "`magnetometer`"
+ : [=Sensor feature names=]
+ :: "[=magnetometer-feature|magnetometer=]"
+ : [=powerful feature/Permission revocation algorithm=]
+ :: Invoke the [=generic sensor permission revocation algorithm=] with "`magnetometer`".
+
+The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Uncalibrated Magnetometer=] must include:
+ - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>uncalibrated magnetic field</a> around the 3 different axes.
+ - Three additional [=map/entries=] whose [=map/keys=] are "xBias", "yBias", "zBias" and whose [=map/values=] contain the <a>hard iron distortion</a> correction around the 3 different axes.
 
 The sign of the <a>magnetic field</a> values must be according to the
 right-hand convention in a [=local coordinate system=] (see figure below).
-
 
 <img src="images/magnetometer_coordinate_system.svg" onerror="if (/\.svg$/.test(this.src)) this.src='images/magnetometer_coordinate_system.png'" style="display: block;margin: auto;" alt="Magnetometer coordinate system.">
 
@@ -239,9 +250,9 @@ The Magnetometer Interface {#magnetometer-interface}
   };
 </pre>
 
-To construct a {{Magnetometer}} object the user agent must invoke the
-[=construct a magnetometer object=] abstract operation for the {{Magnetometer}}
-interface.
+<div algorithm>
+The <dfn constructor for="Magnetometer" lt="Magnetometer(sensorOptions)"><code>new Magnetometer(|sensorOptions|)</code></dfn> constructor steps are to invoke the [=construct a magnetometer object=] abstract operation with [=this=] and |sensorOptions|.
+</div>
 
 [=Supported sensor options=] for {{Magnetometer}} are "frequency" and "referenceFrame".
 
@@ -289,10 +300,9 @@ The UncalibratedMagnetometer Interface {#uncalibrated-magnetometer-interface}
   };
 </pre>
 
-
-To construct an {{UncalibratedMagnetometer}} object the user agent must invoke the
-[=construct a magnetometer object=] abstract operation for the {{UncalibratedMagnetometer}}
-interface.
+<div algorithm>
+The <dfn constructor for="UncalibratedMagnetometer" lt="UncalibratedMagnetometer(sensorOptions)"><code>new UncalibratedMagnetometer(|sensorOptions|)</code></dfn> constructor steps are to invoke the [=construct a magnetometer object=] abstract operation with [=this=] and |sensorOptions|.
+</div>
 
 [=Supported sensor options=] for {{UncalibratedMagnetometer}} are "frequency" and "referenceFrame".
 
@@ -356,24 +366,17 @@ Abstract Operations {#abstract-opertaions}
 <div algorithm="construct a magnetometer object">
 
     : input
-    :: |magnetometer_interface|, a {{Magnetometer}} [=interface=] [=identifier=] or
-       an {{UncalibratedMagnetometer}} [=interface=] [=identifier=].
+    :: |object|, a {{Magnetometer}} or {{UncalibratedMagnetometer}} object
     :: |options|, a {{MagnetometerSensorOptions}} object.
-    : output
-    :: A {{Magnetometer}} or {{UncalibratedMagnetometer}} object.
 
     1.  Let |allowed| be the result of invoking [=check sensor policy-controlled features=]
-        with {{Magnetometer}}.
+        with |object|'s [=sensor type=].
     1.  If |allowed| is false, then:
         1.  [=Throw=] a {{SecurityError}} {{DOMException}}.
-    1.  Let |magnetometer| be a new instance of the [=interface=] identified by |magnetometer_interface|.
-    1.  Invoke [=initialize a sensor object=] with |magnetometer| and |options|.
+    1.  Invoke [=initialize a sensor object=] with |object| and |options|.
     1.  If |options|.{{referenceFrame!!dict-member}} is "screen", then:
-        1.  Define [=local coordinate system=] for |magnetometer|
-            as the [=screen coordinate system=].
-    1.  Otherwise, define [=local coordinate system=] for |magnetometer|
-        as the [=device coordinate system=].
-    1.  Return |magnetometer|.
+        1.  Set |object|'s [=local coordinate system=] to the [=screen coordinate system=].
+    1.  Otherwise, define |object|'s [=local coordinate system=] to the [=device coordinate system=].
 </div>
 
 Automation {#automation}
