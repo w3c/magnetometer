@@ -7,7 +7,7 @@
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="2b1256c30b33f18620ec56b3b89113a3092fcd5d" name="document-revision">
+  <meta content="d76c769bbd7a15c9d6cfff3d68bf966e4660ffd8" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -669,7 +669,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-10-25">25 October 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-10-26">26 October 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -766,7 +766,12 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
     <li>
      <a href="#automation"><span class="secno">8</span> <span class="content">Automation</span></a>
      <ol class="toc">
-      <li><a href="#mock-magnetometer-type"><span class="secno">8.1</span> <span class="content">Mock Sensor Type</span></a>
+      <li><a href="#magnetometer-automation"><span class="secno">8.1</span> <span class="content">Magnetometer automation</span></a>
+      <li>
+       <a href="#uncalibrated-magnetometer-automation"><span class="secno">8.2</span> <span class="content">Uncalibrated Magnetometer automation</span></a>
+       <ol class="toc">
+        <li><a href="#uncalibrated-magnetometer-reading-parsing-algorithm"><span class="secno">8.2.1</span> <span class="content">Uncalibrated Magnetometer reading parsing algorithm</span></a>
+       </ol>
      </ol>
     <li><a href="#limitations-magnetometer"><span class="secno">9</span> <span class="content">Limitations of Magnetometer Sensors</span></a>
     <li><a href="#usecases-and-requirements"><span class="secno">10</span> <span class="content">Use Cases and Requirements</span></a>
@@ -992,26 +997,68 @@ In other words, this attribute returns the result of invoking <a data-link-type=
     </ol>
    </div>
    <h2 class="heading settled" data-level="8" id="automation"><span class="secno">8. </span><span class="content">Automation</span><a class="self-link" href="#automation"></a></h2>
-    This section extends the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#automation" id="ref-for-automation">automation</a> section defined in the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a> to provide mocking information about the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①②">magnetic field</a> in the X, Y and Z axis
-for the purposes of testing a user agent’s implementation of <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑧">Magnetometer</a></code> and <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①①">UncalibratedMagnetometer</a></code> APIs. 
-   <h3 class="heading settled" data-level="8.1" id="mock-magnetometer-type"><span class="secno">8.1. </span><span class="content">Mock Sensor Type</span><a class="self-link" href="#mock-magnetometer-type"></a></h3>
-   <p>The <code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer⑨">Magnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value">"magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values">mock sensor reading values</a> dictionary is defined as follows:</p>
-<pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="idl-code" data-dfn-type="dictionary" data-export id="dictdef-magnetometerreadingvalues"><code><c- g>MagnetometerReadingValues</c-></code><a class="self-link" href="#dictdef-magnetometerreadingvalues"></a></dfn> {
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double⑨"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-x"><code><c- g>x</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-x"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①⓪"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-y"><code><c- g>y</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-y"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①①"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="MagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-magnetometerreadingvalues-z"><code><c- g>z</c-></code><a class="self-link" href="#dom-magnetometerreadingvalues-z"></a></dfn>;
-};
-</pre>
-   <p>The <code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①②">UncalibratedMagnetometer</a></code> class has an associated <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-type" id="ref-for-mock-sensor-type①">mock sensor type</a> which is <a class="idl-code" data-link-type="enum-value">"uncalibrated-magnetometer"</a>, its <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mock-sensor-reading-values" id="ref-for-mock-sensor-reading-values①">mock sensor reading values</a> dictionary is defined as follows:</p>
-<pre class="idl highlight def"><c- b>dictionary</c-> <dfn class="idl-code" data-dfn-type="dictionary" data-export id="dictdef-uncalibratedmagnetometerreadingvalues"><code><c- g>UncalibratedMagnetometerReadingValues</c-></code><a class="self-link" href="#dictdef-uncalibratedmagnetometerreadingvalues"></a></dfn> {
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①②"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-x"><code><c- g>x</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-x"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①③"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-y"><code><c- g>y</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-y"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①④"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-z"><code><c- g>z</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-z"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①⑤"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-xbias"><code><c- g>xBias</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-xbias"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①⑥"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-ybias"><code><c- g>yBias</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-ybias"></a></dfn>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double" id="ref-for-idl-double①⑦"><c- b>double</c-></a>? <dfn class="idl-code" data-dfn-for="UncalibratedMagnetometerReadingValues" data-dfn-type="dict-member" data-export data-type="double? " id="dom-uncalibratedmagnetometerreadingvalues-zbias"><code><c- g>zBias</c-></code><a class="self-link" href="#dom-uncalibratedmagnetometerreadingvalues-zbias"></a></dfn>;
-};
-</pre>
+   <p>This section extends <a href="https://w3c.github.io/sensors/#automation"><cite>Generic Sensor API</cite> § 9 Automation</a> by providing <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type①">Magnetometer</a>-specific virtual sensor metadata.</p>
+   <h3 class="heading settled" data-level="8.1" id="magnetometer-automation"><span class="secno">8.1. </span><span class="content">Magnetometer automation</span><a class="self-link" href="#magnetometer-automation"></a></h3>
+   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#per-type-virtual-sensor-metadata" id="ref-for-per-type-virtual-sensor-metadata">per-type virtual sensor metadata</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ordered-map" id="ref-for-ordered-map">map</a> must have the following <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry③">entry</a>:</p>
+   <dl>
+    <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key">key</a>
+    <dd data-md>
+     <p>"<code>magnetometer</code>"</p>
+    <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value">value</a>
+    <dd data-md>
+     <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata">virtual sensor metadata</a> whose <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-virtual-sensor-type" id="ref-for-virtual-sensor-metadata-virtual-sensor-type">virtual sensor type</a> is <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type②">Magnetometer</a> and <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm">reading parsing algorithm</a> is <a data-link-type="dfn" href="https://w3c.github.io/sensors/#parse-xyz-reading" id="ref-for-parse-xyz-reading">parse XYZ reading</a>.</p>
+   </dl>
+   <h3 class="heading settled" data-level="8.2" id="uncalibrated-magnetometer-automation"><span class="secno">8.2. </span><span class="content">Uncalibrated Magnetometer automation</span><a class="self-link" href="#uncalibrated-magnetometer-automation"></a></h3>
+   <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#per-type-virtual-sensor-metadata" id="ref-for-per-type-virtual-sensor-metadata①">per-type virtual sensor metadata</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ordered-map" id="ref-for-ordered-map①">map</a> must have the following <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry④">entry</a>:</p>
+   <dl>
+    <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key①">key</a>
+    <dd data-md>
+     <p>"<code>uncalibrated-magnetometer</code>"</p>
+    <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value①">value</a>
+    <dd data-md>
+     <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata①">virtual sensor metadata</a> whose <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-virtual-sensor-type" id="ref-for-virtual-sensor-metadata-virtual-sensor-type①">virtual sensor type</a> is <a data-link-type="dfn" href="#uncalibrated-magnetometer-sensor-type" id="ref-for-uncalibrated-magnetometer-sensor-type①">Uncalibrated Magnetometer</a> and <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm①">reading parsing algorithm</a> is the <a data-link-type="dfn" href="#uncalibrated-magnetometer-reading-parsing-algorithm" id="ref-for-uncalibrated-magnetometer-reading-parsing-algorithm">uncalibrated magnetometer reading parsing algorithm</a>.</p>
+   </dl>
+   <h4 class="heading settled dfn-paneled" data-dfn-type="dfn" data-level="8.2.1" data-lt="Uncalibrated Magnetometer reading parsing algorithm" data-noexport id="uncalibrated-magnetometer-reading-parsing-algorithm"><span class="secno">8.2.1. </span><span class="content">Uncalibrated Magnetometer reading parsing algorithm</span><a class="self-link" href="#uncalibrated-magnetometer-reading-parsing-algorithm" id="ref-for-uncalibrated-magnetometer-reading-parsing-algorithm①"></a></h4>
+   <div class="algorithm" data-algorithm="uncalibrated magnetometer reading parsing algorithm">
+    <dl>
+     <dt data-md>input
+     <dd data-md>
+      <p><var>parameters</var>, a JSON <code class="idl"><a data-link-type="idl" href="https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object-objects" id="ref-for-sec-object-objects">Object</a></code></p>
+     <dt data-md>output
+     <dd data-md>
+      <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-reading" id="ref-for-sensor-reading①">sensor reading</a> or <strong>undefined</strong></p>
+    </dl>
+    <ol>
+     <li data-md>
+      <p>Let <var>reading</var> be the result of <a data-link-type="dfn" href="https://w3c.github.io/sensors/#parse-xyz-reading" id="ref-for-parse-xyz-reading①">parse XYZ reading</a> with <var>parameters</var>.</p>
+     <li data-md>
+      <p>If <var>reading</var> is <strong>undefined</strong>.</p>
+      <ol>
+       <li data-md>
+        <p>Return <strong>undefined</strong>.</p>
+      </ol>
+     <li data-md>
+      <p>Let <var>keys</var> be the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list">list</a> « "<code>xBias</code>", "<code>yBias</code>", "<code>zBias</code>" ».</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-iterate" id="ref-for-list-iterate">For each</a> <var>key</var> of <var>keys</var></p>
+      <ol>
+       <li data-md>
+        <p>Let <var>value</var> be the result of invoking <a data-link-type="dfn" href="https://w3c.github.io/sensors/#parse-single-value-number-reading" id="ref-for-parse-single-value-number-reading">parse single-value number reading</a> with <var>parameters</var> and <var>key</var>.</p>
+        <ol>
+         <li data-md>
+          <p>If <var>value</var> is <strong>undefined</strong>.</p>
+          <ol>
+           <li data-md>
+            <p>Return <strong>undefined</strong>.</p>
+          </ol>
+        </ol>
+       <li data-md>
+        <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-set" id="ref-for-map-set">Set</a> <var>reading</var>[<var>key</var>] to <var>value</var>[<var>key</var>].</p>
+      </ol>
+     <li data-md>
+      <p>Return <var>reading</var>.</p>
+    </ol>
+   </div>
    <h2 class="heading settled" data-level="9" id="limitations-magnetometer"><span class="secno">9. </span><span class="content">Limitations of Magnetometer Sensors</span><a class="self-link" href="#limitations-magnetometer"></a></h2>
    <p><em>This section is non-normative</em>.</p>
    <p>The direction and magnitude of the Earth’s field changes with location, latitude in particular. For example,
@@ -1020,7 +1067,7 @@ Some hard-iron interference, meaning presence of permanent magnets (e.g. magnets
 also affects the accuracy of the reading.
 Presence of electronic items, laptops, batteries, etc also contribute to the soft iron interference.
 Flight Mode option in mobile phones might help in decreasing the electro magnetic interference.</p>
-   <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①③">magnetic field</a>, time based variations,
+   <p>In addition to the above spatial variations of the <a data-link-type="dfn" href="#magnetic-field" id="ref-for-magnetic-field①②">magnetic field</a>, time based variations,
 like solar winds or magnetic storms, also distort the magnetosphere or external magnetic field of the Earth.</p>
    <h2 class="heading settled" data-level="10" id="usecases-and-requirements"><span class="secno">10. </span><span class="content">Use Cases and Requirements</span><a class="self-link" href="#usecases-and-requirements"></a></h2>
    <p><em>This section is non-normative</em>.</p>
@@ -1134,7 +1181,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer()</a><span>, in § 6.1</span>
    <li><a href="#magnetometer-feature">magnetometer-feature</a><span>, in § 4</span>
    <li><a href="#enumdef-magnetometerlocalcoordinatesystem">MagnetometerLocalCoordinateSystem</a><span>, in § 6.1</span>
-   <li><a href="#dictdef-magnetometerreadingvalues">MagnetometerReadingValues</a><span>, in § 8.1</span>
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer(sensorOptions)</a><span>, in § 6.1</span>
    <li><a href="#dictdef-magnetometersensoroptions">MagnetometerSensorOptions</a><span>, in § 6.1</span>
    <li><a href="#dom-magnetometersensoroptions-referenceframe">referenceFrame</a><span>, in § 6.1</span>
@@ -1144,50 +1190,29 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li><a href="#uncalibrated-magnetometer-sensor-type">Uncalibrated Magnetometer</a><span>, in § 5</span>
    <li><a href="#uncalibratedmagnetometer">UncalibratedMagnetometer</a><span>, in § 6.2</span>
    <li><a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer">UncalibratedMagnetometer()</a><span>, in § 6.2</span>
-   <li><a href="#dictdef-uncalibratedmagnetometerreadingvalues">UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
+   <li><a href="#uncalibrated-magnetometer-reading-parsing-algorithm">Uncalibrated Magnetometer reading parsing algorithm</a><span>, in § 8.2</span>
    <li><a href="#dom-uncalibratedmagnetometer-uncalibratedmagnetometer">UncalibratedMagnetometer(sensorOptions)</a><span>, in § 6.2</span>
    <li>
     x
     <ul>
      <li><a href="#dom-magnetometer-x">attribute for Magnetometer</a><span>, in § 6.1</span>
      <li><a href="#dom-uncalibratedmagnetometer-x">attribute for UncalibratedMagnetometer</a><span>, in § 6.2</span>
-     <li><a href="#dom-magnetometerreadingvalues-x">dict-member for MagnetometerReadingValues</a><span>, in § 8.1</span>
-     <li><a href="#dom-uncalibratedmagnetometerreadingvalues-x">dict-member for UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
     </ul>
-   <li>
-    xBias
-    <ul>
-     <li><a href="#dom-uncalibratedmagnetometer-xbias">attribute for UncalibratedMagnetometer</a><span>, in § 6.2</span>
-     <li><a href="#dom-uncalibratedmagnetometerreadingvalues-xbias">dict-member for UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
-    </ul>
+   <li><a href="#dom-uncalibratedmagnetometer-xbias">xBias</a><span>, in § 6.2</span>
    <li>
     y
     <ul>
      <li><a href="#dom-magnetometer-y">attribute for Magnetometer</a><span>, in § 6.1</span>
      <li><a href="#dom-uncalibratedmagnetometer-y">attribute for UncalibratedMagnetometer</a><span>, in § 6.2</span>
-     <li><a href="#dom-magnetometerreadingvalues-y">dict-member for MagnetometerReadingValues</a><span>, in § 8.1</span>
-     <li><a href="#dom-uncalibratedmagnetometerreadingvalues-y">dict-member for UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
     </ul>
-   <li>
-    yBias
-    <ul>
-     <li><a href="#dom-uncalibratedmagnetometer-ybias">attribute for UncalibratedMagnetometer</a><span>, in § 6.2</span>
-     <li><a href="#dom-uncalibratedmagnetometerreadingvalues-ybias">dict-member for UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
-    </ul>
+   <li><a href="#dom-uncalibratedmagnetometer-ybias">yBias</a><span>, in § 6.2</span>
    <li>
     z
     <ul>
      <li><a href="#dom-magnetometer-z">attribute for Magnetometer</a><span>, in § 6.1</span>
      <li><a href="#dom-uncalibratedmagnetometer-z">attribute for UncalibratedMagnetometer</a><span>, in § 6.2</span>
-     <li><a href="#dom-magnetometerreadingvalues-z">dict-member for MagnetometerReadingValues</a><span>, in § 8.1</span>
-     <li><a href="#dom-uncalibratedmagnetometerreadingvalues-z">dict-member for UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
     </ul>
-   <li>
-    zBias
-    <ul>
-     <li><a href="#dom-uncalibratedmagnetometer-zbias">attribute for UncalibratedMagnetometer</a><span>, in § 6.2</span>
-     <li><a href="#dom-uncalibratedmagnetometerreadingvalues-zbias">dict-member for UncalibratedMagnetometerReadingValues</a><span>, in § 8.1</span>
-    </ul>
+   <li><a href="#dom-uncalibratedmagnetometer-zbias">zBias</a><span>, in § 6.2</span>
   </ul>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
@@ -1198,11 +1223,15 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><span class="dfn-paneled" id="9d689cca">screen coordinate system</span>
     </ul>
    <li>
+    <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="a6e67972">Object</span>
+    </ul>
+   <li>
     <a data-link-type="biblio">[GENERIC-SENSOR]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="1b956603">Sensor</span>
      <li><span class="dfn-paneled" id="207de9db">SensorOptions</span>
-     <li><span class="dfn-paneled" id="8b05f5b6">automation</span>
      <li><span class="dfn-paneled" id="5822d2f3">check sensor policy-controlled features</span>
      <li><span class="dfn-paneled" id="beb7996f">extension sensor interface</span>
      <li><span class="dfn-paneled" id="a09cf46b">generic sensor permission revocation algorithm</span>
@@ -1212,19 +1241,29 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><span class="dfn-paneled" id="378064f9">latest reading</span>
      <li><span class="dfn-paneled" id="95a8cb5f">local coordinate system</span>
      <li><span class="dfn-paneled" id="a296510f">mitigation strategies</span>
-     <li><span class="dfn-paneled" id="4acdbf1c">mock sensor reading values</span>
-     <li><span class="dfn-paneled" id="c3b7f760">mock sensor type</span>
+     <li><span class="dfn-paneled" id="c1bbb186">parse single-value number reading</span>
+     <li><span class="dfn-paneled" id="64ade43d">parse xyz reading</span>
+     <li><span class="dfn-paneled" id="5d47b5a4">per-type virtual sensor metadata</span>
+     <li><span class="dfn-paneled" id="611c5008">reading parsing algorithm</span>
      <li><span class="dfn-paneled" id="7470ffcc">sensor feature names</span>
      <li><span class="dfn-paneled" id="40b81364">sensor permission name</span>
      <li><span class="dfn-paneled" id="5afb8cab">sensor reading</span>
      <li><span class="dfn-paneled" id="f96b75e9">sensor type</span>
      <li><span class="dfn-paneled" id="13f5be19">supported sensor options</span>
+     <li><span class="dfn-paneled" id="bb15fee5">virtual sensor metadata</span>
+     <li><span class="dfn-paneled" id="d5e5825c">virtual sensor type</span>
     </ul>
    <li>
     <a data-link-type="biblio">[INFRA]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="8958b003">entry</span>
+     <li><span class="dfn-paneled" id="16d07e10">for each</span>
+     <li><span class="dfn-paneled" id="d14a6f26">key</span>
      <li><span class="dfn-paneled" id="31db57e6">keys</span>
+     <li><span class="dfn-paneled" id="649608b9">list</span>
+     <li><span class="dfn-paneled" id="3fca5a9e">map</span>
+     <li><span class="dfn-paneled" id="0e6b2056">set</span>
+     <li><span class="dfn-paneled" id="802b0fdd">value</span>
      <li><span class="dfn-paneled" id="12d6b9a8">values</span>
     </ul>
    <li>
@@ -1260,6 +1299,8 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <dl>
    <dt id="biblio-accelerometer">[ACCELEROMETER]
    <dd>Anssi Kostiainen. <a href="https://w3c.github.io/accelerometer/"><cite>Accelerometer</cite></a>. URL: <a href="https://w3c.github.io/accelerometer/">https://w3c.github.io/accelerometer/</a>
+   <dt id="biblio-ecmascript">[ECMASCRIPT]
+   <dd><a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
    <dd>Rick Waldron. <a href="https://w3c.github.io/sensors/"><cite>Generic Sensor API</cite></a>. URL: <a href="https://w3c.github.io/sensors/">https://w3c.github.io/sensors/</a>
    <dt id="biblio-infra">[INFRA]
@@ -1312,21 +1353,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-readonly data-type="double?" href="#dom-uncalibratedmagnetometer-xbias"><code><c- g>xBias</c-></code></a>;
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-readonly data-type="double?" href="#dom-uncalibratedmagnetometer-ybias"><code><c- g>yBias</c-></code></a>;
   <c- b>readonly</c-> <c- b>attribute</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-readonly data-type="double?" href="#dom-uncalibratedmagnetometer-zbias"><code><c- g>zBias</c-></code></a>;
-};
-
-<c- b>dictionary</c-> <a href="#dictdef-magnetometerreadingvalues"><code><c- g>MagnetometerReadingValues</c-></code></a> {
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-magnetometerreadingvalues-x"><code><c- g>x</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-magnetometerreadingvalues-y"><code><c- g>y</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-magnetometerreadingvalues-z"><code><c- g>z</c-></code></a>;
-};
-
-<c- b>dictionary</c-> <a href="#dictdef-uncalibratedmagnetometerreadingvalues"><code><c- g>UncalibratedMagnetometerReadingValues</c-></code></a> {
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-uncalibratedmagnetometerreadingvalues-x"><code><c- g>x</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-uncalibratedmagnetometerreadingvalues-y"><code><c- g>y</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-uncalibratedmagnetometerreadingvalues-z"><code><c- g>z</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-uncalibratedmagnetometerreadingvalues-xbias"><code><c- g>xBias</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-uncalibratedmagnetometerreadingvalues-ybias"><code><c- g>yBias</c-></code></a>;
-  <c- b>required</c-> <a class="idl-code" data-link-type="interface" href="https://webidl.spec.whatwg.org/#idl-double"><c- b>double</c-></a>? <a data-type="double? " href="#dom-uncalibratedmagnetometerreadingvalues-zbias"><code><c- g>zBias</c-></code></a>;
 };
 
 </pre>
@@ -1640,9 +1666,9 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
 window.dfnpanelData = {};
 window.dfnpanelData['7892f569'] = {"dfnID": "7892f569", "url": "https://w3c.github.io/accelerometer/#device-coordinate-system", "dfnText": "device coordinate system", "refSections": [{"refs": [{"id": "ref-for-device-coordinate-system"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-device-coordinate-system\u2460"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['9d689cca'] = {"dfnID": "9d689cca", "url": "https://w3c.github.io/accelerometer/#screen-coordinate-system", "dfnText": "screen coordinate system", "refSections": [{"refs": [{"id": "ref-for-screen-coordinate-system"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-screen-coordinate-system\u2460"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
+window.dfnpanelData['a6e67972'] = {"dfnID": "a6e67972", "url": "https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object-objects", "dfnText": "Object", "refSections": [{"refs": [{"id": "ref-for-sec-object-objects"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
 window.dfnpanelData['1b956603'] = {"dfnID": "1b956603", "url": "https://w3c.github.io/sensors/#sensor", "dfnText": "Sensor", "refSections": [{"refs": [{"id": "ref-for-sensor"}, {"id": "ref-for-sensor\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-sensor\u2461"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-sensor\u2462"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['207de9db'] = {"dfnID": "207de9db", "url": "https://w3c.github.io/sensors/#dictdef-sensoroptions", "dfnText": "SensorOptions", "refSections": [{"refs": [{"id": "ref-for-dictdef-sensoroptions"}], "title": "6.1. The Magnetometer Interface"}], "external": true};
-window.dfnpanelData['8b05f5b6'] = {"dfnID": "8b05f5b6", "url": "https://w3c.github.io/sensors/#automation", "dfnText": "automation", "refSections": [{"refs": [{"id": "ref-for-automation"}], "title": "8. Automation"}], "external": true};
 window.dfnpanelData['5822d2f3'] = {"dfnID": "5822d2f3", "url": "https://w3c.github.io/sensors/#check-sensor-policy-controlled-features", "dfnText": "check sensor policy-controlled features", "refSections": [{"refs": [{"id": "ref-for-check-sensor-policy-controlled-features"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['beb7996f'] = {"dfnID": "beb7996f", "url": "https://w3c.github.io/sensors/#extension-sensor-interface", "dfnText": "extension sensor interface", "refSections": [{"refs": [{"id": "ref-for-extension-sensor-interface"}, {"id": "ref-for-extension-sensor-interface\u2460"}], "title": "5. Model"}], "external": true};
 window.dfnpanelData['a09cf46b'] = {"dfnID": "a09cf46b", "url": "https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm", "dfnText": "generic sensor permission revocation algorithm", "refSections": [{"refs": [{"id": "ref-for-generic-sensor-permission-revocation-algorithm"}, {"id": "ref-for-generic-sensor-permission-revocation-algorithm\u2460"}], "title": "5. Model"}], "external": true};
@@ -1652,15 +1678,25 @@ window.dfnpanelData['31f6aa50'] = {"dfnID": "31f6aa50", "url": "https://w3c.gith
 window.dfnpanelData['378064f9'] = {"dfnID": "378064f9", "url": "https://w3c.github.io/sensors/#latest-reading", "dfnText": "latest reading", "refSections": [{"refs": [{"id": "ref-for-latest-reading"}, {"id": "ref-for-latest-reading\u2460"}], "title": "5. Model"}], "external": true};
 window.dfnpanelData['95a8cb5f'] = {"dfnID": "95a8cb5f", "url": "https://w3c.github.io/sensors/#local-coordinate-system", "dfnText": "local coordinate system", "refSections": [{"refs": [{"id": "ref-for-local-coordinate-system"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-local-coordinate-system\u2460"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-local-coordinate-system\u2461"}, {"id": "ref-for-local-coordinate-system\u2462"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['a296510f'] = {"dfnID": "a296510f", "url": "https://w3c.github.io/sensors/#mitigation-strategies", "dfnText": "mitigation strategies", "refSections": [{"refs": [{"id": "ref-for-mitigation-strategies"}], "title": "3. Security and Privacy Considerations"}], "external": true};
-window.dfnpanelData['4acdbf1c'] = {"dfnID": "4acdbf1c", "url": "https://w3c.github.io/sensors/#mock-sensor-reading-values", "dfnText": "mock sensor reading values", "refSections": [{"refs": [{"id": "ref-for-mock-sensor-reading-values"}, {"id": "ref-for-mock-sensor-reading-values\u2460"}], "title": "8.1. Mock Sensor Type"}], "external": true};
-window.dfnpanelData['c3b7f760'] = {"dfnID": "c3b7f760", "url": "https://w3c.github.io/sensors/#mock-sensor-type", "dfnText": "mock sensor type", "refSections": [{"refs": [{"id": "ref-for-mock-sensor-type"}, {"id": "ref-for-mock-sensor-type\u2460"}], "title": "8.1. Mock Sensor Type"}], "external": true};
+window.dfnpanelData['c1bbb186'] = {"dfnID": "c1bbb186", "url": "https://w3c.github.io/sensors/#parse-single-value-number-reading", "dfnText": "parse single-value number reading", "refSections": [{"refs": [{"id": "ref-for-parse-single-value-number-reading"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
+window.dfnpanelData['64ade43d'] = {"dfnID": "64ade43d", "url": "https://w3c.github.io/sensors/#parse-xyz-reading", "dfnText": "parse xyz reading", "refSections": [{"refs": [{"id": "ref-for-parse-xyz-reading"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-parse-xyz-reading\u2460"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
+window.dfnpanelData['5d47b5a4'] = {"dfnID": "5d47b5a4", "url": "https://w3c.github.io/sensors/#per-type-virtual-sensor-metadata", "dfnText": "per-type virtual sensor metadata", "refSections": [{"refs": [{"id": "ref-for-per-type-virtual-sensor-metadata"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-per-type-virtual-sensor-metadata\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
+window.dfnpanelData['611c5008'] = {"dfnID": "611c5008", "url": "https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm", "dfnText": "reading parsing algorithm", "refSections": [{"refs": [{"id": "ref-for-virtual-sensor-metadata-reading-parsing-algorithm"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-virtual-sensor-metadata-reading-parsing-algorithm\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
 window.dfnpanelData['7470ffcc'] = {"dfnID": "7470ffcc", "url": "https://w3c.github.io/sensors/#sensor-feature-names", "dfnText": "sensor feature names", "refSections": [{"refs": [{"id": "ref-for-sensor-feature-names"}, {"id": "ref-for-sensor-feature-names\u2460"}], "title": "5. Model"}], "external": true};
 window.dfnpanelData['40b81364'] = {"dfnID": "40b81364", "url": "https://w3c.github.io/sensors/#sensor-permission-names", "dfnText": "sensor permission name", "refSections": [{"refs": [{"id": "ref-for-sensor-permission-names"}, {"id": "ref-for-sensor-permission-names\u2460"}], "title": "5. Model"}], "external": true};
-window.dfnpanelData['5afb8cab'] = {"dfnID": "5afb8cab", "url": "https://w3c.github.io/sensors/#sensor-reading", "dfnText": "sensor reading", "refSections": [{"refs": [{"id": "ref-for-sensor-reading"}], "title": "5.1. Reference Frame"}], "external": true};
+window.dfnpanelData['5afb8cab'] = {"dfnID": "5afb8cab", "url": "https://w3c.github.io/sensors/#sensor-reading", "dfnText": "sensor reading", "refSections": [{"refs": [{"id": "ref-for-sensor-reading"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-sensor-reading\u2460"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
 window.dfnpanelData['f96b75e9'] = {"dfnID": "f96b75e9", "url": "https://w3c.github.io/sensors/#sensor-type", "dfnText": "sensor type", "refSections": [{"refs": [{"id": "ref-for-sensor-type"}, {"id": "ref-for-sensor-type\u2460"}, {"id": "ref-for-sensor-type\u2461"}, {"id": "ref-for-sensor-type\u2462"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-sensor-type\u2463"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['13f5be19'] = {"dfnID": "13f5be19", "url": "https://w3c.github.io/sensors/#supported-sensor-options", "dfnText": "supported sensor options", "refSections": [{"refs": [{"id": "ref-for-supported-sensor-options"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-supported-sensor-options\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
-window.dfnpanelData['8958b003'] = {"dfnID": "8958b003", "url": "https://infra.spec.whatwg.org/#map-entry", "dfnText": "entry", "refSections": [{"refs": [{"id": "ref-for-map-entry"}, {"id": "ref-for-map-entry\u2460"}, {"id": "ref-for-map-entry\u2461"}], "title": "5. Model"}], "external": true};
+window.dfnpanelData['bb15fee5'] = {"dfnID": "bb15fee5", "url": "https://w3c.github.io/sensors/#virtual-sensor-metadata", "dfnText": "virtual sensor metadata", "refSections": [{"refs": [{"id": "ref-for-virtual-sensor-metadata"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-virtual-sensor-metadata\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
+window.dfnpanelData['d5e5825c'] = {"dfnID": "d5e5825c", "url": "https://w3c.github.io/sensors/#virtual-sensor-metadata-virtual-sensor-type", "dfnText": "virtual sensor type", "refSections": [{"refs": [{"id": "ref-for-virtual-sensor-metadata-virtual-sensor-type"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-virtual-sensor-metadata-virtual-sensor-type\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
+window.dfnpanelData['8958b003'] = {"dfnID": "8958b003", "url": "https://infra.spec.whatwg.org/#map-entry", "dfnText": "entry", "refSections": [{"refs": [{"id": "ref-for-map-entry"}, {"id": "ref-for-map-entry\u2460"}, {"id": "ref-for-map-entry\u2461"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-map-entry\u2462"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-map-entry\u2463"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
+window.dfnpanelData['16d07e10'] = {"dfnID": "16d07e10", "url": "https://infra.spec.whatwg.org/#list-iterate", "dfnText": "for each", "refSections": [{"refs": [{"id": "ref-for-list-iterate"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
+window.dfnpanelData['d14a6f26'] = {"dfnID": "d14a6f26", "url": "https://infra.spec.whatwg.org/#map-key", "dfnText": "key", "refSections": [{"refs": [{"id": "ref-for-map-key"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-map-key\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
 window.dfnpanelData['31db57e6'] = {"dfnID": "31db57e6", "url": "https://infra.spec.whatwg.org/#map-getting-the-keys", "dfnText": "keys", "refSections": [{"refs": [{"id": "ref-for-map-getting-the-keys"}, {"id": "ref-for-map-getting-the-keys\u2460"}, {"id": "ref-for-map-getting-the-keys\u2461"}], "title": "5. Model"}], "external": true};
+window.dfnpanelData['649608b9'] = {"dfnID": "649608b9", "url": "https://infra.spec.whatwg.org/#list", "dfnText": "list", "refSections": [{"refs": [{"id": "ref-for-list"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
+window.dfnpanelData['3fca5a9e'] = {"dfnID": "3fca5a9e", "url": "https://infra.spec.whatwg.org/#ordered-map", "dfnText": "map", "refSections": [{"refs": [{"id": "ref-for-ordered-map"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-ordered-map\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
+window.dfnpanelData['0e6b2056'] = {"dfnID": "0e6b2056", "url": "https://infra.spec.whatwg.org/#map-set", "dfnText": "set", "refSections": [{"refs": [{"id": "ref-for-map-set"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
+window.dfnpanelData['802b0fdd'] = {"dfnID": "802b0fdd", "url": "https://infra.spec.whatwg.org/#map-value", "dfnText": "value", "refSections": [{"refs": [{"id": "ref-for-map-value"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-map-value\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
 window.dfnpanelData['12d6b9a8'] = {"dfnID": "12d6b9a8", "url": "https://infra.spec.whatwg.org/#map-getting-the-values", "dfnText": "values", "refSections": [{"refs": [{"id": "ref-for-map-getting-the-values"}, {"id": "ref-for-map-getting-the-values\u2460"}, {"id": "ref-for-map-getting-the-values\u2461"}], "title": "5. Model"}], "external": true};
 window.dfnpanelData['75e1dbe0'] = {"dfnID": "75e1dbe0", "url": "https://w3c.github.io/motion-sensors/#absolute-orientation", "dfnText": "absolute orientation sensor", "refSections": [{"refs": [{"id": "ref-for-absolute-orientation"}], "title": "10. Use Cases and Requirements"}], "external": true};
 window.dfnpanelData['409a61ca'] = {"dfnID": "409a61ca", "url": "https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm", "dfnText": "permission revocation algorithm", "refSections": [{"refs": [{"id": "ref-for-dfn-permission-revocation-algorithm"}, {"id": "ref-for-dfn-permission-revocation-algorithm\u2460"}], "title": "5. Model"}], "external": true};
@@ -1670,19 +1706,19 @@ window.dfnpanelData['dca2de17'] = {"dfnID": "dca2de17", "url": "https://webidl.s
 window.dfnpanelData['889e932f'] = {"dfnID": "889e932f", "url": "https://webidl.spec.whatwg.org/#Exposed", "dfnText": "Exposed", "refSections": [{"refs": [{"id": "ref-for-Exposed"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-Exposed\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['b75bb3bd'] = {"dfnID": "b75bb3bd", "url": "https://webidl.spec.whatwg.org/#SecureContext", "dfnText": "SecureContext", "refSections": [{"refs": [{"id": "ref-for-SecureContext"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-SecureContext\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['c3e881ef'] = {"dfnID": "c3e881ef", "url": "https://webidl.spec.whatwg.org/#securityerror", "dfnText": "SecurityError", "refSections": [{"refs": [{"id": "ref-for-securityerror"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
-window.dfnpanelData['8c800cdf'] = {"dfnID": "8c800cdf", "url": "https://webidl.spec.whatwg.org/#idl-double", "dfnText": "double", "refSections": [{"refs": [{"id": "ref-for-idl-double"}, {"id": "ref-for-idl-double\u2460"}, {"id": "ref-for-idl-double\u2461"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-idl-double\u2462"}, {"id": "ref-for-idl-double\u2463"}, {"id": "ref-for-idl-double\u2464"}, {"id": "ref-for-idl-double\u2465"}, {"id": "ref-for-idl-double\u2466"}, {"id": "ref-for-idl-double\u2467"}], "title": "6.2. The UncalibratedMagnetometer Interface"}, {"refs": [{"id": "ref-for-idl-double\u2468"}, {"id": "ref-for-idl-double\u2460\u24ea"}, {"id": "ref-for-idl-double\u2460\u2460"}, {"id": "ref-for-idl-double\u2460\u2461"}, {"id": "ref-for-idl-double\u2460\u2462"}, {"id": "ref-for-idl-double\u2460\u2463"}, {"id": "ref-for-idl-double\u2460\u2464"}, {"id": "ref-for-idl-double\u2460\u2465"}, {"id": "ref-for-idl-double\u2460\u2466"}], "title": "8.1. Mock Sensor Type"}], "external": true};
+window.dfnpanelData['8c800cdf'] = {"dfnID": "8c800cdf", "url": "https://webidl.spec.whatwg.org/#idl-double", "dfnText": "double", "refSections": [{"refs": [{"id": "ref-for-idl-double"}, {"id": "ref-for-idl-double\u2460"}, {"id": "ref-for-idl-double\u2461"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-idl-double\u2462"}, {"id": "ref-for-idl-double\u2463"}, {"id": "ref-for-idl-double\u2464"}, {"id": "ref-for-idl-double\u2465"}, {"id": "ref-for-idl-double\u2466"}, {"id": "ref-for-idl-double\u2467"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['4013a022'] = {"dfnID": "4013a022", "url": "https://webidl.spec.whatwg.org/#this", "dfnText": "this", "refSections": [{"refs": [{"id": "ref-for-this"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-this\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['b4cfa5ce'] = {"dfnID": "b4cfa5ce", "url": "https://webidl.spec.whatwg.org/#dfn-throw", "dfnText": "throw", "refSections": [{"refs": [{"id": "ref-for-dfn-throw"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
-window.dfnpanelData['magnetic-field'] = {"dfnID": "magnetic-field", "url": "#magnetic-field", "dfnText": "magnetic field", "refSections": [{"refs": [{"id": "ref-for-magnetic-field"}, {"id": "ref-for-magnetic-field\u2460"}, {"id": "ref-for-magnetic-field\u2461"}, {"id": "ref-for-magnetic-field\u2462"}, {"id": "ref-for-magnetic-field\u2463"}, {"id": "ref-for-magnetic-field\u2464"}, {"id": "ref-for-magnetic-field\u2465"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-magnetic-field\u2466"}, {"id": "ref-for-magnetic-field\u2467"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetic-field\u2468"}], "title": "6.1.1. Magnetometer.x"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u24ea"}], "title": "6.1.2. Magnetometer.y"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u2460"}], "title": "6.1.3. Magnetometer.z"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u2461"}], "title": "8. Automation"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u2462"}], "title": "9. Limitations of Magnetometer Sensors"}], "external": false};
+window.dfnpanelData['magnetic-field'] = {"dfnID": "magnetic-field", "url": "#magnetic-field", "dfnText": "magnetic field", "refSections": [{"refs": [{"id": "ref-for-magnetic-field"}, {"id": "ref-for-magnetic-field\u2460"}, {"id": "ref-for-magnetic-field\u2461"}, {"id": "ref-for-magnetic-field\u2462"}, {"id": "ref-for-magnetic-field\u2463"}, {"id": "ref-for-magnetic-field\u2464"}, {"id": "ref-for-magnetic-field\u2465"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-magnetic-field\u2466"}, {"id": "ref-for-magnetic-field\u2467"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetic-field\u2468"}], "title": "6.1.1. Magnetometer.x"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u24ea"}], "title": "6.1.2. Magnetometer.y"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u2460"}], "title": "6.1.3. Magnetometer.z"}, {"refs": [{"id": "ref-for-magnetic-field\u2460\u2461"}], "title": "9. Limitations of Magnetometer Sensors"}], "external": false};
 window.dfnpanelData['hard-iron-distortion'] = {"dfnID": "hard-iron-distortion", "url": "#hard-iron-distortion", "dfnText": "Hard iron distortion", "refSections": [{"refs": [{"id": "ref-for-hard-iron-distortion"}, {"id": "ref-for-hard-iron-distortion\u2460"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-hard-iron-distortion\u2461"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-hard-iron-distortion\u2462"}], "title": "6.2.4. UncalibratedMagnetometer.xBias"}, {"refs": [{"id": "ref-for-hard-iron-distortion\u2463"}], "title": "6.2.5. UncalibratedMagnetometer.yBias"}, {"refs": [{"id": "ref-for-hard-iron-distortion\u2464"}], "title": "6.2.6. UncalibratedMagnetometer.zBias"}], "external": false};
 window.dfnpanelData['soft-iron-distortion'] = {"dfnID": "soft-iron-distortion", "url": "#soft-iron-distortion", "dfnText": "Soft iron distortion", "refSections": [{"refs": [{"id": "ref-for-soft-iron-distortion"}, {"id": "ref-for-soft-iron-distortion\u2460"}], "title": "1. Introduction"}], "external": false};
 window.dfnpanelData['calibrated-magnetic-field'] = {"dfnID": "calibrated-magnetic-field", "url": "#calibrated-magnetic-field", "dfnText": "calibrated magnetic field", "refSections": [{"refs": [{"id": "ref-for-calibrated-magnetic-field"}], "title": "1. Introduction"}], "external": false};
 window.dfnpanelData['uncalibrated-magnetic-field'] = {"dfnID": "uncalibrated-magnetic-field", "url": "#uncalibrated-magnetic-field", "dfnText": "uncalibrated magnetic field", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetic-field"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2461"}], "title": "6.2.1. UncalibratedMagnetometer.x"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2462"}], "title": "6.2.2. UncalibratedMagnetometer.y"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2463"}], "title": "6.2.3. UncalibratedMagnetometer.z"}], "external": false};
 window.dfnpanelData['magnetometer-feature'] = {"dfnID": "magnetometer-feature", "url": "#magnetometer-feature", "dfnText": "magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer-feature"}, {"id": "ref-for-magnetometer-feature\u2460"}], "title": "5. Model"}], "external": false};
-window.dfnpanelData['magnetometer-sensor-type'] = {"dfnID": "magnetometer-sensor-type", "url": "#magnetometer-sensor-type", "dfnText": "Magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer-sensor-type"}], "title": "5. Model"}], "external": false};
+window.dfnpanelData['magnetometer-sensor-type'] = {"dfnID": "magnetometer-sensor-type", "url": "#magnetometer-sensor-type", "dfnText": "Magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer-sensor-type"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetometer-sensor-type\u2460"}], "title": "8. Automation"}, {"refs": [{"id": "ref-for-magnetometer-sensor-type\u2461"}], "title": "8.1. Magnetometer automation"}], "external": false};
 window.dfnpanelData['permissiondef-magnetometer'] = {"dfnID": "permissiondef-magnetometer", "url": "#permissiondef-magnetometer", "dfnText": "magnetometer", "refSections": [{"refs": [{"id": "ref-for-permissiondef-magnetometer"}], "title": "5. Model"}], "external": false};
-window.dfnpanelData['uncalibrated-magnetometer-sensor-type'] = {"dfnID": "uncalibrated-magnetometer-sensor-type", "url": "#uncalibrated-magnetometer-sensor-type", "dfnText": "Uncalibrated Magnetometer", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetometer-sensor-type"}], "title": "5. Model"}], "external": false};
-window.dfnpanelData['magnetometer'] = {"dfnID": "magnetometer", "url": "#magnetometer", "dfnText": "Magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-magnetometer\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetometer\u2461"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-magnetometer\u2462"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-magnetometer\u2463"}], "title": "6.1.1. Magnetometer.x"}, {"refs": [{"id": "ref-for-magnetometer\u2464"}], "title": "6.1.2. Magnetometer.y"}, {"refs": [{"id": "ref-for-magnetometer\u2465"}], "title": "6.1.3. Magnetometer.z"}, {"refs": [{"id": "ref-for-magnetometer\u2466"}], "title": "7.1. Construct a magnetometer object"}, {"refs": [{"id": "ref-for-magnetometer\u2467"}], "title": "8. Automation"}, {"refs": [{"id": "ref-for-magnetometer\u2468"}], "title": "8.1. Mock Sensor Type"}], "external": false};
+window.dfnpanelData['uncalibrated-magnetometer-sensor-type'] = {"dfnID": "uncalibrated-magnetometer-sensor-type", "url": "#uncalibrated-magnetometer-sensor-type", "dfnText": "Uncalibrated Magnetometer", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetometer-sensor-type"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-uncalibrated-magnetometer-sensor-type\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": false};
+window.dfnpanelData['magnetometer'] = {"dfnID": "magnetometer", "url": "#magnetometer", "dfnText": "Magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-magnetometer\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetometer\u2461"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-magnetometer\u2462"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-magnetometer\u2463"}], "title": "6.1.1. Magnetometer.x"}, {"refs": [{"id": "ref-for-magnetometer\u2464"}], "title": "6.1.2. Magnetometer.y"}, {"refs": [{"id": "ref-for-magnetometer\u2465"}], "title": "6.1.3. Magnetometer.z"}, {"refs": [{"id": "ref-for-magnetometer\u2466"}], "title": "7.1. Construct a magnetometer object"}], "external": false};
 window.dfnpanelData['dom-magnetometer-x'] = {"dfnID": "dom-magnetometer-x", "url": "#dom-magnetometer-x", "dfnText": "x", "refSections": [{"refs": [{"id": "ref-for-dom-magnetometer-x"}], "title": "6.1.1. Magnetometer.x"}, {"refs": [{"id": "ref-for-dom-magnetometer-x\u2460"}], "title": "11. Compass Heading Using Magnetometers"}], "external": false};
 window.dfnpanelData['dom-magnetometer-y'] = {"dfnID": "dom-magnetometer-y", "url": "#dom-magnetometer-y", "dfnText": "y", "refSections": [{"refs": [{"id": "ref-for-dom-magnetometer-y"}], "title": "6.1.2. Magnetometer.y"}, {"refs": [{"id": "ref-for-dom-magnetometer-y\u2460"}], "title": "11. Compass Heading Using Magnetometers"}], "external": false};
 window.dfnpanelData['dom-magnetometer-z'] = {"dfnID": "dom-magnetometer-z", "url": "#dom-magnetometer-z", "dfnText": "z", "refSections": [{"refs": [{"id": "ref-for-dom-magnetometer-z"}], "title": "6.1.3. Magnetometer.z"}], "external": false};
@@ -1690,7 +1726,7 @@ window.dfnpanelData['enumdef-magnetometerlocalcoordinatesystem'] = {"dfnID": "en
 window.dfnpanelData['dictdef-magnetometersensoroptions'] = {"dfnID": "dictdef-magnetometersensoroptions", "url": "#dictdef-magnetometersensoroptions", "dfnText": "MagnetometerSensorOptions", "refSections": [{"refs": [{"id": "ref-for-dictdef-magnetometersensoroptions"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-dictdef-magnetometersensoroptions\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}, {"refs": [{"id": "ref-for-dictdef-magnetometersensoroptions\u2461"}], "title": "7.1. Construct a magnetometer object"}], "external": false};
 window.dfnpanelData['dom-magnetometersensoroptions-referenceframe'] = {"dfnID": "dom-magnetometersensoroptions-referenceframe", "url": "#dom-magnetometersensoroptions-referenceframe", "dfnText": "referenceFrame", "refSections": [{"refs": [{"id": "ref-for-dom-magnetometersensoroptions-referenceframe"}], "title": "7.1. Construct a magnetometer object"}], "external": false};
 window.dfnpanelData['dom-magnetometer-magnetometer'] = {"dfnID": "dom-magnetometer-magnetometer", "url": "#dom-magnetometer-magnetometer", "dfnText": "new Magnetometer(sensorOptions)", "refSections": [{"refs": [{"id": "ref-for-dom-magnetometer-magnetometer"}], "title": "6.1. The Magnetometer Interface"}], "external": false};
-window.dfnpanelData['uncalibratedmagnetometer'] = {"dfnID": "uncalibratedmagnetometer", "url": "#uncalibratedmagnetometer", "dfnText": "UncalibratedMagnetometer", "refSections": [{"refs": [{"id": "ref-for-uncalibratedmagnetometer"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2461"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2462"}], "title": "6.2. The UncalibratedMagnetometer Interface"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2463"}], "title": "6.2.1. UncalibratedMagnetometer.x"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2464"}], "title": "6.2.2. UncalibratedMagnetometer.y"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2465"}], "title": "6.2.3. UncalibratedMagnetometer.z"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2466"}], "title": "6.2.4. UncalibratedMagnetometer.xBias"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2467"}], "title": "6.2.5. UncalibratedMagnetometer.yBias"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2468"}], "title": "6.2.6. UncalibratedMagnetometer.zBias"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2460\u24ea"}], "title": "7.1. Construct a magnetometer object"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2460\u2460"}], "title": "8. Automation"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2460\u2461"}], "title": "8.1. Mock Sensor Type"}], "external": false};
+window.dfnpanelData['uncalibratedmagnetometer'] = {"dfnID": "uncalibratedmagnetometer", "url": "#uncalibratedmagnetometer", "dfnText": "UncalibratedMagnetometer", "refSections": [{"refs": [{"id": "ref-for-uncalibratedmagnetometer"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2461"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2462"}], "title": "6.2. The UncalibratedMagnetometer Interface"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2463"}], "title": "6.2.1. UncalibratedMagnetometer.x"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2464"}], "title": "6.2.2. UncalibratedMagnetometer.y"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2465"}], "title": "6.2.3. UncalibratedMagnetometer.z"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2466"}], "title": "6.2.4. UncalibratedMagnetometer.xBias"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2467"}], "title": "6.2.5. UncalibratedMagnetometer.yBias"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2468"}], "title": "6.2.6. UncalibratedMagnetometer.zBias"}, {"refs": [{"id": "ref-for-uncalibratedmagnetometer\u2460\u24ea"}], "title": "7.1. Construct a magnetometer object"}], "external": false};
 window.dfnpanelData['dom-uncalibratedmagnetometer-x'] = {"dfnID": "dom-uncalibratedmagnetometer-x", "url": "#dom-uncalibratedmagnetometer-x", "dfnText": "x", "refSections": [{"refs": [{"id": "ref-for-dom-uncalibratedmagnetometer-x"}], "title": "6.2.1. UncalibratedMagnetometer.x"}], "external": false};
 window.dfnpanelData['dom-uncalibratedmagnetometer-y'] = {"dfnID": "dom-uncalibratedmagnetometer-y", "url": "#dom-uncalibratedmagnetometer-y", "dfnText": "y", "refSections": [{"refs": [{"id": "ref-for-dom-uncalibratedmagnetometer-y"}], "title": "6.2.2. UncalibratedMagnetometer.y"}], "external": false};
 window.dfnpanelData['dom-uncalibratedmagnetometer-z'] = {"dfnID": "dom-uncalibratedmagnetometer-z", "url": "#dom-uncalibratedmagnetometer-z", "dfnText": "z", "refSections": [{"refs": [{"id": "ref-for-dom-uncalibratedmagnetometer-z"}], "title": "6.2.3. UncalibratedMagnetometer.z"}], "external": false};
@@ -1699,6 +1735,7 @@ window.dfnpanelData['dom-uncalibratedmagnetometer-ybias'] = {"dfnID": "dom-uncal
 window.dfnpanelData['dom-uncalibratedmagnetometer-zbias'] = {"dfnID": "dom-uncalibratedmagnetometer-zbias", "url": "#dom-uncalibratedmagnetometer-zbias", "dfnText": "zBias", "refSections": [{"refs": [{"id": "ref-for-dom-uncalibratedmagnetometer-zbias"}], "title": "6.2.6. UncalibratedMagnetometer.zBias"}], "external": false};
 window.dfnpanelData['dom-uncalibratedmagnetometer-uncalibratedmagnetometer'] = {"dfnID": "dom-uncalibratedmagnetometer-uncalibratedmagnetometer", "url": "#dom-uncalibratedmagnetometer-uncalibratedmagnetometer", "dfnText": "new UncalibratedMagnetometer(sensorOptions)", "refSections": [{"refs": [{"id": "ref-for-dom-uncalibratedmagnetometer-uncalibratedmagnetometer"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": false};
 window.dfnpanelData['construct-a-magnetometer-object'] = {"dfnID": "construct-a-magnetometer-object", "url": "#construct-a-magnetometer-object", "dfnText": "7.1. Construct a magnetometer object", "refSections": [{"refs": [{"id": "ref-for-construct-a-magnetometer-object"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-construct-a-magnetometer-object\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}, {"refs": [{"id": "ref-for-construct-a-magnetometer-object"}], "title": "7.1. Construct a magnetometer object"}], "external": false};
+window.dfnpanelData['uncalibrated-magnetometer-reading-parsing-algorithm'] = {"dfnID": "uncalibrated-magnetometer-reading-parsing-algorithm", "url": "#uncalibrated-magnetometer-reading-parsing-algorithm", "dfnText": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetometer-reading-parsing-algorithm"}], "title": "8.2. Uncalibrated Magnetometer automation"}, {"refs": [{"id": "ref-for-uncalibrated-magnetometer-reading-parsing-algorithm"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": false};
 window.dfnpanelData['magnetic-declination'] = {"dfnID": "magnetic-declination", "url": "#magnetic-declination", "dfnText": "Magnetic declination", "refSections": [{"refs": [{"id": "ref-for-magnetic-declination"}], "title": "11. Compass Heading Using Magnetometers"}], "external": false};
 window.dfnpanelData['declination-angle'] = {"dfnID": "declination-angle", "url": "#declination-angle", "dfnText": "declination angle", "refSections": [{"refs": [{"id": "ref-for-declination-angle"}, {"id": "ref-for-declination-angle\u2460"}], "title": "11. Compass Heading Using Magnetometers"}], "external": false};
 </script>
