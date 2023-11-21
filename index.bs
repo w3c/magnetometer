@@ -489,7 +489,7 @@ The magnetic north is calculated as follows:
 The geographic north at a given latitude and longitude can be calculated as follows:
 
 <div class="example">
-  <pre highlight="js">
+  <xmp highlight="js">
     // Get the latitude and longitude, omitted for brevity here.
     let latitude = 0, longitude = 0;
 
@@ -502,7 +502,7 @@ The geographic north at a given latitude and longitude can be calculated as foll
         // Compensate for the magnetic declination to get the geographic north.
         console.log('True heading in degrees: ' + (heading + declination));
     });
-    </pre>
+  </xmp>
 </div>
 
 
