@@ -196,6 +196,8 @@ The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has
  :: "[=magnetometer-feature|magnetometer=]"
  : [=powerful feature/Permission revocation algorithm=]
  :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
+ : [=Virtual sensor type=]
+ :: "<code><dfn data-lt="magnetometer virtual sensor type">magnetometer</dfn></code>"
 
 The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Magnetometer=] must include:
  - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a> about the corresponding axes.
@@ -210,6 +212,8 @@ The <dfn id="uncalibrated-magnetometer-sensor-type">Uncalibrated Magnetometer</d
  :: "[=magnetometer-feature|magnetometer=]"
  : [=powerful feature/Permission revocation algorithm=]
  :: Invoke the [=generic sensor permission revocation algorithm=] with "`magnetometer`".
+ : [=Virtual sensor type=]
+ :: "<code><dfn data-lt="uncalibrated-magnetometer virtual sensor type">uncalibrated-magnetometer</dfn></code>"
 
 The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Uncalibrated Magnetometer=] must include:
  - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>uncalibrated magnetic field</a> around the 3 different axes.
@@ -389,18 +393,18 @@ Magnetometer automation {#magnetometer-automation}
 
 The [=per-type virtual sensor metadata=] [=map=] must have the following [=map/entry=]:
 : [=map/key=]
-:: "`magnetometer`"
+:: "<code>[=magnetometer virtual sensor type|magnetometer=]</code>"
 : [=map/value=]
-:: A [=virtual sensor metadata=] whose [=virtual sensor metadata/virtual sensor type=] is [=Magnetometer=] and [=reading parsing algorithm=] is [=parse XYZ reading=].
+:: A [=virtual sensor metadata=] whose [=virtual sensor metadata/reading parsing algorithm=] is [=parse XYZ reading=].
 
 Uncalibrated Magnetometer automation {#uncalibrated-magnetometer-automation}
 ------------------------------------
 
 The [=per-type virtual sensor metadata=] [=map=] must have the following [=map/entry=]:
 : [=map/key=]
-:: "`uncalibrated-magnetometer`"
+:: "<code>[=uncalibrated-magnetometer virtual sensor type|uncalibrated-magnetometer=]</code>"
 : [=map/value=]
-:: A [=virtual sensor metadata=] whose [=virtual sensor metadata/virtual sensor type=] is [=Uncalibrated Magnetometer=] and [=reading parsing algorithm=] is the [=uncalibrated magnetometer reading parsing algorithm=].
+:: A [=virtual sensor metadata=] whose [=virtual sensor metadata/reading parsing algorithm=] is the [=uncalibrated magnetometer reading parsing algorithm=].
 
 <h4 dfn>Uncalibrated Magnetometer reading parsing algorithm</h4>
 <div algorithm="uncalibrated magnetometer reading parsing algorithm">
