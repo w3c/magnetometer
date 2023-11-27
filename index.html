@@ -7,7 +7,7 @@
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="d76c769bbd7a15c9d6cfff3d68bf966e4660ffd8" name="document-revision">
+  <meta content="6064ea41f95395ee20d98df0b77b9bc6f49c272b" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -669,7 +669,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-10-26">26 October 2023</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2023-11-27">27 November 2023</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -692,7 +692,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
     </div>
    </details>
    <div data-fill-with="warning"></div>
-   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/Consortium/Legal/copyright-software" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
+   <p class="copyright" data-fill-with="copyright"><a href="https://www.w3.org/policies/#copyright">Copyright</a> © 2023 <a href="https://www.w3.org/">World Wide Web Consortium</a>. <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup> <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>, <a href="https://www.w3.org/policies/#W3C_Trademarks">trademark</a> and <a href="https://www.w3.org/copyright/software-license/" rel="license" title="W3C Software and Document License">permissive document license</a> rules apply. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
@@ -719,7 +719,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
 	W3C maintains a <a href="https://www.w3.org/groups/wg/das/ipr" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
 	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
-   <p> This document is governed by the <a href="https://www.w3.org/2023/Process-20230612/" id="w3c_process_revision">12 June 2023 W3C Process Document</a>. </p>
+   <p> This document is governed by the <a href="https://www.w3.org/2023/Process-20231103/" id="w3c_process_revision">03 November 2023 W3C Process Document</a>. </p>
    <p></p>
    <p>This specification is looking for developer feedback and high value use cases. Please provide your feedback via <a href="https://github.com/w3c/magnetometer/issues/59">GitHub</a>.</p>
    <p>This document is maintained and updated at any time. Some parts of this document are work in progress.</p>
@@ -1006,7 +1006,7 @@ In other words, this attribute returns the result of invoking <a data-link-type=
      <p>"<code>magnetometer</code>"</p>
     <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value">value</a>
     <dd data-md>
-     <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata">virtual sensor metadata</a> whose <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-virtual-sensor-type" id="ref-for-virtual-sensor-metadata-virtual-sensor-type">virtual sensor type</a> is <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type②">Magnetometer</a> and <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm">reading parsing algorithm</a> is <a data-link-type="dfn" href="https://w3c.github.io/sensors/#parse-xyz-reading" id="ref-for-parse-xyz-reading">parse XYZ reading</a>.</p>
+     <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata">virtual sensor metadata</a> whose <a data-link-type="dfn">virtual sensor type</a> is <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type②">Magnetometer</a> and <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm">reading parsing algorithm</a> is <a data-link-type="dfn" href="https://w3c.github.io/sensors/#parse-xyz-reading" id="ref-for-parse-xyz-reading">parse XYZ reading</a>.</p>
    </dl>
    <h3 class="heading settled" data-level="8.2" id="uncalibrated-magnetometer-automation"><span class="secno">8.2. </span><span class="content">Uncalibrated Magnetometer automation</span><a class="self-link" href="#uncalibrated-magnetometer-automation"></a></h3>
    <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#per-type-virtual-sensor-metadata" id="ref-for-per-type-virtual-sensor-metadata①">per-type virtual sensor metadata</a> <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ordered-map" id="ref-for-ordered-map①">map</a> must have the following <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-entry" id="ref-for-map-entry④">entry</a>:</p>
@@ -1016,7 +1016,7 @@ In other words, this attribute returns the result of invoking <a data-link-type=
      <p>"<code>uncalibrated-magnetometer</code>"</p>
     <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value①">value</a>
     <dd data-md>
-     <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata①">virtual sensor metadata</a> whose <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-virtual-sensor-type" id="ref-for-virtual-sensor-metadata-virtual-sensor-type①">virtual sensor type</a> is <a data-link-type="dfn" href="#uncalibrated-magnetometer-sensor-type" id="ref-for-uncalibrated-magnetometer-sensor-type①">Uncalibrated Magnetometer</a> and <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm①">reading parsing algorithm</a> is the <a data-link-type="dfn" href="#uncalibrated-magnetometer-reading-parsing-algorithm" id="ref-for-uncalibrated-magnetometer-reading-parsing-algorithm">uncalibrated magnetometer reading parsing algorithm</a>.</p>
+     <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata①">virtual sensor metadata</a> whose <a data-link-type="dfn">virtual sensor type</a> is <a data-link-type="dfn" href="#uncalibrated-magnetometer-sensor-type" id="ref-for-uncalibrated-magnetometer-sensor-type①">Uncalibrated Magnetometer</a> and <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm①">reading parsing algorithm</a> is the <a data-link-type="dfn" href="#uncalibrated-magnetometer-reading-parsing-algorithm" id="ref-for-uncalibrated-magnetometer-reading-parsing-algorithm">uncalibrated magnetometer reading parsing algorithm</a>.</p>
    </dl>
    <h4 class="heading settled dfn-paneled" data-dfn-type="dfn" data-level="8.2.1" data-lt="Uncalibrated Magnetometer reading parsing algorithm" data-noexport id="uncalibrated-magnetometer-reading-parsing-algorithm"><span class="secno">8.2.1. </span><span class="content">Uncalibrated Magnetometer reading parsing algorithm</span><a class="self-link" href="#uncalibrated-magnetometer-reading-parsing-algorithm" id="ref-for-uncalibrated-magnetometer-reading-parsing-algorithm①"></a></h4>
    <div class="algorithm" data-algorithm="uncalibrated magnetometer reading parsing algorithm">
@@ -1251,7 +1251,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><span class="dfn-paneled" id="f96b75e9">sensor type</span>
      <li><span class="dfn-paneled" id="13f5be19">supported sensor options</span>
      <li><span class="dfn-paneled" id="bb15fee5">virtual sensor metadata</span>
-     <li><span class="dfn-paneled" id="d5e5825c">virtual sensor type</span>
     </ul>
    <li>
     <a data-link-type="biblio">[INFRA]</a> defines the following terms:
@@ -1688,7 +1687,6 @@ window.dfnpanelData['5afb8cab'] = {"dfnID": "5afb8cab", "url": "https://w3c.gith
 window.dfnpanelData['f96b75e9'] = {"dfnID": "f96b75e9", "url": "https://w3c.github.io/sensors/#sensor-type", "dfnText": "sensor type", "refSections": [{"refs": [{"id": "ref-for-sensor-type"}, {"id": "ref-for-sensor-type\u2460"}, {"id": "ref-for-sensor-type\u2461"}, {"id": "ref-for-sensor-type\u2462"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-sensor-type\u2463"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['13f5be19'] = {"dfnID": "13f5be19", "url": "https://w3c.github.io/sensors/#supported-sensor-options", "dfnText": "supported sensor options", "refSections": [{"refs": [{"id": "ref-for-supported-sensor-options"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-supported-sensor-options\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['bb15fee5'] = {"dfnID": "bb15fee5", "url": "https://w3c.github.io/sensors/#virtual-sensor-metadata", "dfnText": "virtual sensor metadata", "refSections": [{"refs": [{"id": "ref-for-virtual-sensor-metadata"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-virtual-sensor-metadata\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
-window.dfnpanelData['d5e5825c'] = {"dfnID": "d5e5825c", "url": "https://w3c.github.io/sensors/#virtual-sensor-metadata-virtual-sensor-type", "dfnText": "virtual sensor type", "refSections": [{"refs": [{"id": "ref-for-virtual-sensor-metadata-virtual-sensor-type"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-virtual-sensor-metadata-virtual-sensor-type\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
 window.dfnpanelData['8958b003'] = {"dfnID": "8958b003", "url": "https://infra.spec.whatwg.org/#map-entry", "dfnText": "entry", "refSections": [{"refs": [{"id": "ref-for-map-entry"}, {"id": "ref-for-map-entry\u2460"}, {"id": "ref-for-map-entry\u2461"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-map-entry\u2462"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-map-entry\u2463"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
 window.dfnpanelData['16d07e10'] = {"dfnID": "16d07e10", "url": "https://infra.spec.whatwg.org/#list-iterate", "dfnText": "for each", "refSections": [{"refs": [{"id": "ref-for-list-iterate"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
 window.dfnpanelData['d14a6f26'] = {"dfnID": "d14a6f26", "url": "https://infra.spec.whatwg.org/#map-key", "dfnText": "key", "refSections": [{"refs": [{"id": "ref-for-map-key"}], "title": "8.1. Magnetometer automation"}, {"refs": [{"id": "ref-for-map-key\u2460"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": true};
