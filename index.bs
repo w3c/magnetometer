@@ -47,8 +47,10 @@ urlPrefix: https://w3c.github.io/motion-sensors/; spec: MOTIONSENSORS
   type: dfn
     text: Absolute Orientation Sensor; url: absolute-orientation
 </pre>
-
-
+<pre class=link-defaults>
+spec:orientation-event; type:dfn; text:magnetometer-feature
+spec:orientation-event; type:permission; text:magnetometer
+</pre>
 <pre class=biblio>
 {
    "MAGITACT": {
@@ -181,7 +183,7 @@ the Generic Sensor API [[!GENERIC-SENSOR]].
 Permissions Policy integration {#permissions-policy-integration}
 ==============================
 
-This specification defines a [=policy-controlled feature=] identified by the string "<code><dfn data-lt="magnetometer-feature" export>magnetometer</dfn></code>". Its [=default allowlist=] is "`self`".
+This specification utilizes the [=policy-controlled feature=] identified by the string "<code><a data-lt="magnetometer-feature">magnetometer</a></code>" defined in [[DEVICE-ORIENTATION]].
 
 Model {#model}
 =====
@@ -191,13 +193,13 @@ The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has
  : [=Extension sensor interface=]
  :: {{Magnetometer}}
  : [=Sensor permission names=]
- :: "<code><dfn permission export>magnetometer</dfn></code>"
+ :: "<code><a permission>magnetometer</a></code>" (defined in [[DEVICE-ORIENTATION]])
  : [=Sensor feature names=]
- :: "[=magnetometer-feature|magnetometer=]"
+ :: "[=magnetometer-feature|magnetometer=]" (defined in [[DEVICE-ORIENTATION]])
  : [=powerful feature/Permission revocation algorithm=]
  :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
  : [=Virtual sensor type=]
- :: "<code><dfn data-lt="magnetometer virtual sensor type">magnetometer</dfn></code>"
+ :: "<code><a data-lt="magnetometer virtual sensor type">magnetometer</a></code>"
 
 The [=latest reading=] for a {{Sensor}} whose [=sensor type=] is [=Magnetometer=] must include:
  - Three [=map/entries=] whose [=map/keys=] are "x", "y", "z" and whose [=map/values=] contain <a>magnetic field</a> about the corresponding axes.
@@ -207,11 +209,11 @@ The <dfn id="uncalibrated-magnetometer-sensor-type">Uncalibrated Magnetometer</d
  : [=Extension sensor interface=]
  :: {{UncalibratedMagnetometer}}
  : [=Sensor permission names=]
- :: "`magnetometer`"
+ :: "<code><a permission>magnetometer</a></code>" (defined in [[DEVICE-ORIENTATION]])
  : [=Sensor feature names=]
- :: "[=magnetometer-feature|magnetometer=]"
+ :: "[=magnetometer-feature|magnetometer=]" (defined in [[DEVICE-ORIENTATION]])
  : [=powerful feature/Permission revocation algorithm=]
- :: Invoke the [=generic sensor permission revocation algorithm=] with "`magnetometer`".
+ :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
  : [=Virtual sensor type=]
  :: "<code><dfn data-lt="uncalibrated-magnetometer virtual sensor type">uncalibrated-magnetometer</dfn></code>"
 
