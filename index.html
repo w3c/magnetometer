@@ -7,7 +7,7 @@
   <link href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED" rel="stylesheet">
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://www.w3.org/TR/magnetometer/" rel="canonical">
-  <meta content="569dad3b5125ebfa864f04c8b078d10cd5c46c5a" name="document-revision">
+  <meta content="94a111689690e6ae1161eaa65638ed112d7b9931" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -669,7 +669,7 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.w3.org/"> <img alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72"> </a> </p>
    <h1 class="p-name no-ref" id="title">Magnetometer</h1>
-   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-01-05">5 January 2024</time></p>
+   <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">Editor’s Draft</a>, <time class="dt-updated" datetime="2024-05-15">15 May 2024</time></p>
    <details open>
     <summary>More details about this document</summary>
     <div data-fill-with="spec-metadata">
@@ -707,18 +707,20 @@ var.selected6 { background-color: #FFBCF2; box-shadow: 0 0 0 2px #FFBCF2; }
 	It is provided for discussion only and may change at any moment.
 	Its publication here does not imply endorsement of its contents by W3C.
 	Don’t cite this document other than as work in progress. </p>
-   <p> If you wish to make comments regarding this document, please send them to <a href="mailto:public-device-apis@w3.org?Subject=%5Bmagnetometer%5D%20PUT%20SUBJECT%20HERE">public-device-apis@w3.org</a> (<a href="mailto:public-device-apis-request@w3.org?subject=subscribe">subscribe</a>, <a href="https://lists.w3.org/Archives/Public/public-device-apis/">archives</a>).
+   <p> If you wish to make comments regarding this document, please send them to <a href="mailto:public-device-apis@w3.org?Subject=%5Bmagnetometer%5D%20PUT%20SUBJECT%20HERE">public-device-apis@w3.org</a> (<a href="mailto:public-device-apis-request@w3.org?subject=subscribe">subscribe</a>, <a href="https://lists.w3.org/Archives/Public/public-device-apis/">archives</a>)
+  
+	.
 	When sending e-mail,
 	please put the text “magnetometer” in the subject,
 	preferably like this:
 	“[magnetometer] <em>…summary of comment…</em>”.
 	All comments are welcome. </p>
-   <p> This document was produced by the <a href="https://www.w3.org/groups/wg/das">Devices and Sensors Working Group</a>. </p>
+   <p> This document was published by the <a href="https://www.w3.org/groups/wg/das">Devices and Sensors Working Group</a>. </p>
    <p> This document was produced by a group operating under
 	the <a href="https://www.w3.org/Consortium/Patent-Policy/">W3C Patent Policy</a>.
 	W3C maintains a <a href="https://www.w3.org/groups/wg/das/ipr" rel="disclosure">public list of any patent disclosures</a> made in connection with the deliverables of the group;
 	that page also includes instructions for disclosing a patent.
-	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy-20200915/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
+	An individual who has actual knowledge of a patent which the individual believes contains <a href="https://www.w3.org/Consortium/Patent-Policy/#def-essential">Essential Claim(s)</a> must disclose the information in accordance with <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Disclosure">section 6 of the W3C Patent Policy</a>. </p>
    <p> This document is governed by the <a href="https://www.w3.org/2023/Process-20231103/" id="w3c_process_revision">03 November 2023 W3C Process Document</a>. </p>
    <p></p>
    <p>This specification is looking for developer feedback and high value use cases. Please provide your feedback via <a href="https://github.com/w3c/magnetometer/issues/59">GitHub</a>.</p>
@@ -854,7 +856,7 @@ use one or both of the following mitigation strategies:</p>
    <p>These mitigation strategies complement the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#mitigation-strategies" id="ref-for-mitigation-strategies">generic mitigations</a> defined in
 the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" title="Generic Sensor API">[GENERIC-SENSOR]</a>.</p>
    <h2 class="heading settled" data-level="4" id="permissions-policy-integration"><span class="secno">4. </span><span class="content">Permissions Policy integration</span><a class="self-link" href="#permissions-policy-integration"></a></h2>
-   <p>This specification defines a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a> identified by the string "<code><dfn class="dfn-paneled" data-dfn-type="dfn" data-export data-lt="magnetometer-feature" id="magnetometer-feature">magnetometer</dfn></code>". Its <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature-default-allowlist" id="ref-for-policy-controlled-feature-default-allowlist">default allowlist</a> is "<code>self</code>".</p>
+   <p>This specification utilizes the <a data-link-type="dfn" href="https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature" id="ref-for-policy-controlled-feature">policy-controlled feature</a> identified by the string "<code><a data-link-type="dfn">magnetometer</a></code>" defined in <a data-link-type="biblio" href="#biblio-device-orientation" title="Device Orientation and Motion">[DEVICE-ORIENTATION]</a>.</p>
    <h2 class="heading settled" data-level="5" id="model"><span class="secno">5. </span><span class="content">Model</span><a class="self-link" href="#model"></a></h2>
    <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="magnetometer-sensor-type">Magnetometer</dfn> <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type">sensor type</a> has the following associated data:</p>
    <dl>
@@ -863,16 +865,16 @@ the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" 
      <p><code class="idl"><a data-link-type="idl" href="#magnetometer" id="ref-for-magnetometer①">Magnetometer</a></code></p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-permission-names" id="ref-for-sensor-permission-names">Sensor permission names</a>
     <dd data-md>
-     <p>"<code><dfn class="dfn-paneled idl-code" data-dfn-type="permission" data-export id="permissiondef-magnetometer"><code>magnetometer</code></dfn></code>"</p>
+     <p>"<code><a class="idl-code" data-link-type="permission" href="https://w3c.github.io/deviceorientation/#permissiondef-magnetometer" id="ref-for-permissiondef-magnetometer">magnetometer</a></code>" (defined in <a data-link-type="biblio" href="#biblio-device-orientation" title="Device Orientation and Motion">[DEVICE-ORIENTATION]</a>)</p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-feature-names" id="ref-for-sensor-feature-names">Sensor feature names</a>
     <dd data-md>
-     <p>"<a data-link-type="dfn" href="#magnetometer-feature" id="ref-for-magnetometer-feature">magnetometer</a>"</p>
+     <p>"<a data-link-type="dfn">magnetometer</a>" (defined in <a data-link-type="biblio" href="#biblio-device-orientation" title="Device Orientation and Motion">[DEVICE-ORIENTATION]</a>)</p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm" id="ref-for-dfn-permission-revocation-algorithm">Permission revocation algorithm</a>
     <dd data-md>
-     <p>Invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm" id="ref-for-generic-sensor-permission-revocation-algorithm">generic sensor permission revocation algorithm</a> with "<code><a class="idl-code" data-link-type="permission" href="#permissiondef-magnetometer" id="ref-for-permissiondef-magnetometer">magnetometer</a></code>".</p>
+     <p>Invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm" id="ref-for-generic-sensor-permission-revocation-algorithm">generic sensor permission revocation algorithm</a> with "<code><a class="idl-code" data-link-type="permission" href="https://w3c.github.io/deviceorientation/#permissiondef-magnetometer" id="ref-for-permissiondef-magnetometer①">magnetometer</a></code>".</p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-type" id="ref-for-virtual-sensor-type">Virtual sensor type</a>
     <dd data-md>
-     <p>"<code><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="magnetometer virtual sensor type" data-noexport id="magnetometer-virtual-sensor-type">magnetometer</dfn></code>"</p>
+     <p>"<code><a data-link-type="dfn">magnetometer</a></code>"</p>
    </dl>
    <p>The <a data-link-type="dfn" href="https://w3c.github.io/sensors/#latest-reading" id="ref-for-latest-reading">latest reading</a> for a <code class="idl"><a data-link-type="idl" href="https://w3c.github.io/sensors/#sensor" id="ref-for-sensor">Sensor</a></code> whose <a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-type" id="ref-for-sensor-type①">sensor type</a> is <a data-link-type="dfn" href="#magnetometer-sensor-type" id="ref-for-magnetometer-sensor-type">Magnetometer</a> must include:</p>
    <ul>
@@ -886,13 +888,13 @@ the Generic Sensor API <a data-link-type="biblio" href="#biblio-generic-sensor" 
      <p><code class="idl"><a data-link-type="idl" href="#uncalibratedmagnetometer" id="ref-for-uncalibratedmagnetometer①">UncalibratedMagnetometer</a></code></p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-permission-names" id="ref-for-sensor-permission-names①">Sensor permission names</a>
     <dd data-md>
-     <p>"<code>magnetometer</code>"</p>
+     <p>"<code><a class="idl-code" data-link-type="permission" href="https://w3c.github.io/deviceorientation/#permissiondef-magnetometer" id="ref-for-permissiondef-magnetometer②">magnetometer</a></code>" (defined in <a data-link-type="biblio" href="#biblio-device-orientation" title="Device Orientation and Motion">[DEVICE-ORIENTATION]</a>)</p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/sensors/#sensor-feature-names" id="ref-for-sensor-feature-names①">Sensor feature names</a>
     <dd data-md>
-     <p>"<a data-link-type="dfn" href="#magnetometer-feature" id="ref-for-magnetometer-feature①">magnetometer</a>"</p>
+     <p>"<a data-link-type="dfn">magnetometer</a>" (defined in <a data-link-type="biblio" href="#biblio-device-orientation" title="Device Orientation and Motion">[DEVICE-ORIENTATION]</a>)</p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm" id="ref-for-dfn-permission-revocation-algorithm①">Permission revocation algorithm</a>
     <dd data-md>
-     <p>Invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm" id="ref-for-generic-sensor-permission-revocation-algorithm①">generic sensor permission revocation algorithm</a> with "<code>magnetometer</code>".</p>
+     <p>Invoke the <a data-link-type="dfn" href="https://w3c.github.io/sensors/#generic-sensor-permission-revocation-algorithm" id="ref-for-generic-sensor-permission-revocation-algorithm①">generic sensor permission revocation algorithm</a> with "<code><a class="idl-code" data-link-type="permission" href="https://w3c.github.io/deviceorientation/#permissiondef-magnetometer" id="ref-for-permissiondef-magnetometer③">magnetometer</a></code>".</p>
     <dt data-md><a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-type" id="ref-for-virtual-sensor-type①">Virtual sensor type</a>
     <dd data-md>
      <p>"<code><dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="uncalibrated-magnetometer virtual sensor type" data-noexport id="uncalibrated-magnetometer-virtual-sensor-type">uncalibrated-magnetometer</dfn></code>"</p>
@@ -1009,7 +1011,7 @@ In other words, this attribute returns the result of invoking <a data-link-type=
    <dl>
     <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-key" id="ref-for-map-key">key</a>
     <dd data-md>
-     <p>"<code><a data-link-type="dfn" href="#magnetometer-virtual-sensor-type" id="ref-for-magnetometer-virtual-sensor-type">magnetometer</a></code>"</p>
+     <p>"<code><a data-link-type="dfn">magnetometer</a></code>"</p>
     <dt data-md><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#map-value" id="ref-for-map-value">value</a>
     <dd data-md>
      <p>A <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata" id="ref-for-virtual-sensor-metadata">virtual sensor metadata</a> whose <a data-link-type="dfn" href="https://w3c.github.io/sensors/#virtual-sensor-metadata-reading-parsing-algorithm" id="ref-for-virtual-sensor-metadata-reading-parsing-algorithm">reading parsing algorithm</a> is <a data-link-type="dfn" href="https://w3c.github.io/sensors/#parse-xyz-reading" id="ref-for-parse-xyz-reading">parse XYZ reading</a>.</p>
@@ -1183,13 +1185,10 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
      <li><a href="#magnetometer">(interface)</a><span>, in § 6.1</span>
      <li><a href="#magnetometer-sensor-type">definition of</a><span>, in § 5</span>
     </ul>
-   <li><a href="#permissiondef-magnetometer">magnetometer</a><span>, in § 5</span>
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer()</a><span>, in § 6.1</span>
-   <li><a href="#magnetometer-feature">magnetometer-feature</a><span>, in § 4</span>
    <li><a href="#enumdef-magnetometerlocalcoordinatesystem">MagnetometerLocalCoordinateSystem</a><span>, in § 6.1</span>
    <li><a href="#dom-magnetometer-magnetometer">Magnetometer(sensorOptions)</a><span>, in § 6.1</span>
    <li><a href="#dictdef-magnetometersensoroptions">MagnetometerSensorOptions</a><span>, in § 6.1</span>
-   <li><a href="#magnetometer-virtual-sensor-type">magnetometer virtual sensor type</a><span>, in § 5</span>
    <li><a href="#dom-magnetometersensoroptions-referenceframe">referenceFrame</a><span>, in § 6.1</span>
    <li><a href="#dom-magnetometerlocalcoordinatesystem-screen">"screen"</a><span>, in § 6.1</span>
    <li><a href="#soft-iron-distortion">Soft iron distortion</a><span>, in § 1</span>
@@ -1229,6 +1228,11 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
     <ul>
      <li><span class="dfn-paneled" id="7892f569">device coordinate system</span>
      <li><span class="dfn-paneled" id="9d689cca">screen coordinate system</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[DEVICE-ORIENTATION]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="b3cf3d06">"magnetometer"</span>
     </ul>
    <li>
     <a data-link-type="biblio">[ECMASCRIPT]</a> defines the following terms:
@@ -1287,7 +1291,6 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
    <li>
     <a data-link-type="biblio">[PERMISSIONS-POLICY-1]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="1570624a">default allowlist</span>
      <li><span class="dfn-paneled" id="cc890cc1">policy-controlled feature</span>
     </ul>
    <li>
@@ -1307,6 +1310,8 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
   <dl>
    <dt id="biblio-accelerometer">[ACCELEROMETER]
    <dd>Anssi Kostiainen. <a href="https://w3c.github.io/accelerometer/"><cite>Accelerometer</cite></a>. URL: <a href="https://w3c.github.io/accelerometer/">https://w3c.github.io/accelerometer/</a>
+   <dt id="biblio-device-orientation">[DEVICE-ORIENTATION]
+   <dd>Reilly Grant; Raphael Kubo da Costa; Marcos Caceres. <a href="https://w3c.github.io/deviceorientation/"><cite>Device Orientation and Motion</cite></a>. URL: <a href="https://w3c.github.io/deviceorientation/">https://w3c.github.io/deviceorientation/</a>
    <dt id="biblio-ecmascript">[ECMASCRIPT]
    <dd><a href="https://tc39.es/ecma262/multipage/"><cite>ECMAScript Language Specification</cite></a>. URL: <a href="https://tc39.es/ecma262/multipage/">https://tc39.es/ecma262/multipage/</a>
    <dt id="biblio-generic-sensor">[GENERIC-SENSOR]
@@ -1674,6 +1679,7 @@ conforming IDL fragments, as described in the Web IDL specification. <a data-lin
 window.dfnpanelData = {};
 window.dfnpanelData['7892f569'] = {"dfnID": "7892f569", "url": "https://w3c.github.io/accelerometer/#device-coordinate-system", "dfnText": "device coordinate system", "refSections": [{"refs": [{"id": "ref-for-device-coordinate-system"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-device-coordinate-system\u2460"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['9d689cca'] = {"dfnID": "9d689cca", "url": "https://w3c.github.io/accelerometer/#screen-coordinate-system", "dfnText": "screen coordinate system", "refSections": [{"refs": [{"id": "ref-for-screen-coordinate-system"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-screen-coordinate-system\u2460"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
+window.dfnpanelData['b3cf3d06'] = {"dfnID": "b3cf3d06", "url": "https://w3c.github.io/deviceorientation/#permissiondef-magnetometer", "dfnText": "\"magnetometer\"", "refSections": [{"refs": [{"id": "ref-for-permissiondef-magnetometer"}, {"id": "ref-for-permissiondef-magnetometer\u2460"}, {"id": "ref-for-permissiondef-magnetometer\u2461"}, {"id": "ref-for-permissiondef-magnetometer\u2462"}], "title": "5. Model"}], "external": true};
 window.dfnpanelData['a6e67972'] = {"dfnID": "a6e67972", "url": "https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-object-objects", "dfnText": "Object", "refSections": [{"refs": [{"id": "ref-for-sec-object-objects"}], "title": "8.2.1. Uncalibrated Magnetometer reading parsing algorithm"}], "external": true};
 window.dfnpanelData['1b956603'] = {"dfnID": "1b956603", "url": "https://w3c.github.io/sensors/#sensor", "dfnText": "Sensor", "refSections": [{"refs": [{"id": "ref-for-sensor"}, {"id": "ref-for-sensor\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-sensor\u2461"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-sensor\u2462"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
 window.dfnpanelData['207de9db'] = {"dfnID": "207de9db", "url": "https://w3c.github.io/sensors/#dictdef-sensoroptions", "dfnText": "SensorOptions", "refSections": [{"refs": [{"id": "ref-for-dictdef-sensoroptions"}], "title": "6.1. The Magnetometer Interface"}], "external": true};
@@ -1708,7 +1714,6 @@ window.dfnpanelData['802b0fdd'] = {"dfnID": "802b0fdd", "url": "https://infra.sp
 window.dfnpanelData['12d6b9a8'] = {"dfnID": "12d6b9a8", "url": "https://infra.spec.whatwg.org/#map-getting-the-values", "dfnText": "values", "refSections": [{"refs": [{"id": "ref-for-map-getting-the-values"}, {"id": "ref-for-map-getting-the-values\u2460"}, {"id": "ref-for-map-getting-the-values\u2461"}], "title": "5. Model"}], "external": true};
 window.dfnpanelData['75e1dbe0'] = {"dfnID": "75e1dbe0", "url": "https://w3c.github.io/motion-sensors/#absolute-orientation", "dfnText": "absolute orientation sensor", "refSections": [{"refs": [{"id": "ref-for-absolute-orientation"}], "title": "10. Use Cases and Requirements"}], "external": true};
 window.dfnpanelData['409a61ca'] = {"dfnID": "409a61ca", "url": "https://w3c.github.io/permissions/#dfn-permission-revocation-algorithm", "dfnText": "permission revocation algorithm", "refSections": [{"refs": [{"id": "ref-for-dfn-permission-revocation-algorithm"}, {"id": "ref-for-dfn-permission-revocation-algorithm\u2460"}], "title": "5. Model"}], "external": true};
-window.dfnpanelData['1570624a'] = {"dfnID": "1570624a", "url": "https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature-default-allowlist", "dfnText": "default allowlist", "refSections": [{"refs": [{"id": "ref-for-policy-controlled-feature-default-allowlist"}], "title": "4. Permissions Policy integration"}], "external": true};
 window.dfnpanelData['cc890cc1'] = {"dfnID": "cc890cc1", "url": "https://w3c.github.io/webappsec-permissions-policy/#policy-controlled-feature", "dfnText": "policy-controlled feature", "refSections": [{"refs": [{"id": "ref-for-policy-controlled-feature"}], "title": "4. Permissions Policy integration"}], "external": true};
 window.dfnpanelData['dca2de17'] = {"dfnID": "dca2de17", "url": "https://webidl.spec.whatwg.org/#idl-DOMException", "dfnText": "DOMException", "refSections": [{"refs": [{"id": "ref-for-idl-DOMException"}], "title": "7.1. Construct a magnetometer object"}], "external": true};
 window.dfnpanelData['889e932f'] = {"dfnID": "889e932f", "url": "https://webidl.spec.whatwg.org/#Exposed", "dfnText": "Exposed", "refSections": [{"refs": [{"id": "ref-for-Exposed"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-Exposed\u2460"}], "title": "6.2. The UncalibratedMagnetometer Interface"}], "external": true};
@@ -1722,10 +1727,7 @@ window.dfnpanelData['hard-iron-distortion'] = {"dfnID": "hard-iron-distortion", 
 window.dfnpanelData['soft-iron-distortion'] = {"dfnID": "soft-iron-distortion", "url": "#soft-iron-distortion", "dfnText": "Soft iron distortion", "refSections": [{"refs": [{"id": "ref-for-soft-iron-distortion"}, {"id": "ref-for-soft-iron-distortion\u2460"}], "title": "1. Introduction"}], "external": false};
 window.dfnpanelData['calibrated-magnetic-field'] = {"dfnID": "calibrated-magnetic-field", "url": "#calibrated-magnetic-field", "dfnText": "calibrated magnetic field", "refSections": [{"refs": [{"id": "ref-for-calibrated-magnetic-field"}], "title": "1. Introduction"}], "external": false};
 window.dfnpanelData['uncalibrated-magnetic-field'] = {"dfnID": "uncalibrated-magnetic-field", "url": "#uncalibrated-magnetic-field", "dfnText": "uncalibrated magnetic field", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetic-field"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2461"}], "title": "6.2.1. UncalibratedMagnetometer.x"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2462"}], "title": "6.2.2. UncalibratedMagnetometer.y"}, {"refs": [{"id": "ref-for-uncalibrated-magnetic-field\u2463"}], "title": "6.2.3. UncalibratedMagnetometer.z"}], "external": false};
-window.dfnpanelData['magnetometer-feature'] = {"dfnID": "magnetometer-feature", "url": "#magnetometer-feature", "dfnText": "magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer-feature"}, {"id": "ref-for-magnetometer-feature\u2460"}], "title": "5. Model"}], "external": false};
 window.dfnpanelData['magnetometer-sensor-type'] = {"dfnID": "magnetometer-sensor-type", "url": "#magnetometer-sensor-type", "dfnText": "Magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer-sensor-type"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetometer-sensor-type\u2460"}], "title": "8. Automation"}], "external": false};
-window.dfnpanelData['permissiondef-magnetometer'] = {"dfnID": "permissiondef-magnetometer", "url": "#permissiondef-magnetometer", "dfnText": "magnetometer", "refSections": [{"refs": [{"id": "ref-for-permissiondef-magnetometer"}], "title": "5. Model"}], "external": false};
-window.dfnpanelData['magnetometer-virtual-sensor-type'] = {"dfnID": "magnetometer-virtual-sensor-type", "url": "#magnetometer-virtual-sensor-type", "dfnText": "magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer-virtual-sensor-type"}], "title": "8.1. Magnetometer automation"}], "external": false};
 window.dfnpanelData['uncalibrated-magnetometer-sensor-type'] = {"dfnID": "uncalibrated-magnetometer-sensor-type", "url": "#uncalibrated-magnetometer-sensor-type", "dfnText": "Uncalibrated Magnetometer", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetometer-sensor-type"}], "title": "5. Model"}], "external": false};
 window.dfnpanelData['uncalibrated-magnetometer-virtual-sensor-type'] = {"dfnID": "uncalibrated-magnetometer-virtual-sensor-type", "url": "#uncalibrated-magnetometer-virtual-sensor-type", "dfnText": "uncalibrated-magnetometer", "refSections": [{"refs": [{"id": "ref-for-uncalibrated-magnetometer-virtual-sensor-type"}], "title": "8.2. Uncalibrated Magnetometer automation"}], "external": false};
 window.dfnpanelData['magnetometer'] = {"dfnID": "magnetometer", "url": "#magnetometer", "dfnText": "Magnetometer", "refSections": [{"refs": [{"id": "ref-for-magnetometer"}], "title": "1. Introduction"}, {"refs": [{"id": "ref-for-magnetometer\u2460"}], "title": "5. Model"}, {"refs": [{"id": "ref-for-magnetometer\u2461"}], "title": "5.1. Reference Frame"}, {"refs": [{"id": "ref-for-magnetometer\u2462"}], "title": "6.1. The Magnetometer Interface"}, {"refs": [{"id": "ref-for-magnetometer\u2463"}], "title": "6.1.1. Magnetometer.x"}, {"refs": [{"id": "ref-for-magnetometer\u2464"}], "title": "6.1.2. Magnetometer.y"}, {"refs": [{"id": "ref-for-magnetometer\u2465"}], "title": "6.1.3. Magnetometer.z"}, {"refs": [{"id": "ref-for-magnetometer\u2466"}], "title": "7.1. Construct a magnetometer object"}], "external": false};
