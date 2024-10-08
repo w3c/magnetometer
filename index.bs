@@ -47,10 +47,6 @@ urlPrefix: https://w3c.github.io/motion-sensors/; spec: MOTIONSENSORS
   type: dfn
     text: Absolute Orientation Sensor; url: absolute-orientation
 </pre>
-<pre class=link-defaults>
-spec:orientation-event; type:dfn; text:magnetometer-feature
-spec:orientation-event; type:permission; text:magnetometer
-</pre>
 <pre class=biblio>
 {
    "MAGITACT": {
@@ -183,7 +179,7 @@ the Generic Sensor API [[!GENERIC-SENSOR]].
 Permissions Policy integration {#permissions-policy-integration}
 ==============================
 
-This specification utilizes the [=policy-controlled feature=] identified by the string "<code><a data-lt="magnetometer-feature">magnetometer</a></code>" defined in [[DEVICE-ORIENTATION]].
+This specification utilizes the [=policy-controlled feature=] identified by the string "<code><a permission>magnetometer</a></code>" defined in [[DEVICE-ORIENTATION]].
 
 Model {#model}
 =====
@@ -193,9 +189,9 @@ The <dfn id="magnetometer-sensor-type">Magnetometer</dfn> <a>sensor type</a> has
  : [=Extension sensor interface=]
  :: {{Magnetometer}}
  : [=Sensor permission names=]
- :: "<code><a permission>magnetometer</a></code>" (defined in [[DEVICE-ORIENTATION]])
+ :: "<code><a permission>magnetometer</a></code>"
  : [=Sensor feature names=]
- :: "[=magnetometer-feature|magnetometer=]" (defined in [[DEVICE-ORIENTATION]])
+ :: <a permission>"magnetometer"</a>
  : [=powerful feature/Permission revocation algorithm=]
  :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
  : [=Virtual sensor type=]
@@ -209,9 +205,9 @@ The <dfn id="uncalibrated-magnetometer-sensor-type">Uncalibrated Magnetometer</d
  : [=Extension sensor interface=]
  :: {{UncalibratedMagnetometer}}
  : [=Sensor permission names=]
- :: "<code><a permission>magnetometer</a></code>" (defined in [[DEVICE-ORIENTATION]])
+ :: "<code><a permission>magnetometer</a></code>"
  : [=Sensor feature names=]
- :: "[=magnetometer-feature|magnetometer=]" (defined in [[DEVICE-ORIENTATION]])
+ :: <a permission>"magnetometer"</a>
  : [=powerful feature/Permission revocation algorithm=]
  :: Invoke the [=generic sensor permission revocation algorithm=] with "<code><a permission>magnetometer</a></code>".
  : [=Virtual sensor type=]
