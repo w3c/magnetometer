@@ -20,6 +20,8 @@ Inline Github Issues: true
 !Test Suite: <a href="https://github.com/web-platform-tests/wpt/tree/main/magnetometer">web-platform-tests on GitHub</a>
 Boilerplate: omit issues-index, omit conformance, repository-issue-tracking no
 Status Text:
+  <p class="advisement">Multiple browser engines have expressed concerns about this specification. It is not available by default in any browser engine. It is not expected to advance to W3C Recommendation in its current form.</p>
+
   This specification is looking for developer feedback and high value use cases. Please provide your feedback via <a href="https://github.com/w3c/magnetometer/issues/59">GitHub</a>.
 
   This document is maintained and updated at any time. Some parts of this document are work in progress.
